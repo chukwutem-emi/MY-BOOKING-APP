@@ -2,3 +2,4 @@
 \dist
 \coverage
 all-files.txt
+.parcel-cache
