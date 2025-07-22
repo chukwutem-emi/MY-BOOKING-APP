@@ -1,3 +1,4 @@
+export const BASE_URL = "https://appointment-booking-system-dgpm.onrender.com"
 // Authentication
 export const SIGN_UP_URL = "https://appointment-booking-system-dgpm.onrender.com/api/auth/register";
 export const LOGIN_URL = "https://appointment-booking-system-dgpm.onrender.com/api/auth/login";

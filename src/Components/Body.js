@@ -8,6 +8,7 @@ import GetAllUsers from "./GetAllUsers";
 import AppLayout from "./AppLayout"
 import AcademicAdvising from "./EverythingAboutAppointments/EducationAndTutoringAppointment/AcademicAdvising"
 import ClearToken from "./ClearToken";
+import CareerCounseling from "./EverythingAboutAppointments/EducationAndTutoringAppointment/CareerCounseling";
 
 
 const appRouter = createBrowserRouter([
@@ -39,6 +40,10 @@ const appRouter = createBrowserRouter([
             {
                 path:"/clear-token",
                 element:<ClearToken />
+            },
+            {
+                path:"/career",
+                element:<CareerCounseling />
             }
         ]
     },

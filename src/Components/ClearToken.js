@@ -15,15 +15,14 @@ const ClearToken = () => {
     useEffect(() => {
         if (userToken) {
             handleClearToken();
-        }
-        return () => handleClearToken();
+        };
     }, [userToken]);
 
-    const handleClearToken = async(event) => {
-        event.preventDefault();
+    const handleClearToken = async() => {
         setIsLoading(true);
         try {
             const data = await fetch(CLEAR_TOKEN, {
+                method:"PUT",
                 headers:{
                     "Content-Type":"application/json", 
                     "access-token":`Bearer ${userToken}`
@@ -49,17 +48,22 @@ const ClearToken = () => {
 
     }
   return (
-    <div>
-      <h1>Response from database</h1>
+    <div className="mt-[20rem] mx-auto w-[30rem] shadow-2xl p-8 text-center bg-gray-300 rounded-xl space-y-4 items-center">
+      <h1 className="text-lg text-blue-800 font-sans font-bold animate-pulse">Response from database</h1>
       {
         message && (
             <div className={`mb-4 p-3 rounded text-sm break-words ${isError ? "text-red-700 bg-red-100" : "text-green-700 bg-white"}`}>
-                <span>{message}</span>
+                <span className="text-lg font-sans font-bold">{message}</span>
             </div>
         )
       }
       {
-        isLoading ? <><Spinner />Clearing the old Token, please wait............</> : "An error occurred. Check your internet connection"
+        isLoading && (
+        <>
+        <Spinner />
+        <div className="font-sans font-semibold text-blue-950">Clearing the old Google-Token, please wait............</div>
+        </>
+        ) 
       }
     </div>
   )

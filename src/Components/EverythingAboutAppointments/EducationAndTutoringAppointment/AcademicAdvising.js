@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ACADEMIC_ADVISING_URL } from "../../../Utils/constants";
+import { ACADEMIC_ADVISING_URL, BASE_URL } from "../../../Utils/constants";
 import { useSelector } from "react-redux";
 import Spinner from "../../../Utils/Spinner";
+import { useNavigate } from "react-router-dom";
 
 const AcademicAdvising = () => {
     const userToken = useSelector((store) => store.token?.accessToken)
@@ -22,6 +23,14 @@ const AcademicAdvising = () => {
     const amount = useRef(null);
     const phone = useRef(null);
     const description = useRef(null);
+
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (message) {
+            window.scrollTo({top:0, behavior:"smooth"})
+        }
+    }, [message])
 
 
     const handleAcademic = async (event) => {
@@ -46,14 +55,45 @@ const AcademicAdvising = () => {
             const data = await fetch(ACADEMIC_ADVISING_URL, {
                 method:"POST",
                 headers:{
-                    "Content-type":"application/json",
+                    "Content-Type":"application/json",
                     "access-token":`Bearer ${userToken}`,
                 },
                 body:JSON.stringify(payload),
             });
             const json = await data.json();
-            if (data.status === 201) {
-                setMessage(json.Academic_advising, json.googleCalenderEvent)
+            if (data.status === 401) {
+                if (json.re_auth_url) {
+                    const authUrl = `${BASE_URL}${json.re_auth_url}`
+                    setTimeout(() => {
+                        window.open(authUrl, "_blank");   
+                    }, 5000);
+                    setMessage(`
+                        ❗You haven't authenticated yet.
+                        <br />
+                        🔐 Redirecting you to google for authentication.........
+                        <br />
+                        <a
+                        href=${authUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-blue-600 underline animate-pulse"
+                        >
+                            Click here to authorize
+                        </a>
+                        `)
+                } else if (json.Login_required){
+                    setMessage("❌ You must be logged in to book an appointment.");
+                } else {
+                    setMessage("⚠️ Unauthorized access. Please login or try again");
+                    setTimeout(() => {
+                        navigate("/")   
+                    }, 6000);
+                }
+                setErrorMsg(true);
+            }
+            else if (data.status === 201) {
+                setMessage(`${json.Academic_advising}<br><a class="text-blue-600 underline font-semibold hover:text-blue-800 hover:text-lg justify-center items-center my-0 mx-auto" href="${json.googleCalenderEvent}" target="_blank" rel="noopener noreferrer">Click here to view the appointment</a>`)
+                setErrorMsg(false)
             } else {
                 const[key] = Object.keys(json);
                 setMessage(key || "An error occurred");
@@ -69,9 +109,19 @@ const AcademicAdvising = () => {
 
     };
     return (
-        <div className="my-[12rem] mx-auto bg-gray-300 shadow-2xl w-[30rem] rounded-lg">
-            <form onSubmit={handleAcademic} className="flex flex-col w-full p-4 space-y-4">
-                <label htmlFor="first_name" className="font-mono text-xl text-blue-900 font-extrabold"><strong>First name:</strong></label>
+        <div className="my-[12rem] xs:mt-[12rem] sm:mt-[16rem] md:mt-[16rem] lg:mt-[16rem] xl:mt-[16rem] w-full rounded-lg items-center min-h-screen overflow-x-hidden">
+            <form onSubmit={handleAcademic} className="flex flex-col w-[50%] mx-auto p-4 space-y-4 shadow-2xl rounded-xl bg-white xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
+                <h1 className="text-center justify-center text-blue-800 text-[1.4rem] font-extrabold mb-[2rem] animate-pulse">Academic-Advising Appointment</h1>
+                {
+                    message && (
+                        <div className={`m-2 p-2 font-sans break-words text-sm shadow-xl ${errorMsg ? "text-red-600 bg-red-200" : "text-green-800 bg-white"}`}>
+                            <button type="button" className="h-fit w-fit text-xl p-1 bg-blue-400 font-extrabold text-red-600" onClick={() => setMessage(null)} title="cancel
+                            ">&times;</button>
+                            <div dangerouslySetInnerHTML={{__html:message}} />
+                        </div>
+                    )
+                }
+                <label htmlFor="first_name" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>First name:</strong></label>
                 <input 
                     type="text"
                     id="first_name"
@@ -79,9 +129,9 @@ const AcademicAdvising = () => {
                     ref={firstName}
                     name="first_name"
                     required
-                    className="p-2 rounded-lg font-sans text-[1rem] text-start"
+                    className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="last_name" className="font-mono text-xl text-blue-900 font-extrabold"><strong>Last name:</strong></label>
+                <label htmlFor="last_name" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Last name:</strong></label>
                 <input 
                     type="text"
                     id="last_name"
@@ -89,9 +139,9 @@ const AcademicAdvising = () => {
                     ref={lastName}
                     name="last_name"
                     required
-                    className="p-2 rounded-lg font-sans text-[1rem] text-start"
+                    className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="gender" className="font-mono text-xl text-blue-900 font-extrabold"><strong>Gender:</strong></label>
+                <label htmlFor="gender" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Gender:</strong></label>
                 <input 
                     type="text"
                     id="gender"
@@ -99,9 +149,9 @@ const AcademicAdvising = () => {
                     ref={gender}
                     name="gender"
                     required
-                    className="p-2 rounded-lg font-sans text-[1rem] text-start"
+                    className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="user_phone_number" className="font-mono text-xl text-blue-900 font-extrabold"><strong>User phone number:</strong></label>
+                <label htmlFor="user_phone_number" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>User phone number:</strong></label>
                 <input 
                     type="text"
                     id="user_phone_number"
@@ -109,9 +159,9 @@ const AcademicAdvising = () => {
                     ref={userPhoneNumber}
                     name="user_phone_number"
                     required
-                    className="p-2 rounded-lg font-sans text-[1rem] text-start"
+                    className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="email_address" className="font-mono text-xl text-blue-900 font-extrabold"><strong>Email address:</strong></label>
+                <label htmlFor="email_address" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Email address:</strong></label>
                 <input 
                     type="email"
                     id="email_address"
@@ -119,9 +169,9 @@ const AcademicAdvising = () => {
                     ref={emailAddress}
                     name="email_address"
                     required
-                    className="p-2 rounded-lg font-sans text-[1rem] text-start"
+                    className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="address" className="font-mono text-xl text-blue-900 font-extrabold"><strong>Address:</strong></label>
+                <label htmlFor="address" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Address:</strong></label>
                 <input 
                     type="text"
                     id="address"
@@ -129,9 +179,9 @@ const AcademicAdvising = () => {
                     ref={address}
                     name="address"
                     required
-                    className="p-2 rounded-lg font-sans text-[1rem] text-start"
+                    className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="next_of_kin" className="font-mono text-xl text-blue-900 font-extrabold"><strong>Next of kin:</strong></label>
+                <label htmlFor="next_of_kin" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Next of kin:</strong></label>
                 <input 
                     type="text"
                     id="next_of_kin"
@@ -139,9 +189,9 @@ const AcademicAdvising = () => {
                     ref={nextOfKin}
                     name="next_of_kin"
                     required
-                    className="p-2 rounded-lg font-sans text-[1rem] text-start"
+                    className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="next_of_kin_address" className="font-mono text-xl text-blue-900 font-extrabold"><strong>Next of kin address:</strong></label>
+                <label htmlFor="next_of_kin_address" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Next of kin address:</strong></label>
                 <input 
                     type="text"
                     id="next_of_kin_address"
@@ -149,9 +199,9 @@ const AcademicAdvising = () => {
                     ref={nextOfKinAddress}
                     name="next_of_kin_address"
                     required
-                    className="p-2 rounded-lg font-sans text-[1rem] text-start"
+                    className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="next_of_kin_phone_number" className="font-mono text-xl text-blue-900 font-extrabold"><strong>Next of kin phone number:</strong></label>
+                <label htmlFor="next_of_kin_phone_number" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Next of kin phone number:</strong></label>
                 <input 
                     type="text"
                     id="next_of_kin_phone_number"
@@ -159,9 +209,9 @@ const AcademicAdvising = () => {
                     ref={phone}
                     name="next_of_kin_phone_number"
                     required
-                    className="p-2 rounded-lg font-sans text-[1rem] text-start"
+                    className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="amount" className="font-mono text-xl text-blue-900 font-extrabold"><strong>Amount:</strong></label>
+                <label htmlFor="amount" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Amount:</strong></label>
                 <input 
                     type="number"
                     id="amount"
@@ -169,11 +219,11 @@ const AcademicAdvising = () => {
                     ref={amount}
                     name="amount"
                     required
-                    className="p-2 rounded-lg font-sans text-[1rem] text-start"
+                    className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                     min={1000}
                     step={1000.00}
                 />
-                <label htmlFor="appointment_time" className="font-mono text-xl text-blue-900 font-extrabold"><strong>Time:</strong></label>
+                <label htmlFor="appointment_time" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Time:</strong></label>
                 <input 
                     type="time"
                     id="appointment_time"
@@ -181,9 +231,9 @@ const AcademicAdvising = () => {
                     ref={appointmentTime}
                     name="appointment_time"
                     required
-                    className="p-2 rounded-lg font-sans text-[1rem] text-start"
+                    className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="appointment_date" className="font-mono text-xl text-blue-900 font-extrabold"><strong>Date:</strong></label>
+                <label htmlFor="appointment_date" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Date:</strong></label>
                 <input 
                     type="date"
                     id="appointment_date"
@@ -191,9 +241,9 @@ const AcademicAdvising = () => {
                     ref={appointmentDate}
                     name="appointment_date"
                     required
-                    className="p-2 rounded-lg font-sans text-[1rem] text-start"
+                    className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="appointment_description" className="font-mono text-xl text-blue-900 font-extrabold"><strong>Appointment description:</strong></label>
+                <label htmlFor="appointment_description" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Appointment description:</strong></label>
                 <input 
                     type="text"
                     id="appointment_description"
@@ -201,14 +251,14 @@ const AcademicAdvising = () => {
                     ref={description}
                     name="appointment_description"
                     required
-                    className="p-2 rounded-lg font-sans text-[1rem] text-start break-words"
+                    className="p-2 rounded-lg font-sans text-[1rem] text-start break-words md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <button type="submit" className="p-2 rounded-lg font-sans text-[1.2rem] text-center cursor-pointer bg-blue-900 text-white">
+                <button type="submit" className="p-2 rounded-lg font-sans text-[1.2rem] md:text-[1.7rem] sm:text-[1.5rem] text-center cursor-pointer bg-blue-900 text-white hover:animate-pulse hover:bg-blue-600">
                     {
                         isLoading ? (
                             <>
                             <Spinner />
-                            Processing
+                            <p className="text-lg font-semibold text-white font-sans animate-pulse">Processing......</p>
                             </>
                         ) : (
                             "Submit"

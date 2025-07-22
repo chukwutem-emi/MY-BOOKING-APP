@@ -13,9 +13,9 @@ const AuthForm = () => {
     const langKey = useSelector((store) => store.config?.lang);
     return (
         <>
-        <div className="min-h-screen w-full overflow-x-hidden flex flex-col items-center justify-start px-4 bg-gray-100 py-6">
+        <div className="min-h-screen w-full overflow-x-hidden flex flex-col items-center justify-start px-4 bg-white py-6">
             <HomePage />
-            <div className="mt-12 w-full max-w-md bg-gray-400 p-2 rounded-xl shadow-lg">
+            <div className="mt-12 w-full max-w-md bg-white p-2 rounded-xl shadow-2xl">
                 <h2 className="text-center text-xl font-bold text-blue-950 mb-6">
                     {isSignup ? lang[langKey]?.authLanguageConfig?.isSignup: lang[langKey]?.authLanguageConfig?.isLogin}
                 </h2>

@@ -65,7 +65,7 @@ const SignupForm = ({setMessage, setIsError}) => {
                 type="text"
                 placeholder={lang[langKey]?.signUpLanguageConfig?.userNamePlaceholder}
                 name="username"
-                className="w-full px-4 py-2 border border-gray-500 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                className="w-full px-4 py-2 rounded-md outline-none border-[1px] border-blue-300"
                 required
                 />
                 <label htmlFor="email_address" className="text-blue-700 font-sans font-bold text-xl xs:text-lg sm:text-xl md:text-xl"><strong>{lang[langKey]?.signUpLanguageConfig?.inputEmailLabel}</strong></label>
@@ -75,7 +75,7 @@ const SignupForm = ({setMessage, setIsError}) => {
                 type="email"
                 placeholder={lang[langKey]?.signUpLanguageConfig?.emailAddressPlaceholder}
                 name="email_address"
-                className="w-full px-4 py-2 border border-gray-300 rounded-sm focus:outline-none focus:ring focus:ring-blue-300"
+                className="w-full px-4 py-2 rounded-sm outline-none border-[1px] border-blue-300"
                 required
                 />
                 <label htmlFor="password" className="text-blue-700 font-sans font-bold text-xl xs:text-lg sm:text-xl md:text-xl"><strong>{lang[langKey]?.signUpLanguageConfig?.inputPasswordLabel}</strong></label>
@@ -85,7 +85,7 @@ const SignupForm = ({setMessage, setIsError}) => {
                 type="password"
                 placeholder={lang[langKey]?.signUpLanguageConfig?.passwordPlaceholder}
                 name="password"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                className="w-full px-4 py-2 outline-none border-[1px] border-blue-300 rounded-md"
                 required
                 />
                 <label htmlFor="phone_number" className="text-blue-700 font-sans font-bold text-xl xs:text-lg sm:text-xl md:text-xl "><strong>{lang[langKey]?.signUpLanguageConfig?.inputPhoneLabel}</strong></label>
@@ -95,12 +95,12 @@ const SignupForm = ({setMessage, setIsError}) => {
                 type="text"
                 placeholder={lang[langKey]?.signUpLanguageConfig?.phoneNumber}
                 name="phone_number"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                className="w-full px-4 py-2 rounded-md outline-none border-[1px] border-blue-300"
                 required
                 />
                 <button
                 type="submit"
-                className="bg-blue-950 w-full text-center text-white font-bold text-lg p-2 font-sans rounded-md focus:outline-none" disabled={loading}
+                className="bg-blue-950 w-full text-center text-white font-bold text-lg p-2 font-sans rounded-md outline-none hover:bg-blue-600" disabled={loading}
                 >
                     {loading ? (
                         <>

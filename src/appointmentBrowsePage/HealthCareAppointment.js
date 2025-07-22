@@ -44,7 +44,7 @@ const HealthCareAppointment = () => {
             </div>
             {
                 healthcare.map((item, index) => (
-                    <Link to={item.link} key={index} className="rounded-xl break-words cursor-pointer bg-gray-500 p-2 flex-shrink-0 xs:w-[95%] sm:w-[60%] md:w-[60%] lg:w-[40%] xl:w-[50%] h-full xs:p-4">
+                    <Link to={item.link} key={index} className="rounded-xl break-words cursor-pointer bg-gray-500 p-2 flex-shrink-0 xs:w-[95%] sm:w-[60%] md:w-[60%] lg:w-[40%] xl:w-[50%] h-full xs:p-4 hover:p-8">
                         <h2 className="text-lg font-sans bg-white p-1 w-fit rounded-md text-blue-900 font-bold m-[0.5rem] xs:text-sm xs:font-extrabold sm:text-lg sm:font-bold md:font-extrabold md:text-lg lg:text-lg lg:font-bold xl:font-extrabold xl:text-xl">
                             {item.title}
                         </h2>

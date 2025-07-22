@@ -28,7 +28,7 @@ const LoginForm = ({setMessage, setIsError}) => {
         try {
             const data = await fetch(LOGIN_URL, {
                     method:"POST",
-                    headers:{"Content-type":"application/json"},
+                    headers:{"Content-Type":"application/json"},
                     body:JSON.stringify(payload),
                 });
                 const json = await data.json();
@@ -65,7 +65,7 @@ const LoginForm = ({setMessage, setIsError}) => {
                 type="email"
                 placeholder={lang[langKey]?.loginLanguageConfig?.emailAddressPlaceholder}
                 name="email_address"
-                className="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 rounded border border-gray-300 outline-none"
                 required
                 />
                 <div>
@@ -76,7 +76,7 @@ const LoginForm = ({setMessage, setIsError}) => {
                     type={showPassword ? "text" : "password"}
                     placeholder={lang[langKey]?.loginLanguageConfig?.passwordPlaceholder}
                     name="password"
-                    className="w-full px-4 py-2 mt-4 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 mt-4 rounded border border-gray-300 outline-none"
                     required
                     />
                     <p className="text-sm font-sans text-blue-900 animate-bounce mt-2 sm:text-sm xs:text-xs  md:text-lg lg:text-lg xl:text-lg 2xl:text-xl">{lang[langKey]?.loginLanguageConfig?.paragraphText}</p>
@@ -87,7 +87,7 @@ const LoginForm = ({setMessage, setIsError}) => {
                         type="checkbox"
                         checked={showPassword}
                         onChange={() => setShowPassword(!showPassword)}
-                        className="mr-1 mt-2"
+                        className="mr-1 mt-2 cursor-pointer"
                         title={lang[langKey]?.loginLanguageConfig?.title}
                         />
                         {lang[langKey]?.loginLanguageConfig?.checkBoxInnerText}
