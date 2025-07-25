@@ -1,5 +1,5 @@
 import React from "react";
 const Spinner = () => (
-  <div className="mx-auto border-4 border-blue-600 border-dotted border-t-transparent rounded-full w-6 h-6 animate-spin"></div>
+  <div className="border-8 border-white border-solid border-t-transparent rounded-full w-10 h-10 animate-spin "></div>
 );
 export default Spinner;

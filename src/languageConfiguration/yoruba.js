@@ -17,7 +17,7 @@ const yoruba = {
         passwordPlaceholder:"Tẹ ọrọ igbaniwọle rẹ sii",
         checkBoxInnerText:"Ṣe afihan Ọrọigbaniwọle",
         title:"Tẹ mi lati wo ọrọ igbaniwọle ti a tẹ sii",
-        paragraphText:"tẹ apoti ti o wa ni isalẹ lati wo ọrọ igbaniwọle ti o tẹ sii.",
+        paragraphText:"👎tẹ apoti ti o wa ni isalẹ lati wo ọrọ igbaniwọle ti o tẹ sii.",
         buttonInnerText:"Ṣiṣẹ, jọwọ duro!........",
         loginEmailInputLabel:"Adirẹsi imeeli:",
         loginPasswordInputLabel:"Ọrọigbaniwọle:",

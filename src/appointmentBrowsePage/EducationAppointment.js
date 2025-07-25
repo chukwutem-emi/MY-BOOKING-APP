@@ -22,7 +22,7 @@ const EducationAppointment = () => {
           title:lang[lanKey]?.educationAppointment?.oneOnOneTitle,
           description:lang[lanKey]?.educationAppointment?.oneOnOneDescription,
           book:lang[lanKey]?.educationAppointment?.oneOnOneBooking,
-          link:""  
+          link:"/tutorial"  
         },
     ];
     return (

@@ -48,7 +48,7 @@ const ClearToken = () => {
 
     }
   return (
-    <div className="mt-[20rem] mx-auto w-[30rem] shadow-2xl p-8 text-center bg-gray-300 rounded-xl space-y-4 items-center">
+    <div className="mt-[20rem] mx-auto w-[30rem] shadow-2xl p-8 text-center bg-gray-300 rounded-xl space-y-4 items-center fixed flex flex-col">
       <h1 className="text-lg text-blue-800 font-sans font-bold animate-pulse">Response from database</h1>
       {
         message && (
@@ -59,10 +59,12 @@ const ClearToken = () => {
       }
       {
         isLoading && (
-        <>
-        <Spinner />
-        <div className="font-sans font-semibold text-blue-950">Clearing the old Google-Token, please wait............</div>
-        </>
+            <div className="flex flex-row break-words">
+                <>
+                <Spinner />
+                <div className="font-sans font-semibold text-blue-950 ml-4">Clearing the old Google-Token, please wait............</div>
+                </>
+            </div>
         ) 
       }
     </div>

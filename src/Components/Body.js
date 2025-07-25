@@ -9,6 +9,7 @@ import AppLayout from "./AppLayout"
 import AcademicAdvising from "./EverythingAboutAppointments/EducationAndTutoringAppointment/AcademicAdvising"
 import ClearToken from "./ClearToken";
 import CareerCounseling from "./EverythingAboutAppointments/EducationAndTutoringAppointment/CareerCounseling";
+import OneOnOneTutoring from "./EverythingAboutAppointments/EducationAndTutoringAppointment/OneOnOneTutoringSession";
 
 
 const appRouter = createBrowserRouter([
@@ -44,6 +45,10 @@ const appRouter = createBrowserRouter([
             {
                 path:"/career",
                 element:<CareerCounseling />
+            },
+            {
+                path:"/tutorial",
+                element:<OneOnOneTutoring />
             }
         ]
     },

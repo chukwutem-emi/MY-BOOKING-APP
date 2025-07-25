@@ -17,7 +17,7 @@ const hausa = {
         passwordPlaceholder:"Shigar da kalmar wucewa",
         checkBoxInnerText:"Nuna Kalmar wucewa",
         title:"Danna ni don ganin kalmar sirrin da aka shigar",
-        paragraphText:"danna akwatin da ke ƙasa don ganin kalmar sirrin da kuka shigar.",
+        paragraphText:"👎danna akwatin da ke ƙasa don ganin kalmar sirrin da kuka shigar.",
         buttonInnerText:"Ana aiwatarwa, da fatan za a jira!........",
         loginEmailInputLabel:"Adireshin i-mel:",
         loginPasswordInputLabel:"Kalmar wucewa:",

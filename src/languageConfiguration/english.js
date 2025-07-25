@@ -17,7 +17,7 @@ const eng = {
         passwordPlaceholder:"Enter your password",
         checkBoxInnerText:"Show Password",
         title:"Click me to see the password entered",
-        paragraphText:"click the below box to see the password you entered.",
+        paragraphText:"click the below box to see the password 👎you entered.",
         buttonInnerText:"Processing, please wait!........",
         loginEmailInputLabel:"Email-address:",
         loginPasswordInputLabel:"Password:",

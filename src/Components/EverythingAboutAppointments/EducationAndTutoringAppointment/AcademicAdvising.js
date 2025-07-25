@@ -83,11 +83,11 @@ const AcademicAdvising = () => {
                         `)
                 } else if (json.Login_required){
                     setMessage("❌ You must be logged in to book an appointment.");
-                } else {
-                    setMessage("⚠️ Unauthorized access. Please login or try again");
                     setTimeout(() => {
                         navigate("/")   
-                    }, 6000);
+                    }, 8000);
+                } else {
+                    setMessage("⚠️ Unauthorized access. Please login or try again");
                 }
                 setErrorMsg(true);
             }
@@ -121,137 +121,153 @@ const AcademicAdvising = () => {
                         </div>
                     )
                 }
-                <label htmlFor="first_name" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>First name:</strong></label>
+                <label htmlFor="first_name" className="text-xl text-blue-700 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>First name:</strong></label>
                 <input 
                     type="text"
                     id="first_name"
                     placeholder="Please enter your first name"
                     ref={firstName}
                     name="first_name"
+                    autoComplete="given-name"
                     required
                     className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="last_name" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Last name:</strong></label>
+                <label htmlFor="last_name" className="text-xl text-blue-700 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Last name:</strong></label>
                 <input 
                     type="text"
                     id="last_name"
                     placeholder="Please enter your last name"
                     ref={lastName}
                     name="last_name"
+                    autoComplete="family-name"
                     required
                     className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="gender" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Gender:</strong></label>
+                <label htmlFor="gender" className="text-xl text-blue-700 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Gender:</strong></label>
                 <input 
                     type="text"
                     id="gender"
                     placeholder="Please enter your gender"
                     ref={gender}
                     name="gender"
+                    autoComplete="on"
                     required
                     className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="user_phone_number" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>User phone number:</strong></label>
+                <label htmlFor="user_phone_number" className="text-xl text-blue-700 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>User phone number:</strong></label>
                 <input 
                     type="text"
                     id="user_phone_number"
                     placeholder="Please enter your phone number"
                     ref={userPhoneNumber}
                     name="user_phone_number"
+                    autoComplete="on"
                     required
                     className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="email_address" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Email address:</strong></label>
+                <label htmlFor="email_address" className="text-xl text-blue-700 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Email address:</strong></label>
                 <input 
                     type="email"
                     id="email_address"
                     placeholder="Please enter your email address"
                     ref={emailAddress}
                     name="email_address"
+                    autoComplete="off"
                     required
                     className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="address" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Address:</strong></label>
+                <label htmlFor="address" className="text-xl text-blue-700 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Address:</strong></label>
                 <input 
                     type="text"
                     id="address"
                     placeholder="Please enter Your address"
                     ref={address}
                     name="address"
+                    autoComplete="on"
                     required
                     className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="next_of_kin" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Next of kin:</strong></label>
+                <label htmlFor="next_of_kin" className="text-xl text-blue-700 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Next of kin:</strong></label>
                 <input 
                     type="text"
                     id="next_of_kin"
                     placeholder="Please enter the name of your next of kin"
                     ref={nextOfKin}
                     name="next_of_kin"
+                    autoComplete="on"
                     required
                     className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="next_of_kin_address" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Next of kin address:</strong></label>
+                <label htmlFor="next_of_kin_address" className="text-xl text-blue-700 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Next of kin address:</strong></label>
                 <input 
                     type="text"
                     id="next_of_kin_address"
                     placeholder="Please enter your next of kin address"
                     ref={nextOfKinAddress}
                     name="next_of_kin_address"
+                    autoComplete="on"
                     required
                     className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="next_of_kin_phone_number" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Next of kin phone number:</strong></label>
+                <label htmlFor="next_of_kin_phone_number" className="text-xl text-blue-700 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Next of kin phone number:</strong></label>
                 <input 
                     type="text"
                     id="next_of_kin_phone_number"
                     placeholder="Please enter your next of kin phone number"
                     ref={phone}
                     name="next_of_kin_phone_number"
+                    autoComplete="on"
                     required
                     className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="amount" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Amount:</strong></label>
+                <label htmlFor="amount" className="text-xl text-blue-700 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Amount:</strong></label>
                 <input 
                     type="number"
                     id="amount"
                     placeholder="The amount to be paid is N40,000"
                     ref={amount}
                     name="amount"
+                    autoComplete="on"
                     required
                     className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                     min={1000}
                     step={1000.00}
                 />
-                <label htmlFor="appointment_time" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Time:</strong></label>
+                <label htmlFor="appointment_time" className="text-xl text-blue-700 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Time:</strong></label>
                 <input 
                     type="time"
                     id="appointment_time"
                     placeholder="Please choose time"
                     ref={appointmentTime}
                     name="appointment_time"
+                    autoComplete="off"
                     required
                     className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="appointment_date" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Date:</strong></label>
+                <label htmlFor="appointment_date" className="text-xl text-blue-700 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Date:</strong></label>
                 <input 
                     type="date"
                     id="appointment_date"
                     placeholder="Please choose date"
                     ref={appointmentDate}
                     name="appointment_date"
+                    autoComplete="off"
                     required
                     className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
-                <label htmlFor="appointment_description" className="font-mono text-xl text-blue-800 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Appointment description:</strong></label>
-                <input 
-                    type="text"
+                <label htmlFor="appointment_description" className="text-xl text-blue-700 font-extrabold sm:text-[1.5rem] md:text-[1.7rem] lg:text-[1.7rem]"><strong>Appointment description:</strong></label>
+                <textarea
                     id="appointment_description"
                     placeholder="Please write your appointment description"
                     ref={description}
                     name="appointment_description"
+                    autoComplete="on"
+                    autoFocus
                     required
                     className="p-2 rounded-lg font-sans text-[1rem] text-start break-words md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
+                />
+                <input 
+                    type="text"
                 />
                 <button type="submit" className="p-2 rounded-lg font-sans text-[1.2rem] md:text-[1.7rem] sm:text-[1.5rem] text-center cursor-pointer bg-blue-900 text-white hover:animate-pulse hover:bg-blue-600">
                     {

@@ -83,9 +83,11 @@ function CareerCounseling() {
                         `);
                 } else if (json.Msg) {
                     setMessage("⚠️ Access denied!. You must be logged in to book an appointment");
+                    setTimeout(() => {
+                        navigate("/")  
+                    }, 8000);
                 } else {
                     setMessage("Unauthorized access!.Please login or try again later.");
-                    navigate("/");
                 }
                 setErrorMsg(true);
             } else if (data.status === 201) {
@@ -106,9 +108,9 @@ function CareerCounseling() {
         }
     }
   return (
-    <div className='my-[12rem] w-full items-center min-h-screen'>
-      <form onSubmit={handleCareerClick} className='flex flex-col space-y-4 w-[50%] bg-white p-8 rounded-2xl my-0 mx-auto shadow-2xl'>
-        <h1 className='text-center justify-center text-blue-800 text-[1.4rem] font-extrabold mb-[2rem] animate-pulse'>Career-Counseling Appointment</h1>
+    <div className='my-[12rem] w-full items-center min-h-screen overflow-x-hidden'>
+      <form onSubmit={handleCareerClick} className='flex flex-col space-y-4 w-[50%] bg-white p-8 rounded-2xl my-0 mx-auto shadow-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]'>
+        <h1 className='text-center justify-center text-blue-800 text-[1.4rem] font-extrabold mb-[2rem] animate-pulse xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl'>Career-Counseling Appointment</h1>
         {
             message && (
                 <div className={`p-2 break-words w-full ${errorMsg ? "text-red-500 bg-red-100 text-sm" : "text-green-700 bg-green-100 font-semibold text-lg"}`}>
@@ -117,137 +119,150 @@ function CareerCounseling() {
                 </div>
             )
         }
-        <label htmlFor='first_name' className='text-blue-700 font-sans font-bold text-[1.2rem]'><strong>First Name:</strong></label>
+        <label htmlFor='first_name' className='text-blue-700 font-sans font-bold text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl'><strong>First Name:</strong></label>
         <input 
         type='text'
         placeholder='Please enter your first name'
         id='first_name'
         name='first_name'
         ref={firstNameRef}
-        className='py-1 px-2 text-[1.2rem] font-sans rounded-md border-[1px] outline-none border-blue-300'
+        className='py-1 px-2 text-[1.2rem] font-sans rounded-md border-[1px] outline-none border-blue-300 md:text-2xl lg:text-2xl xl:text-2xl'
+        autoComplete="given-name"
         required
         />
-        <label htmlFor='last_name' className='text-blue-700 font-sans font-bold text-[1.2rem]'><strong>Last Name:</strong></label>
+        <label htmlFor='last_name' className='text-blue-700 font-sans font-bold text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl'><strong>Last Name:</strong></label>
         <input 
         type='text'
         placeholder='Please enter your last name'
         id='last_name'
         name='last_name'
         ref={lastNameRef}
-        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300'
+        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300 md:text-2xl lg:text-2xl'
+        autoComplete='family-name'
         required
         />
-        <label htmlFor='gender' className='text-blue-700 font-sans font-bold text-[1.2rem]'><strong>Gender:</strong></label>
+        <label htmlFor='gender' className='text-blue-700 font-sans font-bold text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl'><strong>Gender:</strong></label>
         <input 
         type='text'
         placeholder='Your gender'
         id='gender'
         name='gender'
         ref={genderRef}
-        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300'
+        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300 md:text-2xl lg:text-2xl xl:text-2xl'
+        autoComplete='on'
         required
         />
-        <label htmlFor='user_phone_number' className='text-blue-700 font-sans font-bold text-[1.2rem]'><strong>Phone Number:</strong></label>
+        <label htmlFor='user_phone_number' className='text-blue-700 font-sans font-bold text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl'><strong>Phone Number:</strong></label>
         <input 
         type='text'
         placeholder='Enter Your phone number'
         id='user_phone_number'
         name='user_phone_number'
         ref={userPhoneNumberRef}
-        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300'
+        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300 md:text-2xl lg:text-2xl xl:text-2xl'
+        autoComplete='on'
         required
         />
-        <label htmlFor='address' className='text-blue-700 font-sans font-bold text-[1.2rem]'><strong>Address:</strong></label>
+        <label htmlFor='address' className='text-blue-700 font-sans font-bold text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl'><strong>Address:</strong></label>
         <input 
         type='text'
         placeholder='Enter your address'
         id='address'
         name='address'
         ref={addressRef}
-        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300'
+        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300 md:text-2xl lg:text-2xl xl:text-2xl'
+        autoComplete='on'
         required
         />
-        <label htmlFor='email_address' className='text-blue-700 font-sans font-bold text-[1.2rem]'><strong>Email Address:</strong></label>
+        <label htmlFor='email_address' className='text-blue-700 font-sans font-bold text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl'><strong>Email Address:</strong></label>
         <input 
         type='email'
         placeholder='Enter your email address'
         id='email_address'
         name='email_address'
         ref={emailAddressRef}
-        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300'
+        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300 md:text-2xl lg:text-2xl xl:text-2xl'
+        autoComplete='off'
         required
         />
-        <label htmlFor='next_of_kin' className='text-blue-700 font-sans font-bold text-[1.2rem]'><strong>Next Of Kin:</strong></label>
+        <label htmlFor='next_of_kin' className='text-blue-700 font-sans font-bold text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl'><strong>Next Of Kin:</strong></label>
         <input 
         type='text'
         placeholder='Enter your next of kin'
         id='next_of_kin'
         name='next_of_kin'
         ref={nextOfKinRef}
-        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300'
+        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300 md:text-2xl lg:text-2xl xl:text-2xl'
+        autoComplete='on'
         required
         />
-        <label htmlFor='next_of_kin_phone_number' className='text-blue-700 font-sans font-bold text-[1.2rem]'><strong>Next Of Kin Phone Number:</strong></label>
+        <label htmlFor='next_of_kin_phone_number' className='text-blue-700 font-sans font-bold text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl'><strong>Next Of Kin Phone Number:</strong></label>
         <input 
         type='text'
         placeholder='Enter your next of kin phone number'
         id='next_of_kin_phone_number'
         name='next_of_kin_phone_number'
         ref={nextOfKinPhoneNumberRef}
-        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300'
+        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300 md:text-2xl lg:text-2xl xl:text-2xl'
+        autoComplete='on'
         required
         />
-        <label htmlFor='next_of_kin_address' className='text-blue-700 font-sans font-bold text-[1.2rem]'><strong>Next Of Kin Address:</strong></label>
+        <label htmlFor='next_of_kin_address' className='text-blue-700 font-sans font-bold text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl'><strong>Next Of Kin Address:</strong></label>
         <input 
         type='text'
         placeholder='Enter your next of kin address'
         id='next_of_kin_address'
         name='next_of_kin_address'
         ref={nextOfKinAddressRef}
-        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300'
+        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300 md:text-2xl lg:text-2xl xl:text-2xl'
+        autoComplete='on'
         required
         />
-        <label htmlFor='amount' className='text-blue-700 font-sans font-bold text-[1.2rem]'><strong>Next Of Kin Address:</strong></label>
+        <label htmlFor='amount' className='text-blue-700 font-sans font-bold text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl'><strong>Next Of Kin Address:</strong></label>
         <input 
         type='number'
         placeholder='The amount to be paid is N40,000'
         id='amount'
         name='amount'
         ref={amountRef}
-        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300'
+        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300 md:text-2xl lg:text-2xl xl:text-2xl'
         required
         min={1000}
         step={1000.00}
+        autoComplete='on'
         />
-        <label htmlFor='appointment_time' className='text-blue-700 font-sans font-bold text-[1.2rem]'><strong>Appointment Time:</strong></label>
+        <label htmlFor='appointment_time' className='text-blue-700 font-sans font-bold text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl'><strong>Appointment Time:</strong></label>
         <input 
         type='time'
         placeholder='Choose the appointment time'
         id='appointment_time'
         name='appointment_time'
         ref={appointmentTimeRef}
-        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300'
+        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300 md:text-2xl lg:text-2xl xl:text-2xl'
+        autoComplete='off'
         required
         />
-        <label htmlFor='appointment_date' className='text-blue-700 font-sans font-bold text-[1.2rem]'><strong>Appointment Date:</strong></label>
+        <label htmlFor='appointment_date' className='text-blue-700 font-sans font-bold text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl'><strong>Appointment Date:</strong></label>
         <input 
         type='date'
         placeholder='Choose the appointment date'
         id='appointment_date'
         name='appointment_date'
         ref={appointmentDateRef}
-        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300'
+        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300 md:text-2xl lg:text-2xl xl:text-2xl'
+        autoComplete='off'
         required
         />
-        <label htmlFor='appointment_description' className='text-blue-700 font-sans font-bold text-[1.2rem]'><strong>Appointment Description:</strong></label>
-        <input 
-        type='text'
+        <label htmlFor='appointment_description' className='text-blue-700 font-sans font-bold text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl'><strong>Appointment Description:</strong></label>
+        <textarea
         placeholder='Describe what you want'
         id='appointment_description'
         name='appointment_description'
         ref={appointmentDescriptionRef}
-        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300'
-        required
+        className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300 md:text-2xl lg:text-2xl xl:text-2xl'
+        autoComplete='on'
+        autoFocus
+        required 
         />
         <button type='submit' className='p-2 text-center text-[1.2rem] font-sans outline-none rounded-md bg-blue-800 text-white font-semibold hover:bg-blue-400'>
             {
@@ -257,7 +272,7 @@ function CareerCounseling() {
                     <div className='break-words animate-pulse font-sans text-white'>Please wait while we process your data............</div>
                     </>
                 ) : (
-                    "Submit"
+                    <div className='sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl font-sans font-bold'>Submit</div>    
                 )
             }
         </button>

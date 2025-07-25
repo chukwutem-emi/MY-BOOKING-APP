@@ -17,7 +17,7 @@ const spanish = {
         passwordPlaceholder:"Ingrese su contraseña",
         checkBoxInnerText:"Mostrar contraseña",
         title:"Haz clic en mí para ver la contraseña ingresada",
-        paragraphText:"Haga clic en el cuadro a continuación para ver la contraseña que ingresó.",
+        paragraphText:"👎Haga clic en el cuadro a continuación para ver la contraseña que ingresó.",
         buttonInnerText:"Procesando, por favor espere!........",
         loginEmailInputLabel:"Dirección de correo electrónico:",
         loginPasswordInputLabel:"Contraseña:",

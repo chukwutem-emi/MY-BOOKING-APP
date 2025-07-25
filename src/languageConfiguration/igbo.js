@@ -17,7 +17,7 @@ const igbo = {
         passwordPlaceholder:"Tinye paswọọdụ gị",
         checkBoxInnerText:"Gosi okwuntughe",
         title:"Pịa m ka ịhụ paswọọdụ etinyere",
-        paragraphText:"pịa igbe dị n'okpuru ka ịhụ paswọọdụ i tinyere.",
+        paragraphText:"👎pịa igbe dị n'okpuru ka ịhụ paswọọdụ i tinyere.",
         buttonInnerText:"Nhazi, biko chere!........",
         loginEmailInputLabel:"Adreesị ozi ịntanetị:",
         loginPasswordInputLabel:"Okwuntughe:",

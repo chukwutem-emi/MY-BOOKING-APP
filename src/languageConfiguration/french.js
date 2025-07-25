@@ -17,7 +17,7 @@ const french = {
         passwordPlaceholder:"Entrez votre mot de passe",
         checkBoxInnerText:"Afficher le mot de passe",
         title:"Cliquez ici pour voir le mot de passe saisi",
-        paragraphText:"Cliquez sur la case ci-dessous pour voir le mot de passe que vous avez entré.",
+        paragraphText:"👎Cliquez sur la case ci-dessous pour voir le mot de passe que vous avez entré.",
         buttonInnerText:"Traitement en cours, veuillez patienter !........",
         loginEmailInputLabel:"Adresse e-mail:",
         loginPasswordInputLabel:"Mot de passe:",

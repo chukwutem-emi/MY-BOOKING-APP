@@ -67,6 +67,7 @@ const LoginForm = ({setMessage, setIsError}) => {
                 name="email_address"
                 className="w-full px-4 py-2 rounded border border-gray-300 outline-none"
                 required
+                autoComplete="on"
                 />
                 <div>
                     <label htmlFor="password" className="text-blue-700 text-xl font-sans font-bold xs:text-lg sm:text-xl"><strong>{lang[langKey]?.loginLanguageConfig?.loginPasswordInputLabel}</strong></label>
@@ -78,6 +79,7 @@ const LoginForm = ({setMessage, setIsError}) => {
                     name="password"
                     className="w-full px-4 py-2 mt-4 rounded border border-gray-300 outline-none"
                     required
+                    autoComplete="off"
                     />
                     <p className="text-sm font-sans text-blue-900 animate-bounce mt-2 sm:text-sm xs:text-xs  md:text-lg lg:text-lg xl:text-lg 2xl:text-xl">{lang[langKey]?.loginLanguageConfig?.paragraphText}</p>
                     <label htmlFor="checkbox" className="text-sm text-blue-900 font-sans xs:text-xs">
@@ -89,15 +91,16 @@ const LoginForm = ({setMessage, setIsError}) => {
                         onChange={() => setShowPassword(!showPassword)}
                         className="mr-1 mt-2 cursor-pointer"
                         title={lang[langKey]?.loginLanguageConfig?.title}
+                        autoComplete="off"
                         />
                         {lang[langKey]?.loginLanguageConfig?.checkBoxInnerText}
                     </label>
                 </div>
-                <button type="submit" className="w-full mt-4 py-2 bg-blue-900 text-white font-semibold rounded hover:bg-blue-700 transition duration-300" disabled={loading}>
+                <button type="submit" className="w-full mt-4 py-2 bg-blue-900 text-white font-semibold rounded hover:bg-blue-700 transition duration-300 flex flex-row p-2 justify-center break-words" disabled={loading}>
                     {loading ? (
                         <>
                         <Spinner />
-                       <div className="animate-pulse">{lang[langKey]?.loginLanguageConfig?.buttonInnerText}</div>
+                       <div className="animate-pulse ml-4">{lang[langKey]?.loginLanguageConfig?.buttonInnerText}</div>
                         </>
                     ) : (
                         lang[langKey]?.loginLanguageConfig?.login

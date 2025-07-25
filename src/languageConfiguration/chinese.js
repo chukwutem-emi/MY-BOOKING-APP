@@ -17,7 +17,7 @@ const chinese = {
         passwordPlaceholder:"輸入您的密碼",
         checkBoxInnerText:"顯示密碼",
         title:"點我看輸入的密碼",
-        paragraphText:"點擊下面的方塊即可查看您輸入的密碼。",
+        paragraphText:"👎點擊下面的方塊即可查看您輸入的密碼。",
         buttonInnerText:"正在處理，請稍候！ ........",
         loginEmailInputLabel:"電子郵件地址：",
         loginPasswordInputLabel:"密碼:",
