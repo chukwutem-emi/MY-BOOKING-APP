@@ -31,8 +31,8 @@ const EducationAppointment = () => {
                 <span className="text-black text-5xl font-extrabold">&larr;</span>
             </div> 
             {
-                education.map((item, index) => (
-                    <Link to={item.link} key={index} className="bg-gray-500 p-2 rounded-lg  cursor-pointer xs:w-[100%] xs:p-4 sm:w-[80%] md:w-[80%] lg:w-[60%] xl:w-[50%] h-full flex-shrink-0 break-words xl:p-4 hover:p-8">
+                education.map((item) => (
+                    <Link to={item.link} key={item.title} className="bg-gray-500 p-2 rounded-lg  cursor-pointer xs:w-[100%] xs:p-4 sm:w-[80%] md:w-[80%] lg:w-[60%] xl:w-[50%] h-full flex-shrink-0 break-words xl:p-4 hover:p-8">
                         <h2 className="text-blue-900 bg-white font-sans font-bold w-fit p-2 rounded-md m-[0.5rem] xs:text-sm xs:font-extrabold sm:text-lg sm:font-bold md:font-extrabold md:text-lg lg:text-lg lg:font-bold xl:font-extrabold xl:text-xl">
                             {item.title}
                         </h2>

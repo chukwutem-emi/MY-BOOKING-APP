@@ -97,7 +97,7 @@ function CareerCounseling() {
                 setErrorMsg(false);
             } else {
                 const [key] = Object.keys(json);
-                setMessage(key || "An error occurred!.")
+                setMessage(json[key] || "An error occurred!.")
                 setErrorMsg(true)
             }
         }catch(error) {

@@ -1,11 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { BASE_URL, HEALTHCARE_PHYSIOTHERAPY_URL } from "../../../Utils/constants";
 import Spinner from "../../../Utils/Spinner";
+import { BASE_URL, FINANCIAL_ADVISORY_URL } from "../../../Utils/constants";
 
 
-const HealthCarePhysiotherapySessionAppointment = () => {
+const FinancialAdvisoryAppointment = () => {
     const[message, setMessage]      = useState("");
     const[isLoading, setIsLoading]  = useState(false);
     const[isError, setIsError]      = useState(false);
@@ -27,14 +27,12 @@ const HealthCarePhysiotherapySessionAppointment = () => {
     const navigate = useNavigate();
 
     const userToken = useSelector((store) => store.token?.accessToken);
-
     useEffect(() => {
-        if (message) {
-            window.scrollTo({top:0, behavior:"smooth"});
-        }
-    }, [message]);
-
-    const handlePhysiotherapyAppointment = async (event) => {
+            if (message) {
+                window.scrollTo({top:0, behavior:"smooth"});
+            }
+        }, [message]);
+    const handleFinancialAdvisoryAppointment = async (event) => {
         event.preventDefault();
         setIsLoading(true);
 
@@ -54,7 +52,7 @@ const HealthCarePhysiotherapySessionAppointment = () => {
             appointment_description  : appointmentDescriptionRef.current.value,
         };
         try {
-            const data = await fetch(HEALTHCARE_PHYSIOTHERAPY_URL, {
+            const data = await fetch(FINANCIAL_ADVISORY_URL, {
                 method:"POST",
                 headers:{
                     "Content-Type" : "application/json",
@@ -64,8 +62,8 @@ const HealthCarePhysiotherapySessionAppointment = () => {
             });
             const json = await data.json();
             if (data.status === 401) {
-                if (json.physiotherapy_error) {
-                    setMessage(json.physiotherapy_error);
+                if (json.financial_adv_error) {
+                    setMessage(json.financial_adv_error);
                     setIsError(true);
                     setTimeout(() => {
                         navigate("/");
@@ -93,7 +91,7 @@ const HealthCarePhysiotherapySessionAppointment = () => {
                 }
                 setIsError(true);
             } else if (data.status === 201) {
-                setMessage(`${json.Physiotherapy}<br><a href=${json.googleCalenderLink} rel="noopener, noreferrer" target="_blank" title="click here" class="text-blue-500 justify-center items-center text-center font-semibold underline hover:text-lg hover:text-blue-800 my-0 mx-auto">Click this link to view the healthcare physiotherapy appointment you booked in google calender</a>`)
+                setMessage(`${json.financial_advisory}<br><a href=${json.googleCalenderLink} rel="noopener, noreferrer" target="_blank" title="click here" class="text-blue-500 justify-center items-center text-center font-semibold underline hover:text-lg hover:text-blue-800 my-0 mx-auto">Click this link to view the financial advisory appointment you booked in google calender</a>`)
                 setIsError(false);
             } else {
                 const [key] = Object.keys(json);
@@ -109,8 +107,8 @@ const HealthCarePhysiotherapySessionAppointment = () => {
     }
   return (
     <div className="mt-[16rem] overflow-x-hidden w-full items-center">
-        <form onSubmit={handlePhysiotherapyAppointment} className="w-[50%] space-y-4 my-0 mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
-              <h1 className="text-center break-words font-sans text-blue-800 font-bold text-[1.5rem] mb-8 animate-pulse xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl">Healthcare Physiotherapy Session Appointment</h1>
+        <form onSubmit={handleFinancialAdvisoryAppointment} className="w-[50%] space-y-4 my-0 mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
+              <h1 className="text-center break-words font-sans text-blue-800 font-bold text-[1.5rem] mb-8 animate-pulse xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl">Financial Advisory Appointment</h1>
                 {
                     message && (
                         <div className={`break-words p-2 w-full ${isError ? "text-red-600 bg-red-100 font-semibold text-lg" : "text-green-600 bg-green-100 font-semibold text-lg"}`}>
@@ -222,7 +220,7 @@ const HealthCarePhysiotherapySessionAppointment = () => {
                 <input
                 type="number"
                 className="border-[1px] border-blue-600 outline-none text-[1.2rem] px-2 py-1 rounded-lg md:text-2xl lg:text-2xl xl:text-2xl" 
-                placeholder="The amount to be paid is N40,000"
+                placeholder="The amount to be paid is N70,000"
                 ref={amountRef}
                 id="amount"
                 name="amount"
@@ -277,12 +275,11 @@ const HealthCarePhysiotherapySessionAppointment = () => {
                             <div className="text-white text-[1.2rem] font-sans font-bold sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl">
                                 Submit
                             </div>
-
                         )                        
                     }
                 </button>
-        </form>
+        </form>   
     </div>
   )
 };
-export default HealthCarePhysiotherapySessionAppointment;
+export default FinancialAdvisoryAppointment;

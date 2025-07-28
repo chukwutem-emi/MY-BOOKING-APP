@@ -10,19 +10,19 @@ const ProfessionalService = () => {
             title:lang[lanKey]?.professionalServiceAppointment?.businessConsultTitle,
             description:lang[lanKey]?.professionalServiceAppointment?.businessConsultDescription,
             book:lang[lanKey]?.professionalServiceAppointment?.businessConsultBooking,
-            link:"",
+            link:"/business",
         },
         {
             title:lang[lanKey]?.professionalServiceAppointment?.financialAdvisingTitle,
             description:lang[lanKey]?.professionalServiceAppointment?.financialAdvisingDescription,
             book:lang[lanKey]?.professionalServiceAppointment?.financialAdvisingBooking,
-            link:"",
+            link:"/financial",
         },
         {
             title:lang[lanKey]?.professionalServiceAppointment?.realEstateAgentTitle,
             description:lang[lanKey]?.professionalServiceAppointment?.realEstateAgentDescription,
             book:lang[lanKey]?.professionalServiceAppointment?.realEstateAgentBooking,
-            link:"",
+            link:"/real-estate",
         },
     ];
     return (
@@ -31,8 +31,8 @@ const ProfessionalService = () => {
                 <span className="text-black font-extrabold text-5xl"><strong>&larr;</strong></span>
             </div>
             {
-                services.map((item, index) => (
-                    <Link to={item.link} key={index} className="w-[50%] xs:w-[100%] sm:w-[80%] md:w-[80%] lg:w-[60%] xl:w-[50%] bg-gray-500 flex-shrink-0 p-4 h-full rounded-xl shadow-lg hover:p-8">
+                services.map((item) => (
+                    <Link to={item.link} key={item.title} className="w-[50%] xs:w-[100%] sm:w-[80%] md:w-[80%] lg:w-[60%] xl:w-[50%] bg-gray-500 flex-shrink-0 p-4 h-full rounded-xl shadow-lg hover:p-8">
                     <h2 className="text-blue-900 text-lg font-extrabold font-sans bg-white p-1 rounded-lg w-fit m-[0.5rem] xs:text-sm sm:text-lg md:text-lg lg:text-lg xl:text-lg">{item.title}</h2>
                     <p className="text-base m-[0.5rem] text-white font-sans">{item.description}</p>
                     <p className="text-white font-bold text-center animate-pulse mt-4 xs:mt-0 sm:text-lg sm:p-2 sm:m-10 md:m-10 lg:m-10 xl:m-10 md:text-lg md:font-extrabold  lg:p-1 xl:text-xl xl:font-extrabold xl:p-1">{item.book}</p>

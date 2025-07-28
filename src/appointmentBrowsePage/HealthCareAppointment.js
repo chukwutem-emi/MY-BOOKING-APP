@@ -10,31 +10,31 @@ const HealthCareAppointment = () => {
             title:lang[lanKey]?.healthcareAppointment?.vaccinationTitle,
             description:lang[lanKey]?.healthcareAppointment?.vaccinationDescription,
             book:lang[lanKey]?.healthcareAppointment?.vaccinationBooking,
-            link:""
+            link:"/vaccination"
         },
         {
             title:lang[lanKey]?.healthcareAppointment?.consultationTitle,
             description:lang[lanKey]?.healthcareAppointment?.consultationDescription,
             book:lang[lanKey]?.healthcareAppointment?.consultationBooking,
-            link:""
+            link:"/consultation"
         },
         {
             title:lang[lanKey]?.healthcareAppointment?.counselingTitle,
             description:lang[lanKey]?.healthcareAppointment?.counselingDescription,
             book:lang[lanKey]?.healthcareAppointment?.counselingBooking,
-            link:""
+            link:"/counseling"
         },
         {
             title:lang[lanKey]?.healthcareAppointment?.dentalTitle,
             description:lang[lanKey]?.healthcareAppointment?.dentalDescription,
             book:lang[lanKey]?.healthcareAppointment?.dentalBooking,
-            link:""
+            link:"/dental"
         },
         {
             title:lang[lanKey]?.healthcareAppointment?.physiotherapyTitle,
             description:lang[lanKey]?.healthcareAppointment?.physiotherapyDescription,
             book:lang[lanKey]?.healthcareAppointment?.physiotherapyBooking,
-            link:""
+            link:"/physiotherapy"
         },
     ];
     return (
@@ -43,8 +43,8 @@ const HealthCareAppointment = () => {
                 <span className="text-black text-5xl font-extrabold">&larr;</span>
             </div>
             {
-                healthcare.map((item, index) => (
-                    <Link to={item.link} key={index} className="rounded-xl break-words cursor-pointer bg-gray-500 p-2 flex-shrink-0 xs:w-[95%] sm:w-[60%] md:w-[60%] lg:w-[40%] xl:w-[50%] h-full xs:p-4 hover:p-8">
+                healthcare.map((item) => (
+                    <Link to={item.link} key={item.title} className="rounded-xl break-words cursor-pointer bg-gray-500 p-2 flex-shrink-0 xs:w-[95%] sm:w-[60%] md:w-[60%] lg:w-[40%] xl:w-[50%] h-full xs:p-4 hover:p-8">
                         <h2 className="text-lg font-sans bg-white p-1 w-fit rounded-md text-blue-900 font-bold m-[0.5rem] xs:text-sm xs:font-extrabold sm:text-lg sm:font-bold md:font-extrabold md:text-lg lg:text-lg lg:font-bold xl:font-extrabold xl:text-xl">
                             {item.title}
                         </h2>
