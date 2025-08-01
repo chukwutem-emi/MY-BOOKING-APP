@@ -44,12 +44,10 @@ const LoginForm = ({setMessage, setIsError}) => {
                     const [key] = Object.keys(json);
                     setMessage(json[key] || "❌ Invalid input");
                     setIsError(true);
-                    alert("❌ Error")
                 }       
         } catch(error) {
             setMessage("❌ Network error or server not responding!");
             setIsError(true);
-            alert("❌ Network error or server not responding. Please check your connection.")
         } finally {
             setLoading(false)
         }
@@ -58,31 +56,32 @@ const LoginForm = ({setMessage, setIsError}) => {
     return (
             <>
             <form onSubmit={handleLogin} className="space-y-4 w-[80%] my-0 mx-auto">
-                <label htmlFor="email_address" className="text-blue-700 font-sans font-bold text-xl xs:text-lg sm:text-xl md:text-xl"><strong>{lang[langKey]?.loginLanguageConfig?.loginEmailInputLabel}</strong></label>
+                <label htmlFor="email_address" className="text-blue-700 sr-only font-sans font-bold text-xl xs:text-lg sm:text-xl md:text-xl"><strong>{lang[langKey]?.loginLanguageConfig?.loginEmailInputLabel}</strong></label>
                 <input
                 id="email_address"
                 ref={emailRef}
                 type="email"
                 placeholder={lang[langKey]?.loginLanguageConfig?.emailAddressPlaceholder}
                 name="email_address"
-                className="w-full px-4 py-2 rounded border border-gray-300 outline-none"
+                className="w-full p-4 rounded text-white text-lg outline-none bg-gray-700"
                 required
                 autoComplete="on"
+                autoCorrect="on"
                 />
                 <div>
-                    <label htmlFor="password" className="text-blue-700 text-xl font-sans font-bold xs:text-lg sm:text-xl"><strong>{lang[langKey]?.loginLanguageConfig?.loginPasswordInputLabel}</strong></label>
+                    <label htmlFor="password" className="text-blue-700 sr-only text-xl font-sans font-bold xs:text-lg sm:text-xl"><strong>{lang[langKey]?.loginLanguageConfig?.loginPasswordInputLabel}</strong></label>
                     <input
                     id="password"
                     ref={passwordRef}
                     type={showPassword ? "text" : "password"}
                     placeholder={lang[langKey]?.loginLanguageConfig?.passwordPlaceholder}
                     name="password"
-                    className="w-full px-4 py-2 mt-4 rounded border border-gray-300 outline-none"
+                    className="w-full p-4 mt-4 rounded text-white text-lg outline-none bg-gray-700"
                     required
                     autoComplete="off"
                     />
-                    <p className="text-sm font-sans text-blue-900 animate-bounce mt-2 sm:text-sm xs:text-xs  md:text-lg lg:text-lg xl:text-lg 2xl:text-xl">{lang[langKey]?.loginLanguageConfig?.paragraphText}</p>
-                    <label htmlFor="checkbox" className="text-sm text-blue-900 font-sans xs:text-xs">
+                    <p className="text-sm font-sans text-white animate-bounce mt-2 sm:text-sm xs:text-xs  md:text-lg lg:text-lg xl:text-lg 2xl:text-xl">{lang[langKey]?.loginLanguageConfig?.paragraphText}</p>
+                    <label htmlFor="checkbox" className="text-sm text-white font-sans xs:text-xs">
                         <input
                         id="checkbox"
                         name="checkbox"
@@ -96,7 +95,7 @@ const LoginForm = ({setMessage, setIsError}) => {
                         {lang[langKey]?.loginLanguageConfig?.checkBoxInnerText}
                     </label>
                 </div>
-                <button type="submit" className="w-full mt-4 py-2 bg-blue-900 text-white font-semibold rounded hover:bg-blue-700 transition duration-300 flex flex-row p-2 justify-center break-words" disabled={loading}>
+                <button type="submit" className="w-full mt-4 p-4 text-2xl bg-red-400 text-white font-bold rounded hover:bg-red-300 transition duration-300 flex flex-row justify-center break-words" disabled={loading}>
                     {loading ? (
                         <>
                         <Spinner />

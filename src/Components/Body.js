@@ -18,13 +18,18 @@ import HealthCareVaccinationAppointment from "./EverythingAboutAppointments/Heal
 import BusinessConsultationAppointment from "./EverythingAboutAppointments/ProfessionalServiceAppointment/BusinessConsultationAppointment";
 import FinancialAdvisoryAppointment from "./EverythingAboutAppointments/ProfessionalServiceAppointment/FinancialAdvisoryAppointment";
 import RealEstateAgentAppointment from "./EverythingAboutAppointments/ProfessionalServiceAppointment/RealEstateAgentAppointment";
+import Accordion from "./AccordionItems";
+import ElectricalElectronicsRepair from "./EverythingAboutAppointments/TechnicalAndRepairServiceAppointments/ElectricalElectronicsRepairAppointment";
+import HomeServiceAppointment from "./EverythingAboutAppointments/TechnicalAndRepairServiceAppointments/HomeServiceAppointment";
+import Error from "./Error";
 
 
 
 const appRouter = createBrowserRouter([
     {
         path:"/",
-        element:<AuthForm />
+        element:<AuthForm />,
+        errorElement:<Error />
     },
     {
         path:"/",
@@ -33,67 +38,90 @@ const appRouter = createBrowserRouter([
 
             {
                 path:"/browse",
-                element:<Browse />
+                element:<Browse />,
+                errorElement:<Error />
             },
             {
                 path:"/user",
-                element:<GetUser />
+                element:<GetUser />,
+                errorElement:<Error />
             },
             {
                 path:"/users",
-                element:<GetAllUsers />
+                element:<GetAllUsers />,
+                errorElement:<Error />
             },
             {
                 path:"/academic",
-                element:<AcademicAdvising />
+                element:<AcademicAdvising />,
+                errorElement:<Error />
             },
             {
                 path:"/clear-token",
-                element:<ClearToken />
+                element:<ClearToken />,
+                errorElement:<Error />
             },
             {
                 path:"/career",
-                element:<CareerCounseling />
+                element:<CareerCounseling />,
+                errorElement:<Error />
             },
             {
                 path:"/tutorial",
-                element:<OneOnOneTutoring />
+                element:<OneOnOneTutoring />,
+                errorElement:<Error />
             },
             {
                 path:"/consultation",
-                element:<HealthCareConsultationAppointment />
+                element:<HealthCareConsultationAppointment />,
+                errorElement:<Error />
             },
             {
                 path:"/counseling",
-                element:<HealthCareCounselingSessionAppointment />
+                element:<HealthCareCounselingSessionAppointment />,
+                errorElement:<Error />
             },
             {
                 path:"/dental",
-                element:<HealthCareDentalAppointment />
+                element:<HealthCareDentalAppointment />,
+                errorElement:<Error />
             },
             {
                 path:"/physiotherapy",
-                element:<HealthCarePhysiotherapySessionAppointment />
+                element:<HealthCarePhysiotherapySessionAppointment />,
+                errorElement:<Error />
             },
             {
                 path:"/vaccination",
-                element:<HealthCareVaccinationAppointment />
+                element:<HealthCareVaccinationAppointment />,
+                errorElement:<Error />
             },
             {
                 path:"/business",
-                element:<BusinessConsultationAppointment />
+                element:<BusinessConsultationAppointment />,
+                errorElement:<Error />
             },
             {
                 path:"/financial",
-                element:<FinancialAdvisoryAppointment />
+                element:<FinancialAdvisoryAppointment />,
+                errorElement:<Error />
             },
             {
                 path:"/real-estate",
-                element:<RealEstateAgentAppointment />
+                element:<RealEstateAgentAppointment />,
+                errorElement:<Error />
             },
             {
-                
-            }
+               path:"/electrical",
+               element:<ElectricalElectronicsRepair />,
+               errorElement:<Error />
+            },
+            {
+                path:"/home-service",
+                element:<HomeServiceAppointment />,
+                errorElement:<Error />
+            },
+            
         ]
     },
 ]);

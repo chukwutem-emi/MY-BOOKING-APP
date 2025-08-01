@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SignupForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 import React from "react";
@@ -11,12 +11,18 @@ const AuthForm = () => {
     const[message, setMessage] = useState("");
     const[isError, setIsError] = useState(false);
     const langKey = useSelector((store) => store.config?.lang);
+
+    useEffect(() => {
+        if (message) {
+            window.scrollTo({top:0, behavior:"smooth"})
+        }
+    }, [message])
     return (
         <>
         <div className="min-h-screen w-full overflow-x-hidden flex flex-col items-center justify-start px-4 bg-white py-6">
             <HomePage />
-            <div className="mt-12 w-full max-w-md bg-white p-2 rounded-xl shadow-2xl">
-                <h2 className="text-center text-xl font-bold text-blue-950 mb-6">
+            <div className="mt-12 w-full max-w-md bg-black opacity-70 p-2 rounded-xl">
+                <h2 className="text-left font-bold text-white mb-6 ml-10 mt-10 text-3xl">
                     {isSignup ? lang[langKey]?.authLanguageConfig?.isSignup: lang[langKey]?.authLanguageConfig?.isLogin}
                 </h2>
                 {message && (
@@ -32,9 +38,9 @@ const AuthForm = () => {
                 ) : (
                     <LoginForm setMessage={setMessage} setIsError={setIsError} />
                 )}
-                <p className="mt-4 text-center text-md text-blue-900">
+                <p className="mt-4 text-center text-md text-white">
                     {isSignup ? lang[langKey]?.authLanguageConfig?.paragraphTextAlready : lang[langKey]?.authLanguageConfig?.paragraphTextDonT}{" "}
-                    <button onClick={() => setIsSignup(!isSignup)} className="text-blue-950 hover:underline font-bold">
+                    <button onClick={() => setIsSignup(!isSignup)} className="text-white hover:underline font-extrabold">
                         {isSignup ? lang[langKey]?.authLanguageConfig?. buttonInnerTextLogin : lang[langKey]?.authLanguageConfig?.buttonInnerTextSignup}
                     </button>
                 </p>

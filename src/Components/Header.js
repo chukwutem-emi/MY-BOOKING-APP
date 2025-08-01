@@ -23,7 +23,7 @@ const Header = () => {
     dispatchLogOut(removeAccessToken());
     setTimeout(() => {
         navigate("/"); 
-    }, 6000);
+    }, 3000);
    }
     return (
         <div className="top-0 right-0 left-0 fixed shadow-lg z-40 flex  flex-row flex-nowrap justify-between p-4 xs:p-4 sm:p-8 md:p-8 lg:p-10 xl:p-12 bg-gray-600  md:flex-row md:mx-0 w-full">
