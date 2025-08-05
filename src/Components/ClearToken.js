@@ -48,7 +48,7 @@ const ClearToken = () => {
 
     }
   return (
-    <div className="mt-[20rem] mx-auto w-[30rem] shadow-2xl p-8 text-center bg-gray-300 rounded-xl space-y-4 items-center fixed flex flex-col">
+    <div className="mt-[20rem] mx-auto w-[30rem] shadow-2xl p-8 text-center bg-gray-300 rounded-xl space-y-4 items-center flex flex-col">
       <h1 className="text-lg text-blue-800 font-sans font-bold animate-pulse">Response from database</h1>
       {
         message && (

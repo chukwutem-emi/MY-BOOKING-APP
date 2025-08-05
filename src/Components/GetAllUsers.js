@@ -1,8 +1,8 @@
 import React, { useRef} from "react";
 import Spinner from "../Utils/Spinner";
 import UsersCard from "./UsersCards";
-import Shimmer from "../Utils/ShimmerUi";
 import useGetAllUsers from "./EverythingAboutAppointments/UserCustomHooks/useGetAllUsers";
+import SubShimmer from "../Utils/SubShimmer";
 
 const GetAllUsers = () => {
     const searchText = useRef(null)
@@ -18,18 +18,20 @@ const GetAllUsers = () => {
         handleBtnClick,
     } = useGetAllUsers();
 
+    const handleClear = () => {
+        setErrorMsg(false);
+        setResponseMsg("")
+    };
+
     return (
-        <div className="mt-[14rem] w-full relative">
-            <div className="flex flex-row space-x-6 w-[80%] mt-0 mx-auto">
+        <div className="mt-[14rem] w-full relative overflow-x-hidden">
+            <div className="flex flex-row space-x-6 w-[80%] mt-0 mx-auto xs:w-[100%] sm:w-[100%] md:w-[100%]">
                 <form onSubmit={(e) => e.preventDefault()} className="w-full flex flex-row flex-nowrap">
                     <input
                     type="text"
                     placeholder="🔍 search"
                     ref={searchText}
-                    onChange={() => {
-                        setErrorMsg(false);
-                        setResponseMsg("");
-                    }}
+                    onChange={handleClear}
                     className="w-full m-4 p-2 border border-gray-700 text-start text-lg"
                     autoFocus
                     autoComplete="on"
@@ -40,7 +42,7 @@ const GetAllUsers = () => {
                             <>
                             <div className="flex flex-row">
                                 <Spinner />
-                                <div className="ml-[6rem]">Searching...</div>
+                                <div className="ml-[6rem] xs:ml-[2rem] sm:ml-[2rem] md:ml-[3rem] lg:ml-[6rem] xl:ml-[8rem]">Searching...</div>
                             </div>
                             </>
                         ) : ("Search")}
@@ -50,7 +52,7 @@ const GetAllUsers = () => {
                 {
                     backgroundLoading && (
                         <>
-                        <Shimmer />
+                        <SubShimmer  />
                         </>
                     )
                 }

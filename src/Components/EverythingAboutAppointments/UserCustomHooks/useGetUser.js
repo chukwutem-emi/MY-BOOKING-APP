@@ -4,12 +4,11 @@ import { useEffect } from "react";
 import { addUserInfo } from "../../../Utils/getUserSlice";
 
 const useGetUser = ({setResponseMsg, setErrorMsg, setLoading, setBackgroundLoading, setHasFetch}) => {
-    const userInfo = useSelector((store) => store.info?.userInfo);
     const userToken = useSelector((store) => store.token?.accessToken);
     const dispatchUser = useDispatch()
 
     useEffect(() => {
-        if (userToken && !userInfo) {
+        if (userToken) {
             handleGetUser();
         }
     }, [userToken]);
@@ -39,6 +38,7 @@ const useGetUser = ({setResponseMsg, setErrorMsg, setLoading, setBackgroundLoadi
 
         } catch (error) {
             setResponseMsg(`Network error or server not responding. ${String(error)}`);
+            setErrorMsg(true);
         }finally {
             setLoading(false);
             setBackgroundLoading(false);

@@ -22,6 +22,8 @@ import Accordion from "./AccordionItems";
 import ElectricalElectronicsRepair from "./EverythingAboutAppointments/TechnicalAndRepairServiceAppointments/ElectricalElectronicsRepairAppointment";
 import HomeServiceAppointment from "./EverythingAboutAppointments/TechnicalAndRepairServiceAppointments/HomeServiceAppointment";
 import Error from "./Error";
+import UpdateUser from "./UpdateUser";
+import PromoteUser from "./PromoteUser";
 
 
 
@@ -121,7 +123,16 @@ const appRouter = createBrowserRouter([
                 element:<HomeServiceAppointment />,
                 errorElement:<Error />
             },
-            
+            {
+                path:"/update-user",
+                element:<UpdateUser />,
+                errorElement:<Error />
+            },
+            {
+                path:"/promote-user",
+                element:<PromoteUser />,
+                errorElement:<Error />
+            },
         ]
     },
 ]);

@@ -18,11 +18,11 @@ const GetUser = () => {
         setBackgroundLoading, 
         setHasFetch});
         
-        return (
-            <div className="min-h-screen mt-[10rem] flex items-center justify-center mx-auto">
-            <div className="w-[40rem] xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[90%]">
-                <p className="font-bold font-serif text-blue-950 text-center animate-bounce text-lg mb-8">click the button bellow to fetch your details.</p>
-                <button className="py-2 text-white bg-blue-950 text-xl rounded w-full text-center hover:bg-blue-600" title={loading ? "🚫 Processing, please wait..." : "Click here to fetch👆"} disabled={loading} onClick={fetchUser}>{loading ? (<><Spinner /> Processing, please wait!....</>) : (hasFetch ? "Refetch" : "Fetch")}</button>
+    return (
+        <div className="mt-[14rem] flex items-center justify-center overflow-x-hidden w-full">
+            <div className="w-[90%] items-center justify-center mx-auto xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[90%]">
+                <p className="w-full font-bold font-serif text-blue-950 text-center animate-bounce text-lg mb-8">click the button bellow to fetch your details.</p>
+                <button className="py-2 text-white bg-blue-950 text-xl rounded w-full text-center hover:bg-blue-600 flex flex-row justify-evenly" title={loading ? "🚫 Processing, please wait..." : "Click here to fetch👆"} disabled={loading} onClick={fetchUser}>{loading ? (<><Spinner /> Processing, please wait!....</>) : (hasFetch ? "Refetch" : "Fetch")}</button>
                 {
                     backgroundLoading && (
                         <>
@@ -32,7 +32,7 @@ const GetUser = () => {
                 }
                 {
                     responseMsg && (
-                        <div className={`text-sm break-words rounded p-3 mb-4 mt-14 shadow-lg ${errorMsg ? "text-red-700 bg-red-100" : "text-green-700 bg-white"}`}>
+                        <div className={`text-sm break-words rounded p-3 mb-4 mt-14 shadow-lg w-full ${errorMsg ? "text-red-700 bg-red-100" : "text-green-700 bg-white"}`}>
                             <button className="text-xl font-bold px-2 rounded hover:bg-gray-300 bg-blue-500 w-8 text-white mb-4" onClick={() => setResponseMsg(null)} title="cancel">&times;
                             </button>
                             {!errorMsg && typeof responseMsg === "object" ? (
@@ -50,7 +50,6 @@ const GetUser = () => {
                 }
             </div>
         </div>
-    )
-    
+    ) 
 }
 export default GetUser;

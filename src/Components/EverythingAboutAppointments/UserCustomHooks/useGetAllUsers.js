@@ -8,7 +8,7 @@ import React from "react";
 const useGetAllUsers = () => {
     const[loading, setLoading] = useState(false);
     const[backgroundLoading, setBackgroundLoading] = useState(false);
-    const[responseMsg, setResponseMsg] = useState([]);
+    const[responseMsg, setResponseMsg] = useState("");
     const[errorMsg, setErrorMsg] = useState(false);
     const[filteredUsers, setFilteredUsers] = useState([])
     const[fullUsersList, setFullUsersList] = useState([])
@@ -37,18 +37,10 @@ const useGetAllUsers = () => {
             });
             const json = await fetchAllUsers.json();
             if (fetchAllUsers.status === 200) {
-                setResponseMsg(json.Users);
                 setFilteredUsers(json.Users);
                 setFullUsersList(json.Users);
                 dispatchUsers(addUsersDetails(json.Users));
                 setErrorMsg(false);
-            } else if (fetchAllUsers.status === 401) {
-                setFullUsersList([])
-                setResponseMsg(json.Not_an_admin);
-                setErrorMsg(true);
-                setTimeout(() => {
-                    navigate("/browse");  
-                }, 14000);
             } else {
                 const [key] = Object.keys(json);
                 setFullUsersList([]);

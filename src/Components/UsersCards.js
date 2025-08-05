@@ -14,8 +14,8 @@ const UsersCard = (props) => {
     } = userData;
 
     return (
-        <div className=" text-green-800 bg-green-50 flex-shrink-0 break-words text-sm h-[10rem] p-4 shadow-2xl">
-           <ul>
+        <div className=" text-green-800 bg-green-50 flex-shrink-0 break-words text-sm h-[14rem] p-4 shadow-2xl xs:w-[90%] sm:w-[80%] md:w-[80%] lg:w-[50%] xl:w-[50%]">
+           <ul className="xs:text-[0.9rem] sm:text-[1.2rem] md:text-[1.3rem] md:space-y-2 lg:text-[1.3rem] lg:space-y-1 xl:text-[1.3rem] xl:space-y-1">
             <li><strong>Id:</strong>&nbsp;{id}</li>
             <li><strong>Username:</strong>&nbsp;{username}</li>
             <li><strong>Public-id:</strong>&nbsp;{public_id}</li>

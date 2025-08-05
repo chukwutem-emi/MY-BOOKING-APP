@@ -44,7 +44,7 @@ const AuthForm = () => {
                         {isSignup ? lang[langKey]?.authLanguageConfig?. buttonInnerTextLogin : lang[langKey]?.authLanguageConfig?.buttonInnerTextSignup}
                     </button>
                 </p>
-            </div>
+            </div>  
         </div>
         </>
     )
