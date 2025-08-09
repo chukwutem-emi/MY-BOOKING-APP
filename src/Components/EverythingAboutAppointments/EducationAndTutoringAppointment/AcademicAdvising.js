@@ -37,19 +37,19 @@ const AcademicAdvising = () => {
         event.preventDefault();
         setIsLoading(true);
         const payload = {
-            first_name:firstName.current.value,
-            last_name:lastName.current.value,
-            gender:gender.current.value,
-            user_phone_number:userPhoneNumber.current.value,
-            address:address.current.value,
-            email_address:emailAddress.current.value,
-            next_of_kin:nextOfKin.current.value,
-            next_of_kin_address:nextOfKinAddress.current.value,
-            amount:amount.current.value,
-            appointment_time:appointmentTime.current.value,
-            appointment_date:appointmentDate.current.value,
-            next_of_kin_phone_number:phone.current.value,
-            appointment_description:description.current.value
+            first_name               : firstName.current.value,
+            last_name                : lastName.current.value,
+            gender                   : gender.current.value,
+            user_phone_number        : userPhoneNumber.current.value,
+            address                  : address.current.value,
+            email_address            : emailAddress.current.value,
+            next_of_kin              : nextOfKin.current.value,
+            next_of_kin_address      : nextOfKinAddress.current.value,
+            amount                   : amount.current.value,
+            appointment_time         : appointmentTime.current.value,
+            appointment_date         : appointmentDate.current.value,
+            next_of_kin_phone_number : phone.current.value,
+            appointment_description  : description.current.value
         };
         try {
             const data = await fetch(ACADEMIC_ADVISING_URL, {
