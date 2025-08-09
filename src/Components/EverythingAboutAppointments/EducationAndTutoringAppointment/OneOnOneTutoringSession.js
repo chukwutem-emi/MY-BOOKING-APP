@@ -174,7 +174,7 @@ const OneOnOneTutoring = () => {
                 ref={addressRef}
                 id="address"
                 name="address"
-                autoComplete="off"
+                autoComplete="on"
                 required
                 />
                 <label htmlFor="email_address" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Email Address:</strong></label>
@@ -185,7 +185,7 @@ const OneOnOneTutoring = () => {
                 ref={emailAddressRef}
                 id="email_address"
                 name="email_address"
-                autoComplete="off"
+                autoComplete="email"
                 required
                 />
                 <label htmlFor="next_of_kin" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Next Of kin:</strong></label>
@@ -218,7 +218,7 @@ const OneOnOneTutoring = () => {
                 ref={nextOfKinAddressRef}
                 id="next_of_kin_address"
                 name="next_of_kin_address"
-                autoComplete="off"
+                autoComplete="on"
                 required
                 />
                 <label htmlFor="amount" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Amount:</strong></label>
@@ -270,12 +270,12 @@ const OneOnOneTutoring = () => {
                 <button className="bg-blue-800 flex flex-row p-2 justify-center rounded-lg break-words hover:bg-blue-600">
                     {
                         isLoading ? (
-                            <>
-                            <Spinner />
-                            <div className="ml-8 text-white text-[1.2rem]">
-                            Please wait! while we process your data..........
+                            <div className="flex flex-row">
+                                <Spinner />
+                                <div className="ml-8 text-white text-[1.2rem]">
+                                Please wait! while we process your data..........
+                                </div>
                             </div>
-                            </>
                         ) : (
                             <div className="text-white text-[1.2rem] font-sans font-bold sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl">
                                 Submit

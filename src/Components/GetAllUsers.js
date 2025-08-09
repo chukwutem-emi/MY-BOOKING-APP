@@ -27,8 +27,11 @@ const GetAllUsers = () => {
         <div className="mt-[14rem] w-full relative overflow-x-hidden">
             <div className="flex flex-row space-x-6 w-[80%] mt-0 mx-auto xs:w-[100%] sm:w-[100%] md:w-[100%]">
                 <form onSubmit={(e) => e.preventDefault()} className="w-full flex flex-row flex-nowrap">
+                    <label htmlFor="search" className="sr-only">Search</label>
                     <input
                     type="text"
+                    id="search"
+                    name="search"
                     placeholder="🔍 search"
                     ref={searchText}
                     onChange={handleClear}

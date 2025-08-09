@@ -5,7 +5,7 @@ const Browse = () => {
     const[isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         const timer = setTimeout(() => {
-            setIsLoading(false)
+            setIsLoading(false);
         }, 5000);
         return () => clearTimeout(timer);
     }, []);

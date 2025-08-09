@@ -1,36 +1,42 @@
-
-import AuthForm from "./Authentication/AuthForm";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import Browse from "./Browse";
-import GetUser from "./GetUser";
-import GetAllUsers from "./GetAllUsers";
 import AppLayout from "./AppLayout"
-import AcademicAdvising from "./EverythingAboutAppointments/EducationAndTutoringAppointment/AcademicAdvising"
-import ClearToken from "./ClearToken";
-import CareerCounseling from "./EverythingAboutAppointments/EducationAndTutoringAppointment/CareerCounseling";
-import OneOnOneTutoring from "./EverythingAboutAppointments/EducationAndTutoringAppointment/OneOnOneTutoringSession";
-import HealthCareConsultationAppointment from "./EverythingAboutAppointments/HealthCareAppointments/HealthCareConsultationAppointment";
-import HealthCareCounselingSessionAppointment from "./EverythingAboutAppointments/HealthCareAppointments/HealthCareCounselingSessionAppointment";
-import HealthCareDentalAppointment from "./EverythingAboutAppointments/HealthCareAppointments/HealthCareDentalAppointment";
-import HealthCarePhysiotherapySessionAppointment from "./EverythingAboutAppointments/HealthCareAppointments/HealthCarePhysiotherapySessionAppointment";
-import HealthCareVaccinationAppointment from "./EverythingAboutAppointments/HealthCareAppointments/HealthCareVaccinationAppointment";
 import BusinessConsultationAppointment from "./EverythingAboutAppointments/ProfessionalServiceAppointment/BusinessConsultationAppointment";
 import FinancialAdvisoryAppointment from "./EverythingAboutAppointments/ProfessionalServiceAppointment/FinancialAdvisoryAppointment";
 import RealEstateAgentAppointment from "./EverythingAboutAppointments/ProfessionalServiceAppointment/RealEstateAgentAppointment";
-import Accordion from "./AccordionItems";
 import ElectricalElectronicsRepair from "./EverythingAboutAppointments/TechnicalAndRepairServiceAppointments/ElectricalElectronicsRepairAppointment";
 import HomeServiceAppointment from "./EverythingAboutAppointments/TechnicalAndRepairServiceAppointments/HomeServiceAppointment";
 import Error from "./Error";
 import UpdateUser from "./UpdateUser";
 import PromoteUser from "./PromoteUser";
+import DeleteUser from "./DeleteUser";
+import Spinner from "../Utils/Spinner";
+import WelcomePage from "../Utils/WelcomePage";
 
 
+const FetchUsers = lazy(() => import("./SubComponent/Users"));
+const FetchUser = lazy(() => import("./SubComponent/User"));
+const AcademicAdvising = lazy(() => import("./SubComponent/Academic"));
+const Authentication = lazy(() => import("./SubComponent/Authentication"));
+const ClearToken = lazy(() => import("./ClearToken"));
+const CareerCounseling = lazy(() => import("./SubComponent/Career"));
+const OneOnOneTutoring = lazy(() => import("./SubComponent/Tutorial"));
+const HealthCareConsultation = lazy(() => import("./SubComponent/HealthCareConsultation"));
+const HealthCareCounseling = lazy(() => import("./SubComponent/HealthCareCounselingSession"));
+const HealthCareDental = lazy(() => import("./SubComponent/HealthCareDental"));
+const HealthCarePhysiotherapy = lazy(() => import("./SubComponent/HealthCarePhysiotherapy"));
+const HealthCareVaccination = lazy(() => import("./SubComponent/HealthCareVaccination"));
+const BusinessConsultation = lazy(() => import("./SubComponent/BusinessConsultation"));
+const FinancialAdvisory = lazy(() => import("./SubComponent/FinancialAdvisory"));
+const RealEstateAgent = lazy(() => import("./SubComponent/RealEstateAgent"));
+const HomeService = lazy(() => import("./SubComponent/HomeService"));
+const ElectricalElectronics = lazy(() => import("./SubComponent/ElectricalElectronicsRepair"))
 
 const appRouter = createBrowserRouter([
     {
         path:"/",
-        element:<AuthForm />,
+        element:<Suspense fallback={<Spinner />}><Authentication /></Suspense>,
         errorElement:<Error />
     },
     {
@@ -45,82 +51,82 @@ const appRouter = createBrowserRouter([
             },
             {
                 path:"/user",
-                element:<GetUser />,
+                element:<Suspense fallback={<Spinner />}><FetchUser /></Suspense>,
                 errorElement:<Error />
             },
             {
                 path:"/users",
-                element:<GetAllUsers />,
+                element:<Suspense fallback={<Spinner />}><FetchUsers /></Suspense>,
                 errorElement:<Error />
             },
             {
                 path:"/academic",
-                element:<AcademicAdvising />,
+                element:<Suspense fallback={<Spinner />}><AcademicAdvising /></Suspense>,
                 errorElement:<Error />
             },
             {
                 path:"/clear-token",
-                element:<ClearToken />,
+                element:<Suspense fallback={<Spinner />}><ClearToken /></Suspense>,
                 errorElement:<Error />
             },
             {
                 path:"/career",
-                element:<CareerCounseling />,
+                element:<Suspense fallback={<Spinner />}><CareerCounseling /></Suspense>,
                 errorElement:<Error />
             },
             {
                 path:"/tutorial",
-                element:<OneOnOneTutoring />,
+                element:<Suspense fallback={<Spinner />}><OneOnOneTutoring /></Suspense>,
                 errorElement:<Error />
             },
             {
                 path:"/consultation",
-                element:<HealthCareConsultationAppointment />,
+                element:<Suspense fallback={<Spinner />}><HealthCareConsultation /></Suspense>,
                 errorElement:<Error />
             },
             {
                 path:"/counseling",
-                element:<HealthCareCounselingSessionAppointment />,
+                element:<Suspense fallback={<Spinner />}><HealthCareCounseling /></Suspense>,
                 errorElement:<Error />
             },
             {
                 path:"/dental",
-                element:<HealthCareDentalAppointment />,
+                element:<Suspense fallback={<Spinner />}><HealthCareDental /></Suspense>,
                 errorElement:<Error />
             },
             {
                 path:"/physiotherapy",
-                element:<HealthCarePhysiotherapySessionAppointment />,
+                element:<Suspense fallback={<Spinner />}><HealthCarePhysiotherapy /></Suspense>,
                 errorElement:<Error />
             },
             {
                 path:"/vaccination",
-                element:<HealthCareVaccinationAppointment />,
+                element:<Suspense fallback={<Spinner />}><HealthCareVaccination /></Suspense>,
                 errorElement:<Error />
             },
             {
                 path:"/business",
-                element:<BusinessConsultationAppointment />,
+                element:<Suspense fallback={<Spinner />}><BusinessConsultation /></Suspense>,
                 errorElement:<Error />
             },
             {
                 path:"/financial",
-                element:<FinancialAdvisoryAppointment />,
+                element:<Suspense fallback={<Spinner />}><FinancialAdvisory /></Suspense>,
                 errorElement:<Error />
             },
             {
                 path:"/real-estate",
-                element:<RealEstateAgentAppointment />,
+                element:<Suspense fallback={<Spinner />}><RealEstateAgent /></Suspense>,
                 errorElement:<Error />
             },
             {
                path:"/electrical",
-               element:<ElectricalElectronicsRepair />,
+               element:<Suspense fallback={<Spinner />}><ElectricalElectronics /></Suspense>,
                errorElement:<Error />
             },
             {
                 path:"/home-service",
-                element:<HomeServiceAppointment />,
+                element:<Suspense fallback={<Spinner />}><HomeService /></Suspense>,
                 errorElement:<Error />
             },
             {
@@ -133,6 +139,15 @@ const appRouter = createBrowserRouter([
                 element:<PromoteUser />,
                 errorElement:<Error />
             },
+            {
+                path:"/delete-user",
+                element:<DeleteUser />,
+                errorElement:<Error />
+            },
+            {
+                path:"/big-spinner",
+                element:<WelcomePage />
+            }
         ]
     },
 ]);

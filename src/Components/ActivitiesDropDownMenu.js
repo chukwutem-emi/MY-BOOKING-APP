@@ -30,7 +30,67 @@ const ActivitiesDropDownMenu = () => {
         },
         {
             title   : "+ Add-AdminUser",
-            link   : "/promote-user"
+            link    : "/promote-user"
+        },
+        {
+            title   : "🔐 Authentication(Login)",
+            link    : "/"
+        },
+        {
+            title   : "💻 Browse Page",
+            link    : "/browse"
+        },
+        {
+            title   : "🏫 Academic-Advising Appointment",
+            link    : "/academic"
+        },
+        {
+            title   : "🏫 Career-Counseling Appointment",
+            link    : "/career"
+        },
+        {
+            title   : "🏫 One-On-One Tutoring Appointment",
+            link    : "/tutorial"
+        },
+        {
+            title   : "🏥 Healthcare-Consultation Appointment",
+            link    : "/consultation"
+        },
+        {
+            title   : "🏥 Healthcare-Counseling Appointment",
+            link    : "/counseling"
+        },
+        {
+            title   : "🏥 Healthcare-Dental Appointment",
+            link    : "/dental"
+        },
+        {
+            title   : "🏥 Healthcare-Physiotherapy Appointment",
+            link    : "/physiotherapy"
+        },
+        {
+            title   : "🏥 Healthcare-Vaccination Appointment",
+            link    : "/vaccination"
+        },
+        {
+            title   : "🧑‍💼 Business-Consultation Appointment",
+            link    : "/business"
+        },
+        {
+            title   : "🧑‍💼 Financial-Advisory Appointment",
+            link    : "/financial"
+        },
+        {
+            title   : "🧑‍💼Real-Estate-Agent Appointment",
+            link    : "/real-estate"
+        },
+        {
+            title   : "🪛🛠️ Electrical/Electronics-Repair Appointment",
+            link    : "/electrical"
+        },
+        {
+            title   : "🛠️ Home-Service Appointment",
+            link    : "/home-service"
         },
 
     ];
@@ -48,7 +108,7 @@ const ActivitiesDropDownMenu = () => {
             </button>
             {
                 isOpen && (
-                    <ul className="absolute bg-black flex flex-col w-[30rem] xs:w-[20rem] sm:w-[25rem] md:w-[30rem] lg:[30rem] xl:[30rem] right-0 mt-2 rounded-lg shadow-md z-50 space-y-3 opacity-85 p-2">
+                    <ul className="absolute bg-black flex flex-col w-[30rem] max-h-[30rem] overflow-y-auto xs:w-[20rem] sm:w-[25rem] md:w-[30rem] lg:[30rem] xl:[30rem] right-0 mt-2 rounded-lg shadow-md z-50 space-y-3 opacity-85 p-2">
                         {
                             content.map((item) => (
                                 <li key={item.title} className="px-4 py-2 text-white hover:bg-gray-700 font-bold font-sans xs:text-sm sm:text-lg md:text-lg lg:text-lg xl:text-lg">

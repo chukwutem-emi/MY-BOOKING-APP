@@ -95,7 +95,7 @@ const LoginForm = ({setMessage, setIsError}) => {
                         {lang[langKey]?.loginLanguageConfig?.checkBoxInnerText}
                     </label>
                 </div>
-                <button type="submit" className="w-full mt-4 p-2 text-lg bg-red-400 text-white font-bold rounded hover:bg-red-300 flex flex-row justify-center break-words" disabled={loading}>
+                <button type="submit" className="w-full mt-4 p-2 text-lg bg-red-900 text-white font-bold rounded hover:bg-red-300 flex flex-row justify-center break-words" disabled={loading}>
                     {loading ? (
                         <>
                         <Spinner />

@@ -61,7 +61,7 @@ const HealthCareConsultationAppointment = () => {
                 },
                 body:JSON.stringify(payload),
             });
-            const json = data.json();
+            const json = await data.json();
             if (data.status === 401) {
                 if (json.re_auth_url) {
                     const authUrl = `${BASE_URL}${json.re_auth_url}`;
@@ -94,11 +94,11 @@ const HealthCareConsultationAppointment = () => {
                 }
                 setIsError(true);
             } else if (data.status === 201) {
-                setMessage(`${json.Consultation}<br><a href=${json.googleCalenderLink} target="_blank" ref="noopener, noreferrer" class="text-blue-500 justify-center items-center text-center font-semibold underline hover:text-lg hover:text-blue-800 my-0 mx-auto" title="click here">click here to view the healthcare consultation you booked in google calender</a>`)
+                setMessage(`${json.Consultation}<br><a href=${json.googleCalendarLink} target="_blank" ref="noopener, noreferrer" class="text-blue-500 justify-center items-center text-center font-semibold underline hover:text-lg hover:text-blue-800 my-0 mx-auto" title="click here">click here to view the healthcare consultation you booked in google calender</a>`)
                 setIsError(false);
             } else {
                 const [key] = Object.keys(json)
-                setMessage(json[key] || "An error occurred!");
+                setMessage(json[key]);
                 setIsError(true);
             }
 
@@ -174,7 +174,7 @@ const HealthCareConsultationAppointment = () => {
             ref={addressRef}
             id="address"
             name="address"
-            autoComplete="off"
+            autoComplete="on"
             required
             />
             <label htmlFor="email_address" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Email Address:</strong></label>
@@ -185,7 +185,7 @@ const HealthCareConsultationAppointment = () => {
             ref={emailAddressRef}
             id="email_address"
             name="email_address"
-            autoComplete="off"
+            autoComplete="email"
             required
             />
             <label htmlFor="next_of_kin" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Next Of kin:</strong></label>
@@ -218,7 +218,7 @@ const HealthCareConsultationAppointment = () => {
             ref={nextOfKinAddressRef}
             id="next_of_kin_address"
             name="next_of_kin_address"
-            autoComplete="off"
+            autoComplete="on"
             required
             />
             <label htmlFor="amount" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Amount:</strong></label>
@@ -270,12 +270,12 @@ const HealthCareConsultationAppointment = () => {
             <button className="bg-blue-600 flex flex-row p-2 justify-center rounded-lg break-words hover:bg-blue-400">
                 {
                     isLoading ? (
-                        <>
-                        <Spinner />
-                        <div className="ml-8 text-white text-[1.2rem]">
-                        Please wait! while we process your data..........
+                        <div className="flex flex-row">
+                            <Spinner />
+                            <div className="ml-8 break-words text-white text-[1.2rem]">
+                            Please wait! while we process your data..........
+                            </div>
                         </div>
-                        </>
                     ) : (
                         <div className="text-white text-[1.2rem] font-sans font-bold sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl">
                             Submit

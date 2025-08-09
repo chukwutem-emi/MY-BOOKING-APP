@@ -90,7 +90,7 @@ const RealEstateAgentAppointment = () => {
                 }
                 setIsError(true);
             } else if (data.status === 201) {
-                setMessage(`${json.real_estate_agent}<br><a href=${json.googleCalenderLink} rel="noopener, noreferrer" target="_blank" title="click here" class="text-blue-500 justify-center items-center text-center font-semibold underline hover:text-lg hover:text-blue-800 my-0 mx-auto break-words">Click this link to view the real-estate-agent appointment you booked in google calender</a>`)
+                setMessage(`${json.real_estate_agent}<br><a href=${json.googleCalendarLink} rel="noopener, noreferrer" target="_blank" title="click here" class="text-blue-500 justify-center items-center text-center font-semibold underline hover:text-lg hover:text-blue-800 my-0 mx-auto break-words">Click this link to view the real-estate-agent appointment you booked in google calender</a>`)
                 setIsError(false);
             } else {
                 const [key] = Object.keys(json);
@@ -168,7 +168,7 @@ const RealEstateAgentAppointment = () => {
                 ref={addressRef}
                 id="address"
                 name="address"
-                autoComplete="off"
+                autoComplete="on"
                 required
                 />
                 <label htmlFor="email_address" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Email Address:</strong></label>
@@ -179,7 +179,7 @@ const RealEstateAgentAppointment = () => {
                 ref={emailAddressRef}
                 id="email_address"
                 name="email_address"
-                autoComplete="off"
+                autoComplete="email"
                 required
                 />
                 <label htmlFor="next_of_kin" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Next Of kin:</strong></label>
@@ -212,7 +212,7 @@ const RealEstateAgentAppointment = () => {
                 ref={nextOfKinAddressRef}
                 id="next_of_kin_address"
                 name="next_of_kin_address"
-                autoComplete="off"
+                autoComplete="on"
                 required
                 />
                 <label htmlFor="amount" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Amount:</strong></label>
@@ -264,12 +264,12 @@ const RealEstateAgentAppointment = () => {
                 <button className="bg-blue-600 flex flex-row p-2 justify-center rounded-lg break-words hover:bg-blue-400">
                     {
                         isLoading ? (
-                            <>
-                            <Spinner />
-                            <div className="ml-8 text-white text-[1.2rem]">
-                            Please wait! while we process your data..........
+                            <div className="flex flex-row">
+                                <Spinner />
+                                <div className="ml-8 break-words text-white text-[1.2rem]">
+                                Please wait! while we process your data..........
+                                </div>
                             </div>
-                            </>
                         ) : (
                             <div className="text-white text-[1.2rem] font-sans font-bold sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl">
                                 Submit

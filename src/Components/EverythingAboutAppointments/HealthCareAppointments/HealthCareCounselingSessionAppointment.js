@@ -61,7 +61,7 @@ const HealthCareCounselingSessionAppointment = () => {
                 },
                 body:JSON.stringify(payload)
             });
-            const json = data.json();
+            const json = await data.json();
             if (data.status === 401) {
                 if (json.counseling_error) {
                     setMessage(json.counseling_error);
@@ -169,7 +169,7 @@ const HealthCareCounselingSessionAppointment = () => {
                 ref={addressRef}
                 id="address"
                 name="address"
-                autoComplete="off"
+                autoComplete="on"
                 required
                 />
                 <label htmlFor="email_address" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Email Address:</strong></label>
@@ -180,7 +180,7 @@ const HealthCareCounselingSessionAppointment = () => {
                 ref={emailAddressRef}
                 id="email_address"
                 name="email_address"
-                autoComplete="off"
+                autoComplete="email"
                 required
                 />
                 <label htmlFor="next_of_kin" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Next Of kin:</strong></label>
@@ -213,7 +213,7 @@ const HealthCareCounselingSessionAppointment = () => {
                 ref={nextOfKinAddressRef}
                 id="next_of_kin_address"
                 name="next_of_kin_address"
-                autoComplete="off"
+                autoComplete="on"
                 required
                 />
                 <label htmlFor="amount" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Amount:</strong></label>
@@ -265,12 +265,12 @@ const HealthCareCounselingSessionAppointment = () => {
                 <button className="bg-blue-600 flex flex-row p-2 justify-center rounded-lg break-words hover:bg-blue-400">
                     {
                         isLoading ? (
-                            <>
-                            <Spinner />
-                            <div className="ml-8 text-white text-[1.2rem]">
-                            Please wait! while we process your data..........
+                            <div className="flex flex-row">
+                                <Spinner />
+                                <div className="ml-8 break-words text-white text-[1.2rem]">
+                                Please wait! while we process your data..........
+                                </div>
                             </div>
-                            </>
                         ) : (
                             <div className="text-white text-[1.2rem] font-sans font-bold sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl">
                                 Submit

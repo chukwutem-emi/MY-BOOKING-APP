@@ -109,7 +109,7 @@ const AcademicAdvising = () => {
 
     };
     return (
-        <div className="my-[12rem] xs:mt-[12rem] sm:mt-[16rem] md:mt-[16rem] lg:mt-[16rem] xl:mt-[16rem] w-full rounded-lg items-center min-h-screen overflow-x-hidden">
+        <div className="my-[12rem] xs:mt-[12rem] sm:mt-[16rem] md:mt-[16rem] lg:mt-[16rem] xl:mt-[16rem] w-full rounded-lg items-center overflow-x-hidden">
             <form onSubmit={handleAcademic} className="flex flex-col w-[50%] mx-auto p-4 space-y-4 shadow-2xl rounded-xl bg-white xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
                 <h1 className="text-center justify-center text-blue-800 text-[1.4rem] font-extrabold mb-[2rem] animate-pulse">Academic-Advising Appointment</h1>
                 {
@@ -172,7 +172,7 @@ const AcademicAdvising = () => {
                     placeholder="Please enter your email address"
                     ref={emailAddress}
                     name="email_address"
-                    autoComplete="off"
+                    autoComplete="email"
                     required
                     className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
@@ -240,7 +240,7 @@ const AcademicAdvising = () => {
                     placeholder="Please choose time"
                     ref={appointmentTime}
                     name="appointment_time"
-                    autoComplete="off"
+                    autoComplete="on"
                     required
                     className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
@@ -251,7 +251,7 @@ const AcademicAdvising = () => {
                     placeholder="Please choose date"
                     ref={appointmentDate}
                     name="appointment_date"
-                    autoComplete="off"
+                    autoComplete="on"
                     required
                     className="p-2 rounded-lg font-sans text-[1rem] text-start md:text-[1.7rem] lg:text-[1.7rem] outline-none border-[1px] border-blue-300"
                 />
@@ -272,10 +272,10 @@ const AcademicAdvising = () => {
                 <button type="submit" className="p-2 rounded-lg font-sans text-[1.2rem] md:text-[1.7rem] sm:text-[1.5rem] text-center cursor-pointer bg-blue-900 text-white hover:animate-pulse hover:bg-blue-600">
                     {
                         isLoading ? (
-                            <>
-                            <Spinner />
-                            <p className="text-lg font-semibold text-white font-sans animate-pulse">Processing......</p>
-                            </>
+                            <div className="flex flex-row">
+                                <Spinner />
+                                <p className="text-lg font-semibold text-white font-sans animate-pulse ml-[3rem]">Processing......</p>
+                            </div>
                         ) : (
                             "Submit"
                         )

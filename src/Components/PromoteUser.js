@@ -30,8 +30,8 @@ const PromoteUser = () => {
     };
     return(
         <div className="w-full overflow-x-hidden mt-[15rem] items-center">
-            <form onSubmit={handleUserPromotion} className="w-[50%] mx-auto p-6 rounded-2xl flex flex-col bg-black space-y-4">
-                <h1 className="w-full text-white font-sans text-2xl font-bold animate-pulse my-[2rem]">Promote User To An Admin-User</h1>
+            <form onSubmit={handleUserPromotion} className="w-[50%] xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%] mx-auto p-6 rounded-2xl flex flex-col bg-black space-y-4">
+                <h1 className="w-full text-white font-sans text-2xl xs:text-[1.2rem] sm:text-[1.3rem] md:text-[1.4rem] lg:text-[1.5rem] font-bold animate-pulse my-[2rem]">Promote User To An Admin-User</h1>
                 {
                     message && (
                         <div className={`w-full break-words text-lg p-4 rounded-xl ${errorMsg ? "text-red-600 bg-red-100" : "text-green-600 bg-green-100"}`}>

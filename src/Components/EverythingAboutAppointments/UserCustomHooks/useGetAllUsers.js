@@ -67,7 +67,7 @@ const useGetAllUsers = () => {
         setLoading(true);
         setTimeout(() => {
             const usersToSearch = [...fullUsersList]
-            if (!Array.isArray(usersToSearch) ||  usersToSearch.length==0) {
+            if (!Array.isArray(usersToSearch) ||  usersToSearch.length===0) {
                 setResponseMsg("No users to search from.")
                 setErrorMsg(true);
                 setFilteredUsers([]);

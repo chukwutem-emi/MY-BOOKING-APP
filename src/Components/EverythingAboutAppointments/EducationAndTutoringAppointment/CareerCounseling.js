@@ -182,7 +182,7 @@ function CareerCounseling() {
         name='email_address'
         ref={emailAddressRef}
         className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300 md:text-2xl lg:text-2xl xl:text-2xl'
-        autoComplete='off'
+        autoComplete='email'
         required
         />
         <label htmlFor='next_of_kin' className='text-blue-700 font-sans font-bold text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl'><strong>Next Of Kin:</strong></label>
@@ -239,7 +239,7 @@ function CareerCounseling() {
         name='appointment_time'
         ref={appointmentTimeRef}
         className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300 md:text-2xl lg:text-2xl xl:text-2xl'
-        autoComplete='off'
+        autoComplete='on'
         required
         />
         <label htmlFor='appointment_date' className='text-blue-700 font-sans font-bold text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl'><strong>Appointment Date:</strong></label>
@@ -250,7 +250,7 @@ function CareerCounseling() {
         name='appointment_date'
         ref={appointmentDateRef}
         className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300 md:text-2xl lg:text-2xl xl:text-2xl'
-        autoComplete='off'
+        autoComplete='on'
         required
         />
         <label htmlFor='appointment_description' className='text-blue-700 font-sans font-bold text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl'><strong>Appointment Description:</strong></label>
@@ -267,10 +267,10 @@ function CareerCounseling() {
         <button type='submit' className='p-2 text-center text-[1.2rem] font-sans outline-none rounded-md bg-blue-800 text-white font-semibold hover:bg-blue-400'>
             {
                 loading ? (
-                    <>
-                    <Spinner />
-                    <div className='break-words animate-pulse font-sans text-white'>Please wait while we process your data............</div>
-                    </>
+                    <div className='flex flex-row'>
+                        <Spinner />
+                        <div className='break-words animate-pulse font-sans text-white ml-[3rem]'>Please wait while we process your data............</div>
+                    </div>
                 ) : (
                     <div className='sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl font-sans font-bold'>Submit</div>    
                 )
