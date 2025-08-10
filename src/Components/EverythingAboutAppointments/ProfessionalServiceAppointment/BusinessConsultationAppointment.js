@@ -1,15 +1,9 @@
-import React, { useRef, useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { BASE_URL, BUSINESS_CONSULTATION_URL } from "../../../Utils/constants";
+import React, { useRef } from "react";
 import Spinner from "../../../Utils/Spinner";
+import useBusinessConsultation from "../../../AppointmentOperationCustomHooks/useBusinessConsultation";
 
 
 const BusinessConsultationAppointment = () => {
-    const[message, setMessage]      = useState("");
-    const[isLoading, setIsLoading]  = useState(false);
-    const[isError, setIsError]      = useState(false);
-
     const firstNameRef               =  useRef(null);
     const lastNameRef                =  useRef(null);
     const emailAddressRef            =  useRef(null);
@@ -24,18 +18,15 @@ const BusinessConsultationAppointment = () => {
     const appointmentDateRef         =  useRef(null);
     const appointmentDescriptionRef  =  useRef(null);
 
-    const navigate = useNavigate();
+   const {
+        handleBusinessConsultationAppointment : handleBusinessConsultationAppointmentPayload,
+        isError,
+        isLoading,
+        message
+   } =  useBusinessConsultation({payload:{}});
 
-    const userToken = useSelector((store) => store.token?.accessToken);
-    useEffect(() => {
-            if (message) {
-                window.scrollTo({top:0, behavior:"smooth"});
-            }
-        }, [message]);
-    const handleBusinessConsultationAppointment = async (event) => {
+    const handleBusinessConsultationAppointmentForm = (event) => {
         event.preventDefault();
-        setIsLoading(true);
-
         const payload = {
             first_name               : firstNameRef.current.value,
             last_name                : lastNameRef.current.value,
@@ -51,63 +42,11 @@ const BusinessConsultationAppointment = () => {
             appointment_date         : appointmentDateRef.current.value,
             appointment_description  : appointmentDescriptionRef.current.value,
         };
-        try {
-            const data = await fetch(BUSINESS_CONSULTATION_URL, {
-                method:"POST",
-                headers:{
-                    "Content-Type" : "application/json",
-                    "access-token" : `Bearer ${userToken}`
-                },
-                body:JSON.stringify(payload)
-            });
-            const json = await data.json();
-            if (data.status === 401) {
-                if (json.business_error) {
-                    setMessage(json.business_error);
-                    setIsError(true);
-                    setTimeout(() => {
-                        navigate("/");
-                    }, 8000);
-                } else if (json.re_auth_url) {
-                    const authUrl = `${BASE_URL}${json.re_auth_url}`
-                    setTimeout(() => {
-                        window.open(authUrl, "_blank");
-                    }, 8000);
-                    setMessage(`
-                        ❗You haven't authenticated yet.
-                        <br />
-                        🔐 Redirecting you to google for authentication........
-                        <br />
-                        <a
-                        target  = "_blank"
-                        href    = ${authUrl}
-                        rel     = "noopener, noreferrer"
-                        title   = "click here"
-                        class   = "text-blue-600 underline animate-pulse cursor-pointer"
-                        >Click here to authenticate.</a>
-                        `)
-                } else {
-                    setMessage("Unauthorized!, access denied. Please ensure that you are logged in and try again later");
-                }
-                setIsError(true);
-            } else if (data.status === 201) {
-                setMessage(`${json.business_consultation}<br><a href=${json.googleCalendarLink} rel="noopener, noreferrer" target="_blank" title="click here" class="text-blue-500 justify-center items-center text-center font-semibold underline hover:text-lg hover:text-blue-800 my-0 mx-auto">Click this link to view the business consultation appointment you booked in google calender</a>`)
-                setIsError(false);
-            } else {
-                const [key] = Object.keys(json);
-                setMessage(json[key] || "An error occurred. Please try again");
-                setIsError(true)
-            }
-        }catch(error) {
-            setMessage(`Network error or server not responding. ${String(error)}`);
-            setIsError(true)
-        }finally {
-            setIsLoading(false);
-        }
-    }
+        handleBusinessConsultationAppointmentPayload(event, payload)
+    };
   return (
     <div className="mt-[16rem] overflow-x-hidden w-full items-center">
-        <form onSubmit={handleBusinessConsultationAppointment} className="w-[50%] space-y-4 my-0 mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
+        <form onSubmit={handleBusinessConsultationAppointmentForm} className="w-[50%] space-y-4 my-0 mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
               <h1 className="text-center break-words font-sans text-blue-800 font-bold text-[1.5rem] mb-8 animate-pulse xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl">Business Consultation  Appointment</h1>
                 {
                     message && (

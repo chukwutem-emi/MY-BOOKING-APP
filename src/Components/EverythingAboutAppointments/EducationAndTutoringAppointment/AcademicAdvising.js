@@ -1,41 +1,31 @@
-import React, { useEffect, useRef, useState } from "react";
-import { ACADEMIC_ADVISING_URL, BASE_URL } from "../../../Utils/constants";
-import { useSelector } from "react-redux";
+import React, { useRef } from "react";
 import Spinner from "../../../Utils/Spinner";
-import { useNavigate } from "react-router-dom";
+import useAcademicAdvisory from "../../../AppointmentOperationCustomHooks/useAcademicAdvising";
 
 const AcademicAdvising = () => {
-    const userToken = useSelector((store) => store.token?.accessToken)
-    const[isLoading, setIsLoading] = useState(false);
-    const[errorMsg, setErrorMsg] = useState(false);
-    const[message, setMessage] = useState("");
-
-    const firstName = useRef(null);
-    const lastName = useRef(null);
-    const userPhoneNumber = useRef(null);
-    const emailAddress = useRef(null);
-    const address = useRef(null);
-    const nextOfKin = useRef(null);
+    const firstName        = useRef(null);
+    const lastName         = useRef(null);
+    const userPhoneNumber  = useRef(null);
+    const emailAddress     = useRef(null);
+    const address          = useRef(null);
+    const nextOfKin        = useRef(null);
     const nextOfKinAddress = useRef(null);
-    const appointmentTime = useRef(null);
-    const appointmentDate = useRef(null);
-    const gender = useRef(null);
-    const amount = useRef(null);
-    const phone = useRef(null);
-    const description = useRef(null);
+    const appointmentTime  = useRef(null);
+    const appointmentDate  = useRef(null);
+    const gender           = useRef(null);
+    const amount           = useRef(null);
+    const phone            = useRef(null);
+    const description      = useRef(null);
 
-    const navigate = useNavigate()
+    const {
+        handleAcademic : handleAcademicPayload,
+        errorMsg,
+        message,
+        isLoading
+    } = useAcademicAdvisory({payload:{}});
 
-    useEffect(() => {
-        if (message) {
-            window.scrollTo({top:0, behavior:"smooth"})
-        }
-    }, [message])
-
-
-    const handleAcademic = async (event) => {
+    const handleAcademicForm = (event) => {
         event.preventDefault();
-        setIsLoading(true);
         const payload = {
             first_name               : firstName.current.value,
             last_name                : lastName.current.value,
@@ -51,66 +41,11 @@ const AcademicAdvising = () => {
             next_of_kin_phone_number : phone.current.value,
             appointment_description  : description.current.value
         };
-        try {
-            const data = await fetch(ACADEMIC_ADVISING_URL, {
-                method:"POST",
-                headers:{
-                    "Content-Type":"application/json",
-                    "access-token":`Bearer ${userToken}`,
-                },
-                body:JSON.stringify(payload),
-            });
-            const json = await data.json();
-            if (data.status === 401) {
-                if (json.re_auth_url) {
-                    const authUrl = `${BASE_URL}${json.re_auth_url}`
-                    setTimeout(() => {
-                        window.open(authUrl, "_blank");   
-                    }, 5000);
-                    setMessage(`
-                        ❗You haven't authenticated yet.
-                        <br />
-                        🔐 Redirecting you to google for authentication.........
-                        <br />
-                        <a
-                        href=${authUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-blue-600 underline animate-pulse"
-                        >
-                            Click here to authorize
-                        </a>
-                        `)
-                } else if (json.Login_required){
-                    setMessage("❌ You must be logged in to book an appointment.");
-                    setTimeout(() => {
-                        navigate("/")   
-                    }, 8000);
-                } else {
-                    setMessage("⚠️ Unauthorized access. Please login or try again");
-                }
-                setErrorMsg(true);
-            }
-            else if (data.status === 201) {
-                setMessage(`${json.Academic_advising}<br><a class="text-blue-600 underline font-semibold hover:text-blue-800 hover:text-lg justify-center items-center my-0 mx-auto" href="${json.googleCalenderEvent}" target="_blank" rel="noopener noreferrer">Click here to view the appointment</a>`)
-                setErrorMsg(false)
-            } else {
-                const[key] = Object.keys(json);
-                setMessage(json[key] || "An error occurred");
-                setErrorMsg(true);
-            }
-
-        } catch(error) {
-            setErrorMsg(`Network issue or server not responding: ${String(error)}`)
-
-        } finally {
-            setIsLoading(false)
-        };
-
+        handleAcademicPayload(event, payload);
     };
     return (
         <div className="my-[12rem] xs:mt-[12rem] sm:mt-[16rem] md:mt-[16rem] lg:mt-[16rem] xl:mt-[16rem] w-full rounded-lg items-center overflow-x-hidden">
-            <form onSubmit={handleAcademic} className="flex flex-col w-[50%] mx-auto p-4 space-y-4 shadow-2xl rounded-xl bg-white xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
+            <form onSubmit={handleAcademicForm} className="flex flex-col w-[50%] mx-auto p-4 space-y-4 shadow-2xl rounded-xl bg-white xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
                 <h1 className="text-center justify-center text-blue-800 text-[1.4rem] font-extrabold mb-[2rem] animate-pulse">Academic-Advising Appointment</h1>
                 {
                     message && (
@@ -283,6 +218,6 @@ const AcademicAdvising = () => {
                 </button>
             </form>
         </div>
-    )
+    );
 };
 export default AcademicAdvising;

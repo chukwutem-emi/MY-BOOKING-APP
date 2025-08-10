@@ -1,0 +1,20 @@
+{
+    "short_name" : "CHEMSTENABS",
+    "name"       : "CHEMSTEN APPOINTMENT BOOKING SYSTEM",
+    "icons"      : [
+        {
+            "src"  : "./chemstenabs-192.png",
+            "type" : "image/png",
+            "sizes" : "192x192"
+        },
+        {
+            "src"  : "./chemstenabs-512.png",
+            "type" : "image/png",
+            "sizes" : "512x512"
+        }
+    ],
+    "start_url"        : "/?source=pwa",
+    "display"          : "standalone",
+    "background_color" : "#ffffff",
+    "theme_color"      : "#000000"
+}

@@ -1,41 +1,31 @@
-import React, { cache, useEffect, useRef, useState } from 'react'
-import { BASE_URL, CAREER_COUNSELING_URL } from '../../../Utils/constants';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import React, { useRef } from 'react'
 import Spinner from '../../../Utils/Spinner';
+import useCareerCounseling from '../../../AppointmentOperationCustomHooks/useCareerCounseling';
 
-function CareerCounseling() {
-    const[message, setMessage] = useState("");
-    const[errorMsg, setErrorMsg] = useState(false);
-    const[loading, setLoading] = useState(false);
-
-    const getUserToken = useSelector((store) => store.token?.accessToken);
-
-    const navigate = useNavigate();
-    
-    const firstNameRef = useRef(null);
-    const lastNameRef = useRef(null);
-    const genderRef = useRef(null);
-    const userPhoneNumberRef = useRef(null);
-    const addressRef = useRef(null);
-    const emailAddressRef = useRef(null);
-    const nextOfKinRef = useRef(null);
-    const nextOfKinPhoneNumberRef = useRef(null);
-    const nextOfKinAddressRef = useRef(null);
-    const amountRef = useRef(null);
-    const appointmentDateRef = useRef(null);
-    const appointmentTimeRef = useRef(null);
+const CareerCounseling = () => {
+    const firstNameRef              = useRef(null);
+    const lastNameRef               = useRef(null);
+    const genderRef                 = useRef(null);
+    const userPhoneNumberRef        = useRef(null);
+    const addressRef                = useRef(null);
+    const emailAddressRef           = useRef(null);
+    const nextOfKinRef              = useRef(null);
+    const nextOfKinPhoneNumberRef   = useRef(null);
+    const nextOfKinAddressRef       = useRef(null);
+    const amountRef                 = useRef(null);
+    const appointmentDateRef        = useRef(null);
+    const appointmentTimeRef        = useRef(null);
     const appointmentDescriptionRef = useRef(null);
 
-    useEffect(() => {
-        if (message) {
-            window.scrollTo({top:0, behavior:"smooth"});
-        }
-    }, [message])
+    const {
+        handleCareerClick : handleCareerPayload,
+        message,
+        errorMsg,
+        loading
+    } = useCareerCounseling({payload:{}});
 
-    const handleCareerClick = async (event) => {
+    const handleCareerClickForm = (event) => {
         event.preventDefault();
-        setLoading(true);
         const payload = {
             first_name               : firstNameRef.current.value,
             last_name                : lastNameRef.current.value,
@@ -51,65 +41,11 @@ function CareerCounseling() {
             appointment_date         : appointmentDateRef.current.value,
             appointment_description  : appointmentDescriptionRef.current.value,
         };
-        try {
-            const data = await fetch(CAREER_COUNSELING_URL, {
-                method:"POST",
-                headers:{
-                    "Content-Type" : "application/json",
-                    "access-token" : `Bearer ${getUserToken}`,
-                },
-                body:JSON.stringify(payload)
-            });
-            const json = await data.json();
-            if (data.status === 401) {
-                if (json.re_auth_url) {
-                    const authUrl = `${BASE_URL}${json.re_auth_url}`
-                    setTimeout(() => {
-                        window.open(authUrl, "_blank")
-                    }, 5000);
-                    setMessage(`
-                        ❗You haven't authenticated yet.
-                        <br />
-                        🔐 Redirecting you to google for authentication...........
-                        <br />
-                        <a
-                        href     = ${authUrl}
-                        target   = "_blank"
-                        rel      = "noopener noreferrer"
-                        class    = "text-blue-600 underline animate-pulse"
-                        >
-                        Click here to authenticate
-                        </a>
-                        `);
-                } else if (json.Msg) {
-                    setMessage("⚠️ Access denied!. You must be logged in to book an appointment");
-                    setTimeout(() => {
-                        navigate("/")  
-                    }, 8000);
-                } else {
-                    setMessage("Unauthorized access!.Please login or try again later.");
-                }
-                setErrorMsg(true);
-            } else if (data.status === 201) {
-                setMessage(`
-                    ${json.Career_counseling}<br><a class="text-blue-500 justify-center items-center text-center font-semibold underline hover:text-lg hover:text-blue-800 my-0 mx-auto" target="_blank" href=${json.googleCalenderEvent} ref="noopener noreferrer">Click here to view the career-counseling appointment</a>
-                    `);
-                setErrorMsg(false);
-            } else {
-                const [key] = Object.keys(json);
-                setMessage(json[key] || "An error occurred!.")
-                setErrorMsg(true)
-            }
-        }catch(error) {
-            setMessage(`❌Network issue or server not responding ${String(error)}`);
-            setErrorMsg(true)
-        }finally {
-            setLoading(false);
-        }
-    }
+        handleCareerPayload(event, payload);
+    };
   return (
     <div className='my-[12rem] w-full items-center min-h-screen overflow-x-hidden'>
-      <form onSubmit={handleCareerClick} className='flex flex-col space-y-4 w-[50%] bg-white p-8 rounded-2xl my-0 mx-auto shadow-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]'>
+      <form onSubmit={handleCareerClickForm} className='flex flex-col space-y-4 w-[50%] bg-white p-8 rounded-2xl my-0 mx-auto shadow-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]'>
         <h1 className='text-center justify-center text-blue-800 text-[1.4rem] font-extrabold mb-[2rem] animate-pulse xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl'>Career-Counseling Appointment</h1>
         {
             message && (
@@ -278,7 +214,6 @@ function CareerCounseling() {
         </button>
       </form>
     </div>
-  )
-}
-
+  );
+};
 export default CareerCounseling

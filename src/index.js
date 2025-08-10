@@ -7,5 +7,14 @@ const root = createRoot(document.getElementById("root"))
 root.render(
     <App />
 )
-
+const service = () => {
+    navigator.serviceWorker.register(new URL("./sw.js", import.meta.url)).then((reg) => {
+        console.log("SERVICE-REGISTERED:", reg);
+    }, (err) => {
+        console.error("Service worker registration failed:", err);
+    })
+}
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", service)
+};
 

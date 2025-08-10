@@ -1,15 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { BASE_URL, HEALTHCARE_CONSULTATION_URL } from "../../../Utils/constants";
-import { useSelector } from "react-redux";
+import React, { useRef } from "react";
 import Spinner from "../../../Utils/Spinner";
+import useHealthcareConsultation from "../../../AppointmentOperationCustomHooks/useHealthcareConsultation";
 
 
 const HealthCareConsultationAppointment = () => {
-    const[message, setMessage] = useState("");
-    const[isError, setIsError] = useState(false);
-    const[isLoading, setIsLoading] = useState(false);
-
     const firstNameRef               = useRef(null);
     const lastNameRef                =  useRef(null);
     const emailAddressRef            =  useRef(null);
@@ -24,19 +18,15 @@ const HealthCareConsultationAppointment = () => {
     const appointmentDateRef         =  useRef(null);
     const appointmentDescriptionRef  =  useRef(null);
 
-    const navigate = useNavigate();
-    const userToken = useSelector((store) => store.token?.accessToken);
+    const {
+        handleHealthcareConsultation : handleHealthcareConsultationPayload,
+        isError,
+        isLoading,
+        message
+    } = useHealthcareConsultation({payload:{}});
 
-    useEffect(() => {
-        if (message) {
-            window.scrollTo({top:0, behavior:"smooth"});
-        }
-    }, [message]);
-
-    const handleHealthcareConsultation = async (event) => {
+    const handleHealthcareConsultationForm = (event) => {
         event.preventDefault();
-        setIsLoading(true);
-
         const payload = {
             first_name               : firstNameRef.current.value,
             last_name                : lastNameRef.current.value,
@@ -52,67 +42,11 @@ const HealthCareConsultationAppointment = () => {
             appointment_date         : appointmentDateRef.current.value,
             appointment_description  : appointmentDescriptionRef.current.value,
         };
-        try {
-            const data = await fetch(HEALTHCARE_CONSULTATION_URL, {
-                method:"POST",
-                headers:{
-                    "Content-Type" : "application/json",
-                    "access-token" : `Bearer ${userToken}`
-                },
-                body:JSON.stringify(payload),
-            });
-            const json = await data.json();
-            if (data.status === 401) {
-                if (json.re_auth_url) {
-                    const authUrl = `${BASE_URL}${json.re_auth_url}`;
-                    setTimeout(() => {
-                        window.open(authUrl, "_blank");
-                    }, 8000);
-                    setMessage(`
-                        ⚠️ You haven't authenticated yet.
-                        <br />
-                        🔐 Redirecting you to google for authentication.........
-                        <br />
-                        <a
-                        href   = ${authUrl}
-                        target = "_blank"
-                        rel    = "noopener, noreferrer"
-                        title  = "click to authenticate now"
-                        class  = "text-blue-600 underline animate-pulse"
-                        >Click here to authenticate</a>
-                        `);
-                } else if (json.consultation) {
-                    setMessage(json.consultation);
-                    setTimeout(() => {
-                        navigate('/');
-                    }, 8000);
-                } else {
-                    setMessage("Unauthorized access!. Please login or try again later.")
-                    setTimeout(() => {
-                        navigate("/");
-                    }, 8000);
-                }
-                setIsError(true);
-            } else if (data.status === 201) {
-                setMessage(`${json.Consultation}<br><a href=${json.googleCalendarLink} target="_blank" ref="noopener, noreferrer" class="text-blue-500 justify-center items-center text-center font-semibold underline hover:text-lg hover:text-blue-800 my-0 mx-auto" title="click here">click here to view the healthcare consultation you booked in google calender</a>`)
-                setIsError(false);
-            } else {
-                const [key] = Object.keys(json)
-                setMessage(json[key]);
-                setIsError(true);
-            }
-
-        } catch(error) {
-            setMessage(`📡Network error or server not responding.${String(error)}`);
-            setIsError(true);
-
-        } finally {
-            setIsLoading(false)
-        }
-    }
+        handleHealthcareConsultationPayload(event, payload);
+    };
   return (
     <div className="mt-[16rem] overflow-x-hidden w-full items-center">
-        <form onSubmit={handleHealthcareConsultation} className="w-[50%] space-y-4 my-0 mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
+        <form onSubmit={handleHealthcareConsultationForm} className="w-[50%] space-y-4 my-0 mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
             <h1 className="text-center font-sans text-blue-800 font-bold text-[1.5rem] mb-8 animate-pulse xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl">Healthcare Consultation Appointment</h1>
             {
                 message && (
