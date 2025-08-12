@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { DELETE_USER_URL } from "../../../Utils/constants";
 import { useNavigate } from "react-router-dom";
+import { DELETE_USER_URL } from "../Utils/constants";
 
 
 const useDeleteUser = () => {

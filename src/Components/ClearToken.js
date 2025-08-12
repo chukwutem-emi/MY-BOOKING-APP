@@ -49,7 +49,7 @@ const ClearToken = () => {
     }
   return (
     <div className="mt-[20rem] mx-auto shadow-2xl p-8 text-center bg-gray-300 rounded-xl space-y-4 items-center flex flex-col">
-      <h1 className="text-lg text-blue-800 font-sans font-bold animate-pulse">Response from database</h1>
+      <h1 className="text-lg text-blue-800 font-sans font-bold animate-pulse">Response from server</h1>
       {
         message && (
             <div className={`mb-4 p-3 rounded text-sm break-words ${isError ? "text-red-700 bg-red-100" : "text-green-700 bg-white"}`}>

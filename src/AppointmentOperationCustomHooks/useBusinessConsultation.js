@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { BUSINESS_CONSULTATION_URL, BASE_URL } from "../Utils/constants";
@@ -13,10 +13,10 @@ const useBusinessConsultation = () => {
 
     const userToken = useSelector((store) => store.token?.accessToken);
     useEffect(() => {
-            if (message) {
-                window.scrollTo({top:0, behavior:"smooth"});
-            }
-        }, [message]);
+        if (message) {
+            window.scrollTo({top:0, behavior:"smooth"});
+        }
+    }, [message]);
     
     const handleBusinessConsultationAppointment = async (event, payload) => {
         event.preventDefault();

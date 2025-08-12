@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
-import { FETCH_USER_URL } from "../../../Utils/constants";
 import { useEffect } from "react";
-import { addUserInfo } from "../../../Utils/getUserSlice";
+import { FETCH_USER_URL } from "../Utils/constants";
+import { addUserInfo } from "../Utils/getUserSlice";
 
 const useGetUser = ({setResponseMsg, setErrorMsg, setLoading, setBackgroundLoading, setHasFetch}) => {
     const userToken = useSelector((store) => store.token?.accessToken);

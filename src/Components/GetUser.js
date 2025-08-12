@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Spinner from "../Utils/Spinner";
 import LoadingSpinner from "../Utils/LoadingSpinner";
-import useGetUser from "./EverythingAboutAppointments/UserCustomHooks/useGetUser"
+import useGetUser from "../UserCustomHooks/useGetUser"
 
 
 const GetUser = () => {

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import useUpdateUser from "./EverythingAboutAppointments/UserCustomHooks/useUpdateUser";
+import useUpdateUser from "../UserCustomHooks/useUpdateUser";
 import Spinner from "../Utils/Spinner";
 
 const UpdateUser = () => {

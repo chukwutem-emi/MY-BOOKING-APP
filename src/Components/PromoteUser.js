@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import usePromoteUser from "./EverythingAboutAppointments/UserCustomHooks/usePromoteUser";
+import usePromoteUser from "../UserCustomHooks/usePromoteUser";
 import Spinner from "../Utils/Spinner";
 
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { PROMOTE_USER_URL } from "../../../Utils/constants";
+import { PROMOTE_USER_URL } from "../Utils/constants";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 

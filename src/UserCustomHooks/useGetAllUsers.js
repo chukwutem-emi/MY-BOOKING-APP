@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { FETCH_ALL_USERS_URL } from "../../../Utils/constants";
-import { addUsersDetails } from "../../../Utils/usersDetailsAndAppointmentsSlice";
 import { useNavigate } from "react-router-dom";
 import React from "react";
+import { FETCH_ALL_USERS_URL } from "../Utils/constants";
+import { addUsersDetails } from "../Utils/usersDetailsAndAppointmentsSlice";
 
 const useGetAllUsers = () => {
     const[loading, setLoading] = useState(false);

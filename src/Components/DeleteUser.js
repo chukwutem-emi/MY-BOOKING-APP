@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import useDeleteUser from "./EverythingAboutAppointments/UserCustomHooks/useDeleteUser";
+import useDeleteUser from "../UserCustomHooks/useDeleteUser";
 
 const DeleteUser = () => {
     const emailRef = useRef(null);

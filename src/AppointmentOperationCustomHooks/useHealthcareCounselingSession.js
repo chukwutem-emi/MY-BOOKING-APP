@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { HEALTHCARE_COUNSELING_URL, BASE_URL } from "../Utils/constants";
@@ -19,7 +19,7 @@ const useHealthcareCounselingSession = () => {
         }
     }, [message]);
 
-    const handleCounselingSession = async (e) => {
+    const handleCounselingSession = async (e, payload) => {
         e.preventDefault();
         setIsLoading(true);
         try {

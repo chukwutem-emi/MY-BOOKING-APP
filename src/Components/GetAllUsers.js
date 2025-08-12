@@ -1,7 +1,7 @@
 import React, { useRef} from "react";
 import Spinner from "../Utils/Spinner";
 import UsersCard from "./UsersCards";
-import useGetAllUsers from "./EverythingAboutAppointments/UserCustomHooks/useGetAllUsers";
+import useGetAllUsers from "../UserCustomHooks/useGetAllUsers";
 import SubShimmer from "../Utils/SubShimmer";
 
 const GetAllUsers = () => {
