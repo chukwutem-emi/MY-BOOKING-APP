@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { HEALTHCARE_VACCINATION_URL, BASE_URL } from "../Utils/constants";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -12,14 +12,8 @@ const useHealthcareVaccination = () => {
     const navigate = useNavigate();
 
     const userToken = useSelector((store) => store.token?.accessToken);
-    useEffect(() => {
-        if (message) {
-            window.scrollTo({top:0, behavior:"smooth"});
-        }
-    }, [message]);
 
-    const handleVaccinationAppointment = async (event, payload) => {
-        event.preventDefault();
+    const handleVaccinationAppointment = async (payload) => {
         setIsLoading(true);
         try {
             const data = await fetch(HEALTHCARE_VACCINATION_URL, {
@@ -44,7 +38,7 @@ const useHealthcareVaccination = () => {
                         window.open(authUrl, "_blank");
                     }, 8000);
                     setMessage(`
-                        ❗You haven't authenticated yet.
+                        ❗To book an appointment, you have to allow this app to view and manage your google calendar.
                         <br />
                         🔐 Redirecting you to google for authentication........
                         <br />
@@ -79,7 +73,8 @@ const useHealthcareVaccination = () => {
         handleVaccinationAppointment,
         isError,
         message,
-        isLoading
+        isLoading,
+        setMessage
     }
 };
 export default useHealthcareVaccination;

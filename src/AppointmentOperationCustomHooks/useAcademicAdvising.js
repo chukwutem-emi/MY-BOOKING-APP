@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { ACADEMIC_ADVISING_URL, BASE_URL } from "../Utils/constants";
 import { useNavigate } from "react-router-dom";
@@ -12,14 +12,7 @@ const useAcademicAdvisory = () => {
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (message) {
-            window.scrollTo({top:0, behavior:"smooth"});
-        }
-    }, [message]);
-
-    const handleAcademic = async (event, payload) => {
-        event.preventDefault();
+    const handleAcademic = async (payload) => {
         setIsLoading(true);
         try {
             const data = await fetch(ACADEMIC_ADVISING_URL, {
@@ -38,7 +31,7 @@ const useAcademicAdvisory = () => {
                         window.open(authUrl, "_blank");   
                     }, 5000);
                     setMessage(`
-                        ❗You haven't authenticated yet.
+                        ❗To book an appointment, you have to allow this app to view and manage your google calendar.
                         <br />
                         🔐 Redirecting you to google for authentication.........
                         <br />
@@ -83,7 +76,8 @@ const useAcademicAdvisory = () => {
         handleAcademic,
         message,
         isLoading,
-        errorMsg
+        errorMsg,
+        setMessage
     };
 };
 export default useAcademicAdvisory;

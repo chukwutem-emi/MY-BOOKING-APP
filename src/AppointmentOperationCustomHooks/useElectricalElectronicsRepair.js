@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL, ELECTRICAL_ELECTRONICS_REPAIR_URL } from "../Utils/constants";
@@ -13,14 +13,8 @@ const useElectricalElectronicsRepair = () => {
 
     const userToken = useSelector((store) => store.token?.accessToken);
 
-    useEffect(() => {
-        if (message) {
-            window.scrollTo({top:0, behavior:"smooth"});
-        }
-    }, [message]);
     
-    const handleElectricalElectronicsRepair = async (event, payload) => {
-        event.preventDefault();
+    const handleElectricalElectronicsRepair = async (payload) => {
         setIsLoading(true);
         try {
             const data = await fetch(ELECTRICAL_ELECTRONICS_REPAIR_URL, {
@@ -45,7 +39,7 @@ const useElectricalElectronicsRepair = () => {
                         window.open(authUrl, "_blank");
                     }, 8000);
                     setMessage(`
-                        ❗You haven't authenticated yet.
+                        ❗To book an appointment, you have to allow this app to view and manage your google calendar.
                         <br />
                         🔐 Redirecting you to google for authentication........
                         <br />
@@ -80,7 +74,8 @@ const useElectricalElectronicsRepair = () => {
         handleElectricalElectronicsRepair,
         message,
         isLoading,
-        isError
+        isError,
+        setMessage
     };
 };
 export default useElectricalElectronicsRepair;

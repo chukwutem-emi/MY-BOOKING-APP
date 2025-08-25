@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { HEALTHCARE_COUNSELING_URL, BASE_URL } from "../Utils/constants";
@@ -13,14 +13,8 @@ const useHealthcareCounselingSession = () => {
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (message) {
-            window.scrollTo({top:0, behavior:"smooth"})
-        }
-    }, [message]);
 
-    const handleCounselingSession = async (e, payload) => {
-        e.preventDefault();
+    const handleCounselingSession = async (payload) => {
         setIsLoading(true);
         try {
             const data = await fetch(HEALTHCARE_COUNSELING_URL, {
@@ -44,7 +38,7 @@ const useHealthcareCounselingSession = () => {
                         window.open(authUrl, "_blank");
                     }, 8000);
                     setMessage(`
-                        ❗You haven't authenticated yet.
+                        ❗To book an appointment, you have to allow this app to view and manage your google calendar.
                         <br />
                         🔐 Redirecting you to google for authentication.......
                         <br />
@@ -79,7 +73,8 @@ const useHealthcareCounselingSession = () => {
         handleCounselingSession,
         message,
         isError,
-        isLoading
+        isLoading,
+        setMessage
     };
 };
 export default useHealthcareCounselingSession;

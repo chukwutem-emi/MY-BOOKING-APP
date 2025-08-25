@@ -37,7 +37,6 @@ export const START_OAUTH = "https://appointment-booking-system-dgpm.onrender.com
 export const CLEAR_TOKEN = "https://appointment-booking-system-dgpm.onrender.com/api/token/clear-token"
 // language keys and values.
 export const SUPPORTED_LANGUAGES = [
-    {identifier:"placeholder", name:"Choose language"},
     {identifier:"eng", name:"English"},
     {identifier:"yoruba", name:"Yoruba"},
     {identifier:"hausa", name:"Hausa"},
@@ -46,4 +45,20 @@ export const SUPPORTED_LANGUAGES = [
     {identifier:"spanish", name:"Spanish"},
     {identifier:"chinese", name:"Chinese"},
     {identifier:"french", name:"French"}
+];
+export const EDUCATIONAL_APPOINTMENT_PERSONNEL = [
+    {identifier:"dr chukwuka", name:"Dr. Chukwuka"},
+    {identifier:"dr stephen", name:"Dr. Stephen"},
+];
+export const HEALTHCARE_APPOINTMENT_PERSONNEL = [
+    {identifier:"dr chukwuka", name:"Dr. Chukwuka"},
+    {identifier:"dr stephen", name:"Dr. Stephen"},
+];
+export const PROFESSIONAL_SERVICE_APPOINTMENT_PERSONNEL = [
+    {identifier:"dr chukwuka", name:"Dr. Chukwuka"},
+    {identifier:"dr stephen", name:"Dr. Stephen"},
+];
+export const TECHNICAL_AND_REPAIR_SERVICE_APPOINTMENT_PERSONNEL = [
+    {identifier:"dr chukwuka", name:"Dr. Chukwuka"},
+    {identifier:"dr stephen", name:"Dr. Stephen"},
 ];

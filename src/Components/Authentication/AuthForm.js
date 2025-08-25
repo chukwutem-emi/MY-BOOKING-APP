@@ -19,9 +19,9 @@ const AuthForm = () => {
     }, [message])
     return (
         <>
-        <div className="min-h-screen w-full overflow-x-hidden flex flex-col items-center justify-start px-4 bg-white py-6">
+        <div className="min-h-screen w-full overflow-x-hidden flex flex-col items-center px-4 bg-white py-6">
             <HomePage />
-            <div className="mt-12 w-full max-w-md bg-black opacity-70 p-2 rounded-xl">
+            <div className="mt-12 w-full max-w-md bg-black opacity-70 p-2 rounded-xl xs:w-[90%]">
                 <h2 className="text-left font-bold text-white mb-6 ml-10 mt-10 text-3xl">
                     {isSignup ? lang[langKey]?.authLanguageConfig?.isSignup: lang[langKey]?.authLanguageConfig?.isLogin}
                 </h2>

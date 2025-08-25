@@ -4,7 +4,7 @@ import BigSpinner from "./BigSpinner";
 const WelcomePage = () => {
 
     return (
-        <div className="min-h-screen mt-[6rem] overflow-x-hidden flex flex-col items-center justify-center bg-white">
+        <div className="min-h-screen mt-[1rem] overflow-x-hidden flex flex-col items-center justify-center bg-white">
             <h1 className="text-blue-800 font-serif font-extrabold text-2xl animate-pulse text-center ">Welcome to</h1>
             <div className="flex flex-row items-center justify-center w-64 h-64 mt-[2rem] bg-green-400 mx-auto rounded-full shadow-2xl z-50">
                 <p className="text-blue-800 font-bold font-serif text-2xl animate-pulse">CHEM</p>

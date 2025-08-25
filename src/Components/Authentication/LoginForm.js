@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addAccessToken } from "../../Utils/tokenSlice";
 import { useNavigate } from "react-router-dom";
 import lang from "../../Utils/multiLanguageConfig";
+import { MdToggleOn, MdToggleOff } from "react-icons/md";
 
 
 const LoginForm = ({setMessage, setIsError}) => {
@@ -81,19 +82,14 @@ const LoginForm = ({setMessage, setIsError}) => {
                     autoComplete="off"
                     />
                     <p className="text-sm font-sans text-white animate-bounce mt-2 sm:text-sm xs:text-xs  md:text-lg lg:text-lg xl:text-lg 2xl:text-xl">{lang[langKey]?.loginLanguageConfig?.paragraphText}</p>
-                    <label htmlFor="checkbox" className="text-sm text-white font-sans xs:text-xs">
-                        <input
-                        id="checkbox"
-                        name="checkbox"
-                        type="checkbox"
-                        checked={showPassword}
-                        onChange={() => setShowPassword(!showPassword)}
-                        className="mr-1 mt-2 cursor-pointer"
-                        title={lang[langKey]?.loginLanguageConfig?.title}
-                        autoComplete="off"
-                        />
-                        {lang[langKey]?.loginLanguageConfig?.checkBoxInnerText}
-                    </label>
+                    <div onClick={() => setShowPassword(!showPassword)} className="text-white flex flex-row">
+                        <div>
+                            {
+                                showPassword ? <MdToggleOn color="green" size={60} /> : <MdToggleOff color="red" size={60} />
+                            }
+                        </div>
+                        <div className="mt-[1rem]">{lang[langKey]?.loginLanguageConfig?.checkBoxInnerText}</div>
+                    </div>
                 </div>
                 <button type="submit" className="w-full mt-4 p-2 text-lg bg-red-900 text-white font-bold rounded hover:bg-red-300 flex flex-row justify-center break-words" disabled={loading}>
                     {loading ? (

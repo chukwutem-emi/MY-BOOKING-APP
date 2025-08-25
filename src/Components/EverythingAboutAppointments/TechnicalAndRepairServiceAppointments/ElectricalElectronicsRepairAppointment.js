@@ -1,70 +1,81 @@
-import React, { useRef } from "react";
-import Spinner from "../../../Utils/Spinner";
+import React, { useEffect, useRef, useState } from "react";
 import useElectricalElectronicsRepair from "../../../AppointmentOperationCustomHooks/useElectricalElectronicsRepair";
 import ElectricalElectronicsRepairDom from "../../AppointmentDOM/ElectricalElectronicsRepairDom";
 
 
 const ElectricalElectronicsRepair = () => {
-    const firstNameRef               =  useRef(null);
-    const lastNameRef                =  useRef(null);
-    const emailAddressRef            =  useRef(null);
     const addressRef                 =  useRef(null);
     const nextOfKinRef               =  useRef(null);
     const genderRef                  =  useRef(null);
-    const userPhoneNumberRef         =  useRef(null);
     const nextOfKinPhoneNumberRef    =  useRef(null);
     const nextOfKinAddressRef        =  useRef(null);
-    const amountRef                  =  useRef(null);
     const appointmentTimeRef         =  useRef(null);
     const appointmentDateRef         =  useRef(null);
     const appointmentDescriptionRef  =  useRef(null);
 
+    const[personnelName, setPersonnelName] = useState("");
+    
     const {
         handleElectricalElectronicsRepair : handleElectricalElectronicsRepairPayload,
         isError,
         isLoading,
-        message
-    } = useElectricalElectronicsRepair({payload:{}});
+        message,
+        setMessage
+    } = useElectricalElectronicsRepair();
+
+    useEffect(() => {
+        if (message && !isError) {
+            appointmentDescriptionRef.current.value = "";
+            nextOfKinPhoneNumberRef.current.value   = "";
+            nextOfKinAddressRef.current.value       = "";
+            appointmentDateRef.current.value        = "";
+            appointmentTimeRef.current.value        = "";
+            nextOfKinRef.current.value              = "";
+            addressRef.current.value                = "";
+            genderRef.current.value                 = "";
+            personnelName                           = "";
+        };
+        if (message) {
+            window.scrollTo({top:0, behavior:"smooth"});
+        };
+    }, [message, isError]);
+
+
+    const handleSelected = (event) => setPersonnelName(event.target.value);
+
     
     const handleElectricalElectronicsRepairForm = (event) => {
         event.preventDefault();
         const payload = {
-            first_name               : firstNameRef.current.value,
-            last_name                : lastNameRef.current.value,
+            name                     : personnelName,
             gender                   : genderRef.current.value,
-            user_phone_number        : userPhoneNumberRef.current.value,
             address                  : addressRef.current.value,
-            email_address            : emailAddressRef.current.value,
             next_of_kin              : nextOfKinRef.current.value,
             next_of_kin_phone_number : nextOfKinPhoneNumberRef.current.value,
             next_of_kin_address      : nextOfKinAddressRef.current.value,
-            amount                   : amountRef.current.value,
             appointment_time         : appointmentTimeRef.current.value,
             appointment_date         : appointmentDateRef.current.value,
             appointment_description  : appointmentDescriptionRef.current.value,
         };
-        handleElectricalElectronicsRepairPayload(event, payload);
+        handleElectricalElectronicsRepairPayload(payload);
     };
     return (
         <div className='mt-[16rem] overflow-x-hidden w-full items-center'>
             <ElectricalElectronicsRepairDom
             addressRef={addressRef}
-            amountRef={amountRef}
             appointmentDateRef={appointmentDateRef}
             appointmentDescriptionRef={appointmentDescriptionRef}
             appointmentTimeRef={appointmentTimeRef}
-            emailAddressRef={emailAddressRef}
-            firstNameRef={firstNameRef}
             genderRef={genderRef}
             handleElectricalElectronicsRepairForm={handleElectricalElectronicsRepairForm}
+            handleSelected={handleSelected}
             isError={isError}
             isLoading={isLoading}
-            lastNameRef={lastNameRef}
             message={message}
             nextOfKinAddressRef={nextOfKinAddressRef}
             nextOfKinPhoneNumberRef={nextOfKinPhoneNumberRef}
             nextOfKinRef={nextOfKinRef}
-            userPhoneNumberRef={userPhoneNumberRef} 
+            setMessage={setMessage}
             />
         </div>
     );

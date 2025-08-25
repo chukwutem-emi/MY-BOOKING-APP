@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { BUSINESS_CONSULTATION_URL, BASE_URL } from "../Utils/constants";
@@ -12,14 +12,8 @@ const useBusinessConsultation = () => {
     const navigate = useNavigate();
 
     const userToken = useSelector((store) => store.token?.accessToken);
-    useEffect(() => {
-        if (message) {
-            window.scrollTo({top:0, behavior:"smooth"});
-        }
-    }, [message]);
     
-    const handleBusinessConsultationAppointment = async (event, payload) => {
-        event.preventDefault();
+    const handleBusinessConsultationAppointment = async (payload) => {
         setIsLoading(true);
 
         try {
@@ -45,7 +39,7 @@ const useBusinessConsultation = () => {
                         window.open(authUrl, "_blank");
                     }, 8000);
                     setMessage(`
-                        ❗You haven't authenticated yet.
+                        ❗To book an appointment, you have to allow this app to view and manage your google calendar.
                         <br />
                         🔐 Redirecting you to google for authentication........
                         <br />
@@ -80,7 +74,8 @@ const useBusinessConsultation = () => {
         handleBusinessConsultationAppointment,
         message,
         isLoading,
-        isError
+        isError,
+        setMessage
     };
 };
 export default useBusinessConsultation;

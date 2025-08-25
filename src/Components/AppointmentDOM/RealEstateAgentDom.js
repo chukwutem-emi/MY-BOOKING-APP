@@ -1,41 +1,20 @@
 import React from "react";
 import Spinner from "../../Utils/Spinner";
+import ProfessionalServiceDropDown from "../../AppointmentCustomDropDown/ProfessionalServiceDropDown";
 
 
-const RealEstateAgentDom = ({handleRealEstateAppointmentForm, message, isError, isLoading, firstNameRef, lastNameRef, addressRef, emailAddressRef, genderRef, nextOfKinAddressRef, nextOfKinPhoneNumberRef, nextOfKinRef, amountRef, appointmentDateRef, appointmentDescriptionRef, appointmentTimeRef, userPhoneNumberRef}) => {
+const RealEstateAgentDom = ({handleRealEstateAppointmentForm, message, isError, isLoading, addressRef, genderRef, nextOfKinAddressRef, nextOfKinPhoneNumberRef, nextOfKinRef, appointmentDateRef, appointmentDescriptionRef, appointmentTimeRef, handleSelected, setMessage}) => {
     return (
         <form onSubmit={handleRealEstateAppointmentForm} className="w-[50%] space-y-4 my-0 mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
             <h1 className="text-center break-words font-sans text-blue-800 font-bold text-[1.5rem] mb-8 animate-pulse xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl">Real Estate Agent Appointment</h1>
             {
                 message && (
                     <div className={`break-words p-2 w-full ${isError ? "text-red-600 bg-red-100 font-semibold text-lg" : "text-green-600 bg-green-100 font-semibold text-lg"}`}>
-                        <button className="text-[2rem] bg-white text-red-600 shadow-2xl w-8 h-8 text-center rounded-full border-[1px] border-red-300" onClick={() => setMessage(null)} title="cancel">&times;</button>
+                        <button type="button" className="text-[2rem] bg-white text-red-600 shadow-2xl w-8 h-8 text-center rounded-full border-[1px] border-red-300" onClick={() => setMessage("")} title="cancel">&times;</button>
                         <div dangerouslySetInnerHTML={{__html:message}} />
                     </div>
                 )
             }
-            <label htmlFor="first_name" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>First Name:</strong></label>
-            <input
-            type="text"
-            className="border-[1px] border-blue-600 outline-none text-[1.2rem] px-2 py-1 rounded-lg md:text-2xl lg:text-2xl xl:text-2xl" 
-            placeholder="Please enter your first name"
-            ref={firstNameRef}
-            id="first_name"
-            name="first_name"
-            autoComplete="given-name"
-            required
-            />
-            <label htmlFor="last_name" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Last Name:</strong></label>
-            <input
-            type="text"
-            className="border-[1px] border-blue-600 outline-none text-[1.2rem] px-2 py-1 rounded-lg md:text-2xl lg:text-2xl xl:text-2xl" 
-            placeholder="Please enter your last name"
-            ref={lastNameRef}
-            id="last_name"
-            name="last_name"
-            autoComplete="family-name"
-            required
-            />
             <label htmlFor="gender" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Gender:</strong></label>
             <input
             type="text"
@@ -44,17 +23,6 @@ const RealEstateAgentDom = ({handleRealEstateAppointmentForm, message, isError, 
             ref={genderRef}
             id="gender"
             name="gender"
-            autoComplete="on"
-            required
-            />
-            <label htmlFor="user_phone_number" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>User Phone Number:</strong></label>
-            <input
-            type="text"
-            className="border-[1px] border-blue-600 outline-none text-[1.2rem] px-2 py-1 rounded-lg md:text-2xl lg:text-2xl xl:text-2xl" 
-            placeholder="Please enter your phone number"
-            ref={userPhoneNumberRef}
-            id="user_phone_number"
-            name="user_phone_number"
             autoComplete="on"
             required
             />
@@ -69,17 +37,7 @@ const RealEstateAgentDom = ({handleRealEstateAppointmentForm, message, isError, 
             autoComplete="on"
             required
             />
-            <label htmlFor="email_address" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Email Address:</strong></label>
-            <input
-            type="email"
-            className="border-[1px] border-blue-600 outline-none text-[1.2rem] px-2 py-1 rounded-lg md:text-2xl lg:text-2xl xl:text-2xl" 
-            placeholder="Please enter your email address"
-            ref={emailAddressRef}
-            id="email_address"
-            name="email_address"
-            autoComplete="email"
-            required
-            />
+            <ProfessionalServiceDropDown handleSelected={handleSelected}/>
             <label htmlFor="next_of_kin" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Next Of kin:</strong></label>
             <input
             type="text"
@@ -111,19 +69,6 @@ const RealEstateAgentDom = ({handleRealEstateAppointmentForm, message, isError, 
             id="next_of_kin_address"
             name="next_of_kin_address"
             autoComplete="on"
-            required
-            />
-            <label htmlFor="amount" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Amount:</strong></label>
-            <input
-            type="number"
-            className="border-[1px] border-blue-600 outline-none text-[1.2rem] px-2 py-1 rounded-lg md:text-2xl lg:text-2xl xl:text-2xl" 
-            placeholder="The amount to be paid is N70,000"
-            ref={amountRef}
-            id="amount"
-            name="amount"
-            autoComplete="on"
-            min={1000}
-            step={1000.00}
             required
             />
             <label htmlFor="appointment_time" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Appointment Time:</strong></label>
@@ -159,7 +104,7 @@ const RealEstateAgentDom = ({handleRealEstateAppointmentForm, message, isError, 
             required
             autoFocus
             />
-            <button className="bg-blue-600 flex flex-row p-2 justify-center rounded-lg break-words hover:bg-blue-400">
+            <button type="submit" className="bg-blue-600 flex flex-row p-2 justify-center rounded-lg break-words hover:bg-blue-400">
                 {
                     isLoading ? (
                         <div className="flex flex-row">

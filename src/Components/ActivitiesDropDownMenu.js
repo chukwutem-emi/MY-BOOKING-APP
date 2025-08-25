@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { hasUnrecoverableErrors } from "react-refresh";
 import { Link } from "react-router-dom";
 
 const ActivitiesDropDownMenu = () => {

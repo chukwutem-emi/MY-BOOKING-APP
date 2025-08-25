@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL, REAL_ESTATE_AGENTS_URL } from "../Utils/constants";
@@ -11,13 +11,8 @@ const useRealEstateAgent = () => {
     const navigate = useNavigate();
 
     const userToken = useSelector((store) => store.token?.accessToken);
-    useEffect(() => {
-        if (message) {
-            window.scrollTo({top:0, behavior:"smooth"});
-        }
-    }, [message]);
-    const handleRealEstateAppointment = async (event, payload) => {
-        event.preventDefault();
+    
+    const handleRealEstateAppointment = async (payload) => {
         setIsLoading(true);
         try {
             const data = await fetch(REAL_ESTATE_AGENTS_URL, {
@@ -42,7 +37,7 @@ const useRealEstateAgent = () => {
                         window.open(authUrl, "_blank");
                     }, 8000);
                     setMessage(`
-                        ❗You haven't authenticated yet.
+                        ❗To book an appointment, you have to allow this app to view and manage your google calendar.
                         <br />
                         🔐 Redirecting you to google for authentication........
                         <br />
@@ -77,7 +72,8 @@ const useRealEstateAgent = () => {
         handleRealEstateAppointment,
         message,
         isError,
-        isLoading
+        isLoading,
+        setMessage
     }
 };
 export default useRealEstateAgent;

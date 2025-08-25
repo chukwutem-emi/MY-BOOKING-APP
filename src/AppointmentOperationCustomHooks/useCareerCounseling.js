@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { CAREER_COUNSELING_URL, BASE_URL } from "../Utils/constants";
@@ -13,14 +13,7 @@ const useCareerCounseling = () => {
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (message) {
-            window.scrollTo({top:0, behavior:"smooth"});
-        }
-    }, [message])
-
-    const handleCareerClick = async (event, payload) => {
-        event.preventDefault();
+    const handleCareerClick = async (payload) => {
         setLoading(true);
         try {
             const data = await fetch(CAREER_COUNSELING_URL, {
@@ -39,7 +32,7 @@ const useCareerCounseling = () => {
                         window.open(authUrl, "_blank")
                     }, 5000);
                     setMessage(`
-                        ❗You haven't authenticated yet.
+                        ❗To book an appointment, you have to allow this app to view and manage your google calendar.
                         <br />
                         🔐 Redirecting you to google for authentication...........
                         <br />
@@ -82,7 +75,8 @@ const useCareerCounseling = () => {
         handleCareerClick,
         message,
         errorMsg,
-        loading
+        loading,
+        setMessage
     };
 };
 export default useCareerCounseling
