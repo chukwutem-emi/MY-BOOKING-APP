@@ -5,7 +5,7 @@ import InputFields from "./InputFields";
 
 const BusinessConsultationDom = ({handleBusinessConsultationAppointmentForm, message, isError, isLoading, addressRef, nextOfKinAddressRef, nextOfKinPhoneNumberRef, nextOfKinRef, genderRef, appointmentDateRef, appointmentDescriptionRef, appointmentTimeRef, handleSelected, setMessage}) => {
     return (
-        <form onSubmit={handleBusinessConsultationAppointmentForm} className="w-[50%] space-y-4 my-0 mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
+        <form onSubmit={handleBusinessConsultationAppointmentForm} className="w-[50%] space-y-4 mb-[2rem] mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
             <h1 className="text-center break-words font-sans text-blue-800 font-bold text-[1.5rem] mb-8 animate-pulse xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl">Business Consultation  Appointment</h1>
             {
                 message && (

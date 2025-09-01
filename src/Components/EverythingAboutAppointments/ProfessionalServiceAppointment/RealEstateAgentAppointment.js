@@ -14,15 +14,15 @@ const RealEstateAgentAppointment = () => {
 
     const[personnelName, setPersonnelName] =useState("");
 
+    const {
+        handleRealEstateAppointment : handleRealEstateAppointmentPayload,
+        isError,
+        isLoading,
+        message,
+        setMessage
+    } = useRealEstateAgent();
+    
     useEffect(() => {
-        const {
-            handleRealEstateAppointment : handleRealEstateAppointmentPayload,
-            isError,
-            isLoading,
-            message,
-            setMessage
-        } = useRealEstateAgent();
-        
         if (message && !isError) {
             personnelName                           = "";
             genderRef.current.value                 = "";

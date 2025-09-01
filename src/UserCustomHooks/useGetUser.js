@@ -1,9 +1,15 @@
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FETCH_USER_URL } from "../Utils/constants";
 import { addUserInfo } from "../Utils/getUserSlice";
 
-const useGetUser = ({setResponseMsg, setErrorMsg, setLoading, setBackgroundLoading, setHasFetch}) => {
+const useGetUser = () => {
+    const[loading, setLoading]                     = useState(false);
+    const[backgroundLoading, setBackgroundLoading] = useState(false);
+    const[responseMsg, setResponseMsg]             = useState("");
+    const[errorMsg, setErrorMsg]                   = useState(false);
+    const[hasFetch, setHasFetch]                   = useState(false)
+
     const userToken = useSelector((store) => store.token?.accessToken);
     const dispatchUser = useDispatch()
 
@@ -44,6 +50,14 @@ const useGetUser = ({setResponseMsg, setErrorMsg, setLoading, setBackgroundLoadi
             setBackgroundLoading(false);
         }
     };
-    return handleGetUser;
+    return {
+        handleGetUser,
+        loading,
+        backgroundLoading,
+        responseMsg,
+        errorMsg,
+        hasFetch,
+        setResponseMsg
+    };
 };
 export default useGetUser;

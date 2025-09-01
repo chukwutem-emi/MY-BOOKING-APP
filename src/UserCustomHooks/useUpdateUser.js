@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { UPDATE_USER_URL } from "../Utils/constants"
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -12,14 +12,7 @@ const useUpdateUser = () => {
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (message) {
-            window.scrollTo({top:0, behavior:"smooth"});
-        }
-    }, [message])
-
-    const handleUserUpdate = async (e, payload) => {
-        e.preventDefault();
+    const handleUserUpdate = async (payload) => {
         setLoading(true);
         try {
             const updateUser = await fetch(UPDATE_USER_URL, {
@@ -55,6 +48,8 @@ const useUpdateUser = () => {
         message,
         loading,
         errorMessage,
+        setMessage,
+        setErrorMessage
     }
 };
 export default useUpdateUser;

@@ -5,7 +5,7 @@ import InputFields from "./InputFields";
 
 const CareerCounselingDom = ({handleCareerClickForm, message, loading, addressRef, appointmentDateRef, appointmentDescriptionRef, genderRef, nextOfKinAddressRef, nextOfKinPhoneNumberRef, nextOfKinRef, appointmentTimeRef, errorMsg, handleSelected, setMessage}) => {
     return (
-        <form onSubmit={handleCareerClickForm} className='flex flex-col space-y-4 w-[50%] bg-white p-8 rounded-2xl my-0 mx-auto shadow-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]'>
+        <form onSubmit={handleCareerClickForm} className='flex flex-col space-y-4 w-[50%] bg-white p-8 rounded-2xl mb-[2rem] mx-auto shadow-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]'>
             <h1 className='text-center justify-center text-blue-800 text-[1.4rem] font-extrabold mb-[2rem] animate-pulse xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl'>Career-Counseling Appointment</h1>
             {
                 message && (

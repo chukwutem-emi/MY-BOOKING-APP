@@ -8,7 +8,7 @@ import InputFields from "./InputFields";
 const AcademicAdvisingDom = ({handleAcademicForm, message, errorMsg, isLoading, gender, address, nextOfKin, nextOfKinAddress, phone, appointmentDate, appointmentTime, description, handleSelected, setMessage}) => {
 
     return (
-        <form onSubmit={handleAcademicForm} className="flex flex-col w-[50%] mx-auto p-4 space-y-4 shadow-2xl rounded-xl bg-white xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
+        <form onSubmit={handleAcademicForm} className="flex flex-col w-[50%] mb-[2rem] mx-auto p-4 space-y-4 shadow-2xl rounded-xl bg-white xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
             <h1 className="text-center justify-center text-blue-800 text-[1.4rem] font-extrabold mb-[2rem] animate-pulse">Academic-Advising Appointment</h1>
             {
                 message && (

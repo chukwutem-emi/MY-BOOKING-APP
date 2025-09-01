@@ -1,0 +1,72 @@
+import React, { useState } from "react";
+import SignUpInputField from "./SignUpInputField";
+import lang from "../Utils/multiLanguageConfig";
+import { MdToggleOff, MdToggleOn } from "react-icons/md";
+import Spinner from "../Utils/Spinner";
+
+const SignUpDom = ({usernameRef, emailRef, passwordRef, phoneRef, langKey, loading, handleClearMsg, handleSignupForm}) => {
+    const[showPassword, setShowPassword] = useState(false);
+
+    return (
+        <form onSubmit={handleSignupForm} className="space-y-4 mb-[2rem]">
+            <SignUpInputField
+            autoComplete="on"
+            handleClearMsg={handleClearMsg}
+            id="username"
+            inputRef={usernameRef}
+            label={lang[langKey]?.signUpLanguageConfig?.inputUsernameLabel}
+            placeholder={lang[langKey]?.signUpLanguageConfig?.userNamePlaceholder}
+            type="text" 
+            />
+            <SignUpInputField
+            autoComplete="email"
+            handleClearMsg={handleClearMsg}
+            id="email_address"
+            inputRef={emailRef}
+            label={lang[langKey]?.signUpLanguageConfig?.inputEmailLabel}
+            placeholder={lang[langKey]?.signUpLanguageConfig?.emailAddressPlaceholder}
+            type="email" 
+            />
+            <SignUpInputField
+            autoComplete="off"
+            handleClearMsg={handleClearMsg}
+            id="password"
+            inputRef={passwordRef}
+            label={lang[langKey]?.signUpLanguageConfig?.inputPasswordLabel}
+            placeholder={lang[langKey]?.signUpLanguageConfig?.passwordPlaceholder}
+            type={showPassword ? "text" : "password"} 
+            />
+            <div onClick={() => setShowPassword(!showPassword)} className="flex flex-row text-white">
+                <div>
+                    {
+                        showPassword ? <MdToggleOn color="green" size={60}/> : <MdToggleOff color="red" size={60}/>
+                    }
+                </div>
+                <div className="mt-[1rem]">{lang[langKey]?.loginLanguageConfig?.checkBoxInnerText}</div>
+            </div>
+            <SignUpInputField
+            autoComplete="tel"
+            handleClearMsg={handleClearMsg}
+            id="phone_number"
+            inputRef={phoneRef}
+            label={lang[langKey]?.signUpLanguageConfig?.inputPhoneLabel}
+            placeholder={lang[langKey]?.signUpLanguageConfig?.phoneNumber}
+            type="text" 
+            />
+            <button
+            type="submit"
+            className="bg-red-400 w-full text-center text-white font-bold text-xl p-4 font-sans rounded-md outline-none hover:bg-red-300 break-words" disabled={loading}
+            >
+                {loading ? (
+                    <>
+                    <Spinner />
+                    {lang[langKey]?.signUpLanguageConfig?.buttonInnerText}
+                    </>
+                ) : (
+                    lang[langKey]?.signUpLanguageConfig?.signUp
+                )}
+            </button>
+        </form>
+    );
+};
+export default SignUpDom;

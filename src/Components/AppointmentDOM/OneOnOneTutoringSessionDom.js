@@ -1,10 +1,11 @@
 import React from "react";
 import Spinner from "../../Utils/Spinner";
 import EducationCustomDropDown from "../../AppointmentCustomDropDown/EducationCustomDropDown";
+import InputFields from "./InputFields";
 
 const OneOnOneTutoringSessionDom = ({handleOneOnOneTutorialForm, addressRef, appointmentDateRef, appointmentDescriptionRef, appointmentTimeRef, genderRef, isError, message, nextOfKinAddressRef, nextOfKinPhoneNumberRef, nextOfKinRef, isLoading, handleSelected, setMessage}) => {
     return (
-        <form onSubmit={handleOneOnOneTutorialForm} className="w-[50%] space-y-4 my-0 mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
+        <form onSubmit={handleOneOnOneTutorialForm} className="w-[50%] space-y-4 mb-[2rem] mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
             <h1 className="text-center font-sans text-blue-800 font-bold text-[1.5rem] mb-8 animate-pulse xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl">One-On-One Tutoring Session Appointment</h1>
             {
                 message && (
@@ -14,83 +15,62 @@ const OneOnOneTutoringSessionDom = ({handleOneOnOneTutorialForm, addressRef, app
                     </div>
                 )
             }
-            <label htmlFor="gender" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Gender:</strong></label>
-            <input
-            type="text"
-            className="border-[1px] border-blue-600 outline-none text-[1.2rem] px-2 py-1 rounded-lg md:text-2xl lg:text-2xl xl:text-2xl" 
-            placeholder="Please enter your gender"
-            ref={genderRef}
+            <InputFields
+            autoComplete="on"
             id="gender"
-            name="gender"
-            autoComplete="on"
-            required
+            inputRef={genderRef}
+            label="Gender:"
+            placeholder="Please enter your gender"
+            type="text" 
             />
-            <label htmlFor="address" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Address:</strong></label>
-            <input
-            type="text"
-            className="border-[1px] border-blue-600 outline-none text-[1.2rem] px-2 py-1 rounded-lg md:text-2xl lg:text-2xl xl:text-2xl" 
-            placeholder="Please enter your address"
-            ref={addressRef}
-            id="address"
-            name="address"
+            <InputFields
             autoComplete="on"
-            required
+            id="address"
+            inputRef={addressRef}
+            label="Address:"
+            placeholder="Please enter your address"
+            type="text" 
             />
             <EducationCustomDropDown handleSelected={handleSelected}/>
-            <label htmlFor="next_of_kin" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Next Of kin:</strong></label>
-            <input
-            type="text"
-            className="border-[1px] border-blue-600 outline-none text-[1.2rem] px-2 py-1 rounded-lg md:text-2xl lg:text-2xl xl:text-2xl" 
-            placeholder="Please enter your next of kin"
-            ref={nextOfKinRef}
+            <InputFields
+            autoComplete="on"
             id="next_of_kin"
-            name="next_of_kin"
-            autoComplete="on"
-            required
+            inputRef={nextOfKinRef}
+            label="Next Of kin:"
+            placeholder="Please enter your next of kin"
+            type="text" 
             />
-            <label htmlFor="next_of_kin_phone_number" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Next Of Kin Phone Number:</strong></label>
-            <input
-            type="text"
-            className="border-[1px] border-blue-600 outline-none text-[1.2rem] px-2 py-1 rounded-lg md:text-2xl lg:text-2xl xl:text-2xl" 
-            placeholder="Please enter your next of kin phone number"
-            ref={nextOfKinPhoneNumberRef}
+            <InputFields
+            autoComplete="tel"
             id="next_of_kin_phone_number"
-            name="next_of_kin_phone_number"
-            autoComplete="on"
-            required
+            inputRef={nextOfKinPhoneNumberRef}
+            label="Next Of Kin Phone Number:"
+            placeholder="Please enter your next of kin phone number"
+            type="text" 
             />
-            <label htmlFor="next_of_kin_address" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Next Of Kin Address:</strong></label>
-            <input
-            type="text"
-            className="border-[1px] border-blue-600 outline-none text-[1.2rem] px-2 py-1 rounded-lg md:text-2xl lg:text-2xl xl:text-2xl" 
-            placeholder="Please enter your next of kin address"
-            ref={nextOfKinAddressRef}
+            <InputFields
+            autoComplete="on"
             id="next_of_kin_address"
-            name="next_of_kin_address"
-            autoComplete="on"
-            required
+            inputRef={nextOfKinAddressRef}
+            label="Next Of Kin Address:"
+            placeholder="Please enter your next of kin address"
+            type="text" 
             />
-            <label htmlFor="appointment_time" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Appointment Time:</strong></label>
-            <input
-            type="time"
-            className="border-[1px] border-blue-600 outline-none text-[1.2rem] px-2 py-1 rounded-lg md:text-2xl lg:text-2xl xl:text-2xl" 
-            placeholder="Please choose your convenient time for the appointment"
-            ref={appointmentTimeRef}
+            <InputFields
+            autoComplete="on"
             id="appointment_time"
-            name="appointment_time"
-            autoComplete="on"
-            required
+            inputRef={appointmentTimeRef}
+            label="Appointment Time:"
+            placeholder="Please choose your convenient time for the appointment"
+            type="time" 
             />
-            <label htmlFor="appointment_date" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Appointment Date:</strong></label>
-            <input
-            type="date"
-            className="border-[1px] border-blue-600 outline-none text-[1.2rem] px-2 py-1 rounded-lg md:text-2xl lg:text-2xl xl:text-2xl" 
-            placeholder="Please choose your convenient date for the appointment"
-            ref={appointmentDateRef}
-            id="appointment_date"
-            name="appointment_date"
+            <InputFields
             autoComplete="on"
-            required
+            id="appointment_date"
+            inputRef={appointmentDateRef}
+            label="Appointment Date:"
+            placeholder="Please choose your convenient date for the appointment"
+            type="date" 
             />
             <label htmlFor="appointment_description" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Appointment Description:</strong></label>
             <textarea

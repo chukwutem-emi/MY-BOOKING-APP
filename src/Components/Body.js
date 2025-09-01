@@ -2,17 +2,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
 import Browse from "./Browse";
 import AppLayout from "./AppLayout"
-import BusinessConsultationAppointment from "./EverythingAboutAppointments/ProfessionalServiceAppointment/BusinessConsultationAppointment";
-import FinancialAdvisoryAppointment from "./EverythingAboutAppointments/ProfessionalServiceAppointment/FinancialAdvisoryAppointment";
-import RealEstateAgentAppointment from "./EverythingAboutAppointments/ProfessionalServiceAppointment/RealEstateAgentAppointment";
-import ElectricalElectronicsRepair from "./EverythingAboutAppointments/TechnicalAndRepairServiceAppointments/ElectricalElectronicsRepairAppointment";
-import HomeServiceAppointment from "./EverythingAboutAppointments/TechnicalAndRepairServiceAppointments/HomeServiceAppointment";
 import Error from "./Error";
-import UpdateUser from "./UpdateUser";
-import PromoteUser from "./PromoteUser";
-import DeleteUser from "./DeleteUser";
 import Spinner from "../Utils/Spinner";
-import WelcomePage from "../Utils/WelcomePage";
 
 
 const FetchUsers = lazy(() => import("./SubComponent/Users"));
@@ -31,7 +22,15 @@ const BusinessConsultation = lazy(() => import("./SubComponent/BusinessConsultat
 const FinancialAdvisory = lazy(() => import("./SubComponent/FinancialAdvisory"));
 const RealEstateAgent = lazy(() => import("./SubComponent/RealEstateAgent"));
 const HomeService = lazy(() => import("./SubComponent/HomeService"));
-const ElectricalElectronics = lazy(() => import("./SubComponent/ElectricalElectronicsRepair"))
+const ElectricalElectronics = lazy(() => import("./SubComponent/ElectricalElectronicsRepair"));
+const UpdateUser = lazy(() => import("./SubComponent/UpdateUser"));
+const DeleteUser = lazy(() => import("./SubComponent/DeleteUserSubComponent"));
+const DeleteAllUsers = lazy(() => import("./SubComponent/DeleteAllUserSubComponent"));
+const PromoteUser = lazy(() => import("./SubComponent/PromoteUserSubComponent"));
+const DeletePersonnelInfo = lazy(() => import("./SubComponent/DeletePersonnelInfoSubComponent"));
+const GetAllPersonnel = lazy(() => import("./SubComponent/GetAllPersonnelSubComponent"));
+const UpdatePersonnelInfo = lazy(() => import("./SubComponent/UpdatePersonnelInfoSubComponent"));
+const UploadPersonnelInfo = lazy(() => import("./SubComponent/UploadPersonnelSubComponent"))
 
 const appRouter = createBrowserRouter([
     {
@@ -131,23 +130,44 @@ const appRouter = createBrowserRouter([
             },
             {
                 path:"/update-user",
-                element:<UpdateUser />,
+                element:<Suspense fallback={<Spinner />}><UpdateUser /></Suspense>,
                 errorElement:<Error />
             },
             {
                 path:"/promote-user",
-                element:<PromoteUser />,
+                element:<Suspense fallback={<Spinner />}><PromoteUser /></Suspense>,
                 errorElement:<Error />
             },
             {
                 path:"/delete-user",
-                element:<DeleteUser />,
+                element:<Suspense fallback={<Spinner />}><DeleteUser /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/big-spinner",
-                element:<WelcomePage />
-            }
+                path:"/delete-all-users",
+                element:<Suspense fallback={<Spinner />}><DeleteAllUsers /></Suspense>,
+                errorElement:<Error />
+            },
+            {
+                path:"/delete-personnel",
+                element:<Suspense fallback={<Spinner />}><DeletePersonnelInfo /></Suspense>,
+                errorElement:<Error />
+            },
+            {
+                path:"/all-personnel",
+                element:<Suspense fallback={<Spinner />}><GetAllPersonnel /></Suspense>,
+                errorElement:<Error />
+            },
+            {
+                path:"/update-personnel",
+                element:<Suspense fallback={<Spinner />}><UpdatePersonnelInfo /></Suspense>,
+                errorElement:<Error />
+            },
+            {
+                path:"/upload-personnel",
+                element:<Suspense fallback={<Spinner />}><UploadPersonnelInfo /></Suspense>,
+                errorElement:<Error />
+            },
         ]
     },
 ]);

@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { DELETE_USER_URL } from "../Utils/constants";
 
 
 const useDeleteUser = () => {
-    const[message, setMessage] = useState("");
+    const[message, setMessage]   = useState("");
     const[errorMsg, setErrorMsg] = useState(false);
     const[loading, setLoading]   = useState(false);
 
@@ -13,13 +13,7 @@ const useDeleteUser = () => {
 
     const navigate = useNavigate()
 
-    useEffect(() => {
-        if (message) {
-            window.scrollTo({top:0, behavior:"smooth"});
-        }
-    }, [message]);
-    const handleDeleteUser = async (e, payload) => {
-        e.preventDefault();
+    const handleDeleteUser = async (payload) => {
         setLoading(true);
 
         try {
@@ -27,11 +21,11 @@ const useDeleteUser = () => {
                 method:"DELETE",
                 headers:{
                     "Content-Type" : "application/json",
-                    "access-code"  : `Bearer ${userToken}`
+                    "access-token"  : `Bearer ${userToken}`
                 },
                 body:JSON.stringify(payload),
             });
-            const json = deleteUser.json();
+            const json = await deleteUser.json();
             if (deleteUser.status === 200) {
                 setMessage(json.Deleted);
                 setErrorMsg(false);
@@ -55,6 +49,8 @@ const useDeleteUser = () => {
         errorMsg,
         loading,
         handleDeleteUser,
+        setErrorMsg,
+        setMessage
     };
 }; 
 export default useDeleteUser;

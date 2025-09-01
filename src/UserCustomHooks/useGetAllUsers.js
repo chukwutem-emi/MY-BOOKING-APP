@@ -72,7 +72,7 @@ const useGetAllUsers = () => {
                 setErrorMsg(true);
                 setFilteredUsers([]);
             } else {
-                const searchTerm = searchText.current.value.toUpperCase();
+                const searchTerm = searchText.current.value.trim();
                 let filtered = [];
                 if (searchTerm === "") {
                     filtered = usersToSearch;

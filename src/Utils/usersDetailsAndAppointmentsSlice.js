@@ -5,6 +5,7 @@ const usersDetailsAndAppointmentSlice = createSlice({
     initialState:{
         usersDetails:null,
         appointmentDetails:null,
+        personnelDetails:null
     },
     reducers:{
         addUsersDetails: (state, action) => {
@@ -18,8 +19,22 @@ const usersDetailsAndAppointmentSlice = createSlice({
         },
         removeAppointmentDetails: (state) => {
             state.appointmentDetails = null;
+        },
+        addPersonnelDetails: (state, action) => {
+            state.personnelDetails = action.payload;
+        },
+        removePersonnelDetails: (state) => {
+            state.personnelDetails = null;
         }
+
     }
 });
-export const{addUsersDetails, removeUsersDetails, addAppointmentDetails, removeAppointmentDetails} = usersDetailsAndAppointmentSlice.actions;
+export const{
+    addUsersDetails, 
+    removeUsersDetails, 
+    addAppointmentDetails, 
+    removeAppointmentDetails,
+    addPersonnelDetails,
+    removePersonnelDetails
+} = usersDetailsAndAppointmentSlice.actions;
 export default usersDetailsAndAppointmentSlice.reducer;

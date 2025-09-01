@@ -1,0 +1,40 @@
+import React from "react";
+import LoadingSpinner from "../Utils/LoadingSpinner";
+import Spinner from "../Utils/Spinner";
+
+const GetUserDom = ({backgroundLoading, errorMsg, handleGetUser, hasFetch, loading, responseMsg, setResponseMsg}) => {
+    return (
+        <>
+        <div className="w-[90%] mb-[2rem] items-center justify-center mx-auto xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[90%]">
+            <p className="w-full font-bold font-serif text-blue-950 text-center animate-bounce text-lg mb-8">click the button bellow to fetch your details.</p>
+            <button className="py-2 text-white bg-blue-950 text-xl rounded w-full text-center hover:bg-blue-600 flex flex-row justify-evenly" title={loading ? "🚫 Processing, please wait..." : "Click here to fetch👆"} disabled={loading} onClick={handleGetUser}>{loading ? (<><Spinner /> Processing, please wait!....</>) : (hasFetch ? "Refetch" : "Fetch")}</button>
+            {
+                backgroundLoading && (
+                    <>
+                    <LoadingSpinner />
+                    </>
+                )
+            }
+            {
+                responseMsg && (
+                    <div className={`text-sm text-center break-words rounded p-3 mb-4 mt-14 shadow-lg w-full ${errorMsg ? "text-red-700 bg-red-100" : "text-green-700 bg-white"}`}>
+                        <button type="button" className="text-xl font-bold px-2 rounded hover:bg-gray-300 bg-blue-500 w-8 text-white mb-4" onClick={() => setResponseMsg("")} title="cancel" aria-label="cancel">&times;
+                        </button>
+                        {!errorMsg && typeof responseMsg === "object" ? (
+                            <ul>
+                                <li><strong>Username:</strong>&nbsp;{responseMsg?.username}</li>
+                                <li><strong>Email:</strong>&nbsp;{responseMsg.email_address}</li>
+                                <li><strong>Phone:</strong>&nbsp;{responseMsg.phone_number}</li>
+                                <li><strong>Admin:</strong>&nbsp;{responseMsg.admin ? "Yes" : "No"}</li>
+                            </ul>
+                        ) : (
+                            <span>{responseMsg}</span>
+                        )}
+                    </div>
+                )
+            }
+        </div>
+        </>
+    );
+};
+export default GetUserDom;

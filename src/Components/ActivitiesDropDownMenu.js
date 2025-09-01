@@ -16,79 +16,103 @@ const ActivitiesDropDownMenu = () => {
 
     const content = [
         {
-            title : "👥   Fetch-Users",
+            title : "👥   Fetch-Users ➡️",
             link  : "/users"
         },
         {
-            title  : "👤   User-Profile",
+            title  : "👤   User-Profile ➡️",
             link  : "/user"
         },
         {
-            title  : "👤 Profile-Update",
+            title  : "👤 Profile-Update ➡️",
             link   : "/update-user"
         },
         {
-            title   : "+ Add-AdminUser",
+            title  : "🗑️ 👤Delete-user ➡️",
+            link   : "/delete-user"
+        },
+        {
+            title : "🗑️ 👥 Delete-all-users ➡️",
+            link  : "/delete-all-users"
+        },
+        {
+            title   : "+ Add-AdminUser ➡️",
             link    : "/promote-user"
         },
         {
-            title   : "🔐 Authentication(Login)",
+            title   : "🔐 Authentication(Login) ➡️",
             link    : "/"
         },
         {
-            title   : "💻 Browse Page",
+            title   : "🗑️ Delete-Personnel-Details ➡️",
+            link    : "/delete-personnel"
+        },
+        {
+            title  : "🧑‍💼 All-Personnel ➡️",
+            link   : "/all-personnel"
+        },
+        {
+            title  : "🧑‍💼 Update Personnel-Info ➡️",
+            link   : "/update-personnel"
+        },
+        {
+            title : "🧑‍💼 Upload Personnel ➡️",
+            link  : "/upload-personnel"
+        },
+        {
+            title   : "💻 Browse Page ➡️",
             link    : "/browse"
         },
         {
-            title   : "🏫 Academic-Advising Appointment",
+            title   : "🏫 Academic-Advising Appointment ➡️",
             link    : "/academic"
         },
         {
-            title   : "🏫 Career-Counseling Appointment",
+            title   : "🏫 Career-Counseling Appointment ➡️",
             link    : "/career"
         },
         {
-            title   : "🏫 One-On-One Tutoring Appointment",
+            title   : "🏫 One-On-One Tutoring Appointment ➡️",
             link    : "/tutorial"
         },
         {
-            title   : "🏥 Healthcare-Consultation Appointment",
+            title   : "🏥 Healthcare-Consultation Appointment ➡️",
             link    : "/consultation"
         },
         {
-            title   : "🏥 Healthcare-Counseling Appointment",
+            title   : "🏥 Healthcare-Counseling Appointment ➡️",
             link    : "/counseling"
         },
         {
-            title   : "🏥 Healthcare-Dental Appointment",
+            title   : "🏥 Healthcare-Dental Appointment ➡️",
             link    : "/dental"
         },
         {
-            title   : "🏥 Healthcare-Physiotherapy Appointment",
+            title   : "🏥 Healthcare-Physiotherapy Appointment ➡️",
             link    : "/physiotherapy"
         },
         {
-            title   : "🏥 Healthcare-Vaccination Appointment",
+            title   : "🏥 Healthcare-Vaccination Appointment ➡️",
             link    : "/vaccination"
         },
         {
-            title   : "🧑‍💼 Business-Consultation Appointment",
+            title   : "🧑‍💼 Business-Consultation Appointment ➡️",
             link    : "/business"
         },
         {
-            title   : "🧑‍💼 Financial-Advisory Appointment",
+            title   : "🧑‍💼 Financial-Advisory Appointment ➡️",
             link    : "/financial"
         },
         {
-            title   : "🧑‍💼Real-Estate-Agent Appointment",
+            title   : "🧑‍💼 Real-Estate-Agent Appointment ➡️",
             link    : "/real-estate"
         },
         {
-            title   : "🪛🛠️ Electrical/Electronics-Repair Appointment",
+            title   : "🪛🛠️ Elect/Elect-Repair Appointment ➡️",
             link    : "/electrical"
         },
         {
-            title   : "🛠️ Home-Service Appointment",
+            title   : "🛠️ Home-Service Appointment ➡️",
             link    : "/home-service"
         },
 
@@ -103,7 +127,7 @@ const ActivitiesDropDownMenu = () => {
     return (
         <div ref={dropDownRef} className="relative mt-[2rem]">
             <button onClick={handleToggle} className="text-white font-extrabold">
-                <BsThreeDotsVertical size={30} title="MENU" />
+                <BsThreeDotsVertical size={40} title="MENU" />
             </button>
             {
                 isOpen && (

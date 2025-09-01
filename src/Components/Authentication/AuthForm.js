@@ -36,7 +36,7 @@ const AuthForm = () => {
                 {isSignup ? (
                     <SignupForm setMessage={setMessage} setIsError={setIsError} />
                 ) : (
-                    <LoginForm setMessage={setMessage} setIsError={setIsError} />
+                    <LoginForm setMessage={setMessage} setIsError={setIsError} message={message} isError={isError} />
                 )}
                 <p className="mt-4 text-center text-md text-white">
                     {isSignup ? lang[langKey]?.authLanguageConfig?.paragraphTextAlready : lang[langKey]?.authLanguageConfig?.paragraphTextDonT}{" "}

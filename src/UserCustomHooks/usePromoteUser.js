@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { PROMOTE_USER_URL } from "../Utils/constants";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -13,14 +13,8 @@ const usePromoteUser = () => {
     const userToken = useSelector((store) => store.token?.accessToken);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (message) {
-            window.scrollTo({top:0, behavior:"smooth"});
-        }
-    }, [message]);
 
-    const handlePromoteUser = async (e, payload) => {
-        e.preventDefault();
+    const handlePromoteUser = async (payload) => {
         setIsLoading(true);
 
         try {

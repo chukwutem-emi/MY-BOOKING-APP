@@ -1,5 +1,6 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import useDeleteUser from "../UserCustomHooks/useDeleteUser";
+import DeleteUserDom from "../UserDom/DeleteUserDom";
 
 const DeleteUser = () => {
     const emailRef = useRef(null);
@@ -8,35 +9,43 @@ const DeleteUser = () => {
         message,
         errorMsg,
         loading,
-        handleDeleteUser : handleUserDelete
-    } = useDeleteUser({payload:{}});
+        handleDeleteUser : handleUserDelete,
+        setErrorMsg,
+        setMessage
+    } = useDeleteUser();
+
+    useEffect(() => {
+        if (message && !errorMsg) {
+            emailRef.current.value = "";
+        };
+        if (message) {
+            window.scrollTo({top:0, behavior:"smooth"});
+        };
+    }, [message, errorMsg]);
 
     const handleDelete = (e) => {
         e.preventDefault();
         const payload = {
             email_address : emailRef.current.value
         };
-        handleUserDelete(e, payload);
+        handleUserDelete(payload);
+    };
+
+    const handleClearMsg = () => {
+        setErrorMsg(false);
+        setMessage("");
     };
     return (
-        <div className="w-full mt-[16rem] overflow-x-hidden">
-            <form onSubmit={handleDelete} className="w-[50%]">
-                <h1 className="w-full ">Delete User</h1>
-                <label htmlFor="email_address" className=""><strong>User Email Address:</strong></label>
-                <input
-                type="email"
-                id="email_address" 
-                name="email_address"
-                className=""
-                placeholder="Enter the user email address"
-                required
-                autoComplete="email"
-                autoFocus
-                />
-                <button type="submit" className="">
-
-                </button>
-            </form>
+        <div className="w-full mt-[16rem] overflow-x-hidden items-center">
+            <DeleteUserDom
+            emailRef={emailRef}
+            errorMsg={errorMsg}
+            handleClearMsg={handleClearMsg}
+            handleDelete={handleDelete}
+            loading={loading}
+            message={message}
+            setMessage={setMessage} 
+            />
         </div>
     );
 };
