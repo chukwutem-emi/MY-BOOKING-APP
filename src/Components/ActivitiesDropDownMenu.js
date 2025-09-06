@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { MdMenu } from "react-icons/md";
 
 const ActivitiesDropDownMenu = () => {
     const[isOpen, setIsOpen] = useState(false);
@@ -58,6 +59,18 @@ const ActivitiesDropDownMenu = () => {
         {
             title : "🧑‍💼 Upload Personnel ➡️",
             link  : "/upload-personnel"
+        },
+        {
+            title : "Delete Appointment ➡️",
+            link  : "/delete-appointment"
+        },
+        {
+            title : "Get User Appointment ➡️",
+            link  : "/user-appointment"
+        },
+        {
+            title : "Update User Appointment Details",
+            link  : "/update-appointment"
         },
         {
             title   : "💻 Browse Page ➡️",
@@ -127,7 +140,7 @@ const ActivitiesDropDownMenu = () => {
     return (
         <div ref={dropDownRef} className="relative mt-[2rem]">
             <button onClick={handleToggle} className="text-white font-extrabold">
-                <BsThreeDotsVertical size={40} title="MENU" />
+                <BsThreeDotsVertical size={30} title="SIDE-BAR" />
             </button>
             {
                 isOpen && (

@@ -1,10 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { SIGN_UP_URL } from "../Utils/constants";
+import { useNavigate } from "react-router-dom";
 
 
 const useSignUp = (setMessage, setIsError) => {
     const[loading, setLoading] = useState(false);
+
+    const navigate = useNavigate();
 
     const handleSignup = async(payload) => {
         setLoading(true);
@@ -20,6 +23,9 @@ const useSignUp = (setMessage, setIsError) => {
             if (data.status === 201) {
                 setMessage(json.success || "✔️ Registration successful!");
                 setIsError(false);
+                setTimeout(() => {
+                    navigate("/");
+                }, 5000);
             } else {
                 const [key] = Object.keys(json);
                 setMessage(json[key] || "❌ Invalid input");

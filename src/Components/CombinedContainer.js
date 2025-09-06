@@ -5,7 +5,7 @@ import SecondaryContainer from "./SecondaryContainer";
 
 const CombinedContainer = () => {
     return (
-        <div className="mt-[10rem] xs:mt-[5rem] sm:mt-[8rem] lg:mt-[10rem]">
+        <div className="mt-[2rem] xs:mt-[2rem] sm:mt-[6rem] lg:mt-[4rem] md:mt-[4rem] xl:mt-[2rem]">
             <>
             <MainContainer />
             <SecondaryContainer />

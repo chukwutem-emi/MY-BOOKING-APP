@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import useUpdateUser from "../UserCustomHooks/useUpdateUser";
 import UpdateUserDom from "../UserDom/UpdateUserDom";
+import { useDispatch } from "react-redux";
+import { addUserPassword } from "../Utils/getUserSlice";
 
 const UpdateUser = () => {
     const[showPassword, setShowPassword] = useState(false);
@@ -9,6 +11,7 @@ const UpdateUser = () => {
     const emailAddressRef  = useRef(null);
     const phoneNumberRef   = useRef(null);
 
+    const userDispatch = useDispatch();
 
     const {
         message,
@@ -40,6 +43,7 @@ const UpdateUser = () => {
             phone_number  : phoneNumberRef.current.value,
         };
         handleUserInfo(payload);
+        userDispatch(addUserPassword(passwordRef.current.value));
     };
     const handleClearMessage = () => {
         setMessage("");

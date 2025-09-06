@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react";
 import React from "react";
 import Spinner from "../../Utils/Spinner";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import lang from "../../Utils/multiLanguageConfig";
 import useSignUp from "../../UserCustomHooks/useSignUp";
 import SignUpDom from "../../UserDom/SignUpDom";
+import { addUserPassword } from "../../Utils/getUserSlice";
 
 const SignupForm = ({setMessage, setIsError, message, isError}) => {
     const usernameRef = useRef(null);
@@ -12,7 +13,9 @@ const SignupForm = ({setMessage, setIsError, message, isError}) => {
     const passwordRef = useRef(null);
     const phoneRef    = useRef(null);
 
-    const langKey = useSelector((store) => store.config?.lang)
+    const langKey = useSelector((store) => store.config?.lang);
+
+    const dispatchPassword = useDispatch();
     
     const {
         handleSignup : handleSignupPayload,
@@ -37,6 +40,7 @@ const SignupForm = ({setMessage, setIsError, message, isError}) => {
             phone_number  : phoneRef.current.value,
         };
         handleSignupPayload(payload);
+        dispatchPassword(addUserPassword(passwordRef.current.value));
     };
 
     const handleClearMsg = () => {

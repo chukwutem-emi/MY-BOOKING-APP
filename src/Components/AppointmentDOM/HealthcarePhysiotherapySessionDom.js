@@ -7,7 +7,7 @@ import InputFields from "./InputFields";
 const HealthCarePhysiotherapySessionDom = ({handlePhysiotherapyAppointmentForm, message, isError, addressRef, genderRef, nextOfKinAddressRef, nextOfKinPhoneNumberRef, nextOfKinRef, appointmentDateRef, appointmentTimeRef, appointmentDescriptionRef, isLoading, handleSelected, setMessage}) => {
     return (
         <form onSubmit={handlePhysiotherapyAppointmentForm} className="w-[50%] space-y-4 mb-[2rem] mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
-            <h1 className="text-center break-words font-sans text-blue-800 font-bold text-[1.5rem] mb-8 animate-pulse xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl">Healthcare Physiotherapy Session Appointment</h1>
+            <h1 className="break-words font-sans text-blue-800 font-bold text-[1.5rem] mb-8 animate-pulse xs:text-[1.2rem] sm:text-[1.3rem] md:text-[1.4rem] lg:text-[1.4rem] xl:text-[1.4rem]">Healthcare Physiotherapy Session Appointment</h1>
             {
                 message && (
                     <div className={`break-words p-2 w-full ${isError ? "text-red-600 bg-red-100 font-semibold text-lg" : "text-green-600 bg-green-100 font-semibold text-lg"}`}>
@@ -73,9 +73,9 @@ const HealthCarePhysiotherapySessionDom = ({handlePhysiotherapyAppointmentForm, 
             placeholder="Please choose your convenient date for the appointment"
             type="date" 
             />
-            <label htmlFor="appointment_description" className="font-bold text-blue-600 text-[1.2rem] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl"><strong>Appointment Description:</strong></label>
+            <label htmlFor="appointment_description" className="font-bold text-blue-600 text-[1.2rem] xs:text-[1.1rem] sm:text-[1.2rem] md:text-[1.3rem] lg:text-[1.4rem] xl:text-[1.5rem]"><strong>Appointment Description:</strong></label>
             <textarea
-            className="border-[1px] border-blue-600 outline-none text-[1.2rem] px-2 py-1 rounded-lg md:text-2xl lg:text-2xl xl:text-2xl"
+            className="border-[1px] border-blue-600 outline-none text-[1.2rem] px-2 py-1 rounded-lg xs:text-[1.1rem] sm:text-[1.2rem] md:text-[1.3rem] lg:text-[1.4rem] xl:text-[1.5rem]"
             ref={appointmentDescriptionRef}
             placeholder="Please write a little description of what you want to do."
             id="appointment_description"

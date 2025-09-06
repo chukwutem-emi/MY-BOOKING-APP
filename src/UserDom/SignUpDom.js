@@ -59,8 +59,10 @@ const SignUpDom = ({usernameRef, emailRef, passwordRef, phoneRef, langKey, loadi
             >
                 {loading ? (
                     <>
-                    <Spinner />
-                    {lang[langKey]?.signUpLanguageConfig?.buttonInnerText}
+                    <div className="flex flex-row flex-nowrap">
+                        <Spinner />
+                        {lang[langKey]?.signUpLanguageConfig?.buttonInnerText}
+                    </div>
                     </>
                 ) : (
                     lang[langKey]?.signUpLanguageConfig?.signUp

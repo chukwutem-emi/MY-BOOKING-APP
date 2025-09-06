@@ -30,7 +30,10 @@ const PromoteUser = lazy(() => import("./SubComponent/PromoteUserSubComponent"))
 const DeletePersonnelInfo = lazy(() => import("./SubComponent/DeletePersonnelInfoSubComponent"));
 const GetAllPersonnel = lazy(() => import("./SubComponent/GetAllPersonnelSubComponent"));
 const UpdatePersonnelInfo = lazy(() => import("./SubComponent/UpdatePersonnelInfoSubComponent"));
-const UploadPersonnelInfo = lazy(() => import("./SubComponent/UploadPersonnelSubComponent"))
+const UploadPersonnelInfo = lazy(() => import("./SubComponent/UploadPersonnelSubComponent"));
+const DeleteAppointment = lazy(() => import("./SubComponent/DeleteAppointmentSubComponent"));
+const GetUserAppointment = lazy(() => import("./SubComponent/GetUserAppointmentSubComponent"));
+const UpdateUserAppointment = lazy(() => import("./SubComponent/UpdateAppointmentDetailsSubComponent"));
 
 const appRouter = createBrowserRouter([
     {
@@ -166,6 +169,21 @@ const appRouter = createBrowserRouter([
             {
                 path:"/upload-personnel",
                 element:<Suspense fallback={<Spinner />}><UploadPersonnelInfo /></Suspense>,
+                errorElement:<Error />
+            },
+            {
+                path:"/delete-appointment",
+                element:<Suspense fallback={<Spinner />}><DeleteAppointment /></Suspense>,
+                errorElement:<Error />
+            },
+            {
+                path:"/user-appointment",
+                element:<Suspense fallback={<Spinner />}><GetUserAppointment /></Suspense>,
+                errorElement:<Error />
+            },
+            {
+                path:"/update-appointment",
+                element:<Suspense fallback={<Spinner />}><UpdateUserAppointment /></Suspense>,
                 errorElement:<Error />
             },
         ]
