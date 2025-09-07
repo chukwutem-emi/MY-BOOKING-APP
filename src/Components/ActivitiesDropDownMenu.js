@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { MdMenu } from "react-icons/md";
 
 const ActivitiesDropDownMenu = () => {
     const[isOpen, setIsOpen] = useState(false);
@@ -67,6 +66,10 @@ const ActivitiesDropDownMenu = () => {
         {
             title : "Get User Appointment ➡️",
             link  : "/user-appointment"
+        },
+        {
+            title : "Get All Users Appointment ➡️",
+            link : "/users-appointment"
         },
         {
             title : "Update User Appointment Details",

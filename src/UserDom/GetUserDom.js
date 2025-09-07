@@ -7,7 +7,7 @@ const GetUserDom = ({backgroundLoading, errorMsg, handleGetUser, hasFetch, loadi
         <>
         <div className="w-[90%] mb-[2rem] items-center justify-center mx-auto xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[90%]">
             <p className="w-full font-bold font-serif text-blue-950 text-center animate-bounce text-lg mb-8">click the button bellow to fetch your details.</p>
-            <button className="py-2 text-white bg-blue-950 text-xl rounded w-full text-center hover:bg-blue-600 flex flex-row justify-evenly" title={loading ? "🚫 Processing, please wait..." : "Click here to fetch👆"} disabled={loading} onClick={handleGetUser}>{loading ? (<><Spinner /> Processing, please wait!....</>) : (hasFetch ? "Refetch" : "Fetch")}</button>
+            <button className="py-2 text-white bg-blue-950 text-xl rounded w-full text-center hover:bg-blue-600 flex flex-row justify-evenly outline-none" title={loading ? "🚫 Processing, please wait..." : "Click here to fetch👆"} disabled={loading} onClick={handleGetUser}>{loading ? (<><Spinner /> Processing, please wait!....</>) : (hasFetch ? "Refetch" : "Fetch")}</button>
             {
                 backgroundLoading && (
                     <>

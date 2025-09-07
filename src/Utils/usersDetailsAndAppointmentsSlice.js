@@ -3,9 +3,9 @@ import { createSlice, isAction } from "@reduxjs/toolkit";
 const usersDetailsAndAppointmentSlice = createSlice({
     name:"details",
     initialState:{
-        usersDetails:null,
-        appointmentDetails:null,
-        personnelDetails:null
+        usersDetails:[],
+        appointmentDetails:[],
+        personnelDetails:[]
     },
     reducers:{
         addUsersDetails: (state, action) => {

@@ -22,7 +22,7 @@ const GetAllPersonnelDom = ({backgroundLoading, errorMsg, filteredPersonnelList,
                 onChange={handleClearMsg}
                 autoFocus
                 />
-                <button type="button" onClick={() => handleBtnClick(searchText)} className="bg-blue-950 w-full p-1">
+                <button type="button" onClick={() => handleBtnClick(searchText)} className="bg-blue-950 w-full p-1 outline-none">
                     {
                         isLoading ? (
                             <div className="flex flex-row">

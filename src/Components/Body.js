@@ -34,6 +34,7 @@ const UploadPersonnelInfo = lazy(() => import("./SubComponent/UploadPersonnelSub
 const DeleteAppointment = lazy(() => import("./SubComponent/DeleteAppointmentSubComponent"));
 const GetUserAppointment = lazy(() => import("./SubComponent/GetUserAppointmentSubComponent"));
 const UpdateUserAppointment = lazy(() => import("./SubComponent/UpdateAppointmentDetailsSubComponent"));
+const GetAllUsersAppointment = lazy(() => import("./SubComponent/GetAllAppointmentSubComponent"));
 
 const appRouter = createBrowserRouter([
     {
@@ -179,6 +180,11 @@ const appRouter = createBrowserRouter([
             {
                 path:"/user-appointment",
                 element:<Suspense fallback={<Spinner />}><GetUserAppointment /></Suspense>,
+                errorElement:<Error />
+            },
+            {
+                path:"/users-appointment",
+                element:<Suspense fallback={<Spinner />}><GetAllUsersAppointment /></Suspense>,
                 errorElement:<Error />
             },
             {
