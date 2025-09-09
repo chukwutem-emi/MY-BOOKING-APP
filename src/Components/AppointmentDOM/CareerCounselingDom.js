@@ -10,7 +10,7 @@ const CareerCounselingDom = ({handleCareerClickForm, message, loading, addressRe
     const langKey = useSelector((store) => store.config?.lang);
 
     return (
-        <form onSubmit={handleCareerClickForm} className='flex flex-col space-y-4 w-[50%] bg-white p-8 rounded-2xl mb-[2rem] mx-auto shadow-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]'>
+        <form onSubmit={handleCareerClickForm} className='flex flex-col space-y-4 w-[90%] bg-white p-8 rounded-2xl mb-[2rem] mx-auto shadow-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]'>
             <h1 className='text-blue-800 text-[1.4rem] font-extrabold mb-[2rem] animate-pulse xs:text-[1.2rem] sm:text-[1.3rem] md:text-[1.4rem] lg:text-[1.4rem] xl:text-[1.4rem]'>{lang[langKey]?.appointmentsInputFields?.careerCounselingHeading}</h1>
             {
                 message && (

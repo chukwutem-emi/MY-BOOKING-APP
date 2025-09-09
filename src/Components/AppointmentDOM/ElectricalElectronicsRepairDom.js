@@ -9,7 +9,7 @@ const ElectricalElectronicsRepairDom = ({handleElectricalElectronicsRepairForm, 
 
     const langKey = useSelector((store) => store.config?.lang);
     return (
-        <form onSubmit={handleElectricalElectronicsRepairForm} className="w-[50%] space-y-4 mb-[2rem] mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
+        <form onSubmit={handleElectricalElectronicsRepairForm} className="w-[90%] space-y-4 mb-[2rem] mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
             <h1 className="break-words font-sans text-blue-800 font-bold text-[1.5rem] mb-8 animate-pulse xs:text-[1.2rem] sm:text-[1.3rem] md:text-[1.4rem] lg:text-[1.4rem] xl:text-[1.4rem]">{lang[langKey]?.appointmentsInputFields?.electricalElectronicsRepairHeading}</h1>
             {
                 message && (

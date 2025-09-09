@@ -12,7 +12,7 @@ const AcademicAdvisingDom = ({handleAcademicForm, message, errorMsg, isLoading, 
     const langKey = useSelector((store) => store.config?.lang);
 
     return (
-        <form onSubmit={handleAcademicForm} className="flex flex-col w-[50%] mb-[2rem] mx-auto p-4 space-y-4 shadow-2xl rounded-xl bg-white xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
+        <form onSubmit={handleAcademicForm} className="flex flex-col w-[90%] mb-[2rem] mx-auto p-4 space-y-4 shadow-2xl rounded-xl bg-white xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
             <h1 className="text-blue-800 text-[1.4rem] font-extrabold mb-[2rem] animate-pulse xs:text-[1.2rem] sm:text-[1.3rem] md:text-[1.4rem] lg:text-[1.4rem] xl:text-[1.4rem]">{lang[langKey]?.appointmentsInputFields?.academicAdvisingHeading}</h1>
             {
                 message && (
