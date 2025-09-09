@@ -32,7 +32,7 @@ const EducationAppointment = () => {
             </div> 
             {
                 education.map((item) => (
-                    <Link to={item.link} key={item.title} className="bg-gray-500 p-2 rounded-lg  cursor-pointer xs:w-[80%] xs:p-2 sm:w-[80%] md:w-[80%] lg:w-[60%] xl:w-[50%] h-full flex-shrink-0 break-words xl:p-4 hover:p-4">
+                    <Link to={item.link} key={item.title} className="bg-gray-500 p-2 rounded-lg  cursor-pointer w-full xs:w-[80%] xs:p-2 sm:w-[80%] md:w-[80%] lg:w-[60%] xl:w-[50%] h-full flex-shrink-0 break-words xl:p-4 hover:p-4">
                         <h2 className="text-blue-900 bg-white font-sans font-bold w-fit p-2 rounded-md m-[0.5rem] xs:text-sm xs:font-extrabold sm:text-lg sm:font-bold md:font-extrabold md:text-lg lg:text-lg lg:font-bold xl:font-extrabold xl:text-xl">
                             {item.title}
                         </h2>
