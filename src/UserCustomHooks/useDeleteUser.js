@@ -38,7 +38,7 @@ const useDeleteUser = () => {
                 setErrorMsg(true);
             }
         } catch(error) {
-            setMessage(`An error occurred or server not responding.${String(error)}`);
+            setMessage(`Network error or server not responding. Please check your internet connection. ${String(error)}`);
             setErrorMsg(true);
         } finally {
             setLoading(false);

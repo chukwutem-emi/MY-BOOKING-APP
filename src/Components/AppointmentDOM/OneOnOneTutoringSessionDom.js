@@ -2,11 +2,16 @@ import React from "react";
 import Spinner from "../../Utils/Spinner";
 import EducationCustomDropDown from "../../AppointmentCustomDropDown/EducationCustomDropDown";
 import InputFields from "./InputFields";
+import { useSelector } from "react-redux";
+import lang from "../../Utils/multiLanguageConfig";
 
 const OneOnOneTutoringSessionDom = ({handleOneOnOneTutorialForm, addressRef, appointmentDateRef, appointmentDescriptionRef, appointmentTimeRef, genderRef, isError, message, nextOfKinAddressRef, nextOfKinPhoneNumberRef, nextOfKinRef, isLoading, handleSelected, setMessage}) => {
+
+    const langKey = useSelector((store) => store.config?.lang);
+
     return (
         <form onSubmit={handleOneOnOneTutorialForm} className="w-[50%] space-y-4 mb-[2rem] mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
-            <h1 className="font-sans text-blue-800 font-bold text-[1.5rem] mb-8 animate-pulse xs:text-[1.2rem] sm:text-[1.3rem] md:text-[1.4rem] lg:text-[1.4rem] xl:text-[1.4rem]">One-On-One Tutoring Session Appointment</h1>
+            <h1 className="font-sans text-blue-800 font-bold text-[1.5rem] mb-8 animate-pulse xs:text-[1.2rem] sm:text-[1.3rem] md:text-[1.4rem] lg:text-[1.4rem] xl:text-[1.4rem]">{lang[langKey]?.appointmentsInputFields?.oneOnOneTutoringSessionHeading}</h1>
             {
                 message && (
                     <div className={`break-words p-2 w-full ${isError ? "text-red-600 bg-red-100 font-semibold text-lg" : "text-green-600 bg-green-100 font-semibold text-lg"}`}>
@@ -19,16 +24,16 @@ const OneOnOneTutoringSessionDom = ({handleOneOnOneTutorialForm, addressRef, app
             autoComplete="on"
             id="gender"
             inputRef={genderRef}
-            label="Gender:"
-            placeholder="Please enter your gender"
+            label={lang[langKey]?.appointmentsInputFields?.appointmentsGenderLabel}
+            placeholder={lang[langKey]?.appointmentsInputFields?.appointmentsGenderPlaceHolder}
             type="text" 
             />
             <InputFields
             autoComplete="on"
             id="address"
             inputRef={addressRef}
-            label="Address:"
-            placeholder="Please enter your address"
+            label={lang[langKey]?.appointmentsInputFields?.appointmentsAddressLabel}
+            placeholder={lang[langKey]?.appointmentsInputFields?.appointmentsAddressPlaceHolder}
             type="text" 
             />
             <EducationCustomDropDown handleSelected={handleSelected}/>
@@ -36,47 +41,47 @@ const OneOnOneTutoringSessionDom = ({handleOneOnOneTutorialForm, addressRef, app
             autoComplete="on"
             id="next_of_kin"
             inputRef={nextOfKinRef}
-            label="Next Of kin:"
-            placeholder="Please enter your next of kin"
+            label={lang[langKey]?.appointmentsInputFields?.appointmentsNextOfKinLabel}
+            placeholder={lang[langKey]?.appointmentsInputFields?.appointmentsNextOfKinPlaceHolder}
             type="text" 
             />
             <InputFields
             autoComplete="tel"
             id="next_of_kin_phone_number"
             inputRef={nextOfKinPhoneNumberRef}
-            label="Next Of Kin Phone Number:"
-            placeholder="Please enter your next of kin phone number"
+            label={lang[langKey]?.appointmentsInputFields?.appointmentsNextOfKinPhoneNumberLabel}
+            placeholder={lang[langKey]?.appointmentsInputFields?.appointmentsNextOfKinPhoneNumberPlaceHolder}
             type="text" 
             />
             <InputFields
             autoComplete="on"
             id="next_of_kin_address"
             inputRef={nextOfKinAddressRef}
-            label="Next Of Kin Address:"
-            placeholder="Please enter your next of kin address"
+            label={lang[langKey]?.appointmentsInputFields?.appointmentsNextOfKinAddressLabel}
+            placeholder={lang[langKey]?.appointmentsInputFields?.appointmentsNextOfKinAddressPlaceHolder}
             type="text" 
             />
             <InputFields
             autoComplete="on"
             id="appointment_time"
             inputRef={appointmentTimeRef}
-            label="Appointment Time:"
-            placeholder="Please choose your convenient time for the appointment"
+            label={lang[langKey]?.appointmentsInputFields?.appointmentsTimeLabel}
+            placeholder={lang[langKey]?.appointmentsInputFields?.appointmentsTimePlaceHolder}
             type="time" 
             />
             <InputFields
             autoComplete="on"
             id="appointment_date"
             inputRef={appointmentDateRef}
-            label="Appointment Date:"
-            placeholder="Please choose your convenient date for the appointment"
+            label={lang[langKey]?.appointmentsInputFields?.appointmentsDateLabel}
+            placeholder={lang[langKey]?.appointmentsInputFields?.appointmentsDatePlaceHolder}
             type="date" 
             />
-            <label htmlFor="appointment_description" className="font-bold text-blue-600 text-[1.2rem] xs:text-[1.1rem] sm:text-[1.2rem] md:text-[1.3rem] lg:text-[1.4rem] xl:text-[1.5rem]"><strong>Appointment Description:</strong></label>
+            <label htmlFor="appointment_description" className="font-bold text-blue-600 text-[1.2rem] xs:text-[1.1rem] sm:text-[1.2rem] md:text-[1.3rem] lg:text-[1.4rem] xl:text-[1.5rem]"><strong>{lang[langKey]?.appointmentsInputFields?.appointmentsDescriptionLabel}</strong></label>
             <textarea
             className="border-[1px] border-blue-600 outline-none text-[1.2rem] px-2 py-1 rounded-lg xs:text-[1.1rem] sm:text-[1.2rem] md:text-[1.3rem] lg:text-[1.4rem] xl:text-[1.5rem]"
             ref={appointmentDescriptionRef}
-            placeholder="Please write a little description of what you want to do."
+            placeholder={lang[langKey]?.appointmentsInputFields?.appointmentsDescriptionPlaceHolder}
             id="appointment_description"
             name="appointment_description"
             autoComplete="on"
@@ -89,12 +94,12 @@ const OneOnOneTutoringSessionDom = ({handleOneOnOneTutorialForm, addressRef, app
                         <div className="flex flex-row">
                             <Spinner />
                             <div className="ml-8 text-white text-[1.2rem]">
-                            Please wait! while we process your data..........
+                            {lang[langKey]?.appointmentsInputFields?.appointmentButtonParagraph}
                             </div>
                         </div>
                     ) : (
                         <div className="text-white text-[1.2rem] font-sans font-bold sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl">
-                            Submit
+                            {lang[langKey]?.appointmentsInputFields?.appointmentButtonInnerText}
                         </div>
                     )
                 }

@@ -38,7 +38,7 @@ const useUpdateUserAppointment = () => {
                 setIsError(true);
             }
         } catch (error) {
-            setMessage(`Network error or server not responding. ${String(error)}`);
+            setMessage(`Network error or server not responding. Please check your internet connection. ${String(error)}`);
             setIsError(true);
         } finally {
             setLoading(false);

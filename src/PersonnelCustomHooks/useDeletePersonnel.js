@@ -38,7 +38,7 @@ const useDeletePersonnel = () => {
                 setErrorMsg(true);
             }
         } catch (error) {
-            setMessage(`Network error or server not responding. ${String(error)}`);
+            setMessage(`Network error or server not responding. Please check your internet connection. ${String(error)}`);
             setErrorMsg(true);
         } finally {
             setIsLoading(false);

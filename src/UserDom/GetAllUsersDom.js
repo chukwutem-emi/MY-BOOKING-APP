@@ -45,7 +45,7 @@ const GetAllUsersDom = ({loading, backgroundLoading, responseMsg, errorMsg, filt
             </div>   
             {
                 errorMsg ? (
-                    <div className="bg-red-100 text-red-700 w-full rounded-md text-center break-words p-4">
+                    <div className="bg-red-50 text-red-700 w-full rounded-md text-center break-words p-4">
                         {responseMsg}
                     </div>
                 ) : filteredUsers.length > 0 ? (

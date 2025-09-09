@@ -37,7 +37,7 @@ const useLogin = (setMessage, setIsError) => {
                     setIsError(true);
                 }       
         } catch(error) {
-            setMessage(`An error occurred or server not responding. please check internet connection or try again later. ${String(error)}`);
+            setMessage(`Network error or server not responding. Please check your internet connection. ${String(error)}`);
             setIsError(true);
         } finally {
             setLoading(false)

@@ -17,7 +17,7 @@ const GetUserDom = ({backgroundLoading, errorMsg, handleGetUser, hasFetch, loadi
             }
             {
                 responseMsg && (
-                    <div className={`text-sm break-words rounded p-3 mb-4 mt-14 shadow-lg w-full ${errorMsg ? "text-red-700 bg-red-100" : "text-green-700 bg-white"}`}>
+                    <div className={`text-sm break-words rounded font-bold p-3 mb-4 mt-14 shadow-lg w-full ${errorMsg ? "text-red-700 bg-red-50 text-center" : "text-green-700 bg-white"}`}>
                         <button type="button" className="text-xl font-bold px-2 rounded hover:bg-gray-300 bg-blue-500 w-8 text-white mb-4" onClick={() => setResponseMsg("")} title="cancel" aria-label="cancel">&times;
                         </button>
                         {!errorMsg && typeof responseMsg === "object" ? (

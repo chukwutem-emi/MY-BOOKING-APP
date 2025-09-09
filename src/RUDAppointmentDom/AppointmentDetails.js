@@ -43,7 +43,7 @@ const AppointmentDetails = ({appointmentDetails}) => {
                 <li><strong>Appointment_EndTime:</strong>&nbsp;{appointment_endTime}</li>
                 <li><strong>Appointment-Type:</strong>&nbsp;{appointment_types}</li>
                 <li><strong>Duration:</strong>&nbsp;{`${duration} minutes`}</li>
-                <li><strong>Price:</strong>&nbsp;{price}</li>
+                <li><strong>Price:</strong>&nbsp;{`${price} NGN`}</li>
                 <li><strong>Personnel-Id:</strong>&nbsp;{personnel_id}</li>
                 <li><strong>Personnel-Role:</strong>&nbsp;{personnel_role}</li>
                 <li><strong>Personnel-Tel:</strong>&nbsp;{personnel_tel}</li>

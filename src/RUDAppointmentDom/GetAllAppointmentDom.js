@@ -22,7 +22,7 @@ const GetAllAppointmentDom = ({searchText, backgroundLoading, filteredAppointmen
                 onChange={handleClearMsg}
                 autoFocus
                 />
-                <button type="button" onClick={() => handleBtnClick(searchText)} className="bg-green-900 w-full p-1 outline-none">
+                <button type="button" onClick={() => handleBtnClick(searchText)} className="bg-green-900 hover:bg-green-600 w-full p-1 outline-none">
                     {
                         loading ? (
                             <div className="flex flex-row">

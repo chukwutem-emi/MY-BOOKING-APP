@@ -16,8 +16,11 @@ const getUserSlice = createSlice({
         },
         removeUserInfo: (state) => {
             state.userInfo = null;
+        },
+        removePassword: (state) => {
+            state.userPassword = null;
         }
     }
 });
-export const{addUserInfo, removeUserInfo, addUserPassword} = getUserSlice.actions;
+export const{addUserInfo, removeUserInfo, addUserPassword, removePassword} = getUserSlice.actions;
 export default getUserSlice.reducer;

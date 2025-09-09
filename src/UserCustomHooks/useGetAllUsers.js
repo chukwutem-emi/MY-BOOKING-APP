@@ -50,7 +50,7 @@ const useGetAllUsers = () => {
 
         } catch(error) {
             setFullUsersList([]);
-            setResponseMsg(`An Error occurred or server not responding. ${String(error)}`);
+            setResponseMsg(`Network error or server not responding. Please check your internet connection. ${String(error)}`);
             setErrorMsg(true);
 
         } finally {

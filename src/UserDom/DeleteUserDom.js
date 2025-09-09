@@ -8,7 +8,7 @@ const DeleteUserDom = ({errorMsg, message, loading, handleDelete, handleClearMsg
             <h1 className="w-full text-white font-sans text-2xl xs:text-[1.2rem] sm:text-[1.3rem] md:text-[1.4rem] lg:text-[1.5rem] font-bold animate-pulse">Delete User</h1>
             {
                 message && (
-                    <div className={`w-full break-words text-lg p-4 rounded-xl ${errorMsg ? "text-red-600 bg-red-100" : "text-green-600 bg-green-100"}`}>
+                    <div className={`w-full break-words text-lg p-4 rounded-xl ${errorMsg ? "text-red-600 bg-red-50" : "text-green-600 bg-green-50"}`}>
                         <button type="button" className="text-red-700 bg-white text-3xl w-8 h-fit shadow-2xl z-50 rounded-full mr-[2rem] font-sans font-bold cursor-pointer" title="cancel" onClick={() => setMessage("")} aria-label="cancel">&times;</button>
                         {message}
                     </div>

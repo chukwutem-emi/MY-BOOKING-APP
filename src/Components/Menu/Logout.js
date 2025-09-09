@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { removeAccessToken } from "../../Utils/tokenSlice";
+import { removePassword } from "../../Utils/getUserSlice";
 
 const Logout = () => {
     const[isLogin, setIsLogin] = useState("Logout");
     const navigate = useNavigate();
-    const dispatchLogOut = useDispatch();
+    const dispatchLogOutAndRemoveAccessToken = useDispatch();
+    const dispatchLogoutAndRemovePassword = useDispatch();
    useEffect(() => {
         if (isLogin === "Login") {
             logOut();
@@ -14,7 +16,8 @@ const Logout = () => {
    }, [isLogin]);
 
    const logOut = () => {
-    dispatchLogOut(removeAccessToken());
+    dispatchLogOutAndRemoveAccessToken(removeAccessToken());
+    dispatchLogoutAndRemovePassword(removePassword());
     setTimeout(() => {
         navigate("/"); 
     }, 3000);

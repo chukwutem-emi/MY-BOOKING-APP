@@ -63,7 +63,7 @@ const useHealthcareDental = () => {
             }
 
         } catch (error) {
-            setMessage(`📡 Network error or server not connecting. Please try again later!. ${String(error)}`);
+            setMessage(`📡 Network error or server not responding. Please check your internet connection. ${String(error)}`);
             setIsError(true);
         } finally {
             setIsLoading(false);

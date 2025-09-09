@@ -2,12 +2,16 @@ import { useEffect, useRef, useState } from "react";
 import useLogin from "../../UserCustomHooks/useLogin";
 import LoginDom from "../../UserDom/LoginDom";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addUserPassword } from "../../Utils/getUserSlice";
 
 
 const LoginForm = ({setMessage, setIsError, message, isError}) => {
     const[showPassword, setShowPassword] = useState(false);
     const emailRef    = useRef(null);
     const passwordRef = useRef(null);
+
+    const dispatchPassword = useDispatch();
 
     const {
         handleLogin : handleLoginPayload,
@@ -29,6 +33,7 @@ const LoginForm = ({setMessage, setIsError, message, isError}) => {
             password      :passwordRef.current.value,
         };
         handleLoginPayload(payload);
+        dispatchPassword(addUserPassword(passwordRef.current.value));
     };
     const handleClearMsg = () => {
         setIsError(false);

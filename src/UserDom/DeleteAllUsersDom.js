@@ -27,7 +27,7 @@ const DeleteAllUsersDom = ({backgroundLoading, message, isLoading, errorMsg, set
                 }
                 {
                     message && (
-                        <div className={`w-full break-words font-sans text-lg font-semibold text-center p-4 xs:text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-2xl ${errorMsg ? "text-red-600 bg-red-100" : "text-green-600 bg-green-100"}`}>
+                        <div className={`w-full break-words font-sans text-lg font-semibold text-center p-4 xs:text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-2xl ${errorMsg ? "text-red-600 bg-red-50" : "text-green-600 bg-green-50"}`}>
                             <button type="button" className="text-red-700 bg-white text-3xl w-8 h-fit shadow-2xl z-50 rounded-full mr-[2rem] font-sans font-bold cursor-pointer" title="cancel" onClick={() => setMessage("")} aria-label="cancel">&times;</button>
                             {message}
                         </div>
