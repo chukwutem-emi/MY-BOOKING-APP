@@ -20,7 +20,7 @@ const TechnicalRepair = () => {
         },
     ];
     return (
-        <div className="relative flex w-full h-[20rem] whitespace-normal space-x-4 overflow-x-auto p-4">
+        <div className="relative flex w-full h-[25rem] whitespace-normal space-x-4 overflow-x-auto p-4">
             <div className="absolute top-0 left-0 z-50 flex justify-center items-center h-full w-8 cursor-pointer">
                 <span className="font-extrabold text-black text-5xl"><strong>&larr;</strong></span>
             </div>

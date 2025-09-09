@@ -26,7 +26,7 @@ const ProfessionalService = () => {
         },
     ];
     return (
-        <div className="relative flex flex-row w-full h-[20rem] whitespace-normal overflow-x-auto p-4 space-x-4">
+        <div className="relative flex flex-row w-full h-[25rem] whitespace-normal overflow-x-auto p-4 space-x-4">
             <div className="absolute left-0 top-0 flex items-center justify-center w-8 z-50 h-full cursor-pointer">
                 <span className="text-black font-extrabold text-5xl"><strong>&larr;</strong></span>
             </div>
