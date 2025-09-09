@@ -28,7 +28,7 @@ const Menu = () => {
             </button>
             {
                 isOpen && (
-                    <div className="left-0 absolute bg-gray-600 w-[30rem] h-dvh z-50 p-4 overflow-y-auto shadow-2xl space-y-6 xs:w-[20rem] sm:w-[30rem] md:w-[30rem] lg:w-[30rem] xl:w-[30rem]"> 
+                    <div className="left-0 absolute bg-gray-600 h-dvh z-50 p-4 overflow-y-auto shadow-2xl space-y-6 xs:w-[20rem] sm:w-[30rem] md:w-[30rem] lg:w-[30rem] xl:w-[30rem]"> 
                         <UserProfile />
                         <SelectLanguage />
                         <Logout />
