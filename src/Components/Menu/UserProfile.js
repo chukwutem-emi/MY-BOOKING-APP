@@ -12,8 +12,8 @@ const UserProfile = () => {
 
     const userDetails = useSelector((store) => store.info?.userInfo);
     const userPassword = useSelector((store) => store.info?.userPassword);
-    const user = {username:userDetails?.username}
-    const firstTwoLetters = user.username.substring(0, 2);
+    const username = userDetails?.username || "";
+    const firstTwoLetters = username.substring(0, 2);
 
     useEffect(() => {
         window.addEventListener("mousedown", handleClickOutside);
