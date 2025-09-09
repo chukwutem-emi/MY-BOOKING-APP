@@ -142,16 +142,16 @@ const ActivitiesDropDownMenu = () => {
     const handleToggle = () => setIsOpen(!isOpen);
     return (
         <div ref={dropDownRef} className="relative mt-[2rem]">
-            <button onClick={handleToggle} className="text-white font-extrabold">
+            <button onClick={handleToggle} className="text-white font-extrabold hover:text-black hover:bg-white outline-none">
                 <BsThreeDotsVertical size={30} title="SIDE-BAR" />
             </button>
             {
                 isOpen && (
-                    <ul className="absolute bg-black text-right flex flex-col w-[20rem] max-h-[30rem] overflow-y-auto xs:w-[20rem] sm:w-[25rem] md:w-[30rem] lg:[30rem] xl:[30rem] right-0 mt-2 rounded-lg shadow-md z-50 space-y-3 p-2">
+                    <ul className="absolute bg-black text-left flex flex-col w-[20rem] max-h-[30rem] overflow-y-auto xs:w-[20rem] sm:w-[25rem] md:w-[30rem] lg:[30rem] xl:[30rem] right-0 mt-2 rounded-lg shadow-md z-50 space-y-3 p-2">
                         {
                             content.map((item) => (
                                 <li key={item.title} className="px-4 py-2 text-white hover:bg-gray-700 hover:shadow-2xl hover:z-50 font-bold font-sans xs:text-sm sm:text-lg md:text-lg lg:text-lg xl:text-lg">
-                                    <Link to={item.link} className="hover:animate-pulse w-full h-full">{item.title}
+                                    <Link to={item.link} className="hover:animate-pulse w-full h-full" onClick={handleToggle}>{item.title}
                                     </Link>
                                 </li>
                             ))
