@@ -55,17 +55,17 @@ const SignUpDom = ({usernameRef, emailRef, passwordRef, phoneRef, langKey, loadi
             />
             <button
             type="submit"
-            className="bg-red-400 w-full text-center text-white font-bold text-xl p-4 font-sans rounded-md outline-none hover:bg-red-300 break-words" disabled={loading}
+            className="bg-red-400 w-full text-white font-bold text-xl p-4 font-sans rounded-md outline-none hover:bg-red-300 break-words" disabled={loading}
             >
                 {loading ? (
                     <>
                     <div className="flex flex-row flex-nowrap">
                         <Spinner />
-                        {lang[langKey]?.signUpLanguageConfig?.buttonInnerText}
+                        <div className="animate-pulse xs:ml-[3rem] sm:ml-[3rem] md:ml-[3rem] lg:ml-[6rem] xl:ml-[6rem]">{lang[langKey]?.signUpLanguageConfig?.buttonInnerText}</div>
                     </div>
                     </>
                 ) : (
-                    lang[langKey]?.signUpLanguageConfig?.signUp
+                    <span className="text-center font-bold xs:text-[1.3rem] sm:text-[1.4rem] md:text-[1.4rem] lg:text-[1.5rem] xl:text-[1.5rem]">{lang[langKey]?.signUpLanguageConfig?.signUp}</span>
                 )}
             </button>
         </form>

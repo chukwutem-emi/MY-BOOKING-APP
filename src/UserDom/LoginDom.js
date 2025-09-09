@@ -36,14 +36,16 @@ const LoginDom = ({handleLoginForm, emailRef, passwordRef, showPassword, setShow
                     <div className="mt-[1rem]">{lang[langKey]?.loginLanguageConfig?.checkBoxInnerText}</div>
                 </div>
             </div>
-            <button type="submit" className="w-full mt-4 p-2 text-lg bg-red-900 text-white font-bold rounded hover:bg-red-300 flex flex-row break-words" disabled={loading}>
+            <button type="submit" className="w-full mt-4 p-2 text-lg bg-red-900 text-white font-bold rounded hover:bg-red-300 break-words" disabled={loading}>
                 {loading ? (
                     <>
-                    <Spinner />
-                    <div className="animate-pulse ml-2">{lang[langKey]?.loginLanguageConfig?.buttonInnerText}</div>
+                    <div className="flex flex-row">
+                        <Spinner />
+                        <div className="animate-pulse xs:ml-[3rem] sm:ml-[3rem] md:ml-[3rem] lg:ml-[6rem] xl:ml-[6rem]">{lang[langKey]?.loginLanguageConfig?.buttonInnerText}</div>
+                    </div>
                     </>
                 ) : (
-                    <span className="ml-4">{lang[langKey]?.loginLanguageConfig?.login}</span>
+                    <span className="text-center font-bold xs:text-[1.3rem] sm:text-[1.4rem] md:text-[1.4rem] lg:text-[1.5rem] xl:text-[1.5rem]">{lang[langKey]?.loginLanguageConfig?.login}</span>
                 )}
                 </button>
         </form> 
