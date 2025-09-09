@@ -41,7 +41,7 @@ const UserProfile = () => {
                 isOpen && (
                     <>
                     <p className="text-white font-sans break-words xs:text-[1rem] sm:text-[1rem] md:text-[1.1rem] lg:text-[1.2rem] xl:text-[1.2rem]">{lang[langKey]?.userProfileInfo?.userProfileParagraph}</p>
-                    <ul className="text-green-600 font-sans shadow-2xl z-50 text-[1.2rem] absolute bg-blue-950 p-4 space-y-2 rounded-lg break-words xs:text-[0.7rem] sm:text-[1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem]">
+                    <ul className="text-green-600 w-full xs:w-[60%] sm:w-[80%] md:w-[80%] lg:w-[90%] xl:w-[90%] font-sans font-bold shadow-2xl z-50 absolute bg-blue-950 p-4 space-y-2 rounded-lg break-words xs:text-[0.5rem] sm:text-[1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem]">
                         <li><strong className="text-white">{lang[langKey]?.userProfileInfo?.userProfileName}</strong>&nbsp;{userDetails?.username}</li>
                         <li><strong className="text-white">{lang[langKey]?.userProfileInfo?.userProfileEmail}</strong>&nbsp;{userDetails?.email_address}</li>
                         <li><strong className="text-white">{lang[langKey]?.userProfileInfo?.userProfileTel}</strong>&nbsp;{userDetails?.phone_number}</li>
