@@ -26,7 +26,7 @@ const TechnicalRepair = () => {
             </div>
             {
                 technical.map((item) => (
-                    <Link to={item.link} key={item.title} className="bg-gray-500 shadow-xl rounded-xl flex-shrink-0 p-4 w-[90%] xs:w-[90%] sm:w[80%] md:w-[80%] lg:w-[80%] xl:w-[50%] hover:p-8">
+                    <Link to={item.link} key={item.title} className="bg-gray-500 shadow-xl rounded-xl flex-shrink-0 p-2 w-[90%] xs:w-[90%] sm:w[80%] md:w-[80%] lg:w-[80%] xl:w-[50%] hover:p-4">
                         <h2 className="text-blue-900 text-lg font-extrabold font-sans bg-white p-1 rounded-lg w-fit m-[0.5rem] xs:text-sm sm:text-lg md:text-lg lg:text-lg xl:text-lg">
                             {item.title}
                         </h2>
