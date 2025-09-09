@@ -147,7 +147,7 @@ const ActivitiesDropDownMenu = () => {
             </button>
             {
                 isOpen && (
-                    <ul className="absolute bg-black flex flex-col w-[30rem] max-h-[30rem] overflow-y-auto xs:w-[20rem] sm:w-[25rem] md:w-[30rem] lg:[30rem] xl:[30rem] right-0 mt-2 rounded-lg shadow-md z-50 space-y-3 p-2">
+                    <ul className="absolute bg-black text-right flex flex-col w-[20rem] max-h-[30rem] overflow-y-auto xs:w-[20rem] sm:w-[25rem] md:w-[30rem] lg:[30rem] xl:[30rem] right-0 mt-2 rounded-lg shadow-md z-50 space-y-3 p-2">
                         {
                             content.map((item) => (
                                 <li key={item.title} className="px-4 py-2 text-white hover:bg-gray-700 hover:shadow-2xl hover:z-50 font-bold font-sans xs:text-sm sm:text-lg md:text-lg lg:text-lg xl:text-lg">
