@@ -29,7 +29,7 @@ const UserProfile = () => {
     
     const toggleBtn = () => setIsOpen(!isOpen);
     return (
-        <div ref={dropDownRef} className="space-y-4 relative w-[50%]">
+        <div ref={dropDownRef} className="space-y-4 relative w-full">
             <h1 className="text-blue-900 font-sans font-bold text-[1.3rem] w-fit bg-white p-1 rounded-2xl shadow-2xl xs:text-[0.8rem] sm:text-[1.1rem] md:text-[1.3rem] lg:text-[1.4rem] xl:text-[1.4rem]">{lang[langKey]?.userProfileInfo?.userProfileHeading}</h1>
             <div className="flex flex-row">
                 <p className="text-white bg-yellow-600 w-fit p-2 rounded-full font-sans font-bold xs:text-[0.7rem] sm:text-[1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem]"> {firstTwoLetters}</p>
