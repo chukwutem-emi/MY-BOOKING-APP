@@ -32,7 +32,7 @@ const HealthCareCounselingSessionAppointment = () => {
             nextOfKinRef.current.value              = "";
             addressRef.current.value                = "";
             genderRef.current.value                 = "";
-            personnelName                           = "";
+            setPersonnelName("");
         };
         if (message) {
             window.scrollTo({top:0, behavior:"smooth"});

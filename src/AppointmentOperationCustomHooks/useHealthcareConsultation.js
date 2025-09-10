@@ -56,7 +56,7 @@ const useHealthcareConsultation = () => {
                 }
                 setIsError(true);
             } else if (data.status === 201) {
-                setMessage(`${json.Consultation}<br><a href=${json.googleCalendarLink} target="_blank" ref="noopener, noreferrer" class="text-blue-500 justify-center items-center text-center font-semibold underline hover:text-lg hover:text-blue-800 my-0 mx-auto" title="click here">click here to view the healthcare consultation you booked in google calender</a>`)
+                setMessage(`${json.Consultation}<br><a href=${json.googleCalendarLink} target="_blank" ref="noopener, noreferrer" class="text-blue-500 justify-center items-center text-center font-semibold underline hover:text-blue-800 my-0 mx-auto" title="click here">click here to view the healthcare consultation you booked in google calender</a>`)
                 setIsError(false);
             } else {
                 const [key] = Object.keys(json)

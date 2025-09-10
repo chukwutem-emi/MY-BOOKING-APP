@@ -9,11 +9,11 @@ const ElectricalElectronicsRepairDom = ({handleElectricalElectronicsRepairForm, 
 
     const langKey = useSelector((store) => store.config?.lang);
     return (
-        <form onSubmit={handleElectricalElectronicsRepairForm} className="w-full space-y-4 mb-[2rem] mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
+        <form onSubmit={handleElectricalElectronicsRepairForm} className="w-full space-y-4 mb-[2rem] mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xs:w-[80%] sm:w-[80%] md:w-[80%] lg:w-[80%] xl:w-[50%]">
             <h1 className="break-words font-sans text-blue-800 font-bold mb-8 animate-pulse xs:text-[0.8rem] sm:text-[1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem]">{lang[langKey]?.appointmentsInputFields?.electricalElectronicsRepairHeading}</h1>
             {
                 message && (
-                    <div className={`break-words p-2 w-full ${isError ? "text-red-600 bg-red-100 font-semibold text-lg" : "text-green-600 bg-green-100 font-semibold text-lg"}`}>
+                    <div className={`break-words p-2 w-full font-sans xs:text-[0.6rem] sm:text-[0.8rem] md:text-[0.8rem] lg:text-[1rem] xl:text-[1rem] ${isError ? "text-red-600 bg-red-100 font-semibold text-lg" : "text-green-600 bg-green-100 font-semibold text-lg"}`}>
                         <button type="button" className="text-[2rem] bg-white text-red-600 shadow-2xl w-8 h-8 text-center rounded-full border-[1px] border-red-300" onClick={() => setMessage("")} title="cancel" aria-label="cancel">&times;</button>
                         <div dangerouslySetInnerHTML={{__html:message}} />
                     </div>
@@ -87,10 +87,10 @@ const ElectricalElectronicsRepairDom = ({handleElectricalElectronicsRepairForm, 
             required
             autoFocus
             />
-            <button type="submit" className="bg-blue-600 flex flex-row p-2 rounded-lg break-words hover:bg-blue-400 outline-none text-white font-sans">
+            <button type="submit" className="bg-blue-600 p-2 rounded-lg break-words hover:bg-blue-400 outline-none text-white font-sans">
                 {
                     isLoading ? (
-                        <div className="flex flex-row">
+                        <div className="flex flex-row justify-between">
                             <Spinner />
                             <div className="animate-pulse break-words xs:ml-[6rem] sm:ml-[6rem] md:ml-[6rem] lg:ml-[10rem] xl:ml-[12rem">
                             {lang[langKey]?.appointmentsInputFields?.appointmentButtonParagraph}

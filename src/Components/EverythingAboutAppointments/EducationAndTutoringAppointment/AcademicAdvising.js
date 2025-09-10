@@ -32,7 +32,7 @@ const AcademicAdvising = () => {
             gender.current.value           = "";
             phone.current.value            = "";
             description.current.value      = "";
-            personnelName                  = "";
+            setPersonnelName("");
         };
         if (message) {
             window.scrollTo({top:0, behavior:"smooth"});

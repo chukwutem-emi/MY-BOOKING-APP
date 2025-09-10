@@ -57,7 +57,7 @@ const useOneOnOneTutoring = () => {
                 setIsError(true)
             } else if (data.status === 201) {
                 setMessage(`
-                    ${json.one_one_tutoring}<br><a href=${json.googleCalendarEvent} target="_blank" rel="noopener noreferrer" title="click here" class="text-blue-500 justify-center items-center text-center font-semibold underline hover:text-lg hover:text-blue-800 my-0 mx-auto">Click here to view the one-on-one-tutoring appointment that you booked</a>
+                    ${json.one_one_tutoring}<br><a href=${json.googleCalendarEvent} target="_blank" rel="noopener noreferrer" title="click here" class="text-blue-500 justify-center items-center text-center font-semibold underline hover:text-blue-800 my-0 mx-auto">Click here to view the one-on-one-tutoring appointment that you booked</a>
                     `);
                     setIsError(false);
             } else {

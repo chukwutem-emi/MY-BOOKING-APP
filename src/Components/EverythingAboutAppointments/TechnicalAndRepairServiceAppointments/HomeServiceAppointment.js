@@ -32,7 +32,7 @@ const HomeServiceAppointment = () => {
             nextOfKinRef.current.value              = "";
             addressRef.current.value                = "";
             genderRef.current.value                 = "";
-            personnelName                           = "";
+            setPersonnelName("");
         };
         if (message) {
             window.scrollTo({top:0, behavior:"smooth"});
@@ -63,7 +63,7 @@ const HomeServiceAppointment = () => {
             addressRef={addressRef}
             appointmentDateRef={appointmentDateRef}
             appointmentDescriptionRef={appointmentDescriptionRef}
-            appointmentTimeRef={appointmentDateRef}
+            appointmentTimeRef={appointmentTimeRef}
             genderRef={genderRef}
             handleHomeServiceForm={handleHomeServiceForm}
             handleSelected={handleSelected}

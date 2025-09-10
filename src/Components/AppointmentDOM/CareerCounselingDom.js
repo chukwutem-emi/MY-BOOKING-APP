@@ -10,11 +10,11 @@ const CareerCounselingDom = ({handleCareerClickForm, message, loading, addressRe
     const langKey = useSelector((store) => store.config?.lang);
 
     return (
-        <form onSubmit={handleCareerClickForm} className='flex flex-col space-y-4 w-full bg-white p-8 rounded-2xl mb-[2rem] mx-auto shadow-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]'>
+        <form onSubmit={handleCareerClickForm} className='flex flex-col space-y-4 w-full bg-white p-8 rounded-2xl mb-[2rem] mx-auto shadow-2xl xs:w-[80%] sm:w-[80%] md:w-[80%] lg:w-[80%] xl:w-[50%]'>
             <h1 className='text-blue-800 font-extrabold mb-[2rem] animate-pulse xs:text-[0.8rem] sm:text-[1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem]'>{lang[langKey]?.appointmentsInputFields?.careerCounselingHeading}</h1>
             {
                 message && (
-                    <div className={`p-2 break-words w-full ${errorMsg ? "text-red-500 bg-red-100 text-sm" : "text-green-700 bg-green-100 font-semibold text-lg"}`}>
+                    <div className={`p-2 break-words w-full font-sans xs:text-[0.6rem] sm:text-[0.8rem] md:text-[0.8rem] lg:text-[1rem] xl:text-[1rem] ${errorMsg ? "text-red-500 bg-red-100 text-sm" : "text-green-700 bg-green-100 font-semibold text-lg"}`}>
                         <button type="button" className='text-[2rem] bg-white text-red-600 shadow-2xl w-8 h-8 text-center rounded-full border-[1px] border-red-300' aria-label="Cancel" title='Cancel' onClick={() => setMessage("")}>&times;</button>
                         <div dangerouslySetInnerHTML={{__html:message}}/>
                     </div>
@@ -88,10 +88,10 @@ const CareerCounselingDom = ({handleCareerClickForm, message, loading, addressRe
             autoFocus
             required 
             />
-            <button type='submit' className='p-2 text-center font-sans outline-none rounded-md bg-blue-800 text-white font-semibold hover:bg-blue-400'>
+            <button type='submit' className='p-2 font-sans outline-none rounded-md bg-blue-800 text-white font-semibold hover:bg-blue-400'>
                 {
                     loading ? (
-                        <div className='flex flex-row'>
+                        <div className='flex flex-row justify-between'>
                             <Spinner />
                             <div className='animate-pulse break-words xs:ml-[6rem] sm:ml-[6rem] md:ml-[6rem] lg:ml-[10rem] xl:ml-[12rem'>{lang[langKey]?.appointmentsInputFields?.appointmentButtonParagraph}</div>
                         </div>

@@ -32,7 +32,7 @@ const HealthCareDentalAppointment = () => {
         nextOfKinRef.current.value              = "";
         addressRef.current.value                = "";
         genderRef.current.value                 = "";
-        personnelName.current.value             = "";
+        setPersonnelName("");
       };
       if (message) {
         window.scrollTo({top:0, behavior:"smooth"});

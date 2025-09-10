@@ -56,7 +56,7 @@ const useCareerCounseling = () => {
                 setErrorMsg(true);
             } else if (data.status === 201) {
                 setMessage(`
-                    ${json.Career_counseling}<br><a class="text-blue-500 justify-center items-center text-center font-semibold underline hover:text-lg hover:text-blue-800 my-0 mx-auto" target="_blank" href=${json.googleCalendarEvent} ref="noopener noreferrer">Click here to view the career-counseling appointment</a>
+                    ${json.Career_counseling}<br><a class="text-blue-500 justify-center items-center text-center font-semibold underline hover:text-blue-800 my-0 mx-auto" target="_blank" href=${json.googleCalendarEvent} ref="noopener noreferrer">Click here to view the career-counseling appointment</a>
                     `);
                 setErrorMsg(false);
             } else {

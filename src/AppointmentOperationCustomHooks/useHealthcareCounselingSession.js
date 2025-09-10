@@ -55,7 +55,7 @@ const useHealthcareCounselingSession = () => {
                     }
                 setIsError(true);
             } else if (data.status === 201) {
-                setMessage(`${json.Counseling}<br><a class="text-blue-500 justify-center items-center text-center font-semibold underline hover:text-lg hover:text-blue-800 my-0 mx-auto" title="click here" href=${json.googleCalendarLink} rel="noopener, noreferrer" target="_blank">Click here to view the healthcare counseling session appointment you booked.</a>`)
+                setMessage(`${json.Counseling}<br><a class="text-blue-500 justify-center items-center text-center font-semibold underline hover:text-blue-800 my-0 mx-auto" title="click here" href=${json.googleCalendarLink} rel="noopener, noreferrer" target="_blank">Click here to view the healthcare counseling session appointment you booked.</a>`)
                 setIsError(false);
             } else {
                 const [key] = Object.keys(json);

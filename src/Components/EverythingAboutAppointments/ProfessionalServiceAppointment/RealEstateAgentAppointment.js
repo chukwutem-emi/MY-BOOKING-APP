@@ -24,7 +24,6 @@ const RealEstateAgentAppointment = () => {
     
     useEffect(() => {
         if (message && !isError) {
-            personnelName                           = "";
             genderRef.current.value                 = "";
             addressRef.current.value                = "";
             nextOfKinRef.current.value              = "";
@@ -33,6 +32,7 @@ const RealEstateAgentAppointment = () => {
             appointmentTimeRef.current.value        = "";
             appointmentDateRef.current.value        = "";
             appointmentDescriptionRef.current.value = "";
+            setPersonnelName("");
         };
         if (message) {
             window.scrollTo({top:0, behavior:"smooth"});

@@ -55,7 +55,7 @@ const useAcademicAdvisory = () => {
                 setErrorMsg(true);
             }
             else if (data.status === 201) {
-                setMessage(`${json.Academic_advising}<br><a class="text-blue-600 underline font-semibold hover:text-blue-800 hover:text-lg justify-center items-center my-0 mx-auto" href="${json.googleCalendarEvent}" target="_blank" rel="noopener noreferrer">Click here to view the appointment</a>`)
+                setMessage(`${json.Academic_advising}<br><a class="text-blue-600 underline font-semibold hover:text-blue-800 justify-center items-center my-0 mx-auto" href="${json.googleCalendarEvent}" target="_blank" rel="noopener noreferrer">Click here to view the appointment</a>`)
                 setErrorMsg(false)
             } else {
                 const[key] = Object.keys(json);

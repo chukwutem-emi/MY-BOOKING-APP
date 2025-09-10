@@ -56,7 +56,7 @@ const useElectricalElectronicsRepair = () => {
                 }
                 setIsError(true);
             } else if (data.status === 201) {
-                setMessage(`${json.electronics_repair}<br><a href=${json.googleCalendarLink} rel="noopener, noreferrer" target="_blank" title="click here" class="text-blue-500 justify-center items-center text-center font-semibold underline hover:text-lg hover:text-blue-800 my-0 mx-auto break-words">Click this link to view the electrical/electronics repair appointment you booked in google calender</a>`)
+                setMessage(`${json.electronics_repair}<br><a href=${json.googleCalendarLink} rel="noopener, noreferrer" target="_blank" title="click here" class="text-blue-500 justify-center items-center text-center font-semibold underline hover:text-blue-800 my-0 mx-auto break-words">Click this link to view the electrical/electronics repair appointment you booked in google calender</a>`)
                 setIsError(false);
             } else {
                 const [key] = Object.keys(json);
