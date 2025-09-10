@@ -11,8 +11,8 @@ const HealthCareDentalDom = ({handleDentalAppointmentForm, message, isError, isL
     const langKey = useSelector((store) => store.config?.lang);
 
     return (
-        <form onSubmit={handleDentalAppointmentForm} className="w-[90%] space-y-4 mb-[2rem] mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
-            <h1 className="font-sans text-blue-800 font-bold text-[1.5rem] mb-8 animate-pulse xs:text-[1.2rem] sm:text-[1.3rem] md:text-[1.4rem] lg:text-[1.4rem] xl:text-[1.4rem]">{lang[langKey]?.appointmentsInputFields?.healthcareDentalHeading}</h1>
+        <form onSubmit={handleDentalAppointmentForm} className="w-full space-y-4 mb-[2rem] mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
+            <h1 className="font-sans text-blue-800 font-bold mb-8 animate-pulse xs:text-[0.8rem] sm:text-[1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem]">{lang[langKey]?.appointmentsInputFields?.healthcareDentalHeading}</h1>
             {
                 message && (
                     <div className={`break-words p-2 w-full ${isError ? "text-red-600 bg-red-100 font-semibold text-lg" : "text-green-600 bg-green-100 font-semibold text-lg"}`}>
@@ -78,9 +78,9 @@ const HealthCareDentalDom = ({handleDentalAppointmentForm, message, isError, isL
             placeholder={lang[langKey]?.appointmentsInputFields?.appointmentsDatePlaceHolder}
             type="date" 
             />
-            <label htmlFor="appointment_description" className="font-bold text-blue-600 text-[1.2rem] xs:text-[1.1rem] sm:text-[1.2rem] md:text-[1.3rem] lg:text-[1.4rem] xl:text-[1.5rem]"><strong>{lang[langKey]?.appointmentsInputFields?.appointmentsDescriptionLabel}</strong></label>
+            <label htmlFor="appointment_description" className="font-bold text-blue-600 xs:text-[0.7rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.2rem] xl:text-[1.2rem]"><strong>{lang[langKey]?.appointmentsInputFields?.appointmentsDescriptionLabel}</strong></label>
             <textarea
-            className="border-[1px] border-blue-600 outline-none text-[1.2rem] px-2 py-1 rounded-lg xs:text-[1.1rem] sm:text-[1.2rem] md:text-[1.3rem] lg:text-[1.4rem] xl:text-[1.5rem]"
+            className="border-[1px] border-blue-600 outline-none px-2 py-1 rounded-lg xs:text-[0.7rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.2rem] xl:text-[1.2rem]"
             ref={appointmentDescriptionRef}
             placeholder={lang[langKey]?.appointmentsInputFields?.appointmentsDescriptionPlaceHolder}
             id="appointment_description"
@@ -89,17 +89,17 @@ const HealthCareDentalDom = ({handleDentalAppointmentForm, message, isError, isL
             required
             autoFocus
             />
-            <button type="submit" className="bg-blue-600 flex flex-row p-2 justify-center rounded-lg break-words hover:bg-blue-400">
+            <button type="submit" className="bg-blue-600 flex flex-row p-2 rounded-lg break-words hover:bg-blue-400 outline-none text-white font-sans">
                 {
                     isLoading ? (
                         <div className="flex flex-row">
                             <Spinner />
-                            <div className="ml-8 break-words text-white text-[1.2rem]">
+                            <div className="animate-pulse break-words xs:ml-[6rem] sm:ml-[6rem] md:ml-[6rem] lg:ml-[10rem] xl:ml-[12rem">
                             {lang[langKey]?.appointmentsInputFields?.appointmentButtonParagraph}
                             </div>
                         </div>
                     ) : (
-                        <div className="text-white text-[1.2rem] font-sans font-bold sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl">
+                        <div className="text-center font-bold xs:text-[1.3rem] sm:text-[1.4rem] md:text-[1.4rem] lg:text-[1.5rem] xl:text-[1.5rem]">
                             {lang[langKey]?.appointmentsInputFields?.appointmentButtonInnerText}
                         </div>
 

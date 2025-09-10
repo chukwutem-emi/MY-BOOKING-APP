@@ -8,7 +8,7 @@ const SignUpDom = ({usernameRef, emailRef, passwordRef, phoneRef, langKey, loadi
     const[showPassword, setShowPassword] = useState(false);
 
     return (
-        <form onSubmit={handleSignupForm} className="space-y-4 mb-[2rem]">
+        <form onSubmit={handleSignupForm} className="space-y-4 mb-[2rem] w-[90%] mx-auto">
             <SignUpInputField
             autoComplete="on"
             handleClearMsg={handleClearMsg}
@@ -61,7 +61,7 @@ const SignUpDom = ({usernameRef, emailRef, passwordRef, phoneRef, langKey, loadi
                     <>
                     <div className="flex flex-row flex-nowrap">
                         <Spinner />
-                        <div className="animate-pulse xs:ml-[3rem] sm:ml-[3rem] md:ml-[3rem] lg:ml-[6rem] xl:ml-[6rem]">{lang[langKey]?.signUpLanguageConfig?.buttonInnerText}</div>
+                        <div className="animate-pulse break-words xs:ml-[6rem] sm:ml-[6rem] md:ml-[6rem] lg:ml-[10rem] xl:ml-[12rem]">{lang[langKey]?.signUpLanguageConfig?.buttonInnerText}</div>
                     </div>
                     </>
                 ) : (

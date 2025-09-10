@@ -62,7 +62,7 @@ const ClearToken = () => {
             <div className="flex flex-row break-words">
                 <>
                 <Spinner />
-                <div className="font-sans font-semibold text-blue-950 xs:ml-[4rem] sm:ml-[4rem] md:ml-[5rem] lg:ml-[6rem] xl:ml-[6rem]">Clearing google token...</div>
+                <div className="font-sans font-semibold text-white xs:ml-[8rem] sm:ml-[8rem] md:ml-[10rem] lg:ml-[12rem] xl:ml-[14rem]">Clearing google token...</div>
                 </>
             </div>
         ) 

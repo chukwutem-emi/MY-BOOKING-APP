@@ -16,119 +16,119 @@ const ActivitiesDropDownMenu = () => {
 
     const content = [
         {
-            title : "👥   Fetch-Users ➡️",
+            title : "Fetch Users",
             link  : "/users"
         },
         {
-            title  : "👤   User-Profile ➡️",
+            title  : "User Profile",
             link  : "/user"
         },
         {
-            title  : "👤 Profile-Update ➡️",
+            title  : "Profile Update",
             link   : "/update-user"
         },
         {
-            title  : "🗑️ 👤Delete-user ➡️",
+            title  : "Delete-user",
             link   : "/delete-user"
         },
         {
-            title : "🗑️ 👥 Delete-all-users ➡️",
+            title : "Delete all users",
             link  : "/delete-all-users"
         },
         {
-            title   : "+ Add-AdminUser ➡️",
+            title   : "+ Add AdminUser",
             link    : "/promote-user"
         },
         {
-            title   : "🔐 Authentication(Login) ➡️",
+            title   : "Authentication(Login)",
             link    : "/"
         },
         {
-            title   : "🗑️ Delete-Personnel-Details ➡️",
+            title   : "Delete Personnel Details",
             link    : "/delete-personnel"
         },
         {
-            title  : "🧑‍💼 All-Personnel ➡️",
+            title  : "All-Personnel",
             link   : "/all-personnel"
         },
         {
-            title  : "🧑‍💼 Update Personnel-Info ➡️",
+            title  : "Update PersonnelInfo",
             link   : "/update-personnel"
         },
         {
-            title : "🧑‍💼 Upload Personnel ➡️",
+            title : "Upload Personnel",
             link  : "/upload-personnel"
         },
         {
-            title : "Delete Appointment ➡️",
+            title : "Delete Appointment",
             link  : "/delete-appointment"
         },
         {
-            title : "Get User Appointment ➡️",
+            title : "Get User Appointment",
             link  : "/user-appointment"
         },
         {
-            title : "Get All Users Appointment ➡️",
+            title : "Get Users Appointment",
             link : "/users-appointment"
         },
         {
-            title : "Update User Appointment Details",
+            title : "Update Appointment Details",
             link  : "/update-appointment"
         },
         {
-            title   : "💻 Browse Page ➡️",
+            title   : "Home Page",
             link    : "/browse"
         },
         {
-            title   : "🏫 Academic-Advising Appointment ➡️",
+            title   : "Academic Advising Appointment",
             link    : "/academic"
         },
         {
-            title   : "🏫 Career-Counseling Appointment ➡️",
+            title   : "Career Counseling Appointment",
             link    : "/career"
         },
         {
-            title   : "🏫 One-On-One Tutoring Appointment ➡️",
+            title   : "One-On-One Tutoring Appointment",
             link    : "/tutorial"
         },
         {
-            title   : "🏥 Healthcare-Consultation Appointment ➡️",
+            title   : "Healthcare Consultation Appointment",
             link    : "/consultation"
         },
         {
-            title   : "🏥 Healthcare-Counseling Appointment ➡️",
+            title   : "Healthcare Counseling Appointment",
             link    : "/counseling"
         },
         {
-            title   : "🏥 Healthcare-Dental Appointment ➡️",
+            title   : "Healthcare Dental Appointment",
             link    : "/dental"
         },
         {
-            title   : "🏥 Healthcare-Physiotherapy Appointment ➡️",
+            title   : "Healthcare Physiotherapy Appointment",
             link    : "/physiotherapy"
         },
         {
-            title   : "🏥 Healthcare-Vaccination Appointment ➡️",
+            title   : "Healthcare Vaccination Appointment",
             link    : "/vaccination"
         },
         {
-            title   : "🧑‍💼 Business-Consultation Appointment ➡️",
+            title   : "Business Consultation Appointment",
             link    : "/business"
         },
         {
-            title   : "🧑‍💼 Financial-Advisory Appointment ➡️",
+            title   : "Financial Advisory Appointment",
             link    : "/financial"
         },
         {
-            title   : "🧑‍💼 Real-Estate-Agent Appointment ➡️",
+            title   : "Real-Estate-Agent Appointment",
             link    : "/real-estate"
         },
         {
-            title   : "🪛🛠️ Elect/Elect-Repair Appointment ➡️",
+            title   : "Elect/Elect-Repair Appointment",
             link    : "/electrical"
         },
         {
-            title   : "🛠️ Home-Service Appointment ➡️",
+            title   : "Home-Service Appointment",
             link    : "/home-service"
         },
 

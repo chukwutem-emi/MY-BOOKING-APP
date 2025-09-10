@@ -16,17 +16,17 @@ const GetAllUsersDom = ({loading, backgroundLoading, responseMsg, errorMsg, filt
                 placeholder="🔍 search"
                 ref={searchText}
                 onChange={handleClear}
-                className="w-full m-4 p-2 border border-gray-700 text-start text-lg"
+                className="w-full m-4 p-2 border border-gray-700 text-start outline-none xs:text-[0.8rem] sm:text-[0.8rem] md:text-[1rem] lg:text-[1.1rem] xl:text-[1.1rem]"
                 autoFocus
                 autoComplete="on"
                 autoCorrect="on"
                 />
-                <button onClick={() => handleBtnClick(searchText)} className="w-full text-white text-lg font-bold font-serif p-2 text-center cursor-pointer m-4 bg-blue-950 outline-none">
+                <button type="button" onClick={() => handleBtnClick(searchText)} className="w-full text-white text-lg font-bold font-serif p-2 text-center cursor-pointer m-4 bg-blue-950 outline-none">
                     {loading ? (
                         <>
                         <div className="flex flex-row">
                             <Spinner />
-                            <div className="xs:ml-[6rem] sm:ml-[6rem] md:ml-[6rem] lg:ml-[6rem] xl:ml-[8rem] xs:text-[0.8rem]">Searching...</div>
+                            <div className="break-words xs:ml-[6rem] sm:ml-[6rem] md:ml-[8rem] lg:ml-[10rem] xl:ml-[12rem] xs:text-[0.8rem] sm:text-[0.8rem] md:text-[1rem] lg:text-[1.1rem] xl:text-[1.1rem]">Searching...</div>
                         </div>
                         </>
                     ) : ("Search")}
@@ -45,7 +45,7 @@ const GetAllUsersDom = ({loading, backgroundLoading, responseMsg, errorMsg, filt
             </div>   
             {
                 errorMsg ? (
-                    <div className="bg-red-50 text-red-700 w-full rounded-md text-center break-words p-4">
+                    <div className="bg-red-50 text-red-700 w-full rounded-md text-center break-words p-4 xs:text-[0.6rem] sm:text-[0.8rem] md:text-[0.8rem] lg:text-[1rem] xl:text-[1rem]">
                         {responseMsg}
                     </div>
                 ) : filteredUsers.length > 0 ? (

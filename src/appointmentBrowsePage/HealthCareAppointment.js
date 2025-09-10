@@ -38,7 +38,7 @@ const HealthCareAppointment = () => {
         },
     ];
     return (
-        <div className="relative flex flex-row shadow-xl overflow-x-auto whitespace-normal w-full h-[20rem] p-4 space-x-4">
+        <div className="relative flex flex-row shadow-xl overflow-x-auto whitespace-normal w-full h-[24rem] p-4 space-x-4">
             <div className="absolute top-0 left-0 h-full w-8 flex items-center justify-center cursor-pointer z-40">
                 <span className="text-black text-5xl font-extrabold">&larr;</span>
             </div>

@@ -12,8 +12,8 @@ const AcademicAdvisingDom = ({handleAcademicForm, message, errorMsg, isLoading, 
     const langKey = useSelector((store) => store.config?.lang);
 
     return (
-        <form onSubmit={handleAcademicForm} className="flex flex-col w-[90%] mb-[2rem] mx-auto p-4 space-y-4 shadow-2xl rounded-xl bg-white xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
-            <h1 className="text-blue-800 text-[1.4rem] font-extrabold mb-[2rem] animate-pulse xs:text-[1.2rem] sm:text-[1.3rem] md:text-[1.4rem] lg:text-[1.4rem] xl:text-[1.4rem]">{lang[langKey]?.appointmentsInputFields?.academicAdvisingHeading}</h1>
+        <form onSubmit={handleAcademicForm} className="flex flex-col w-full mb-[2rem] mx-auto p-4 space-y-4 shadow-2xl rounded-xl bg-white xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
+            <h1 className="text-blue-800 font-extrabold mb-[2rem] animate-pulse xs:text-[0.8rem] sm:text-[1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem]">{lang[langKey]?.appointmentsInputFields?.academicAdvisingHeading}</h1>
             {
                 message && (
                     <div className={`m-2 p-2 font-sans break-words text-sm shadow-xl ${errorMsg ? "text-red-600 bg-red-200" : "text-green-800 bg-white"}`}>
@@ -80,7 +80,7 @@ const AcademicAdvisingDom = ({handleAcademicForm, message, errorMsg, isLoading, 
             placeholder={lang[langKey]?.appointmentsInputFields?.appointmentsDatePlaceHolder}
             type="date"
             />
-            <label htmlFor="appointment_description" className="text-xl text-blue-700 font-extrabold xs:text-[1.1rem] sm:text-[1.2rem] md:text-[1.3rem] lg:text-[1.4rem] xl:text-[1.5rem]"><strong>{lang[langKey]?.appointmentsInputFields?.appointmentsDescriptionLabel}</strong></label>
+            <label htmlFor="appointment_description" className="text-blue-700 font-extrabold xs:text-[0.7rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.2rem] xl:text-[1.2rem]"><strong>{lang[langKey]?.appointmentsInputFields?.appointmentsDescriptionLabel}</strong></label>
             <textarea
                 id="appointment_description"
                 placeholder={lang[langKey]?.appointmentsInputFields?.appointmentsDescriptionPlaceHolder}
@@ -89,17 +89,21 @@ const AcademicAdvisingDom = ({handleAcademicForm, message, errorMsg, isLoading, 
                 autoComplete="on"
                 autoFocus
                 required
-                className="p-2 rounded-lg font-sans text-[1rem] text-start break-words xs:text-[1.1rem] sm:text-[1.2rem] md:text-[1.3rem] lg:text-[1.4rem] xl:text-[1.5rem] outline-none border-[1px] border-blue-300"
+                className="p-2 rounded-lg font-sans text-start break-words xs:text-[0.7rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.2rem] xl:text-[1.2rem] outline-none border-[1px] border-blue-300"
             />
-            <button type="submit" className="p-2 rounded-lg font-sans text-[1.2rem] md:text-[1.7rem] sm:text-[1.5rem] text-center cursor-pointer bg-blue-900 text-white hover:animate-pulse hover:bg-blue-600">
+            <button type="submit" className="p-2 rounded-lg font-sans cursor-pointer bg-blue-900 text-white hover:animate-pulse hover:bg-blue-600 outline-none">
                 {
                     isLoading ? (
                         <div className="flex flex-row">
                             <Spinner />
-                            <p className="text-lg font-semibold text-white font-sans animate-pulse ml-[3rem]">{lang[langKey]?.appointmentsInputFields?.appointmentButtonParagraph}</p>
+                            <p className="animate-pulse break-words xs:ml-[6rem] sm:ml-[6rem] md:ml-[6rem] lg:ml-[10rem] xl:ml-[12rem">{lang[langKey]?.appointmentsInputFields?.appointmentButtonParagraph}</p>
                         </div>
                     ) : (
-                        lang[langKey]?.appointmentsInputFields?.appointmentButtonInnerText
+                        <div className="text-center font-bold xs:text-[1.3rem] sm:text-[1.4rem] md:text-[1.4rem] lg:text-[1.5rem] xl:text-[1.5rem]">
+                            {
+                                lang[langKey]?.appointmentsInputFields?.appointmentButtonInnerText
+                            }
+                        </div>
                     )
                 }
             </button>

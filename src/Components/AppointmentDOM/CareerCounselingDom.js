@@ -10,8 +10,8 @@ const CareerCounselingDom = ({handleCareerClickForm, message, loading, addressRe
     const langKey = useSelector((store) => store.config?.lang);
 
     return (
-        <form onSubmit={handleCareerClickForm} className='flex flex-col space-y-4 w-[90%] bg-white p-8 rounded-2xl mb-[2rem] mx-auto shadow-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]'>
-            <h1 className='text-blue-800 text-[1.4rem] font-extrabold mb-[2rem] animate-pulse xs:text-[1.2rem] sm:text-[1.3rem] md:text-[1.4rem] lg:text-[1.4rem] xl:text-[1.4rem]'>{lang[langKey]?.appointmentsInputFields?.careerCounselingHeading}</h1>
+        <form onSubmit={handleCareerClickForm} className='flex flex-col space-y-4 w-full bg-white p-8 rounded-2xl mb-[2rem] mx-auto shadow-2xl xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]'>
+            <h1 className='text-blue-800 font-extrabold mb-[2rem] animate-pulse xs:text-[0.8rem] sm:text-[1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem]'>{lang[langKey]?.appointmentsInputFields?.careerCounselingHeading}</h1>
             {
                 message && (
                     <div className={`p-2 break-words w-full ${errorMsg ? "text-red-500 bg-red-100 text-sm" : "text-green-700 bg-green-100 font-semibold text-lg"}`}>
@@ -77,26 +77,26 @@ const CareerCounselingDom = ({handleCareerClickForm, message, loading, addressRe
             placeholder={lang[langKey]?.appointmentsInputFields?.appointmentsDatePlaceHolder}
             type="date" 
             />
-            <label htmlFor='appointment_description' className='text-blue-700 font-sans font-bold text-[1.2rem] xs:text-[1.1rem] sm:text-[1.2rem] md:text-[1.3rem] lg:text-[1.4rem] xl:text-[1.5rem]'><strong>{lang[langKey]?.appointmentsInputFields?.appointmentsDescriptionLabel}</strong></label>
+            <label htmlFor='appointment_description' className='text-blue-700 font-sans font-bold xs:text-[0.7rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.2rem] xl:text-[1.2rem]'><strong>{lang[langKey]?.appointmentsInputFields?.appointmentsDescriptionLabel}</strong></label>
             <textarea
             placeholder={lang[langKey]?.appointmentsInputFields?.appointmentsDescriptionPlaceHolder}
             id='appointment_description'
             name='appointment_description'
             ref={appointmentDescriptionRef}
-            className='py-1 px-2 text-[1.2rem] font-sans outline-none rounded-md border-[1px] border-blue-300 xs:text-[1.1rem] sm:text-[1.2rem] md:text-[1.3rem] lg:text-[1.4rem] xl:text-[1.5rem]'
+            className='py-1 px-2 font-sans outline-none rounded-md border-[1px] border-blue-300 xs:text-[0.7rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.2rem] xl:text-[1.2rem]'
             autoComplete='on'
             autoFocus
             required 
             />
-            <button type='submit' className='p-2 text-center text-[1.2rem] font-sans outline-none rounded-md bg-blue-800 text-white font-semibold hover:bg-blue-400'>
+            <button type='submit' className='p-2 text-center font-sans outline-none rounded-md bg-blue-800 text-white font-semibold hover:bg-blue-400'>
                 {
                     loading ? (
                         <div className='flex flex-row'>
                             <Spinner />
-                            <div className='break-words animate-pulse font-sans text-white ml-[3rem]'>{lang[langKey]?.appointmentsInputFields?.appointmentButtonParagraph}</div>
+                            <div className='animate-pulse break-words xs:ml-[6rem] sm:ml-[6rem] md:ml-[6rem] lg:ml-[10rem] xl:ml-[12rem'>{lang[langKey]?.appointmentsInputFields?.appointmentButtonParagraph}</div>
                         </div>
                     ) : (
-                        <div className='sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl font-sans font-bold'>{lang[langKey]?.appointmentsInputFields?.appointmentButtonInnerText}</div>    
+                        <div className='text-center font-bold xs:text-[1.3rem] sm:text-[1.4rem] md:text-[1.4rem] lg:text-[1.5rem] xl:text-[1.5rem]'>{lang[langKey]?.appointmentsInputFields?.appointmentButtonInnerText}</div>    
                     )
                 }
             </button>

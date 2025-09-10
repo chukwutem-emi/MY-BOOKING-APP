@@ -5,8 +5,8 @@ import UpdateUserInputField from "./UpdateUserInputField";
 
 const UpdateUserDom = ({message, errorMessage, userNameRef, showPassword, passwordRef, emailAddressRef, phoneNumberRef, handleBtnClick, loading, setShowPassword, handleClearMessage}) => {
     return (
-        <form onSubmit={handleBtnClick} className="bg-black px-6 mb-[2rem] py-6 rounded-2xl shadow-2xl flex flex-col space-y-5 w-[50%] xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%] mt-0 mx-auto">
-            <h1 className="w-full text-start text-white text-3xl font-bold animate-pulse">Update Form</h1>
+        <form onSubmit={handleBtnClick} className="bg-black px-6 mb-[2rem] py-6 rounded-2xl shadow-2xl flex flex-col space-y-5 w-full xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%] mt-0 mx-auto">
+            <h1 className="w-full text-start text-white text-3xl font-bold animate-pulse xs:text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem]">Update Form</h1>
             {
                 message && (
                     <div className={`text-lg break-words w-full p-4 rounded-lg font-bold font-sans ${errorMessage ? "text-red-700 bg-red-100" : "text-green-800 bg-green-100"}`}>
@@ -38,7 +38,7 @@ const UpdateUserDom = ({message, errorMessage, userNameRef, showPassword, passwo
                         showPassword ? <MdToggleOn color="green" size={60}/> : <MdToggleOff color="red" size={60}/>
                     }
                 </div>
-                <p className="text-white text-[1.2rem] xs:text-[1.2rem] sm:text-[1.4rem] md:text-[1.3rem] lg:text-[1.3rem] xl:text-[1.3rem] font-extrabold font-sans mt-3">Show-password</p>
+                <p className="text-white  xs:text-[0.8rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.1rem] xl:text-[1.1rem] font-extrabold font-sans mt-[1.2rem]">Show-password</p>
             </div>
             <UpdateUserInputField
             autoComplete="email"
@@ -58,16 +58,20 @@ const UpdateUserDom = ({message, errorMessage, userNameRef, showPassword, passwo
             placeholder="Enter the phone number that you preferred."
             type="text" 
             />
-                <button type="submit" className="text-center w-full bg-red-400 p-2 text-xl hover:bg-red-300 text-white font-sans rounded-lg font-extrabold">
+                <button type="submit" className="w-full bg-red-400 p-2 text-xl hover:bg-red-300 text-white font-sans rounded-lg font-extrabold outline-none">
                 {
                     loading ? (
-                        <div className="flex flex-row justify-center">
+                        <div className="flex flex-row">
                             <>
                             <Spinner />
-                            <div className="ml-[3rem] outline-none xs:text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-2xl">Updating, Please wait......</div>
+                            <div className="animate-pulse break-words xs:ml-[6rem] sm:ml-[6rem] md:ml-[6rem] lg:ml-[10rem] xl:ml-[12rem]">Updating...</div>
                             </>
                         </div>
-                    ) : ("Submit")
+                    ) : (
+                        <div className="text-center font-bold xs:text-[1.3rem] sm:text-[1.4rem] md:text-[1.4rem] lg:text-[1.5rem] xl:text-[1.5rem]">
+                            Submit
+                        </div>
+                    )
                 }
                 </button>
         </form>
