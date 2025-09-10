@@ -39,7 +39,7 @@ const LoginDom = ({handleLoginForm, emailRef, passwordRef, showPassword, setShow
             <button type="submit" className="w-full mt-4 p-2 text-lg bg-red-900 text-white font-bold rounded hover:bg-red-300 break-words outline-none" disabled={loading}>
                 {loading ? (
                     <>
-                    <div className="flex flex-row">
+                    <div className="flex flex-row justify-between">
                         <Spinner />
                         <div className="animate-pulse break-words xs:ml-[6rem] sm:ml-[6rem] md:ml-[6rem] lg:ml-[10rem] xl:ml-[12rem]">{lang[langKey]?.loginLanguageConfig?.buttonInnerText}</div>
                     </div>

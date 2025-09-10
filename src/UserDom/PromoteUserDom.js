@@ -36,7 +36,7 @@ const PromoteUserDom = ({emailRef, codeRef, message, setMessage, isLoading, hand
             <button type="submit" className="bg-red-900 hover:bg-red-700 text-white w-full p-2 rounded-lg font-bold font-sans outline-none">
                 {
                     isLoading ? (
-                        <div className="flex flex-row">
+                        <div className="flex flex-row justify-between">
                             <>
                             <Spinner />
                             <div className="text-white break-words font-sans animate-pulse xs:ml-[6rem] sm:ml-[6rem] md:ml-[6rem] lg:ml-[10rem] xl:ml-[12rem]">Processing...</div>

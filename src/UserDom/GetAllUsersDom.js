@@ -21,7 +21,7 @@ const GetAllUsersDom = ({loading, backgroundLoading, responseMsg, errorMsg, filt
                 autoComplete="on"
                 autoCorrect="on"
                 />
-                <button type="button" onClick={() => handleBtnClick(searchText)} className="w-full text-white text-lg font-bold font-serif p-2 text-center cursor-pointer m-4 bg-blue-950 outline-none">
+                <button type="button" onClick={() => handleBtnClick(searchText)} className="w-full text-white font-bold font-serif p-2 text-center cursor-pointer m-4 bg-blue-950 outline-none justify-between xs:text-[0.8rem] sm:text-[0.8rem] md:text-[1rem] lg:text-[1.1rem] xl:text-[1.1rem]">
                     {loading ? (
                         <>
                         <div className="flex flex-row">

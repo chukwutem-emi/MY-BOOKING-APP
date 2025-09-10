@@ -16,7 +16,7 @@ const AcademicAdvisingDom = ({handleAcademicForm, message, errorMsg, isLoading, 
             <h1 className="text-blue-800 font-extrabold mb-[2rem] animate-pulse xs:text-[0.8rem] sm:text-[1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem]">{lang[langKey]?.appointmentsInputFields?.academicAdvisingHeading}</h1>
             {
                 message && (
-                    <div className={`m-2 p-2 font-sans break-words shadow-xl xs:text-[0.6rem] sm:text-[0.8rem] md:text-[0.8rem] lg:text-[1rem] xl:text-[1rem] ${errorMsg ? "text-red-600 bg-red-200" : "text-green-800 bg-white"}`}>
+                    <div className={`m-2 p-2 font-sans break-words shadow-xl xs:text-[0.6rem] sm:text-[0.8rem] md:text-[0.8rem] lg:text-[1rem] xl:text-[1rem] ${errorMsg ? "text-red-600 bg-red-50" : "text-green-800 bg-white"}`}>
                         <button type="button" className="h-fit w-fit text-xl p-1 bg-blue-400 font-extrabold text-red-600" onClick={() => setMessage(null)} aria-label="cancel" title="cancel
                         ">&times;</button>
                         <div dangerouslySetInnerHTML={{__html:message}} />

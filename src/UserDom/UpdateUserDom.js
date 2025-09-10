@@ -61,7 +61,7 @@ const UpdateUserDom = ({message, errorMessage, userNameRef, showPassword, passwo
                 <button type="submit" className="w-full bg-red-400 p-2 text-xl hover:bg-red-300 text-white font-sans rounded-lg font-extrabold outline-none">
                 {
                     loading ? (
-                        <div className="flex flex-row">
+                        <div className="flex flex-row justify-between">
                             <>
                             <Spinner />
                             <div className="animate-pulse break-words xs:ml-[6rem] sm:ml-[6rem] md:ml-[6rem] lg:ml-[10rem] xl:ml-[12rem]">Updating...</div>

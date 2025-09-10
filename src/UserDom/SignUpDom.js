@@ -59,7 +59,7 @@ const SignUpDom = ({usernameRef, emailRef, passwordRef, phoneRef, langKey, loadi
             >
                 {loading ? (
                     <>
-                    <div className="flex flex-row flex-nowrap">
+                    <div className="flex flex-row justify-between">
                         <Spinner />
                         <div className="animate-pulse break-words xs:ml-[6rem] sm:ml-[6rem] md:ml-[6rem] lg:ml-[10rem] xl:ml-[12rem]">{lang[langKey]?.signUpLanguageConfig?.buttonInnerText}</div>
                     </div>

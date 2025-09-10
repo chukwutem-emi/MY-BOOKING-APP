@@ -3,7 +3,7 @@ import React from "react";
 const InputFields = ({id, type, placeholder, inputRef, label, autoComplete}) => {
     return (
         <>
-        <label htmlFor={id} className="text-xl text-blue-700 font-bold xs:text-[0.7rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.2rem] xl:text-[1.2rem]"><strong>{label}</strong></label>
+        <label htmlFor={id} className="text-blue-700 font-bold xs:text-[0.7rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.2rem] xl:text-[1.2rem]"><strong>{label}</strong></label>
         <input
         id={id}
         name={id}
