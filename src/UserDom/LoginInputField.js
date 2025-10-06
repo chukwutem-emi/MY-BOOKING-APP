@@ -13,7 +13,7 @@ const LoginInputField  = ({label, id, type, inputRef, placeholder, autoComplete,
          autoComplete={autoComplete}
          autoCorrect="on"
          required
-         className="w-full p-4 rounded text-white text-lg outline-none bg-gray-700"
+         className="w-full p-4 rounded text-gray-700 text-lg outline-none bg-gray-200 border-[1px] border-gray-400"
          onChange={handleClearMsg}
         />
         </>

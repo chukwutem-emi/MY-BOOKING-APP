@@ -21,8 +21,8 @@ const AuthForm = () => {
         <>
         <div className="min-h-screen w-full overflow-x-hidden flex flex-col items-center px-4 bg-white py-6">
             <HomePage />
-            <div className="mt-12 w-full bg-black p-2 rounded-xl xs:w-[90%] sm:w-[60%] md:w-[60%] lg:w-[60%] xl:w-[50%]">
-                <h2 className="text-left font-bold text-white mb-6 ml-10 mt-10 text-3xl">
+            <div className="mt-12 w-full gray-50 shadow-2xl p-2 rounded-xl xs:w-[90%] sm:w-[60%] md:w-[60%] lg:w-[60%] xl:w-[50%]">
+                <h2 className="text-left font-bold text-gray-900 mb-6 ml-10 mt-10 text-3xl">
                     {isSignup ? lang[langKey]?.authLanguageConfig?.isSignup: lang[langKey]?.authLanguageConfig?.isLogin}
                 </h2>
                 {message && (
@@ -38,9 +38,9 @@ const AuthForm = () => {
                 ) : (
                     <LoginForm setMessage={setMessage} setIsError={setIsError} message={message} isError={isError} />
                 )}
-                <p className="mt-4 text-center text-md text-white">
+                <p className="mt-4 text-center text-md text-gray-700">
                     {isSignup ? lang[langKey]?.authLanguageConfig?.paragraphTextAlready : lang[langKey]?.authLanguageConfig?.paragraphTextDonT}{" "}
-                    <button onClick={() => setIsSignup(!isSignup)} className="text-white hover:underline font-extrabold">
+                    <button onClick={() => setIsSignup(!isSignup)} className="text-emerald-600 hover:underline font-extrabold">
                         {isSignup ? lang[langKey]?.authLanguageConfig?. buttonInnerTextLogin : lang[langKey]?.authLanguageConfig?.buttonInnerTextSignup}
                     </button>
                 </p>

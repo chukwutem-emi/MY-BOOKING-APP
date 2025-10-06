@@ -36,7 +36,7 @@ const SignUpDom = ({usernameRef, emailRef, passwordRef, phoneRef, langKey, loadi
             placeholder={lang[langKey]?.signUpLanguageConfig?.passwordPlaceholder}
             type={showPassword ? "text" : "password"} 
             />
-            <div onClick={() => setShowPassword(!showPassword)} className="flex flex-row text-white">
+            <div onClick={() => setShowPassword(!showPassword)} className="flex flex-row text-gray-700 font-bold">
                 <div>
                     {
                         showPassword ? <MdToggleOn color="green" size={60}/> : <MdToggleOff color="red" size={60}/>
@@ -55,7 +55,7 @@ const SignUpDom = ({usernameRef, emailRef, passwordRef, phoneRef, langKey, loadi
             />
             <button
             type="submit"
-            className="bg-red-400 w-full text-white font-bold text-xl p-4 font-sans rounded-md outline-none hover:bg-red-300 break-words" disabled={loading}
+            className="bg-emerald-600 w-full text-white font-bold text-xl p-4 font-sans rounded-md outline-none hover:bg-emerald-900 break-words" disabled={loading}
             >
                 {loading ? (
                     <>

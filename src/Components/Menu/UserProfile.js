@@ -11,7 +11,6 @@ const UserProfile = () => {
     const dropDownRef = useRef();
 
     const userDetails = useSelector((store) => store.info?.userInfo);
-    const userPassword = useSelector((store) => store.info?.userPassword);
     const username = userDetails?.username || "";
     const firstTwoLetters = username.substring(0, 2);
 
@@ -45,7 +44,6 @@ const UserProfile = () => {
                         <li><strong className="text-white">{lang[langKey]?.userProfileInfo?.userProfileName}</strong>&nbsp;{userDetails?.username}</li>
                         <li><strong className="text-white">{lang[langKey]?.userProfileInfo?.userProfileEmail}</strong>&nbsp;{userDetails?.email_address}</li>
                         <li><strong className="text-white">{lang[langKey]?.userProfileInfo?.userProfileTel}</strong>&nbsp;{userDetails?.phone_number}</li>
-                        <li><strong className="text-white">{lang[langKey]?.userProfileInfo?.userProfilePassword}</strong>&nbsp;{userPassword}</li>
                         <li className="bg-white w-fit p-1 rounded-xl text-blue-800 font-extrabold animate-pulse"><strong>{userDetails?.admin ? (<>{lang[langKey]?.userProfileInfo?.userProfileAdmin}</>) : (<>{lang[langKey]?.userProfileInfo?.userProfileNonAdmin}</>)}</strong></li>
                     </ul>
                     </>

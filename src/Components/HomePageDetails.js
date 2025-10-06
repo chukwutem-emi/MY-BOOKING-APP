@@ -8,8 +8,8 @@ const HomePage = () => {
         description:lang[lanKey]?.homePageDescription
     };
     return (
-        <div className="w-full px-4 shadow-xl bg-gray-200 border-[2rem] border-gray-300">
-            <p className="text-base sm:text-lg font-sans text-blue-500 font-semibold p-4 rounded-xl text-start">{details?.description}</p>
+        <div className="w-full px-4 shadow-xl bg-gray-50 border-[1rem] rounded-lg border-emerald-600">
+            <p className="text-base sm:text-lg font-sans text-gray-700 font-semibold p-4 rounded-xl text-start">{details?.description}</p>
         </div>
     );
 };

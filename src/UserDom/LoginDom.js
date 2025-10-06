@@ -26,17 +26,17 @@ const LoginDom = ({handleLoginForm, emailRef, passwordRef, showPassword, setShow
                 type={showPassword ? "text" : "password"}
                 handleClearMsg={handleClearMsg} 
                 />
-                <p className="text-sm font-sans text-white animate-bounce mt-2 sm:text-sm xs:text-xs  md:text-lg lg:text-lg xl:text-lg 2xl:text-xl">{lang[langKey]?.loginLanguageConfig?.paragraphText}</p>
+                <p className="text-sm font-sans text-gray-700 animate-bounce mt-2 sm:text-sm xs:text-xs  md:text-lg lg:text-lg xl:text-lg 2xl:text-xl">{lang[langKey]?.loginLanguageConfig?.paragraphText}</p>
                 <div onClick={() => setShowPassword(!showPassword)} className="text-white flex flex-row">
                     <div>
                         {
                             showPassword ? <MdToggleOn color="green" size={60} /> : <MdToggleOff color="red" size={60} />
                         }
                     </div>
-                    <div className="mt-[1rem]">{lang[langKey]?.loginLanguageConfig?.checkBoxInnerText}</div>
+                    <div className="mt-[1rem] text-gray-700 font-bold">{lang[langKey]?.loginLanguageConfig?.checkBoxInnerText}</div>
                 </div>
             </div>
-            <button type="submit" className="w-full mt-4 p-2 text-lg bg-red-900 text-white font-bold rounded hover:bg-red-300 break-words outline-none" disabled={loading}>
+            <button type="submit" className="w-full mt-4 p-2 text-lg bg-emerald-600 text-white font-bold rounded hover:bg-emerald-800 break-words outline-none" disabled={loading}>
                 {loading ? (
                     <>
                     <div className="flex flex-row justify-between">

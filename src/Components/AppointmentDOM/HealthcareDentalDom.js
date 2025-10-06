@@ -11,7 +11,7 @@ const HealthCareDentalDom = ({handleDentalAppointmentForm, message, isError, isL
     const langKey = useSelector((store) => store.config?.lang);
 
     return (
-        <form onSubmit={handleDentalAppointmentForm} className="w-full space-y-4 mb-[2rem] mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xs:w-[80%] sm:w-[80%] md:w-[80%] lg:w-[80%] xl:w-[50%]">
+        <form onSubmit={handleDentalAppointmentForm} className="w-[80%] space-y-4 mb-[2rem] mx-auto shadow-2xl bg-white flex flex-col p-4 rounded-2xl xl:w-[50%]">
             <h1 className="font-sans text-blue-800 font-bold mb-8 animate-pulse xs:text-[0.8rem] sm:text-[1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem]">{lang[langKey]?.appointmentsInputFields?.healthcareDentalHeading}</h1>
             {
                 message && (
