@@ -5,7 +5,7 @@ import UpdateUserInputField from "./UpdateUserInputField";
 
 const UpdateUserDom = ({message, errorMessage, userNameRef, showPassword, passwordRef, emailAddressRef, phoneNumberRef, handleBtnClick, loading, setShowPassword, handleClearMessage}) => {
     return (
-        <form onSubmit={handleBtnClick} className="bg-black px-6 mb-[2rem] py-6 rounded-2xl shadow-2xl flex flex-col space-y-5 w-full xs:w-[80%] sm:w-[80%] md:w-[80%] lg:w-[80%] xl:w-[50%] mt-0 mx-auto">
+        <form onSubmit={handleBtnClick} className="bg-black px-6 mb-[2rem] py-6 rounded-2xl shadow-2xl flex flex-col space-y-5 w-[80%] xl:w-[50%] mt-0 mx-auto">
             <h1 className="w-full text-start text-white text-3xl font-bold animate-pulse xs:text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem]">Update Form</h1>
             {
                 message && (

@@ -5,7 +5,7 @@ import PromoteUserInputField from "./PromoteUserInputField";
 
 const PromoteUserDom = ({emailRef, codeRef, message, setMessage, isLoading, handleClearMsg, handleUserPromotion, errorMsg}) => {
     return (
-        <form onSubmit={handleUserPromotion} className="w-full mb-[2rem] xs:w-[80%] sm:w-[80%] md:w-[80%] lg:w-[80%] xl:w-[50%] mx-auto p-6 rounded-2xl flex flex-col bg-black space-y-4 shadow-2xl">
+        <form onSubmit={handleUserPromotion} className="w-[80%] mb-[2rem] xl:w-[50%] mx-auto p-6 rounded-2xl flex flex-col bg-black space-y-4 shadow-2xl">
             <h1 className="w-full text-white font-sans xs:text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem]">Promote User To An Admin-User</h1>
             {
                 message && (

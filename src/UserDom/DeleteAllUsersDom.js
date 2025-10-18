@@ -4,7 +4,7 @@ import LoadingSpinner from "../Utils/LoadingSpinner";
 
 const DeleteAllUsersDom = ({backgroundLoading, message, isLoading, errorMsg, setMessage, handleDeleteAllUsers}) => {
     return (
-        <div className="w-full mx-auto bg-black rounded-lg shadow-2xl space-y-6 z-50 p-6 xs:w-[80%] sm:w-[80%] md:w-[80%] lg:w-[80%] xl:w-[50%]">
+        <div className="mx-auto bg-black rounded-lg shadow-2xl space-y-6 z-50 p-6 w-[80%] xl:w-[50%]">
             <h1 className="font-sans font-bold text-white xs:text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem]">Delete All Users</h1>
             <button type="button" className="bg-red-900 hover:bg-red-700 w-full p-2 font-sans cursor-pointer rounded-lg shadow-lg outline-none" onClick={handleDeleteAllUsers}>
                 { 

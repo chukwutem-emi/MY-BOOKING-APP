@@ -1,13 +1,15 @@
-import React, { forwardRef, useImperativeHandle, useRef, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import lang from "../Utils/multiLanguageConfig";
+import { motion, AnimatePresence, scale } from "framer-motion";
 
-const EducationAppointment = forwardRef((props, ref) => {
+const EducationAppointment = () => {
     const lanKey = useSelector((store) => store.config?.lang);
 
-    const scrollRef = useRef(null);
+
     const[currentIndex, setCurrentIndex] = useState(0);
+    const[direction, setDirection]       = useState(0);
 
     const education = [
         {
@@ -29,52 +31,79 @@ const EducationAppointment = forwardRef((props, ref) => {
           link:"/tutorial"  
         },
     ];
-    const scrollToIndex = (index) => {
-        if (scrollRef.current) {
-            const container = scrollRef.current;
-            const card      = container.children[index];
-            if (card) {
-                container.scrollTo({left:card.offsetLeft - container.offsetLeft, behavior:"smooth"})
-            };
-        };
-    };
+    
     const handleNext = () => {
-        if (currentIndex < education.length - 1) {
-            const newIndex = currentIndex + 1;
-            setCurrentIndex(newIndex);
-            scrollToIndex(newIndex);
+        if (currentIndex  < education.length -1) {
+            setDirection(1)
+            setCurrentIndex(currentIndex + 1)
         }
     };
     const handlePrev = () => {
         if (currentIndex > 0) {
-            const newIndex = currentIndex - 1;
-            setCurrentIndex(newIndex);
-            scrollToIndex(newIndex);
-        };
+            setDirection(-1)
+            setCurrentIndex(currentIndex - 1)
+        }
     };
-    useImperativeHandle(ref, () => ({
-        next  : handleNext,
-        prev  : handlePrev,
-        index : currentIndex,
-        max   : education.length - 1
-    }));
+    const variants = {
+        enter : (direction) => ({
+            x : direction > 0 ? 300 : -300,
+            opacity : 0,
+            scale   : 0.9,
+        }),
+        center : {
+            x : 0,
+            opacity : 1,
+            scale   : 1,
+            transition : {duration : 0.4}
+        },
+        exit : (direction) => ({
+            x : direction < 0 ? 300 : -300,
+            opacity : 0,
+            scale   : 0.9,
+            transition : {duration : 0.4}
+        })
+    }
     return (
-        <div ref={scrollRef} className="relative flex items-center overflow-x-hidden w-full shadow-xl h-[24rem] whitespace-normal space-x-4 snap-x snap-mandatory px-12">
-            {
-                education.map((item) => (
-                    <Link to={item.link} key={item.title} className="bg-gradient-to-r from-emerald-600 to-amber-400 z-30 w-full shadow-2xl p-2 rounded-lg space-x-4  cursor-pointer h-full flex-shrink-0 snap-center break-words xl:p-4">
-                        <h2 className="text-gray-900 bg-amber-400 border-[2px] border-gray-100 font-sans font-bold w-fit p-2 rounded-md m-[0.5rem] xs:text-sm xs:font-extrabold sm:text-lg sm:font-bold md:font-extrabold md:text-lg lg:text-lg lg:font-bold xl:font-extrabold xl:text-xl">
-                            {item.title}
+        <div className="relative flex items-center justify-center w-full px-12 overflow-hidden">
+            {/* Prev Button */}
+            <button
+                onClick={handlePrev}
+                disabled={currentIndex === 0}
+                className={`absolute left-4 px-3 py-1 rounded-full text-[2rem] bg-black text-white shadow-2xl font-extrabold ${currentIndex === 0 ? "bg-gray-400 cursor-not-allowed" : "bg-gray-800 text-white hover:bg-gray-700"}`}
+            >
+                &lt;
+            </button>
+            <Link to={education[currentIndex]?.link} key={education[currentIndex]?.title} className="w-[95%] h-[30rem] relative flex items-center justify-center m-[1.5rem]">
+                <AnimatePresence custom={direction} mode="wait">
+                    <motion.div
+                    key={education[currentIndex]?.title}
+                    custom={direction}
+                    variants={variants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    className="absolute w-full h-full bg-gradient-to-r from-emerald-600 to-amber-400 z-30 p-2 space-x-4 transition-all duration-500  cursor-pointer snap-center break-words xl:p-4 flex flex-col justify-center items-center flex-shrink-0  rounded-2xl shadow-lg"
+                    >
+                        <h2 className="text-gray-900 bg-amber-400 border-[2px] border-gray-100 font-sans font-bold w-fit p-2 rounded-md m-[0.5rem] xs:text-sm xs:font-extrabold sm:text-lg sm:font-bold md:font-extrabold md:text-lg lg:text-lg lg:font-bold xl:font-extrabold xl:text-2xl">
+                            {education[currentIndex]?.title}
                         </h2>
                         <p className="text-gray-700 font-extrabold text-base
-                        m-[0.5rem] font-sans xs:text-base sm:text-base md:text-base lg:text-base xl:text-base">
-                            {item.description}
+                        m-[0.5rem] font-sans xs:text-base sm:text-base md:text-base lg:text-base xl:text-[1.2rem]">
+                            {education[currentIndex]?.description}
                         </p>
-                        <p className="text-gray-700 animate-pulse font-bold text-center mt-4 xs:mt-0 sm:text-lg sm:p-2 sm:m-8 md:text-lg md:font-extrabold md:m-8 lg:m-8 lg:p-1 xl:text-xl xl:font-extrabold xl:m-8 xl:p-1">{item.book}</p>
-                    </Link>
-                ))
-            }
+                        <p className="text-gray-700 animate-pulse font-bold text-center mt-4 xs:mt-0 sm:text-lg sm:p-2 sm:m-8 md:text-lg md:font-extrabold md:m-8 lg:m-8 lg:p-1 xl:text-xl xl:font-extrabold xl:m-8 xl:p-1">{education[currentIndex]?.book}</p>
+                    </motion.div>
+                </AnimatePresence>
+            </Link>
+            {/* Next Button */}
+            <button
+                onClick={handleNext}
+                disabled={currentIndex === education.length - 1}
+                className={`absolute right-4 px-3 py-1 rounded-full text-[2rem] bg-black shadow-2xl font-extrabold ${currentIndex === education.length - 1 ? "bg-gray-400 cursor-not-allowed" : "bg-gray-800 text-white hover:bg-gray-700"}`}
+            >
+                &gt;
+            </button>
         </div>
     );
-});
+};
 export default EducationAppointment;

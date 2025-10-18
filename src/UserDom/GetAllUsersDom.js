@@ -6,7 +6,7 @@ import UsersCard from "../Components/UsersCards";
 const GetAllUsersDom = ({loading, backgroundLoading, responseMsg, errorMsg, filteredUsers, handleBtnClick, searchText, handleClear}) => {
     return (
         <>
-        <div className="flex flex-row space-x-6 w-full mt-0 mx-auto xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[90%]">
+        <div className="flex flex-row space-x-6 w-[80%] mt-0 mx-auto xl:w-[90%]">
             <form onSubmit={(e) => e.preventDefault()} className="w-full flex flex-row flex-nowrap">
                 <label htmlFor="search" className="sr-only">Search</label>
                 <input

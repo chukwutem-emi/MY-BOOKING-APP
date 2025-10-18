@@ -5,7 +5,7 @@ import Spinner from "../Utils/Spinner";
 const GetUserDom = ({backgroundLoading, errorMsg, handleGetUser, hasFetch, loading, responseMsg, setResponseMsg}) => {
     return (
         <>
-        <div className="w-full mb-[2rem] items-center justify-center mx-auto xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[90%]">
+        <div className="w-[80%] mb-[2rem] items-center justify-center mx-auto xl:w-[90%]">
             <p className="w-full font-bold font-serif break-words text-blue-950 z-50 text-center mb-8 xs:text-[0.6rem] sm:text-[1rem] md:text-[1rem] lg:text-[1.2rem] xl:text-[1.2rem]">click the button bellow to fetch your details.</p>
             <button type="button" className="py-2 text-white bg-blue-950 rounded w-full text-center hover:bg-blue-600 flex flex-row justify-evenly outline-none xs:text-[0.8rem] sm:text-[0.8rem] md:text-[1rem] lg:text-[1.1rem] xl:text-[1.1rem]" title={loading ? "🚫 Processing, please wait..." : "Click here to fetch👆"} disabled={loading} onClick={handleGetUser}>{loading ? (<><Spinner /> Processing, please wait!....</>) : (hasFetch ? "Refetch" : "Fetch")}</button>
             {

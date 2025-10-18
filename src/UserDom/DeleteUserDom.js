@@ -4,7 +4,7 @@ import Spinner from "../Utils/Spinner";
 
 const DeleteUserDom = ({errorMsg, message, loading, handleDelete, handleClearMsg, emailRef, setMessage}) => {
     return (
-        <form onSubmit={handleDelete} className="w-full mb-[2rem] xs:w-[80%] sm:w-[80%] md:w-[80%] lg:w-[80%] xl:w-[50%] mx-auto p-6 rounded-2xl flex flex-col bg-black space-y-4 shadow-2xl">
+        <form onSubmit={handleDelete} className="w-[80%] mb-[2rem] xl:w-[50%] mx-auto p-6 rounded-2xl flex flex-col bg-black space-y-4 shadow-2xl">
             <h1 className="w-full text-white font-sans xs:text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem] font-bold animate-pulse">Delete User</h1>
             {
                 message && (
