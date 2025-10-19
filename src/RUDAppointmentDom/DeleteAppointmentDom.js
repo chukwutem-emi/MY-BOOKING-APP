@@ -3,7 +3,7 @@ import Spinner from "../Utils/Spinner";
 
 const DeleteAppointmentDom = ({isError, loading, message, setMessage, usernameRef, handleDeleteAppointmentForm, handleClearMessage}) => {
     return (
-        <form onSubmit={handleDeleteAppointmentForm} className="w-[50%] shadow-2xl z-50 mx-auto mb-[2rem] bg-white p-6 space-y-4 flex flex-col">
+        <form onSubmit={handleDeleteAppointmentForm} className="w-[80%] xl:w-[50%] shadow-2xl z-50 mx-auto mb-[2rem] bg-white p-6 space-y-4 flex flex-col">
             <h1 className="w-full text-start font-bold text-blue-800 text-[1.5rem]">Delete Appointment</h1>
             {
                 message && (
@@ -27,7 +27,9 @@ const DeleteAppointmentDom = ({isError, loading, message, setMessage, usernameRe
             autoFocus
             required 
             />
-            <button type="submit" className="w-full p-2 bg-blue-900 text-white outline-none cursor-pointer text-[1.3rem] font-bold hover:bg-blue-800 rounded-lg">
+            <button type="submit" className={`w-full p-2 bg-blue-900 text-white outline-none cursor-pointer text-[1.3rem] font-bold hover:bg-blue-800 rounded-lg ${loading ? "cursor-not-allowed bg-blue-600" : "cursor-pointer"}`}
+            disabled={loading === true}
+            >
                 {
                     loading ? (
                         <div className="flex flex-row">

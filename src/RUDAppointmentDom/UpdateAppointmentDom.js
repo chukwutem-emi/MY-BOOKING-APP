@@ -3,7 +3,7 @@ import UpdateAppointmentInputField from "./UpdateAppointmentInputField";
 
 const UpdateAppointmentDom = ({isError, loading, message, setMessage, appointmentDescriptionRefRef, nextOfKinPhoneNumberRef, nextOfKinAddressRef, appointmentDateRef, appointmentTimeRef, nextOfKinRef, genderRef, addressRef, handleUpdateUserAppointmentForm, handleClearMsg}) => {
     return (
-        <form onSubmit={handleUpdateUserAppointmentForm} className="w-[50%] mx-auto bg-white shadow-2xl z-50 rounded-xl mb-[2rem] p-6 space-y-4 flex flex-col xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
+        <form onSubmit={handleUpdateUserAppointmentForm} className="w-[80%] mx-auto bg-white shadow-2xl z-50 rounded-xl mb-[2rem] p-6 space-y-4 flex flex-col xl:w-[50%]">
             <h1 className="text-blue-800 text-[1.4rem] font-extrabold mb-[2rem] animate-pulse xs:text-[1.2rem] sm:text-[1.3rem] md:text-[1.4rem] lg:text-[1.4rem] xl:text-[1.4rem]">Update Appointment Details</h1>
             {
                 message && (
@@ -88,7 +88,9 @@ const UpdateAppointmentDom = ({isError, loading, message, setMessage, appointmen
             required
             className="p-2 rounded-lg font-sans text-[1rem] text-start break-words xs:text-[1.1rem] sm:text-[1.2rem] md:text-[1.3rem] lg:text-[1.4rem] xl:text-[1.5rem] outline-none border-[1px] border-blue-300"
             />
-            <button type="submit" className="p-2 rounded-lg font-sans text-[1.2rem] md:text-[1.7rem] sm:text-[1.5rem] text-center cursor-pointer bg-blue-900 text-white hover:animate-pulse hover:bg-blue-600">
+            <button type="submit" className={`p-2 rounded-lg font-sans text-[1.2rem] md:text-[1.7rem] sm:text-[1.5rem] text-center cursor-pointer bg-blue-900 text-white hover:animate-pulse hover:bg-blue-600 ${loading ? "cursor-not-allowed bg-blue-600" : "cursor-pointer"}`}
+            disabled={loading === true}
+            >
                 {
                     loading ? (
                         <div className="flex flex-row">

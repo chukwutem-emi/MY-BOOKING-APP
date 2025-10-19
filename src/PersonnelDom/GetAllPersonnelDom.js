@@ -6,7 +6,7 @@ import Spinner from "../Utils/Spinner";
 const GetAllPersonnelDom = ({backgroundLoading, errorMsg, filteredPersonnelList, handleBtnClick, isLoading, message, searchText, handleClearMsg}) => {
     return (
         <>
-        <div className="flex flex-row w-full justify-between mx-auto xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[80%]">
+        <div className="flex flex-row w-[80%] justify-between mx-auto xl:w-[80%]">
             <form onSubmit={(e) => e.preventDefault()} className="w-full flex flex-nowrap space-x-2">
                 <label className="sr-only">Search</label>
                 <input
@@ -22,7 +22,9 @@ const GetAllPersonnelDom = ({backgroundLoading, errorMsg, filteredPersonnelList,
                 onChange={handleClearMsg}
                 autoFocus
                 />
-                <button type="button" onClick={() => handleBtnClick(searchText)} className="bg-blue-950 w-full p-1 outline-none">
+                <button type="button" onClick={() => handleBtnClick(searchText)} className={`bg-blue-950 w-full p-1 outline-none ${isLoading ? "cursor-not-allowed bg-blue-600" : "cursor-pointer"}`}
+                disabled={isLoading === true}
+                >
                     {
                         isLoading ? (
                             <div className="flex flex-row justify-between">

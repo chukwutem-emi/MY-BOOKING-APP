@@ -5,9 +5,9 @@ import Spinner from "../Utils/Spinner";
 const GetAppointmentDom = ({backgroundLoading, handleGetUserAppointment, isError, loading, message,  setMessage, hasFetch}) => {
     return (
         <>
-        <div className="w-[90%] mb-[2rem] items-center justify-center mx-auto xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[90%]">
+        <div className="w-[80%] mb-[2rem] items-center justify-center mx-auto xl:w-[90%]">
             <p className="w-full font-bold font-serif text-blue-950 text-center animate-bounce text-lg mb-8">click the button bellow to fetch your appointment details.</p>
-            <button type="button" className="py-2 text-white bg-green-900 text-xl rounded w-full text-center hover:bg-green-600 flex flex-row justify-evenly" title={loading ? "🚫 Processing, please wait..." : "Click here to fetch👆"} disabled={loading} onClick={handleGetUserAppointment}>{loading ? (<><Spinner /> Processing, please wait!....</>) : (hasFetch ? "Refetch" : "Fetch")}</button>
+            <button type="button" className={`py-2 text-white bg-green-900 text-xl rounded w-full text-center hover:bg-green-600 flex flex-row justify-between ${loading ? "cursor-not-allowed bg-green-600" : "cursor-pointer"}`} title={loading ? "Processing, please wait..." : "Click here to fetch👆"} disabled={loading === true} onClick={handleGetUserAppointment}>{loading ? (<><Spinner /> Processing, please wait!....</>) : (hasFetch ? "Refetch" : "Fetch")}</button>
             {
                 backgroundLoading && (
                     <>

@@ -5,7 +5,7 @@ import Spinner from "../Utils/Spinner";
 
 const UpdatePersonnelInfoDom = ({specializationRef, organizationAddressRef, organizationRef, phoneNumberRef, emailRef, nameRef, roleRef, backgroundLoading, errorMsg, isLoading, message, setMessage, handleUpdatePersonnelInfoForm, handleClearMsg}) => {
     return (
-        <form onSubmit={handleUpdatePersonnelInfoForm} className="w-full mx-auto shadow-2xl bg-white p-6 space-y-5 flex flex-col mb-[2rem] rounded-xl xs:w-[80%] sm:w-[80%] md:w-[80%] lg:w-[80%] xl:w-[50%]">
+        <form onSubmit={handleUpdatePersonnelInfoForm} className="w-[80%] mx-auto shadow-2xl bg-white p-6 space-y-5 flex flex-col mb-[2rem] rounded-xl xl:w-[50%]">
             <h1 className="w-full mb-[1rem] text-blue-800 font-sans font-bold text-[1.6rem] flex text-start xs:text-[1.3rem] sm:text-[1.4rem] md:text-[1.5rem] lg:text-[1.6rem] xl:text-[1.6rem]">Update Personnel-Details</h1>
             {
                 backgroundLoading && (
@@ -83,7 +83,9 @@ const UpdatePersonnelInfoDom = ({specializationRef, organizationAddressRef, orga
             type="text" 
             handleClearMsg={handleClearMsg}
             />
-            <button type="submit" className="w-full bg-blue-900 text-white font-sans font-bold text-[1.5rem] p-2 rounded-xl cursor-pointer outline-none hover:bg-blue-600" title="Submit">
+            <button type="submit" className={`w-full bg-blue-900 text-white font-sans font-bold text-[1.5rem] p-2 rounded-xl cursor-pointer outline-none hover:bg-blue-600 ${isLoading ? "cursor-not-allowed bg-blue-600" : "cursor-pointer"}`} title="Submit"
+            disabled={isLoading === true}
+            >
                 {
                     isLoading ? (
                         <div className="flex flex-row justify-between">

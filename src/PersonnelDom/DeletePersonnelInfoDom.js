@@ -4,7 +4,7 @@ import Spinner from "../Utils/Spinner";
 
 const DeletePersonnelInfoDom = ({emailRef, backgroundLoading, errorMsg, isLoading, message, setMessage, handleDeletePersonnelForm, handleClearMsg}) => {
     return (
-        <form onSubmit={handleDeletePersonnelForm} className="w-full mx-auto shadow-2xl mb-[2rem] rounded-lg bg-white space-y-6 p-6 z-50 xs:w-[80%] sm:w-[80%] md:w-[80%] lg:w-[80%] xl:w-[50%]">
+        <form onSubmit={handleDeletePersonnelForm} className="w-[80%] mx-auto shadow-2xl mb-[2rem] rounded-lg bg-white space-y-6 p-6 z-50 xl:w-[50%]">
             {
                 backgroundLoading && (
                     <LoadingSpinner />
@@ -32,7 +32,9 @@ const DeletePersonnelInfoDom = ({emailRef, backgroundLoading, errorMsg, isLoadin
             autoCorrect="on"
             required 
             />
-            <button type="Submit" className="w-full bg-blue-950 p-2 cursor-pointer hover:bg-blue-600 rounded-lg z-50 shadow-2xl outline-none">
+            <button type="Submit" className={`w-full bg-blue-950 p-2 cursor-pointer hover:bg-blue-600 rounded-lg z-50 shadow-2xl outline-none ${isLoading ? "cursor-not-allowed bg-blue-600" : "cursor-pointer"}`}
+            disabled={isLoading === true}
+            >
                 {
                     isLoading ? (
                         <div className="flex flex-row justify-between">

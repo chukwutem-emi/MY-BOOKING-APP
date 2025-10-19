@@ -11,7 +11,7 @@ const SignUpInputField = ({id, label, inputRef, type, placeholder, autoComplete,
         ref={inputRef}
         placeholder={placeholder}
         autoComplete={autoComplete}
-        className="w-full rounded-md outline-none bg-gray-200 border border-gray-400 p-4 text-white font-sans xs:text-[1rem] sm:text-[1rem] md:text-[1rem] lg:text-[1.2] xl:text-[1.2rem]"
+        className="w-full rounded-md outline-none bg-gray-200 border border-gray-400 p-4 text-black font-sans xs:text-[1rem] sm:text-[1rem] md:text-[1rem] lg:text-[1.2] xl:text-[1.2rem]"
         required
         autoCorrect="on"
         onChange={handleClearMsg} 
