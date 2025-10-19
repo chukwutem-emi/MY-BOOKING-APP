@@ -102,7 +102,7 @@ const GetAllAppointmentDom = ({searchText, backgroundLoading, filteredAppointmen
                         initial="enter"
                         animate="center"
                         exit="exit"
-                        className="w-[90%] bg-gradient-to-r from-emerald-600 to-amber-400 z-30 p-2 space-x-4 transition-all duration-500 snap-center break-words xl:p-4 flex flex-col justify-center items-center flex-shrink-0  rounded-2xl shadow-lg"
+                        className="w-[90%] p-2 space-x-4 transition-all duration-500 snap-center break-words xl:p-4 flex flex-col justify-center items-center flex-shrink-0  rounded-2xl shadow-lg"
                         >
                             <AppointmentDetails appointmentDetails={filteredAppointment[currentIndex]}/>
                         </motion.div>
