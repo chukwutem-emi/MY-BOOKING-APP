@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SubShimmer from "../Utils/SubShimmer";
 import Spinner from "../Utils/Spinner";
 import AppointmentDetails from "./AppointmentDetails";
+import { motion, AnimatePresence } from "framer-motion";
 
 const GetAllAppointmentDom = ({searchText, backgroundLoading, filteredAppointment, handleBtnClick, isError, loading, message, handleClearMsg}) => {
 
@@ -42,7 +43,7 @@ const GetAllAppointmentDom = ({searchText, backgroundLoading, filteredAppointmen
     }
     return (
         <>
-        <div className="flex flex-row w-[80%] justify-between mx-auto">
+        <div className="flex flex-row w-full px-[2.5rem] relative items-center justify-center mx-auto">
             <form onSubmit={(e) => e.preventDefault()} className="w-full flex flex-nowrap space-x-2">
                 <label className="sr-only">Search</label>
                 <input
@@ -88,12 +89,24 @@ const GetAllAppointmentDom = ({searchText, backgroundLoading, filteredAppointmen
         </button> 
         {
             isError ? (
-                <div className="text-red-600 bg-red-50 w-[80%] mx-auto text-center p-4 rounded-lg shadow-2xl xs:w-[90%] xs:text-sm sm:w-[90%] sm:text-[1.2rem] md:w-[90%] md:text-[1.3rem] lg:w-[90%] lg:text-[1.4rem] xl:w-[80%] xl:text-[1.4rem]">
+                <div className="text-red-600 bg-red-50 w-[80%] mx-auto text-center p-4 rounded-lg shadow-2xl xs:text-sm sm:text-[1.2rem] md:text-[1.3rem] lg:text-[1.4rem] xl:text-[1.4rem]">
                     {message}
                 </div>
             ) : filteredAppointment.length > 0 ? (
-                <div className="flex flex-row overflow-hidden w-full items-center justify-center px-[2.5rem]">
-                    <AppointmentDetails appointmentDetails={filteredAppointment}/>
+                <div className="flex flex-row relative w-full">
+                    <AnimatePresence custom={direction} mode="wait">
+                        <motion.div
+                        key={filteredAppointment[currentIndex]?.id}
+                        custom={direction}
+                        variants={variants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        className="absolute w-full h-full bg-gradient-to-r from-emerald-600 to-amber-400 z-30 p-2 space-x-4 transition-all duration-500 snap-center break-words xl:p-4 flex flex-col justify-center items-center flex-shrink-0  rounded-2xl shadow-lg"
+                        >
+                            <AppointmentDetails appointmentDetails={filteredAppointment}/>
+                        </motion.div>
+                    </AnimatePresence>
                 </div>
             ) : (
                 !loading && (
