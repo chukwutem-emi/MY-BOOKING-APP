@@ -26,7 +26,7 @@ const AppointmentDetails = ({appointmentDetails}) => {
         created_at
     } = appointmentDetails;
     return (
-        <div className="w-[50%] bg-green-50 text-green-800 font-sans shadow-2xl p-6 overflow-x-auto flex-shrink-0 break-words xs:w-[90%] sm:w-[90%] md:w-[90%] lg:w-[90%] xl:w-[50%]">
+        <div className="w-[90%] bg-green-50 text-green-800 font-sans shadow-2xl p-6 overflow-x-auto flex-shrink-0 break-words xl:w-[50%]">
             <ul className="">
                 <li><strong>Appointment-Id:</strong>&nbsp;{id}</li>
                 <li><strong>Username:</strong>&nbsp;{username}</li>

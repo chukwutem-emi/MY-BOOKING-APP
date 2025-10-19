@@ -18,7 +18,7 @@ const GetAppointmentDom = ({backgroundLoading, handleGetUserAppointment, isError
             {
                 message && (
                     <div className={`text-sm break-words rounded p-3 mb-4 mt-14 shadow-lg w-full ${isError ? "text-red-700 bg-red-100" : "text-green-700 bg-white"}`}>
-                        <button type="button" className="text-xl font-bold px-2 rounded hover:bg-gray-300 bg-blue-500 w-8 text-white mb-4" onClick={() => setMessage("")} title="cancel" aria-label="cancel">&times;
+                        <button type="button" className="text-xl font-bold px-2 rounded hover:bg-gray-300 bg-blue-500 w-8 text-white text-center mb-4" onClick={() => setMessage("")} title="cancel" aria-label="cancel">&times;
                         </button>
                         {!isError && typeof message === "object" ? (
                             <ul className="shadow-2xl z-50 p-6 rounded-2xl text-green-800 bg-green-50 font-semibold">
