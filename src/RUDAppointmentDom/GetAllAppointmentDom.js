@@ -80,13 +80,6 @@ const GetAllAppointmentDom = ({searchText, backgroundLoading, filteredAppointmen
                 <SubShimmer />
             )
         }
-        <button
-            onClick={handlePrev}
-            disabled={currentIndex === 0}
-            className={`absolute left-4 px-3 py-1 rounded-full text-[2rem] bg-black text-white shadow-2xl font-extrabold ${currentIndex === 0 ? "bg-gray-400 cursor-not-allowed" : "bg-gray-800 text-white hover:bg-gray-700"}`}
-        >
-            &lt;
-        </button> 
         {
             isError ? (
                 <div className="text-red-600 bg-red-50 w-[80%] mx-auto text-center p-4 rounded-lg shadow-2xl xs:text-sm sm:text-[1.2rem] md:text-[1.3rem] lg:text-[1.4rem] xl:text-[1.4rem]">
@@ -94,6 +87,13 @@ const GetAllAppointmentDom = ({searchText, backgroundLoading, filteredAppointmen
                 </div>
             ) : filteredAppointment.length > 0 ? (
                 <div className="flex flex-row relative w-full mt-6 h-[25rem] items-center justify-center">
+                    <button
+                        onClick={handlePrev}
+                        disabled={currentIndex === 0}
+                        className={`absolute left-4 px-3 py-1 rounded-full text-[2rem] bg-black text-white shadow-2xl font-extrabold ${currentIndex === 0 ? "bg-gray-400 cursor-not-allowed" : "bg-gray-800 text-white hover:bg-gray-700"}`}
+                    >
+                        &lt;
+                    </button> 
                     <AnimatePresence custom={direction} mode="wait">
                         <motion.div
                         key={filteredAppointment[currentIndex]?.id}
@@ -107,6 +107,13 @@ const GetAllAppointmentDom = ({searchText, backgroundLoading, filteredAppointmen
                             <AppointmentDetails appointmentDetails={filteredAppointment[currentIndex]}/>
                         </motion.div>
                     </AnimatePresence>
+                    <button
+                        onClick={handleNext}
+                        disabled={currentIndex === filteredAppointment.length - 1}
+                        className={`absolute right-4 px-3 py-1 rounded-full text-[2rem] bg-black shadow-2xl font-extrabold ${currentIndex === filteredAppointment.length - 1 ? "bg-gray-400 cursor-not-allowed" : "bg-gray-800 text-white hover:bg-gray-700"}`}
+                    >
+                        &gt;
+                    </button>
                 </div>
             ) : (
                 !loading && (
@@ -114,13 +121,6 @@ const GetAllAppointmentDom = ({searchText, backgroundLoading, filteredAppointmen
                 )
             ) 
         }
-        <button
-            onClick={handleNext}
-            disabled={currentIndex === filteredAppointment.length - 1}
-            className={`absolute right-4 px-3 py-1 rounded-full text-[2rem] bg-black shadow-2xl font-extrabold ${currentIndex === filteredAppointment.length - 1 ? "bg-gray-400 cursor-not-allowed" : "bg-gray-800 text-white hover:bg-gray-700"}`}
-        >
-            &gt;
-        </button>
         </>
     );
 };
