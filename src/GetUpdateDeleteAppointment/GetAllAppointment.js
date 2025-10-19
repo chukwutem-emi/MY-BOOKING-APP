@@ -30,7 +30,7 @@ const GetAllAppointment = () => {
     };
 
     return (
-        <div className="mt-[14rem] w-full relative overflow-x-hidden">
+        <div className="mt-[14rem] w-full relative overflow-hidden">
             <GetAllAppointmentDom
             backgroundLoading={backgroundLoading}
             filteredAppointment={filteredAppointment}

@@ -43,7 +43,7 @@ const GetAllAppointmentDom = ({searchText, backgroundLoading, filteredAppointmen
     }
     return (
         <>
-        <div className="flex flex-row w-full px-[2.5rem] relative items-center justify-center mx-auto">
+        <div className="flex flex-row w-full px-[2.5rem] relative items-center justify-center mx-auto overflow-hidden">
             <form onSubmit={(e) => e.preventDefault()} className="w-full flex flex-nowrap space-x-2">
                 <label className="sr-only">Search</label>
                 <input
