@@ -104,7 +104,7 @@ const GetAllAppointmentDom = ({searchText, backgroundLoading, filteredAppointmen
         <button
             onClick={handleNext}
             disabled={currentIndex === filteredAppointment.length - 1}
-            className={`absolute right-4 px-3 py-1 rounded-full text-[2rem] bg-black shadow-2xl font-extrabold ${currentIndex === education.length - 1 ? "bg-gray-400 cursor-not-allowed" : "bg-gray-800 text-white hover:bg-gray-700"}`}
+            className={`absolute right-4 px-3 py-1 rounded-full text-[2rem] bg-black shadow-2xl font-extrabold ${currentIndex === filteredAppointment.length - 1 ? "bg-gray-400 cursor-not-allowed" : "bg-gray-800 text-white hover:bg-gray-700"}`}
         >
             &gt;
         </button>
