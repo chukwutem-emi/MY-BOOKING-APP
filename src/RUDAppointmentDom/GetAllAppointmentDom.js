@@ -93,7 +93,7 @@ const GetAllAppointmentDom = ({searchText, backgroundLoading, filteredAppointmen
                     {message}
                 </div>
             ) : filteredAppointment.length > 0 ? (
-                <div className="flex flex-row relative w-full">
+                <div className="flex flex-row relative w-full mt-6 h-[25rem] items-center justify-center">
                     <AnimatePresence custom={direction} mode="wait">
                         <motion.div
                         key={filteredAppointment[currentIndex]?.id}
@@ -102,7 +102,7 @@ const GetAllAppointmentDom = ({searchText, backgroundLoading, filteredAppointmen
                         initial="enter"
                         animate="center"
                         exit="exit"
-                        className="absolute w-full h-full bg-gradient-to-r from-emerald-600 to-amber-400 z-30 p-2 space-x-4 transition-all duration-500 snap-center break-words xl:p-4 flex flex-col justify-center items-center flex-shrink-0  rounded-2xl shadow-lg"
+                        className="w-[90%] bg-gradient-to-r from-emerald-600 to-amber-400 z-30 p-2 space-x-4 transition-all duration-500 snap-center break-words xl:p-4 flex flex-col justify-center items-center flex-shrink-0  rounded-2xl shadow-lg"
                         >
                             <AppointmentDetails appointmentDetails={filteredAppointment[currentIndex]}/>
                         </motion.div>
