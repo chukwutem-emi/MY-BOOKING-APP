@@ -11,13 +11,13 @@ const SecondaryContainer = () => {
 
     return (
         <div className="relative">
-            <h1 className="p-4 font-sans m-4 text-emerald-600 font-extrabold xs:text-[1.3rem] sm:text-2xl md:text-4xl lg:text-4xl xl:text-4xl">{lang[langKey]?.appointmentHeadings?.educationAppointmentHeading}</h1>
+            <h1 className="p-4 font-sans m-4 text-emerald-600 font-extrabold xs:text-[1.5rem] sm:text-2xl md:text-4xl lg:text-4xl xl:text-4xl">{lang[langKey]?.appointmentHeadings?.educationAppointmentHeading}</h1>
             <EducationAppointment />
-            <h1 className="p-4 font-sans m-4 text-emerald-600 font-extrabold xs:text-[1.3rem] sm:text-2xl md:text-4xl lg:text-4xl xl:text-4xl">{lang[langKey]?.appointmentHeadings?.healthcareAppointmentHeading}</h1>
+            <h1 className="p-4 font-sans m-4 text-emerald-600 font-extrabold xs:text-[1.5rem] sm:text-2xl md:text-4xl lg:text-4xl xl:text-4xl">{lang[langKey]?.appointmentHeadings?.healthcareAppointmentHeading}</h1>
             <HealthCareAppointment />
-            <h1 className="p-4 font-sans m-4 text-emerald-600 font-extrabold xs:text-[1.3rem] sm:text-2xl md:text-4xl lg:text-4xl xl:text-4xl">{lang[langKey]?.appointmentHeadings?.professionalServiceHeading}</h1>
+            <h1 className="p-4 font-sans m-4 text-emerald-600 font-extrabold xs:text-[1.5rem] sm:text-2xl md:text-4xl lg:text-4xl xl:text-4xl">{lang[langKey]?.appointmentHeadings?.professionalServiceHeading}</h1>
             <ProfessionalService />
-            <h1 className="p-4 font-sans m-4 text-emerald-600 font-extrabold xs:text-[1.3rem] sm:text-2xl md:text-4xl lg:text-4xl xl:text-4xl">{lang[langKey]?.appointmentHeadings?.technicalAppointmentHeading}</h1>
+            <h1 className="p-4 font-sans m-4 text-emerald-600 font-extrabold xs:text-[1.5rem] sm:text-2xl md:text-4xl lg:text-4xl xl:text-4xl">{lang[langKey]?.appointmentHeadings?.technicalAppointmentHeading}</h1>
             <TechnicalRepair />  
         </div>
     );

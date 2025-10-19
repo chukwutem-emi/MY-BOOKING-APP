@@ -4,7 +4,7 @@ import UpdateAppointmentInputField from "./UpdateAppointmentInputField";
 const UpdateAppointmentDom = ({isError, loading, message, setMessage, appointmentDescriptionRefRef, nextOfKinPhoneNumberRef, nextOfKinAddressRef, appointmentDateRef, appointmentTimeRef, nextOfKinRef, genderRef, addressRef, handleUpdateUserAppointmentForm, handleClearMsg}) => {
     return (
         <form onSubmit={handleUpdateUserAppointmentForm} className="w-[80%] mx-auto bg-white shadow-2xl z-50 rounded-xl mb-[2rem] p-6 space-y-4 flex flex-col xl:w-[50%]">
-            <h1 className="text-blue-800 text-[1.4rem] font-extrabold mb-[2rem] animate-pulse xs:text-[1.2rem] sm:text-[1.3rem] md:text-[1.4rem] lg:text-[1.4rem] xl:text-[1.4rem]">Update Appointment Details</h1>
+            <h1 className="text-blue-800 font-extrabold mb-[2rem] animate-pulse xs:text-[0.8rem] sm:text-[1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem]">Update Appointment Details</h1>
             {
                 message && (
                     <div className={`m-2 p-2 font-sans break-words text-sm shadow-xl ${isError ? "text-red-800 bg-red-50" : "text-green-800 bg-green-50"}`}>
@@ -77,7 +77,7 @@ const UpdateAppointmentDom = ({isError, loading, message, setMessage, appointmen
             placeholder="Please enter your new appointment date"
             type="date" 
             />
-            <label htmlFor="appointment_description" className="text-xl text-blue-700 font-extrabold xs:text-[1.1rem] sm:text-[1.2rem] md:text-[1.3rem] lg:text-[1.4rem] xl:text-[1.5rem]"><strong>New Appointment Description:</strong></label>
+            <label htmlFor="appointment_description" className="text-blue-700 font-extrabold xs:text-[0.7rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.2rem] xl:text-[1.2rem]"><strong>New Appointment Description:</strong></label>
             <textarea
             id="appointment_description"
             placeholder="Please write your new appointment description"

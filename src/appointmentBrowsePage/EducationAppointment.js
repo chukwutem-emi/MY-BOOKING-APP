@@ -64,7 +64,7 @@ const EducationAppointment = () => {
         })
     }
     return (
-        <div className="relative flex items-center justify-center w-full px-12 overflow-hidden">
+        <div className="relative flex items-center justify-center w-full px-[2.5rem] overflow-hidden">
             {/* Prev Button */}
             <button
                 onClick={handlePrev}
@@ -73,7 +73,7 @@ const EducationAppointment = () => {
             >
                 &lt;
             </button>
-            <Link to={education[currentIndex]?.link} key={education[currentIndex]?.title} className="w-[95%] h-[30rem] relative flex items-center justify-center m-[1.5rem]">
+            <div className="w-[95%] h-[30rem] relative flex items-center justify-center m-[1.5rem]">
                 <AnimatePresence custom={direction} mode="wait">
                     <motion.div
                     key={education[currentIndex]?.title}
@@ -82,7 +82,7 @@ const EducationAppointment = () => {
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    className="absolute w-full h-full bg-gradient-to-r from-emerald-600 to-amber-400 z-30 p-2 space-x-4 transition-all duration-500  cursor-pointer snap-center break-words xl:p-4 flex flex-col justify-center items-center flex-shrink-0  rounded-2xl shadow-lg"
+                    className="absolute w-full h-full bg-gradient-to-r from-emerald-600 to-amber-400 z-30 p-2 space-x-4 transition-all duration-500 snap-center break-words xl:p-4 flex flex-col justify-center items-center flex-shrink-0  rounded-2xl shadow-lg"
                     >
                         <h2 className="text-gray-900 bg-amber-400 border-[2px] border-gray-100 font-sans font-bold w-fit p-2 rounded-md m-[0.5rem] xs:text-sm xs:font-extrabold sm:text-lg sm:font-bold md:font-extrabold md:text-lg lg:text-lg lg:font-bold xl:font-extrabold xl:text-2xl">
                             {education[currentIndex]?.title}
@@ -91,10 +91,12 @@ const EducationAppointment = () => {
                         m-[0.5rem] font-sans xs:text-base sm:text-base md:text-base lg:text-base xl:text-[1.2rem]">
                             {education[currentIndex]?.description}
                         </p>
-                        <p className="text-gray-700 animate-pulse font-bold text-center mt-4 xs:mt-0 sm:text-lg sm:p-2 sm:m-8 md:text-lg md:font-extrabold md:m-8 lg:m-8 lg:p-1 xl:text-xl xl:font-extrabold xl:m-8 xl:p-1">{education[currentIndex]?.book}</p>
+                        <Link to={education[currentIndex]?.link}>
+                            <p className="underline bg-black rounded-xl text-white w-fit animate-pulse font-bold text-center mt-4 xs:mt-0 sm:text-lg sm:p-2 sm:m-8 md:text-lg md:font-extrabold md:m-8 lg:m-8 lg:p-1 xl:text-xl xl:font-extrabold xl:m-8 xl:p-2">{education[currentIndex]?.book}</p>
+                        </Link>
                     </motion.div>
                 </AnimatePresence>
-            </Link>
+            </div>
             {/* Next Button */}
             <button
                 onClick={handleNext}

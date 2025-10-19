@@ -16,8 +16,8 @@ const ActivitiesDropDownMenu = () => {
 
     const content = [
         {
-            title : "Fetch Users",
-            link  : "/users"
+            title   : "Home Page",
+            link    : "/browse"
         },
         {
             title  : "User Profile",
@@ -26,6 +26,10 @@ const ActivitiesDropDownMenu = () => {
         {
             title  : "Profile Update",
             link   : "/update-user"
+        },
+        {
+            title : "Fetch Users",
+            link  : "/users"
         },
         {
             title  : "Delete-user",
@@ -74,10 +78,6 @@ const ActivitiesDropDownMenu = () => {
         {
             title : "Update Appointment Details",
             link  : "/update-appointment"
-        },
-        {
-            title   : "Home Page",
-            link    : "/browse"
         },
         {
             title   : "Academic Advising Appointment",

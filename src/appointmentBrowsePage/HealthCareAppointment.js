@@ -75,7 +75,7 @@ const HealthCareAppointment = () => {
         })
     }
     return (
-        <div className="relative flex items-center justify-center w-full px-12 overflow-hidden">
+        <div className="relative flex items-center justify-center w-full px-[2.5rem] overflow-hidden">
             <button
                 onClick={handlePrev}
                 disabled={currentIndex === 0}
@@ -83,7 +83,7 @@ const HealthCareAppointment = () => {
             >
                 &lt;
             </button>
-            <Link to={healthcare[currentIndex]?.link} key={healthcare[currentIndex]?.title} className="w-[95%] h-[30rem] m-[1.5rem] relative flex items-center justify-center">
+            <div className="w-[95%] h-[30rem] m-[1.5rem] relative flex items-center justify-center">
                 <AnimatePresence custom={direction} mode="wait">
                     <motion.div
                     key={healthcare[currentIndex]?.title}
@@ -92,7 +92,7 @@ const HealthCareAppointment = () => {
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    className="absolute w-full h-full bg-gradient-to-r from-emerald-600 to-amber-400 z-30 p-2 space-x-4 transition-all duration-500  cursor-pointer flex-shrink-0 snap-center break-words xl:p-4 flex flex-col justify-center items-center rounded-2xl shadow-lg"
+                    className="absolute w-full h-full bg-gradient-to-r from-emerald-600 to-amber-400 z-30 p-2 space-x-4 transition-all duration-500 flex-shrink-0 snap-center break-words xl:p-4 flex flex-col justify-center items-center rounded-2xl shadow-lg"
                     >
                         <h2 className="text-lg font-sans bg-amber-400 border-[2px] border-gray-100 p-1 w-fit rounded-md text-gray-900 font-bold m-[0.5rem] xs:text-sm xs:font-extrabold sm:text-lg sm:font-bold md:font-extrabold md:text-lg lg:text-lg lg:font-bold xl:font-extrabold xl:text-2xl">
                             {healthcare[currentIndex]?.title}
@@ -101,12 +101,14 @@ const HealthCareAppointment = () => {
                         m-[0.5rem] font-sans xs:text-base sm:text-base md:text-base lg:text-base xl:text-[1.2rem]">
                             {healthcare[currentIndex]?.description}
                         </p>
-                        <p className="text-gray-700 font-bold text-center animate-pulse mt-4 xs:mt-1 sm:text-lg sm:p-2 sm:m-6 md:text-lg md:font-extrabold md:m-10 lg:m-10 lg:p-1 xl:text-xl xl:font-extrabold xl:m-15 xl:p-1">
-                            {healthcare[currentIndex]?.book}
-                        </p>
+                        <Link to={healthcare[currentIndex]?.link}>
+                            <p className="underline bg-black rounded-xl text-white w-fit font-bold text-center animate-pulse mt-4 xs:mt-1 sm:text-lg sm:p-2 sm:m-6 md:text-lg md:font-extrabold md:m-10 lg:m-10 lg:p-1 xl:text-xl xl:font-extrabold xl:m-15 xl:p-2">
+                                {healthcare[currentIndex]?.book}
+                            </p>
+                        </Link>
                     </motion.div>
                 </AnimatePresence>
-            </Link>
+            </div>
             {/* Next Button */}
             <button
                 onClick={handleNext}

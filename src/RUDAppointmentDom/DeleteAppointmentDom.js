@@ -4,7 +4,7 @@ import Spinner from "../Utils/Spinner";
 const DeleteAppointmentDom = ({isError, loading, message, setMessage, usernameRef, handleDeleteAppointmentForm, handleClearMessage}) => {
     return (
         <form onSubmit={handleDeleteAppointmentForm} className="w-[80%] xl:w-[50%] shadow-2xl z-50 mx-auto mb-[2rem] bg-white p-6 space-y-4 flex flex-col">
-            <h1 className="w-full text-start font-bold text-blue-800 text-[1.5rem]">Delete Appointment</h1>
+            <h1 className="w-full text-start font-bold text-blue-800 text-[1.2rem] xl:text-[1.5rem]">Delete Appointment</h1>
             {
                 message && (
                     <div className={`break-words font-sans text-lg m-[1rem] p-[1rem] ${isError ? "text-red-600 bg-red-100" : "text-green-600 bg-green-100"}`}>
@@ -13,7 +13,7 @@ const DeleteAppointmentDom = ({isError, loading, message, setMessage, usernameRe
                     </div>
                 )
             }
-            <label htmlFor="username" className="font-bold font-sans text-[1.4rem] text-blue-900"><strong>Username:</strong></label>
+            <label htmlFor="username" className="font-bold font-sans text-[1rem] xl:text-[1.4rem] text-blue-900"><strong>Username:</strong></label>
             <input
             type="text"
             ref={usernameRef}
@@ -21,13 +21,13 @@ const DeleteAppointmentDom = ({isError, loading, message, setMessage, usernameRe
             name="username"
             onChange={handleClearMessage}
             placeholder="Please enter the user's name."
-            className="p-2 w-full outline-none bg-gray-500 text-white font-sans font-semibold text-[1.3rem] border border-blue-600 rounded-lg"
+            className="p-2 w-full outline-none bg-gray-500 text-white font-sans font-semibold text-[1rem] xl:text-[1.3rem] border border-blue-600 rounded-lg"
             autoComplete="on"
             autoCorrect="on"
             autoFocus
             required 
             />
-            <button type="submit" className={`w-full p-2 bg-blue-900 text-white outline-none cursor-pointer text-[1.3rem] font-bold hover:bg-blue-800 rounded-lg ${loading ? "cursor-not-allowed bg-blue-600" : "cursor-pointer"}`}
+            <button type="submit" className={`w-full p-2 bg-blue-900 text-white outline-none cursor-pointer text-[1rem] xl:text-[1.3rem] font-bold hover:bg-blue-800 rounded-lg ${loading ? "cursor-not-allowed bg-blue-600" : "cursor-pointer"}`}
             disabled={loading === true}
             >
                 {
