@@ -104,7 +104,7 @@ const GetAllAppointmentDom = ({searchText, backgroundLoading, filteredAppointmen
                         exit="exit"
                         className="absolute w-full h-full bg-gradient-to-r from-emerald-600 to-amber-400 z-30 p-2 space-x-4 transition-all duration-500 snap-center break-words xl:p-4 flex flex-col justify-center items-center flex-shrink-0  rounded-2xl shadow-lg"
                         >
-                            <AppointmentDetails appointmentDetails={filteredAppointment}/>
+                            <AppointmentDetails appointmentDetails={filteredAppointment[currentIndex]}/>
                         </motion.div>
                     </AnimatePresence>
                 </div>
