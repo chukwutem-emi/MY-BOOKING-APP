@@ -198,7 +198,7 @@ const appRouter = createBrowserRouter([
 const Body = () => {
     
     return (
-        <div className="w-full h-dvh overflow-x-hidden">
+        <div className="w-full h-dvh">
             <RouterProvider router={appRouter}/>
         </div>
     )
