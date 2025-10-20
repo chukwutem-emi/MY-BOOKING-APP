@@ -60,7 +60,7 @@ const FinancialAdvisoryAppointment = () => {
         handleFinancialAdvisoryAppointmentPayload(payload);
     };
   return (
-    <div className="mt-[16rem] overflow-x-hidden w-full items-center">
+    <div className="overflow-x-hidden w-full">
         <FinancialAdvisoryDom
         addressRef={addressRef}
         appointmentDateRef={appointmentDateRef}

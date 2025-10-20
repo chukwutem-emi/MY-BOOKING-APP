@@ -58,7 +58,7 @@ const HomeServiceAppointment = () => {
         handleHomeServicePayload(payload);
     };
     return (
-        <div className='mt-[16rem] overflow-x-hidden w-full items-center'>
+        <div className='overflow-x-hidden w-full'>
             <HomeServiceDom
             addressRef={addressRef}
             appointmentDateRef={appointmentDateRef}

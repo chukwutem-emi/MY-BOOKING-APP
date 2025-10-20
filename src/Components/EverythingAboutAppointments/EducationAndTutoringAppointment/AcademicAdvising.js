@@ -60,7 +60,7 @@ const AcademicAdvising = () => {
         handleAcademicPayload(payload);
     };
     return (
-        <div className="my-[12rem] xs:mt-[12rem] sm:mt-[16rem] md:mt-[16rem] lg:mt-[16rem] xl:mt-[16rem] w-full rounded-lg items-center overflow-x-hidden">
+        <div className="w-full overflow-x-hidden">
             <AcademicAdvisingDom
             address={address}
             appointmentDate={appointmentDate}

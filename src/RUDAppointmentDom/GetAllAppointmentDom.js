@@ -43,9 +43,9 @@ const GetAllAppointmentDom = ({searchText, backgroundLoading, filteredAppointmen
     }
     return (
         <>
-        <div className="flex flex-row w-full px-[2.5rem] relative items-center justify-center mx-auto overflow-hidden">
+        <div className="flex flex-row w-full px-[2.5rem] items-center justify-center mx-auto overflow-hidden">
             <form onSubmit={(e) => e.preventDefault()} className="w-full flex flex-nowrap space-x-2">
-                <label className="sr-only">Search</label>
+                <label htmlFor="text" className="sr-only">Search</label>
                 <input
                 ref={searchText}
                 type="text"
@@ -86,7 +86,7 @@ const GetAllAppointmentDom = ({searchText, backgroundLoading, filteredAppointmen
                     {message}
                 </div>
             ) : filteredAppointment.length > 0 ? (
-                <div className="flex flex-row relative w-full mt-6 h-[25rem] items-center justify-center">
+                <div className="flex flex-row relative w-full mt-[15rem] xl:mt-[8rem] h-[35rem] items-center justify-center z-0">
                     <button
                         onClick={handlePrev}
                         disabled={currentIndex === 0}
@@ -102,7 +102,7 @@ const GetAllAppointmentDom = ({searchText, backgroundLoading, filteredAppointmen
                         initial="enter"
                         animate="center"
                         exit="exit"
-                        className="w-[90%] p-2 space-x-4 transition-all duration-500 snap-center break-words xl:p-4 flex flex-col justify-center items-center flex-shrink-0  rounded-2xl shadow-lg"
+                        className="w-full bg-gradient-to-r from-emerald-600 to-amber-400 break-words xl:p-4 py-10 flex flex-col justify-center items-center flex-shrink-0  rounded-2xl"
                         >
                             <AppointmentDetails appointmentDetails={filteredAppointment[currentIndex]}/>
                         </motion.div>

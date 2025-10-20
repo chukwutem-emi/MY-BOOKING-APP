@@ -60,7 +60,7 @@ const HealthCarePhysiotherapySessionAppointment = () => {
         handlePhysiotherapyAppointmentPayload(payload);
     };
   return (
-    <div className="mt-[16rem] overflow-x-hidden w-full items-center">
+    <div className="overflow-x-hidden">
         <HealthCarePhysiotherapySessionDom
         addressRef={addressRef}
         appointmentDateRef={appointmentDateRef}

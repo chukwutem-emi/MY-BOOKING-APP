@@ -18,8 +18,8 @@ const DeletePersonnelInfoDom = ({emailRef, backgroundLoading, errorMsg, isLoadin
                     </div>
                 )
             }
-            <h1 className="font-sans font-bold text-[1.4rem] my-[2rem] text-blue-900 xs:text-[1.2rem] sm:text-[1.3rem] md:text-[1.3rem] lg:text-[1.3rem] xl:text-[1.4rem]">Delete Personnel-Details</h1>
-            <label htmlFor="email" className="font-sans font-bold text-blue-900 text-[1.2rem] xs:text-[1rem]"><strong>Personnel Email:</strong></label>
+            <h1 className="font-sans w-full text-start font-bold text-blue-800 text-[1.2rem] xl:text-[1.5rem]">Delete Personnel-Details</h1>
+            <label htmlFor="email" className="font-bold font-sans text-[1rem] xl:text-[1.4rem] text-blue-900"><strong>Personnel Email:</strong></label>
             <input
             type="email"
             id="email"
@@ -27,12 +27,12 @@ const DeletePersonnelInfoDom = ({emailRef, backgroundLoading, errorMsg, isLoadin
             ref={emailRef}
             onChange={handleClearMsg}
             placeholder="Please enter the personnel email"
-            className="w-full p-2 outline-none border-[1px] border-blue-900 text-[1.2rem] rounded-lg xs:text-[1rem] sm:text-[1.1rem] md:text-[1.1rem] lg:text-[1.1rem] xl:text-[1.2rem]"
+            className="p-2 w-full outline-none bg-gray-500 text-white font-sans font-semibold text-[1rem] xl:text-[1.3rem] border border-blue-600 rounded-lg"
             autoComplete="email"
             autoCorrect="on"
             required 
             />
-            <button type="Submit" className={`w-full bg-blue-950 p-2 cursor-pointer hover:bg-blue-600 rounded-lg z-50 shadow-2xl outline-none ${isLoading ? "cursor-not-allowed bg-blue-600" : "cursor-pointer"}`}
+            <button type="Submit" className={`w-full p-2 bg-blue-900 text-white outline-none cursor-pointer text-[1rem] xl:text-[1.3rem] font-bold hover:bg-blue-800 rounded-lg ${isLoading ? "cursor-not-allowed bg-blue-600" : "cursor-pointer"}`}
             disabled={isLoading === true}
             >
                 {

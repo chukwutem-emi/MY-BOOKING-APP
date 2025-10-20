@@ -61,7 +61,7 @@ const HealthCareConsultationAppointment = () => {
         handleHealthcareConsultationPayload(payload);
     };
   return (
-    <div className="mt-[16rem] overflow-x-hidden w-full items-center">
+    <div className="overflow-x-hidden w-full">
         <HealthCareConsultationDom
         addressRef={addressRef}
         appointmentDateRef={appointmentDateRef}

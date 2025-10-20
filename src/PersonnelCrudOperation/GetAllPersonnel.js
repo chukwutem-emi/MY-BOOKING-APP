@@ -28,7 +28,7 @@ const GetAllPersonnel = () => {
         setMessage("");
     };
     return (
-        <div className="w-full overflow-x-hidden mt-[13rem] space-y-6 relative">
+        <div className="w-full overflow-x-hidden">
             <GetAllPersonnelDom
             backgroundLoading={backgroundLoading}
             errorMsg={errorMsg}

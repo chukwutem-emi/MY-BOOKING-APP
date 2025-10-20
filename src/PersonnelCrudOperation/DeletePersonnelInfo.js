@@ -35,7 +35,7 @@ const DeletePersonnelInfo = () => {
         setMessage("");
     };
     return (
-        <div className="w-full overflow-x-hidden mt-[16rem]">
+        <div className="w-full overflow-x-hidden">
             <DeletePersonnelInfoDom
             backgroundLoading={backgroundLoading}
             emailRef={emailRef}

@@ -55,7 +55,7 @@ const UpdatePersonnelInfo = () => {
         setMessage("");
     };
     return (
-        <div className="w-full mt-[16rem] overflow-x-hidden">
+        <div className="w-full overflow-x-hidden">
             <UpdatePersonnelInfoDom
             backgroundLoading={backgroundLoading}
             emailRef={emailRef}

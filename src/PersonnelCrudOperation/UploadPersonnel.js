@@ -56,7 +56,7 @@ const UploadPersonnel = () => {
         setMessage("");
     };
     return (
-        <div className="w-full mt-[16rem] overflow-x-hidden">
+        <div className="w-full overflow-x-hidden">
             <UploadPersonnelDom
             backgroundLoading={backgroundLoading}
             emailRef={emailRef}

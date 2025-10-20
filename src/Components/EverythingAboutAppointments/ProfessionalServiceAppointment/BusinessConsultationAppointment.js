@@ -60,7 +60,7 @@ const BusinessConsultationAppointment = () => {
         handleBusinessConsultationAppointmentPayload(payload)
     };
   return (
-    <div className="mt-[16rem] overflow-x-hidden w-full items-center">
+    <div className="overflow-x-hidden w-full">
         <BusinessConsultationDom
         addressRef={addressRef}
         appointmentDateRef={appointmentDateRef}

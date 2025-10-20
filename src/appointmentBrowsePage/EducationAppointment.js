@@ -82,7 +82,7 @@ const EducationAppointment = () => {
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    className="absolute w-full h-full bg-gradient-to-r from-emerald-600 to-amber-400 z-30 p-2 space-x-4 transition-all duration-500 snap-center break-words xl:p-4 flex flex-col justify-center items-center flex-shrink-0  rounded-2xl shadow-lg"
+                    className="absolute w-full h-full bg-gradient-to-r from-emerald-600 to-amber-400 z-30 p-2 break-words xl:p-4 flex flex-col justify-center items-center flex-shrink-0  rounded-2xl shadow-lg"
                     >
                         <h2 className="text-gray-900 bg-amber-400 border-[2px] border-gray-100 font-sans font-bold w-fit p-2 rounded-md m-[0.5rem] xs:text-sm xs:font-extrabold sm:text-lg sm:font-bold md:font-extrabold md:text-lg lg:text-lg lg:font-bold xl:font-extrabold xl:text-2xl">
                             {education[currentIndex]?.title}

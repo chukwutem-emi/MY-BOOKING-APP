@@ -60,7 +60,7 @@ const CareerCounseling = () => {
         handleCareerPayload(payload);
     };
   return (
-    <div className='my-[12rem] w-full items-center min-h-screen overflow-x-hidden'>
+    <div className='w-full overflow-x-hidden'>
       <CareerCounselingDom
         addressRef={addressRef}
         appointmentDateRef={appointmentDateRef}

@@ -6,7 +6,7 @@ import Spinner from "../Utils/Spinner";
 const UploadPersonnelDom = ({handleUploadPersonnelForm, specializationRef, organizationAddressRef, organizationRef, phoneNumberRef, emailRef, nameRef, roleRef, backgroundLoading, errorMsg, isLoading, message, setMessage, handleClearMsg}) => {
     return (
         <form onSubmit={handleUploadPersonnelForm} className="w-[80%] mx-auto shadow-2xl bg-white p-6 space-y-5 flex flex-col mb-[2rem] rounded-xl xl:w-[50%]">
-            <h1 className="w-full mb-[1rem] text-blue-800 font-sans font-bold text-[1.6rem] flex text-start xs:text-[1.3rem] sm:text-[1.4rem] md:text-[1.5rem] lg:text-[1.6rem] xl:text-[1.6rem]">Upload Personnel-Details</h1>
+            <h1 className="text-blue-800 font-extrabold mb-[2rem] animate-pulse xs:text-[0.8rem] sm:text-[1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem]">Upload Personnel-Details</h1>
             {
                 backgroundLoading && (
                     <LoadingSpinner />

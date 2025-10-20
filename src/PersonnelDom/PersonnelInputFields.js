@@ -3,7 +3,7 @@ import React from "react";
 const PersonnelInputFields = ({label, id, type, inputRef, autoComplete, placeholder, handleClearMsg}) => {
     return (
         <>
-        <label htmlFor={id} className="text-blue-900 font-bold text-[1.3rem] font-sans xs:text-[1.1rem] sm:text-[1.2rem] md:text-[1.3rem] lg:text-[1.3rem] xl:text-[1.3rem]"><strong>{label}</strong></label>
+        <label htmlFor={id} className="text-blue-700 font-bold xs:text-[0.7rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.2rem] xl:text-[1.2rem]"><strong>{label}</strong></label>
         <input
         type={type}
         id={id}
@@ -13,7 +13,7 @@ const PersonnelInputFields = ({label, id, type, inputRef, autoComplete, placehol
         autoComplete={autoComplete}
         autoCorrect="on"
         onChange={handleClearMsg}
-        className="outline-none border border-blue-900 p-2 text-[1.2rem] rounded-lg bg-gray-500 text-white font-sans font-bold xs:text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.2rem] xl:text-[1.2rem]"
+        className="p-2 rounded-lg font-sans text-start xs:text-[0.7rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.2rem] xl:text-[1.2rem] outline-none border-[1px] border-blue-300"
         required 
         />
         </>

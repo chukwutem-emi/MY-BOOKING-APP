@@ -11,7 +11,7 @@ const PersonnelDetails = ({PersonnelData}) => {
         role
     } = PersonnelData;
     return (
-        <div className="w-[50%] bg-green-50 text-green-800 font-sans shadow-2xl p-6 overflow-x-auto flex-shrink-0 break-words">
+        <div className="xl:w-[50%] w-[80%] bg-green-50 text-green-800 font-sans shadow-2xl p-6 overflow-x-auto flex-shrink-0 break-words">
             <ul className="">
                 <li><strong>Name:</strong>&nbsp;{name}</li>
                 <li><strong>Email:</strong>&nbsp;{email}</li>
