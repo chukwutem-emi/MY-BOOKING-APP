@@ -4,7 +4,7 @@
   "scripts": {
     "test": "jest",
     "dev": "parcel ./src/index.html",
-    "build": "parcel build ./src/index.html --dist-dir dist",
+    "build": "parcel build ./src/index.html --dist-dir dist && cp _redirects dist/_redirects",
     "build:css": "npx tailwindcss -i ./src/index.css -o ./src/output.css --watch"
   },
   "repository": {
