@@ -22,7 +22,7 @@ const GetAllUsers = () => {
     };
 
     return (
-        <div className="mt-[14rem] w-full relative overflow-x-hidden">
+        <div className="w-full overflow-x-hidden">
             <GetAllUsersDom
             backgroundLoading={backgroundLoading}
             errorMsg={errorMsg}

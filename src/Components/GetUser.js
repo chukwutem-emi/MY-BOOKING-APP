@@ -15,7 +15,7 @@ const GetUser = () => {
     } = useGetUser();
         
     return (
-        <div className="mt-[14rem] flex items-center justify-center overflow-x-hidden w-full">
+        <div className="overflow-x-hidden w-full">
             <GetUserDom
              backgroundLoading={backgroundLoading}
              errorMsg={errorMsg}

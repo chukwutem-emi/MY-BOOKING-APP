@@ -1,8 +1,7 @@
 import React from "react";
 
 
-const UsersCard = (props) => {
-    const {userData} = props;
+const UsersCard = ({userData}) => {
     const {
         id,
         username,

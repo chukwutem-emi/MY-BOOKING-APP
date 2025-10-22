@@ -12,7 +12,7 @@ const Users = () => {
         return () => clearTimeout(usersTimer);
     }, []);
     return (
-        <div>
+        <div className="flex items-center justify-center mt-[8rem]">
             {
                 isLoading ? <BigSpinner /> : <GetAllUsers />
             }

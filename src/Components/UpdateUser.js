@@ -51,7 +51,7 @@ const UpdateUser = () => {
     };
 
     return (
-        <div className="w-full mt-[15rem] overflow-x-hidden items-center">
+        <div className="w-full overflow-x-hidden">
             <UpdateUserDom
             emailAddressRef={emailAddressRef}
             errorMessage={errorMessage}
