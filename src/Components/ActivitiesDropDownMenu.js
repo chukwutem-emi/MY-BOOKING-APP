@@ -1,11 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const ActivitiesDropDownMenu = () => {
     const[isOpen, setIsOpen] = useState(false);
     const dropDownRef = useRef();
-
+    
+    const userDetails = useSelector((store) => store.info?.userInfo);
+    const isAdmin = userDetails?.admin;
 
     useEffect(() => {
         window.addEventListener("mousedown", handleClickOutside);
@@ -29,7 +32,8 @@ const ActivitiesDropDownMenu = () => {
         },
         {
             title : "Fetch Users",
-            link  : "/users"
+            link  : "/users",
+            adminOnly : true
         },
         {
             title  : "Delete-user",
@@ -37,11 +41,13 @@ const ActivitiesDropDownMenu = () => {
         },
         {
             title : "Delete all users",
-            link  : "/delete-all-users"
+            link  : "/delete-all-users",
+            adminOnly : true
         },
         {
             title   : "+ Add AdminUser",
-            link    : "/promote-user"
+            link    : "/promote-user",
+            adminOnly : true
         },
         {
             title   : "Authentication(Login)",
@@ -49,19 +55,23 @@ const ActivitiesDropDownMenu = () => {
         },
         {
             title   : "Delete Personnel Details",
-            link    : "/delete-personnel"
+            link    : "/delete-personnel",
+            adminOnly : true
         },
         {
             title  : "All-Personnel",
-            link   : "/all-personnel"
+            link   : "/all-personnel",
+            adminOnly : true
         },
         {
             title  : "Update PersonnelInfo",
-            link   : "/update-personnel"
+            link   : "/update-personnel",
+            adminOnly : true
         },
         {
             title : "Upload Personnel",
-            link  : "/upload-personnel"
+            link  : "/upload-personnel",
+            adminOnly : true
         },
         {
             title : "Delete Appointment",
@@ -73,7 +83,8 @@ const ActivitiesDropDownMenu = () => {
         },
         {
             title : "Get Users Appointment",
-            link : "/users-appointment"
+            link : "/users-appointment",
+            adminOnly : true
         },
         {
             title : "Update Appointment Details",
@@ -140,6 +151,7 @@ const ActivitiesDropDownMenu = () => {
     };
 
     const handleToggle = () => setIsOpen(!isOpen);
+
     return (
         <div ref={dropDownRef} className="relative mt-[2rem]">
             <button onClick={handleToggle} className="text-white mr-[1rem] font-extrabold hover:text-black hover:bg-white outline-none">
@@ -149,13 +161,12 @@ const ActivitiesDropDownMenu = () => {
                 isOpen && (
                     <ul className="absolute bg-gradient-to-r from-indigo-600 to-cyan-400 text-left flex flex-col w-[20rem] max-h-[30rem] overflow-y-auto xs:w-[20rem] sm:w-[25rem] md:w-[30rem] lg:[30rem] xl:[30rem] right-0 mt-2 rounded-lg shadow-md z-50 space-y-3 p-2">
                         {
-                            content.map((item) => (
+                            content.filter((item) => !item.adminOnly || isAdmin).map((item) =>(
                                 <li key={item.title} className="px-4 py-2 text-white hover:bg-cyan-400 hover:shadow-2xl hover:z-50 font-bold font-sans xs:text-[0.5rem] sm:text-[0.8rem] md:text-[1rem] lg:text-[1rem] xl:text-[1rem]">
-                                    <Link to={item.link} className="hover:animate-pulse w-full h-full" onClick={handleToggle}>{item.title}
-                                    </Link>
+                                    <Link to={item.link} className="hover:animate-pulse w-full h-full" onClick={handleToggle}>{item.title}</Link>
                                 </li>
                             ))
-                        }  
+                        }
                     </ul>
                 )
             }

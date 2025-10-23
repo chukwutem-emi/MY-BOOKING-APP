@@ -33,7 +33,7 @@ const ClearToken = () => {
                 setMessage(json.Cleared);
                 setIsError(false);
                 setTimeout(() => {
-                    navigate("/browse")
+                    navigate("/browse");
                 }, 6000);
             } else {
                 const[key] = Object.keys(json);

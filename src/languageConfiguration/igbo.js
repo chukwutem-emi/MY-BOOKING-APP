@@ -120,7 +120,6 @@ const igbo = {
     },
     userProfileInfo:{
         userProfileHeading : "Profaịlụ onye ọrụ:",
-        userProfileParagraph : "Iji hụ nkọwa gị ebe a, ị ga-ebupụta nkọwa gị site na ịpị 'Profaịlụ onye ọrụ' n'akụkụ mmanya (ntụpọ kwụ ọtọ 3) n'akụkụ aka nri elu nke isi ibe.",
         userProfileName     : "AHA:",
         userProfileEmail    : "EMAIL:",
         userProfileTel      : "Ekwentị:",

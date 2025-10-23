@@ -120,7 +120,6 @@ const yoruba = {
     },
     userProfileInfo:{
         userProfileHeading   : "Profaili olumulo:",
-        userProfileParagraph : "Lati le rii awọn alaye rẹ nibi, o ni lati mu awọn alaye rẹ wa nipa titẹ 'Profaili olumulo' ni ẹgbẹ-ọpa (aami inaro 3) ni apa ọtun oke ti oju-iwe akọkọ.",
         userProfileName      : "ORUKO:",
         userProfileEmail     : "EMAIL:",
         userProfileTel       : "FOONU:",

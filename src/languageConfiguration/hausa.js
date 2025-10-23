@@ -120,7 +120,6 @@ const hausa = {
     },
     userProfileInfo:{
         userProfileHeading : "Bayanan mai amfani:",
-        userProfileParagraph : "Domin ganin bayananku anan, dole ne ku debo bayananku ta danna 'User Profile' a cikin mashaya (digon tsaye 3) a saman gefen dama na babban shafin.",
         userProfileName     : "SUNAN:",
         userProfileEmail    : "Imel:",
         userProfileTel      : "WAYAR:",

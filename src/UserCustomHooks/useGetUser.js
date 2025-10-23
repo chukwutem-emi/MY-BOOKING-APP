@@ -1,7 +1,6 @@
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { useEffect, useState } from "react";
 import { FETCH_USER_URL } from "../Utils/constants";
-import { addUserInfo } from "../Utils/getUserSlice";
 
 const useGetUser = () => {
     const[loading, setLoading]                     = useState(false);
@@ -11,7 +10,6 @@ const useGetUser = () => {
     const[hasFetch, setHasFetch]                   = useState(false)
 
     const userToken = useSelector((store) => store.token?.accessToken);
-    const dispatchUser = useDispatch()
 
     useEffect(() => {
         if (userToken) {
@@ -33,7 +31,6 @@ const useGetUser = () => {
             const json = await data.json();
             if (data.status === 200) {
                 setResponseMsg(json.user);
-                dispatchUser(addUserInfo(json.user))
                 setHasFetch(true);
                 setErrorMsg(false);
             }else {

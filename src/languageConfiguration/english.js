@@ -56,7 +56,7 @@ const eng = {
         admin:"Admin",
         adminYes:"Yes",
         adminNo:"No",
-        createdAt:"Created-at:"  
+        createdAt:"Created-at:" 
     },
     descriptionOfProject:"Appointment Booking System is a versatile web-based application built to streamline the process of scheduling appointments across multiple sectors. Whether it's booking a medical consultation, educational advising, business strategy session, or requesting a home service like electronics repair, users can explore available services, view essential details, and confirm appointments seamlessly. Designed with responsiveness, accessibility, and user experience in mind, the system benefits both service providers through organized scheduling and clients through an intuitive, stress-free booking experience.",
     homePageDescription:"Welcome to Appointment Booking System. Your all-in-one platform to quickly book services like healthcare, education, business consultations, and home repairs. Save time, stay organized, and get the help you need with just a few taps.",
@@ -120,7 +120,6 @@ const eng = {
     },
     userProfileInfo:{
         userProfileHeading : "User Profile:",
-        userProfileParagraph : "In order to see your details here, you have to fetch your details by clicking 'User Profile' in the side-bar(the 3 vertical dot) at the top right-side of the main page.",
         userProfileName     : "NAME:",
         userProfileEmail    : "EMAIL:",
         userProfileTel      : "TELEPHONE:",

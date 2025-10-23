@@ -120,7 +120,6 @@ const chinese = {
     },
     userProfileInfo:{
         userProfileHeading : "用戶資料：",
-        userProfileParagraph : "為了在這裡查看您的詳細信息, 您必須通過單擊主頁右上角側邊欄 (3 個垂直點）中的“用戶資料”來獲取您的詳細信息。",
         userProfileName     : "姓名：",
         userProfileEmail    : "電子郵件：",
         userProfileTel      : "電話：",

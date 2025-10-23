@@ -120,7 +120,6 @@ const hindi = {
     },
     userProfileInfo:{
         userProfileHeading : "उपयोगकर्ता रूपरेखा:",
-        userProfileParagraph : "यहां अपना विवरण देखने के लिए, आपको मुख्य पृष्ठ के ऊपरी दाईं ओर साइड-बार (3 ऊर्ध्वाधर बिंदु) में 'उपयोगकर्ता प्रोफ़ाइल' पर क्लिक करके अपना विवरण प्राप्त करना होगा।",
         userProfileName     : "नाम:",
         userProfileEmail    : "ईमेल:",
         userProfileTel      : "टेलीफ़ोन:",

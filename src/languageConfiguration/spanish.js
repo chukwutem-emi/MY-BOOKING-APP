@@ -121,7 +121,6 @@ const spanish = {
     },
     userProfileInfo:{
         userProfileHeading : "Perfil de usuario:",
-        userProfileParagraph : "Para ver sus datos aquí, debe obtenerlos haciendo clic en 'Perfil de usuario' en la barra lateral (los 3 puntos verticales) en la parte superior derecha de la página principal.",
         userProfileName     : "NOMBRE:",
         userProfileEmail    : "CORREO ELECTRÓNICO:",
         userProfileTel      : "TELÉFONO:",

@@ -120,7 +120,6 @@ const french = {
     },
     userProfileInfo:{
         userProfileHeading : "Profil utilisateur :",
-        userProfileParagraph : "Pour voir vos informations ici, vous devez récupérer vos informations en cliquant sur « Profil utilisateur » dans la barre latérale (les 3 points verticaux) en haut à droite de la page principale.",
         userProfileName     : "NOM:",
         userProfileEmail    : "E-MAIL:",
         userProfileTel      : "TÉLÉPHONE:",

@@ -2,8 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { LOGIN_URL } from "../Utils/constants";
+import { FETCH_USER_URL, LOGIN_URL } from "../Utils/constants";
 import { addAccessToken } from "../Utils/tokenSlice";
+import { addUserInfo } from "../Utils/getUserSlice";
 
 
 const useLogin = (setMessage, setIsError) => {
@@ -13,7 +14,24 @@ const useLogin = (setMessage, setIsError) => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
+     
+    const fetchUserAfterLogin = async (token) => {
+        try {
+            const fetchUser = await fetch(FETCH_USER_URL, {
+                method : "GET",
+                headers : {
+                    "Content-Type" : "application/json",
+                    "access-token" : `Bearer ${token}`
+                }
+            });
+            const userData = await fetchUser.json();
+            if (fetchUser.status === 200) {
+                dispatch(addUserInfo(userData.user));
+            }
+        } catch (error) {
+            console.log(`Fail to fetch user details after login ${String(error)}`)
+        };
+    };
     const handleLogin = async (payload) => {
         setLoading(true)
         try {
@@ -27,7 +45,10 @@ const useLogin = (setMessage, setIsError) => {
                 if (data.status === 200) {
                     setMessage(json.Login);
                     setIsError(false);
-                    dispatch(addAccessToken(json.Token))
+                    dispatch(addAccessToken(json.Token));
+
+                    await fetchUserAfterLogin(json.Token)
+                    
                     setTimeout(() => {
                         navigate("/clear-token")
                     }, 6000);
