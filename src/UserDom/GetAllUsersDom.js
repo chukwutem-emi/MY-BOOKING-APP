@@ -37,7 +37,7 @@ const GetAllUsersDom = ({loading, backgroundLoading, responseMsg, errorMsg, filt
         exit : (direction) => ({
             x          : direction < 0 ? 300 : -300,
             opacity    : 0,
-            scale      : 0,
+            scale      : 0.9,
             transition : {duration : 0.4}
         })
     };
