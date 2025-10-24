@@ -1,56 +1,45 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import usePromoteUser from "../UserCustomHooks/usePromoteUser";
 import PromoteUserDom from "../UserDom/PromoteUserDom";
 
 
 const PromoteUser = () => {
-    const emailRef = useRef(null);
-    const codeRef  = useRef(null);
+    const[userName, setUserName] = useState("");
 
     const {
         handlePromoteUser : handleUserPromotionInfo,
         message,
         errorMsg,
         isLoading,
-        setErrorMsg,
         setMessage
     } = usePromoteUser();
 
     useEffect(() => {
-        if (message && !errorMsg) {
-            emailRef.current.value = "";
-            codeRef.current.value  = "";
-        };
         if (message) {
             window.scrollTo({top:0, behavior:"smooth"});
         };
-    }, [message, errorMsg]);
+    }, [message]);
 
     const handleUserPromotion = (e) => {
         e.preventDefault();
         const payload = {
-            email_address : emailRef.current.value,
-            code          : codeRef.current.value
+            username : userName
         };
         handleUserPromotionInfo(payload)
     };
 
-    const handleClearMsg = () => {
-        setErrorMsg(false);
-        setMessage("");
+    const handleSelected = (event) => {
+        setUserName(event.target.value);
     };
-
     return(
         <div className="w-full overflow-x-hidden mt-[15rem] items-center">
             <PromoteUserDom
-            codeRef={codeRef}
-            emailRef={emailRef}
-            handleClearMsg={handleClearMsg}
+            errorMsg={errorMsg}
+            handleSelected={handleSelected}
             handleUserPromotion={handleUserPromotion}
             isLoading={isLoading}
             message={message}
-            setMessage={setMessage}
-            errorMsg={errorMsg} 
+            setMessage={setMessage} 
             />
         </div>
     )

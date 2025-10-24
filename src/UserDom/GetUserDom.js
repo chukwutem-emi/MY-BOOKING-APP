@@ -25,7 +25,9 @@ const GetUserDom = ({backgroundLoading, errorMsg, handleGetUser, hasFetch, loadi
                                 <li><strong>Username:</strong>&nbsp;{responseMsg?.username}</li>
                                 <li><strong>Email:</strong>&nbsp;{responseMsg.email_address}</li>
                                 <li><strong>Phone:</strong>&nbsp;{responseMsg.phone_number}</li>
-                                <li><strong>Admin:</strong>&nbsp;{responseMsg.admin ? "Yes" : "No"}</li>
+                                <li><strong>Admin:</strong>&nbsp;{responseMsg.admin ? "Yes" : "No"}
+                                </li>
+                                <li><strong>Role:</strong>&nbsp;{responseMsg.role}</li>
                             </ul>
                         ) : (
                             <span>{responseMsg}</span>

@@ -51,7 +51,6 @@ const usePromoteUser = () => {
         message,
         errorMsg,
         isLoading,
-        setErrorMsg,
         setMessage
     }
 };

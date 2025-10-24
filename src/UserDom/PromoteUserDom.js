@@ -1,9 +1,9 @@
 import React from "react";
 import Spinner from "../Utils/Spinner";
-import PromoteUserInputField from "./PromoteUserInputField";
+import UsersCustomDropDown from "./UsersCustomDropDown";
 
 
-const PromoteUserDom = ({emailRef, codeRef, message, setMessage, isLoading, handleClearMsg, handleUserPromotion, errorMsg}) => {
+const PromoteUserDom = ({message, setMessage, isLoading, handleUserPromotion, errorMsg, handleSelected}) => {
     return (
         <form onSubmit={handleUserPromotion} className="w-[80%] mb-[2rem] xl:w-[50%] mx-auto p-6 rounded-2xl flex flex-col bg-black space-y-4 shadow-2xl">
             <h1 className="w-full text-white font-sans xs:text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem]">Promote User To An Admin-User</h1>
@@ -15,24 +15,7 @@ const PromoteUserDom = ({emailRef, codeRef, message, setMessage, isLoading, hand
                     </div>
                 )
             }
-            <PromoteUserInputField
-            autoComplete="email"
-            handleClearMsg={handleClearMsg}
-            id="email_address"
-            inputRef={emailRef}
-            label="User Email-Address:"
-            placeholder="Please enter the user email address"
-            type="email"
-            />
-            <PromoteUserInputField
-            autoComplete="on"
-            handleClearMsg={handleClearMsg}
-            id="code"
-            inputRef={codeRef}
-            label="Access Code:"
-            placeholder="Please enter the ACCESS-CODE"
-            type="text" 
-            />
+            <UsersCustomDropDown handleSelected={handleSelected}/>
             <button type="submit" className="bg-red-900 hover:bg-red-700 text-white w-full p-2 rounded-lg font-bold font-sans outline-none">
                 {
                     isLoading ? (
