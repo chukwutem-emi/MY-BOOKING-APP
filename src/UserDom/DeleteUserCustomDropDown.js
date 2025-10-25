@@ -1,8 +1,9 @@
-import React from "react";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
+import { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
-const UsersCustomDropDown = ({handleSelected}) => {
+
+const DeleteUserCustomDropDown = ({handleSelected}) => {
     const[isOpen, setIsOpen]     = useState(false);
     const[selected, setSelected] = useState("");
     const dropDownRef = useRef();
@@ -54,4 +55,4 @@ const UsersCustomDropDown = ({handleSelected}) => {
         </div>
     );
 }; 
-export default UsersCustomDropDown;
+export default DeleteUserCustomDropDown;

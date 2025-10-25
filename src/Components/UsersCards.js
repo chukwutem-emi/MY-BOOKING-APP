@@ -2,6 +2,9 @@ import React from "react";
 
 
 const UsersCard = ({userData}) => {
+    if (!userData) {
+        return null;
+    }
     const {
         id,
         username,

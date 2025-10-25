@@ -22,6 +22,10 @@ const PromoteUser = () => {
 
     const handleUserPromotion = (e) => {
         e.preventDefault();
+        if (!userName.trim()) {
+            setMessage("Please select a user before submitting.");
+            return;
+        }
         const payload = {
             username : userName
         };
@@ -32,7 +36,7 @@ const PromoteUser = () => {
         setUserName(event.target.value);
     };
     return(
-        <div className="w-full overflow-x-hidden mt-[15rem] items-center">
+        <div className="w-full overflow-x-hidden">
             <PromoteUserDom
             errorMsg={errorMsg}
             handleSelected={handleSelected}

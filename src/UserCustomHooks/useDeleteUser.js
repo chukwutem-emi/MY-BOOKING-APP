@@ -49,7 +49,6 @@ const useDeleteUser = () => {
         errorMsg,
         loading,
         handleDeleteUser,
-        setErrorMsg,
         setMessage
     };
 }; 

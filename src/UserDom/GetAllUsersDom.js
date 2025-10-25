@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SubShimmer from "../Utils/SubShimmer";
 import Spinner from "../Utils/Spinner";
 import UsersCard from "../Components/UsersCards";
@@ -8,6 +8,10 @@ const GetAllUsersDom = ({loading, backgroundLoading, responseMsg, errorMsg, filt
     const[currentIndex, setCurrentIndex] = useState(0);
     const[direction, setDirection]       = useState(0);
 
+    useEffect(() => {
+        setCurrentIndex(0);
+    }, [filteredUsers]);
+    
     const handleNext = () => {
         if (currentIndex < filteredUsers.length - 1) {
             setCurrentIndex(currentIndex + 1);

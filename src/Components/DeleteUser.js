@@ -1,47 +1,43 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import useDeleteUser from "../UserCustomHooks/useDeleteUser";
 import DeleteUserDom from "../UserDom/DeleteUserDom";
 
 const DeleteUser = () => {
-    const emailRef = useRef(null);
+    const[userName, setUserName] = useState("");
 
     const{
         message,
         errorMsg,
         loading,
         handleDeleteUser : handleUserDelete,
-        setErrorMsg,
         setMessage
     } = useDeleteUser();
 
     useEffect(() => {
-        if (message && !errorMsg) {
-            emailRef.current.value = "";
-        };
         if (message) {
             window.scrollTo({top:0, behavior:"smooth"});
         };
-    }, [message, errorMsg]);
+    }, [message]);
 
     const handleDelete = (e) => {
         e.preventDefault();
+        if (!userName.trim()) {
+            setMessage("Please select a user before submitting.");
+            return;
+        };
         const payload = {
-            email_address : emailRef.current.value
+            username : userName
         };
         handleUserDelete(payload);
     };
 
-    const handleClearMsg = () => {
-        setErrorMsg(false);
-        setMessage("");
-    };
+    const handleSelected = (event) => setUserName(event.target.value);
     return (
-        <div className="w-full mt-[16rem] overflow-x-hidden items-center">
+        <div className="w-full overflow-x-hidden">
             <DeleteUserDom
-            emailRef={emailRef}
             errorMsg={errorMsg}
-            handleClearMsg={handleClearMsg}
             handleDelete={handleDelete}
+            handleSelected={handleSelected}
             loading={loading}
             message={message}
             setMessage={setMessage} 

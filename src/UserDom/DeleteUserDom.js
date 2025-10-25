@@ -1,10 +1,10 @@
 import React from "react";
-import Spinner from "../Utils/Spinner";
+import DeleteUserCustomDropDown from "./DeleteUserCustomDropDown";
 
 
-const DeleteUserDom = ({errorMsg, message, loading, handleDelete, handleClearMsg, emailRef, setMessage}) => {
+const DeleteUserDom = ({errorMsg, message, loading, handleDelete, setMessage, handleSelected}) => {
     return (
-        <form onSubmit={handleDelete} className="w-[80%] mb-[2rem] xl:w-[50%] mx-auto p-6 rounded-2xl flex flex-col bg-black space-y-4 shadow-2xl">
+        <form onSubmit={handleDelete} className="w-[80%] mb-[2rem] h-dvh mx-auto p-6 rounded-2xl flex flex-col bg-white space-y-4 shadow-2xl">
             <h1 className="w-full text-white font-sans xs:text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem] font-bold animate-pulse">Delete User</h1>
             {
                 message && (
@@ -14,33 +14,24 @@ const DeleteUserDom = ({errorMsg, message, loading, handleDelete, handleClearMsg
                     </div>
                 )
             }
-            <label htmlFor="email_address" className="text-white xs:text-[0.8rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.1rem] xl:text-[1.1rem]"><strong>User Email Address:</strong></label>
-            <input
-            type="email"
-            id="email_address" 
-            name="email_address"
-            ref={emailRef}
-            className="w-full p-2 font-sans text-white rounded-lg bg-gray-700 outline-none border-[1px] border-white xs:text-[0.8rem] sm:text-[0.9rem] md:text-[1rem] lg:text-[1.1rem] xl:text-[1.1rem]"
-            placeholder="Enter the user email address"
-            required
-            autoComplete="email"
-            autoFocus
-            onChange={handleClearMsg}
-            />
-            <button type="submit" className="bg-red-900 hover:bg-red-700 text-white w-full text-center p-2 text-xl rounded-lg font-bold font-sans outline-none">
-                {
-                    loading ? (
-                        <div className="flex flex-row">
-                            <>
-                            <Spinner />
-                            <div className="text-white break-words font-sans font-bold animate-pulse xs:text-[0.8rem] xs:ml-[6rem] sm:text-[0.8rem] sm:ml-[6rem] md:text-[1rem] md:ml-[8rem] lg:text-[1.1rem] lg:ml-[10rem] xl:text-[1.1rem] xl:ml-[12rem]">Deleting, please wait!...</div>
-                            </>
-                        </div>   
-                    ) : (
-                        "Submit"
-                    )
-                }
-            </button>
+            <div className="flex flex-row items-center justify-between">
+                <DeleteUserCustomDropDown handleSelected={handleSelected}/>
+                <button type="submit" className="bg-white shadow-2xl border border-red-600 text-red-600 w-[40%] rounded-lg font-bold font-sans outline-none text-center p-2 xs:text-[0.6rem] sm:text-[0.7rem] md:text-[0.8rem] lg:text-[1rem] xl:text-[1rem]">
+                    {
+                        loading ? (
+                            <div>
+                                <>
+                                <div className="text-red-600 text-center break-words font-sans animate-pulse xs:text-[0.6rem] sm:text-[0.7rem] md:text-[0.8rem] lg:text-[1rem] xl:text-[1rem]">Deleting...</div>
+                                </>
+                            </div>
+                        ) : (
+                            <div className="text-center font-bold font-sans xs:text-[0.6rem] sm:text-[0.7rem] md:text-[0.8rem] lg:text-[1rem] xl:text-[1rem]">
+                                Delete
+                            </div>
+                        )
+                    }
+                </button>
+            </div>
         </form>
     );
 };
