@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SubShimmer from "../Utils/SubShimmer";
 import Spinner from "../Utils/Spinner";
 import AppointmentDetails from "./AppointmentDetails";
@@ -8,6 +8,10 @@ const GetAllAppointmentDom = ({searchText, backgroundLoading, filteredAppointmen
 
     const[currentIndex, setCurrentIndex] = useState(0);
     const[direction, setDirection]       = useState(0);
+
+    useEffect(() => {
+        setCurrentIndex(0);
+    }, [filteredAppointment]);
 
     const handleNext = () => {
         if (currentIndex  < filteredAppointment.length -1) {

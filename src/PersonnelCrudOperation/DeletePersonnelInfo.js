@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import useDeletePersonnel from "../PersonnelCustomHooks/useDeletePersonnel";
 import DeletePersonnelInfoDom from "../PersonnelDom/DeletePersonnelInfoDom";
 
 
 const DeletePersonnelInfo = () => {
-    const emailRef = useRef(null);
+    const[personnelName, setPersonnelName] = useState("");
 
     const {
         backgroundLoading,
@@ -12,36 +12,36 @@ const DeletePersonnelInfo = () => {
         handleDeletePersonnel : handleDeletePersonnelPayload,
         isLoading,
         message,
-        setErrorMsg, 
         setMessage
     } = useDeletePersonnel();
 
     useEffect(() => {
-        if (message && !errorMsg) {
-            emailRef.current.value = "";
+        if (message) {
+            window.scrollTo({top:0, behavior:"smooth"});
         };
-    }, [message, errorMsg]);
+    }, [message]);
 
     const handleDeletePersonnelForm = (event) => {
         event.preventDefault();
-
+        if (!personnelName.trim()) {
+            setMessage("Please select personnel before submitting.")
+            return;
+        };
         const payload = {
-            email : emailRef.current.value
+            name : personnelName
         };
         handleDeletePersonnelPayload(payload);
     };
-    const handleClearMsg = () => {
-        setErrorMsg(false);
-        setMessage("");
-    };
+
+    const handleSelected = (event) => setPersonnelName(event.target.value);
+    
     return (
         <div className="w-full overflow-x-hidden">
             <DeletePersonnelInfoDom
             backgroundLoading={backgroundLoading}
-            emailRef={emailRef}
             errorMsg={errorMsg}
-            handleClearMsg={handleClearMsg}
             handleDeletePersonnelForm={handleDeletePersonnelForm}
+            handleSelected={handleSelected}
             isLoading={isLoading}
             message={message}
             setMessage={setMessage} 

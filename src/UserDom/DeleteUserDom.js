@@ -16,7 +16,7 @@ const DeleteUserDom = ({errorMsg, message, loading, handleDelete, setMessage, ha
             }
             <div className="flex flex-row items-center justify-between">
                 <DeleteUserCustomDropDown handleSelected={handleSelected}/>
-                <button type="submit" className="bg-white shadow-2xl border border-red-600 text-red-600 w-[40%] rounded-lg font-bold font-sans outline-none text-center p-2 xs:text-[0.6rem] sm:text-[0.7rem] md:text-[0.8rem] lg:text-[1rem] xl:text-[1rem]">
+                <button type="submit" className={`bg-white shadow-2xl border border-red-600 text-red-600 w-[40%] rounded-lg font-bold font-sans outline-none text-center p-2 xs:text-[0.6rem] sm:text-[0.7rem] md:text-[0.8rem] lg:text-[1rem] xl:text-[1rem] ${loading ? "cursor-not-allowed" : "cursor-pointer"}`} disabled={loading === true}>
                     {
                         loading ? (
                             <div>

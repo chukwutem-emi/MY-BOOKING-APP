@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SubShimmer from "../Utils/SubShimmer";
 import PersonnelDetails from "../PersonnelCrudOperation/PersonnelDetails";
 import Spinner from "../Utils/Spinner";
@@ -8,11 +8,22 @@ const GetAllPersonnelDom = ({backgroundLoading, errorMsg, filteredPersonnelList,
     const[currentIndex, setCurrentIndex] = useState(0);
     const[direction, setDirection]       = useState(0);
 
+    useEffect(() => {
+        setCurrentIndex(0);
+    }, [filteredPersonnelList]);
+
     const handleNext = () => {
         if (currentIndex < filteredPersonnelList.length - 1) {
             setCurrentIndex(currentIndex + 1);
             setDirection(1);
         };
+    };
+    
+    const handlePrev = () => {
+        if (currentIndex > 0) {
+            setDirection(-1);
+            setCurrentIndex(currentIndex - 1);
+        }
     };
 
     const variants = {
@@ -35,12 +46,6 @@ const GetAllPersonnelDom = ({backgroundLoading, errorMsg, filteredPersonnelList,
         })
     };
 
-    const handlePrev = () => {
-        if (currentIndex > 0) {
-            setDirection(-1);
-            setCurrentIndex(currentIndex - 1);
-        }
-    };
     return (
         <>
         <div className="flex flex-row w-full px-[2.5rem] justify-center items-center mx-auto overflow-hidden">

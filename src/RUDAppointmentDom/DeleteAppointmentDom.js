@@ -1,10 +1,11 @@
 import React from "react";
 import Spinner from "../Utils/Spinner";
+import DeleteAppointmentCustomDropDown from "./DeleteAppointmentCustomDropDown";
 
-const DeleteAppointmentDom = ({isError, loading, message, setMessage, usernameRef, handleDeleteAppointmentForm, handleClearMessage}) => {
+const DeleteAppointmentDom = ({isError, loading, message, setMessage, handleDeleteAppointmentForm, handleSelected}) => {
     return (
-        <form onSubmit={handleDeleteAppointmentForm} className="w-[80%] xl:w-[50%] shadow-2xl z-50 mx-auto mb-[2rem] bg-white p-6 space-y-4 flex flex-col">
-            <h1 className="w-full text-start font-bold text-blue-800 text-[1.2rem] xl:text-[1.5rem]">Delete Appointment</h1>
+        <form onSubmit={handleDeleteAppointmentForm} className="w-[80%] mb-[2rem] h-dvh mx-auto p-6 rounded-2xl flex flex-col bg-white space-y-4 shadow-2xl">
+            <h1 className="w-full text-white font-sans xs:text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem] font-bold animate-pulse">Delete Appointment</h1>
             {
                 message && (
                     <div className={`break-words font-sans text-lg m-[1rem] p-[1rem] ${isError ? "text-red-600 bg-red-100" : "text-green-600 bg-green-100"}`}>
@@ -13,34 +14,24 @@ const DeleteAppointmentDom = ({isError, loading, message, setMessage, usernameRe
                     </div>
                 )
             }
-            <label htmlFor="username" className="font-bold font-sans text-[1rem] xl:text-[1.4rem] text-blue-900"><strong>Username:</strong></label>
-            <input
-            type="text"
-            ref={usernameRef}
-            id="username"
-            name="username"
-            onChange={handleClearMessage}
-            placeholder="Please enter the user's name."
-            className="p-2 w-full outline-none bg-gray-500 text-white font-sans font-semibold text-[1rem] xl:text-[1.3rem] border border-blue-600 rounded-lg"
-            autoComplete="on"
-            autoCorrect="on"
-            autoFocus
-            required 
-            />
-            <button type="submit" className={`w-full p-2 bg-blue-900 text-white outline-none cursor-pointer text-[1rem] xl:text-[1.3rem] font-bold hover:bg-blue-800 rounded-lg ${loading ? "cursor-not-allowed bg-blue-600" : "cursor-pointer"}`}
-            disabled={loading === true}
-            >
-                {
-                    loading ? (
-                        <div className="flex flex-row">
-                            <Spinner />
-                            <p className="text-white font-sans font-bold text-[1.4rem] ml-[6rem]">Deleting.......</p>
-                        </div>
-                    ) : (
-                        "Submit"
-                    )
-                }
-            </button>
+            <div className="flex flex-row items-center justify-between">
+                <DeleteAppointmentCustomDropDown handleSelected={handleSelected}/>
+                <button type="submit" className={`bg-white shadow-2xl border border-red-600 text-red-600 w-[40%] rounded-lg font-bold font-sans outline-none text-center p-2 xs:text-[0.6rem] sm:text-[0.7rem] md:text-[0.8rem] lg:text-[1rem] xl:text-[1rem] ${loading ? "cursor-not-allowed" : "cursor-pointer"}`}
+                disabled={loading === true}
+                >
+                    {
+                        loading ? (
+                            <div>
+                                <p className="text-red-600 text-center break-words font-sans animate-pulse xs:text-[0.6rem] sm:text-[0.7rem] md:text-[0.8rem] lg:text-[1rem] xl:text-[1rem]">Deleting...</p>
+                            </div>
+                        ) : (
+                            <div className="text-center font-bold font-sans xs:text-[0.6rem] sm:text-[0.7rem] md:text-[0.8rem] lg:text-[1rem] xl:text-[1rem]">
+                                Delete
+                            </div>
+                        )
+                    }
+                </button>
+            </div>
         </form>
     );
 };

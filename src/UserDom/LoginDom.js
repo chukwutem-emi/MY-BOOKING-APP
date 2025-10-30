@@ -28,7 +28,7 @@ const LoginDom = ({handleLoginForm, emailRef, passwordRef, showPassword, setShow
                 />
                 <p className="text-sm font-sans text-gray-700 animate-bounce mt-2 sm:text-sm xs:text-xs  md:text-lg lg:text-lg xl:text-lg 2xl:text-xl">{lang[langKey]?.loginLanguageConfig?.paragraphText}</p>
                 <div onClick={() => setShowPassword(!showPassword)} className="text-white flex flex-row">
-                    <div>
+                    <div className="cursor-pointer">
                         {
                             showPassword ? <MdToggleOn color="green" size={60} /> : <MdToggleOff color="red" size={60} />
                         }

@@ -43,8 +43,7 @@ const useDeleteUserAppointment = () => {
         loading,
         isError,
         message,
-        setMessage,
-        setIsError
+        setMessage
     };
 };
 export default useDeleteUserAppointment;

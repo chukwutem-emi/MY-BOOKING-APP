@@ -37,7 +37,7 @@ const SignUpDom = ({usernameRef, emailRef, passwordRef, phoneRef, langKey, loadi
             type={showPassword ? "text" : "password"} 
             />
             <div onClick={() => setShowPassword(!showPassword)} className="flex flex-row text-gray-700 font-bold">
-                <div>
+                <div className="cursor-pointer">
                     {
                         showPassword ? <MdToggleOn color="green" size={60}/> : <MdToggleOff color="red" size={60}/>
                     }

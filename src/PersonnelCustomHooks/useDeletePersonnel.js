@@ -50,7 +50,6 @@ const useDeletePersonnel = () => {
         message,
         setMessage,
         errorMsg,
-        setErrorMsg,
         isLoading,
         backgroundLoading
     };

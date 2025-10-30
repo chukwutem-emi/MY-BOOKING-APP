@@ -6,7 +6,7 @@ const DeleteAllUsersDom = ({backgroundLoading, message, isLoading, errorMsg, set
     return (
         <div className="mx-auto bg-black rounded-lg shadow-2xl space-y-6 z-50 p-6 w-[80%] xl:w-[50%]">
             <h1 className="font-sans font-bold text-white xs:text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem]">Delete All Users</h1>
-            <button type="button" className="bg-red-900 hover:bg-red-700 w-full p-2 font-sans cursor-pointer rounded-lg shadow-lg outline-none" onClick={handleDeleteAllUsers}>
+            <button type="button" className={`bg-red-900 hover:bg-red-700 w-full p-2 font-sans cursor-pointer rounded-lg shadow-lg outline-none ${isLoading ? "cursor-not-allowed bg-red-500" : "cursor-pointer"}`} onClick={handleDeleteAllUsers} disabled={isLoading === true}>
                 { 
                     isLoading ? (
                         <div className="flex flex-row">
