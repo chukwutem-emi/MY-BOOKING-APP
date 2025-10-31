@@ -42,8 +42,8 @@ const DeletePersonnelCustomDropDown = ({handleSelected}) => {
                     <ul id="name" className="w-full absolute  bg-gradient-to-r from-indigo-600 to-cyan-400 shadow-lg rounded-md mt-1 z-20 h-20 overflow-y-auto">
                         {
                             personnelData.map((personnel) => (
-                                <li key={personnel.id} onClick={() => handleSelect(personnel.name)} className="text-white font-semibold hover:bg-cyan-400 hover:shadow-2xl hover:z-50 cursor-pointer px-4 py-2 xs:text-[0.4rem] sm:text-[0.7rem] md:text-[0.8rem] lg:text-[1rem] xl:text-[1rem]">
-                                    {personnel.name}
+                                <li key={personnel.id} onClick={() => handleSelect(personnel.name.toLowerCase())} className="text-white font-semibold hover:bg-cyan-400 hover:shadow-2xl hover:z-50 cursor-pointer px-4 py-2 xs:text-[0.4rem] sm:text-[0.7rem] md:text-[0.8rem] lg:text-[1rem] xl:text-[1rem]">
+                                    {personnel.name.toLowerCase()}
                                 </li>
                             ))
                         }

@@ -41,8 +41,8 @@ const DeleteAppointmentCustomDropDown = ({handleSelected}) => {
                 <ul id="name" className="w-full absolute  bg-gradient-to-r from-indigo-600 to-cyan-400 shadow-lg rounded-md mt-1 z-20 h-20 overflow-y-auto">
                     {
                         personnelData.map((appointment) => (
-                            <li key={appointment.id} onClick={() => handleSelect(appointment.username)} className="text-white font-semibold hover:bg-cyan-400 hover:shadow-2xl hover:z-50 cursor-pointer px-4 py-2 xs:text-[0.4rem] sm:text-[0.7rem] md:text-[0.8rem] lg:text-[1rem] xl:text-[1rem]">
-                                {appointment.username}
+                            <li key={appointment.id} onClick={() => handleSelect(appointment.username.toLowerCase())} className="text-white font-semibold hover:bg-cyan-400 hover:shadow-2xl hover:z-50 cursor-pointer px-4 py-2 xs:text-[0.4rem] sm:text-[0.7rem] md:text-[0.8rem] lg:text-[1rem] xl:text-[1rem]">
+                                {appointment.username.toLowerCase()}
                             </li>
                         ))
                     }
