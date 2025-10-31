@@ -4,8 +4,8 @@ import DeleteAppointmentCustomDropDown from "./DeleteAppointmentCustomDropDown";
 
 const DeleteAppointmentDom = ({isError, loading, message, setMessage, handleDeleteAppointmentForm, handleSelected}) => {
     return (
-        <form onSubmit={handleDeleteAppointmentForm} className="w-[80%] mb-[2rem] h-dvh mx-auto p-6 rounded-2xl flex flex-col bg-white space-y-4 shadow-2xl">
-            <h1 className="w-full text-white font-sans xs:text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem] font-bold animate-pulse">Delete Appointment</h1>
+        <form onSubmit={handleDeleteAppointmentForm} className="w-[90%] mb-[2rem] h-dvh mx-auto p-6 rounded-2xl flex flex-col bg-white space-y-4 shadow-2xl">
+            <h1 className="w-full text-red-600 font-sans xs:text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem] font-bold animate-pulse">Delete Appointment</h1>
             {
                 message && (
                     <div className={`break-words font-sans text-lg m-[1rem] p-[1rem] ${isError ? "text-red-600 bg-red-100" : "text-green-600 bg-green-100"}`}>

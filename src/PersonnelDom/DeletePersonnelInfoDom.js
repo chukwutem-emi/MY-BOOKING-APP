@@ -4,8 +4,8 @@ import DeletePersonnelCustomDropDown from "./DeletePersonnelCustomDropDown";
 
 const DeletePersonnelInfoDom = ({backgroundLoading, errorMsg, isLoading, message, setMessage, handleDeletePersonnelForm, handleSelected}) => {
     return (
-        <form onSubmit={handleDeletePersonnelForm} className="w-[80%] mb-[2rem] h-dvh mx-auto p-6 rounded-2xl flex flex-col bg-white space-y-4 shadow-2xl">
-            <h1 className="w-full text-white font-sans xs:text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem] font-bold animate-pulse">Delete Personnel-Details</h1>
+        <form onSubmit={handleDeletePersonnelForm} className="w-[90%] mb-[2rem] h-dvh mx-auto p-6 rounded-2xl flex flex-col bg-white space-y-4 shadow-2xl">
+            <h1 className="w-full text-red-600 font-sans xs:text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem] font-bold animate-pulse">Delete Personnel-Details</h1>
             {
                 backgroundLoading && (
                     <LoadingSpinner />

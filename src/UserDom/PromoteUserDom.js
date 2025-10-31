@@ -5,7 +5,7 @@ import UsersCustomDropDown from "./UsersCustomDropDown";
 
 const PromoteUserDom = ({message, setMessage, isLoading, handleUserPromotion, errorMsg, handleSelected}) => {
     return (
-        <form onSubmit={handleUserPromotion} className="w-[80%] h-dvh mb-[2rem] mx-auto p-6 rounded-2xl flex flex-col bg-white space-y-4 shadow-2xl">
+        <form onSubmit={handleUserPromotion} className="w-[90%] h-dvh mb-[2rem] mx-auto p-6 rounded-2xl flex flex-col bg-white space-y-4 shadow-2xl">
             <h1 className="w-full text-green-800 font-sans xs:text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem] font-bold">Add an admin-user</h1>
             {
                 message && (

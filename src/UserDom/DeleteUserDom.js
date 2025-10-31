@@ -4,8 +4,8 @@ import DeleteUserCustomDropDown from "./DeleteUserCustomDropDown";
 
 const DeleteUserDom = ({errorMsg, message, loading, handleDelete, setMessage, handleSelected}) => {
     return (
-        <form onSubmit={handleDelete} className="w-[80%] mb-[2rem] h-dvh mx-auto p-6 rounded-2xl flex flex-col bg-white space-y-4 shadow-2xl">
-            <h1 className="w-full text-white font-sans xs:text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem] font-bold animate-pulse">Delete User</h1>
+        <form onSubmit={handleDelete} className="w-[90%] mb-[2rem] h-dvh mx-auto p-6 rounded-2xl flex flex-col bg-white space-y-4 shadow-2xl">
+            <h1 className="w-full text-red-600 font-sans xs:text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.3rem] font-bold animate-pulse">Delete User</h1>
             {
                 message && (
                     <div className={`w-full break-words p-4 rounded-xl xs:text-[0.6rem] sm:text-[0.8rem] md:text-[0.8rem] lg:text-[1rem] xl:text-[1rem] ${errorMsg ? "text-red-600 bg-red-50" : "text-green-600 bg-green-50"}`}>
