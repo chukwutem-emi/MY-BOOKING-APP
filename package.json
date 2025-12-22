@@ -4,8 +4,9 @@
   "scripts": {
     "test": "jest",
     "dev": "parcel ./src/index.html",
-    "build": "parcel build ./src/index.html --dist-dir dist && cp _redirects dist/_redirects",
-    "build:css": "npx tailwindcss -i ./src/index.css -o ./src/output.css --watch"
+    "build:css": "npx tailwindcss -i ./src/index.css -o ./dist/output.css --minify",
+    "build": "npm run build:css && parcel build ./src/index.html --dist-dir dist --public-url ./ && cp _redirects dist/_redirects",
+    "watch-test": "jest--watch"
   },
   "repository": {
     "type": "git",
@@ -26,13 +27,14 @@
     "@parcel/packager-raw-url": "^2.15.1",
     "@parcel/transformer-react-refresh-wrap": "^2.15.1",
     "@parcel/transformer-webmanifest": "^2.15.1",
-    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
     "autoprefixer": "^10.4.21",
     "babel-jest": "^29.7.0",
     "buffer": "^6.0.3",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "msw": "^2.12.0",
     "parcel": "^2.15.0",
     "postcss": "^8.5.3",
     "react-refresh": "^0.17.0",

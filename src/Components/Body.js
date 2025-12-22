@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
 import Browse from "./Browse";
 import AppLayout from "./AppLayout"
@@ -36,7 +36,7 @@ const GetUserAppointment = lazy(() => import("./SubComponent/GetUserAppointmentS
 const UpdateUserAppointment = lazy(() => import("./SubComponent/UpdateAppointmentDetailsSubComponent"));
 const GetAllUsersAppointment = lazy(() => import("./SubComponent/GetAllAppointmentSubComponent"));
 
-const appRouter = createBrowserRouter([
+const appRouter = createHashRouter([
     {
         path:"/",
         element:<Suspense fallback={<Spinner />}><Authentication /></Suspense>,
