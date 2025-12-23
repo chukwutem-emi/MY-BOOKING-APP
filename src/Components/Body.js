@@ -196,7 +196,7 @@ const appRouter = createHashRouter([
     },
 ]);
 const Body = () => {
-    
+    // issue removed
     return (
         <div className="w-full h-dvh">
             <RouterProvider router={appRouter}/>
