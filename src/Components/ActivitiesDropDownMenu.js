@@ -20,33 +20,33 @@ const ActivitiesDropDownMenu = () => {
     const content = [
         {
             title   : "Home Page",
-            link    : "/browse"
+            link    : "browse"
         },
         {
             title  : "User Profile",
-            link  : "/user"
+            link  : "user"
         },
         {
             title  : "Profile Update",
-            link   : "/update-user"
+            link   : "update-user"
         },
         {
             title : "Fetch Users",
-            link  : "/users",
+            link  : "users",
             adminOnly : true
         },
         {
             title  : "Delete-user",
-            link   : "/delete-user"
+            link   : "delete-user"
         },
         {
             title : "Delete all users",
-            link  : "/delete-all-users",
+            link  : "delete-all-users",
             adminOnly : true
         },
         {
             title   : "+ Add AdminUser",
-            link    : "/promote-user",
+            link    : "promote-user",
             adminOnly : true
         },
         {
@@ -55,92 +55,92 @@ const ActivitiesDropDownMenu = () => {
         },
         {
             title   : "Delete Personnel Details",
-            link    : "/delete-personnel",
+            link    : "delete-personnel",
             adminOnly : true
         },
         {
             title  : "All-Personnel",
-            link   : "/all-personnel",
+            link   : "all-personnel",
             adminOnly : true
         },
         {
             title  : "Update PersonnelInfo",
-            link   : "/update-personnel",
+            link   : "update-personnel",
             adminOnly : true
         },
         {
             title : "Upload Personnel",
-            link  : "/upload-personnel",
+            link  : "upload-personnel",
             adminOnly : true
         },
         {
             title : "Delete Appointment",
-            link  : "/delete-appointment"
+            link  : "delete-appointment"
         },
         {
             title : "Get User Appointment",
-            link  : "/user-appointment"
+            link  : "user-appointment"
         },
         {
             title : "Get Users Appointment",
-            link : "/users-appointment",
+            link : "users-appointment",
             adminOnly : true
         },
         {
             title : "Update Appointment Details",
-            link  : "/update-appointment"
+            link  : "update-appointment"
         },
         {
             title   : "Academic Advising Appointment",
-            link    : "/academic"
+            link    : "academic"
         },
         {
             title   : "Career Counseling Appointment",
-            link    : "/career"
+            link    : "career"
         },
         {
             title   : "One-On-One Tutoring Appointment",
-            link    : "/tutorial"
+            link    : "tutorial"
         },
         {
             title   : "Healthcare Consultation Appointment",
-            link    : "/consultation"
+            link    : "consultation"
         },
         {
             title   : "Healthcare Counseling Appointment",
-            link    : "/counseling"
+            link    : "counseling"
         },
         {
             title   : "Healthcare Dental Appointment",
-            link    : "/dental"
+            link    : "dental"
         },
         {
             title   : "Healthcare Physiotherapy Appointment",
-            link    : "/physiotherapy"
+            link    : "physiotherapy"
         },
         {
             title   : "Healthcare Vaccination Appointment",
-            link    : "/vaccination"
+            link    : "vaccination"
         },
         {
             title   : "Business Consultation Appointment",
-            link    : "/business"
+            link    : "business"
         },
         {
             title   : "Financial Advisory Appointment",
-            link    : "/financial"
+            link    : "financial"
         },
         {
             title   : "Real-Estate-Agent Appointment",
-            link    : "/real-estate"
+            link    : "real-estate"
         },
         {
             title   : "Elect/Elect-Repair Appointment",
-            link    : "/electrical"
+            link    : "electrical"
         },
         {
             title   : "Home-Service Appointment",
-            link    : "/home-service"
+            link    : "home-service"
         },
 
     ];

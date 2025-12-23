@@ -30,7 +30,9 @@ const useUpdateUserAppointment = () => {
                 setMessage(json.user_appointment_info);
                 setIsError(false);
                 setTimeout(() => {
-                    navigate("/user-appointment");
+                    if (typeof navigate === "function") {
+                        navigate("/user-appointment");
+                    }
                 }, 5000);
             } else {
                 const [key] = Object.keys(json);

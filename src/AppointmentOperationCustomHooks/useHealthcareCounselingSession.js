@@ -30,7 +30,9 @@ const useHealthcareCounselingSession = () => {
                 if (json.counseling_error) {
                     setMessage(json.counseling_error);
                     setTimeout(() => {
-                        navigate("/");   
+                        if (typeof navigate === "function") {
+                            navigate("/");   
+                        }
                     }, 8000);
                 } else if (json.re_auth_url) {
                     const authUrl = `${BASE_URL}${json.re_auth_url}`

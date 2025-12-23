@@ -46,7 +46,9 @@ const useHealthcareConsultation = () => {
                 } else if (json.consultation) {
                     setMessage(json.consultation);
                     setTimeout(() => {
-                        navigate('/');
+                        if (typeof navigate === "function") {
+                            navigate('/');
+                        }
                     }, 8000);
                 } else {
                     setMessage("Unauthorized access!. Please login or try again later.")

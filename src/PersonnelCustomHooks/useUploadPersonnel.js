@@ -31,7 +31,9 @@ const useUploadPersonnel = () => {
             if (data.status === 201) {
                 setMessage(json.success);
                 setTimeout(() => {
-                    navigate("/all-personnel");
+                    if (typeof navigate === "function") {
+                        navigate("/all-personnel");
+                    }
                 }, 4000);
                 setErrorMsg(false);
             } else {

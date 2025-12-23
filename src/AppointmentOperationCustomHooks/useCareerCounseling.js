@@ -48,7 +48,9 @@ const useCareerCounseling = () => {
                 } else if (json.Msg) {
                     setMessage("⚠️ Access denied!. You must be logged in to book an appointment");
                     setTimeout(() => {
-                        navigate("/")  
+                        if (typeof navigate === "function") {
+                            navigate("/")  
+                        }
                     }, 8000);
                 } else {
                     setMessage("Unauthorized access!.Please login or try again later.");

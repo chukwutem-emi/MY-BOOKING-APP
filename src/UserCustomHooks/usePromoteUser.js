@@ -31,7 +31,9 @@ const usePromoteUser = () => {
                 setMessage(json.Promoted);
                 setErrorMsg(false);
                 setTimeout(() => {
-                    navigate("/users");
+                    if (typeof navigate === "function") {
+                        navigate("/users");
+                    }
                 }, 4000);
             } else {
                 const [key] = Object.keys(json)

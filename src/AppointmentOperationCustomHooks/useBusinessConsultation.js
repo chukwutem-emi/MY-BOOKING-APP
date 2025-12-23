@@ -31,7 +31,9 @@ const useBusinessConsultation = () => {
                     setMessage(json.business_error);
                     setIsError(true);
                     setTimeout(() => {
-                        navigate("/");
+                        if (typeof navigate === "function") {
+                            navigate("/");
+                        }
                     }, 8000);
                 } else if (json.re_auth_url) {
                     const authUrl = `${BASE_URL}${json.re_auth_url}`

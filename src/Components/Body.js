@@ -43,152 +43,152 @@ const appRouter = createHashRouter([
         errorElement:<Error />
     },
     {
-        path:"/",
+        path:"/app",
         element:<AppLayout />,
         children: [
 
             {
-                path:"/browse",
+                path:"browse",
                 element:<Browse />,
                 errorElement:<Error />
             },
             {
-                path:"/user",
+                path:"user",
                 element:<Suspense fallback={<Spinner />}><FetchUser /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/users",
+                path:"users",
                 element:<Suspense fallback={<Spinner />}><FetchUsers /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/academic",
+                path:"academic",
                 element:<Suspense fallback={<Spinner />}><AcademicAdvising /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/clear-token",
+                path:"clear-token",
                 element:<Suspense fallback={<Spinner />}><ClearToken /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/career",
+                path:"career",
                 element:<Suspense fallback={<Spinner />}><CareerCounseling /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/tutorial",
+                path:"tutorial",
                 element:<Suspense fallback={<Spinner />}><OneOnOneTutoring /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/consultation",
+                path:"consultation",
                 element:<Suspense fallback={<Spinner />}><HealthCareConsultation /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/counseling",
+                path:"counseling",
                 element:<Suspense fallback={<Spinner />}><HealthCareCounseling /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/dental",
+                path:"dental",
                 element:<Suspense fallback={<Spinner />}><HealthCareDental /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/physiotherapy",
+                path:"physiotherapy",
                 element:<Suspense fallback={<Spinner />}><HealthCarePhysiotherapy /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/vaccination",
+                path:"vaccination",
                 element:<Suspense fallback={<Spinner />}><HealthCareVaccination /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/business",
+                path:"business",
                 element:<Suspense fallback={<Spinner />}><BusinessConsultation /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/financial",
+                path:"financial",
                 element:<Suspense fallback={<Spinner />}><FinancialAdvisory /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/real-estate",
+                path:"real-estate",
                 element:<Suspense fallback={<Spinner />}><RealEstateAgent /></Suspense>,
                 errorElement:<Error />
             },
             {
-               path:"/electrical",
+               path:"electrical",
                element:<Suspense fallback={<Spinner />}><ElectricalElectronics /></Suspense>,
                errorElement:<Error />
             },
             {
-                path:"/home-service",
+                path:"home-service",
                 element:<Suspense fallback={<Spinner />}><HomeService /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/update-user",
+                path:"update-user",
                 element:<Suspense fallback={<Spinner />}><UpdateUser /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/promote-user",
+                path:"promote-user",
                 element:<Suspense fallback={<Spinner />}><PromoteUser /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/delete-user",
+                path:"delete-user",
                 element:<Suspense fallback={<Spinner />}><DeleteUser /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/delete-all-users",
+                path:"delete-all-users",
                 element:<Suspense fallback={<Spinner />}><DeleteAllUsers /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/delete-personnel",
+                path:"delete-personnel",
                 element:<Suspense fallback={<Spinner />}><DeletePersonnelInfo /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/all-personnel",
+                path:"all-personnel",
                 element:<Suspense fallback={<Spinner />}><GetAllPersonnel /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/update-personnel",
+                path:"update-personnel",
                 element:<Suspense fallback={<Spinner />}><UpdatePersonnelInfo /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/upload-personnel",
+                path:"upload-personnel",
                 element:<Suspense fallback={<Spinner />}><UploadPersonnelInfo /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/delete-appointment",
+                path:"delete-appointment",
                 element:<Suspense fallback={<Spinner />}><DeleteAppointment /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/user-appointment",
+                path:"user-appointment",
                 element:<Suspense fallback={<Spinner />}><GetUserAppointment /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/users-appointment",
+                path:"users-appointment",
                 element:<Suspense fallback={<Spinner />}><GetAllUsersAppointment /></Suspense>,
                 errorElement:<Error />
             },
             {
-                path:"/update-appointment",
+                path:"update-appointment",
                 element:<Suspense fallback={<Spinner />}><UpdateUserAppointment /></Suspense>,
                 errorElement:<Error />
             },

@@ -29,7 +29,9 @@ const useUpdateUser = () => {
                 setMessage(json.Updated);
                 setErrorMessage(false);
                 setTimeout(() => {
-                    navigate("/user");
+                    if (typeof navigate === "function") {
+                        navigate("/user");
+                    }
                 }, 6000);
             } else {
                 const [key] = Object.keys(json);

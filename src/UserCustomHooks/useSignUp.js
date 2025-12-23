@@ -24,7 +24,9 @@ const useSignUp = (setMessage, setIsError) => {
                 setMessage(json.success || "✔️ Registration successful!");
                 setIsError(false);
                 setTimeout(() => {
-                    navigate("/");
+                    if (typeof navigate === "function") {
+                        navigate("/");
+                    }
                 }, 5000);
             } else {
                 const [key] = Object.keys(json);

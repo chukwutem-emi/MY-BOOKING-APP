@@ -30,7 +30,9 @@ const useDeleteUser = () => {
                 setMessage(json.Deleted);
                 setErrorMsg(false);
                 setTimeout(() => {
-                    navigate("/users");
+                    if (typeof navigate === "function") {
+                        navigate("/users");
+                    }
                 }, 400);
             } else {
                 const [key] = Object.keys(json);

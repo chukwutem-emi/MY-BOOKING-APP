@@ -32,7 +32,9 @@ const useUpdatePersonnelInfo = () => {
                 setMessage(json.updated);
                 setErrorMsg(false);
                 setTimeout(() => {
-                    navigate("/all-personnel");
+                    if (typeof navigate === "function") {
+                        navigate("/all-personnel");
+                    }
                 }, 4000);
             } else {
                 const [key] = Object.keys(json);

@@ -50,7 +50,9 @@ const useLogin = (setMessage, setIsError) => {
                     await fetchUserAfterLogin(json.Token)
                     
                     setTimeout(() => {
-                        navigate("/clear-token")
+                        if (typeof navigate === "function") {
+                            navigate("/app/clear-token")
+                        }
                     }, 6000);
                 } else {
                     const [key] = Object.keys(json);

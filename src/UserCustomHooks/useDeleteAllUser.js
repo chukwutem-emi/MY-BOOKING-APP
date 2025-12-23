@@ -36,7 +36,9 @@ const useDeleteAllUser = () => {
                 setMessage(json.permission_denied);
                 setErrorMsg(true);
                 setTimeout(() => {
-                    navigate("/browse");
+                    if (typeof navigate === "function") {
+                        navigate("/browse");
+                    }
                 }, 8000);
             } else if (data.status === 200) {
                 setMessage(json.all_users_deleted);
