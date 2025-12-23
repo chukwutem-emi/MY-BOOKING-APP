@@ -196,7 +196,6 @@ const appRouter = createHashRouter([
     },
 ]);
 const Body = () => {
-    //corrected
     
     return (
         <div className="w-full h-dvh">
