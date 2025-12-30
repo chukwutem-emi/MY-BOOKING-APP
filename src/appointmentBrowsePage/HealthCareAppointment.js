@@ -15,31 +15,31 @@ const HealthCareAppointment = () => {
             title:lang[lanKey]?.healthcareAppointment?.vaccinationTitle,
             description:lang[lanKey]?.healthcareAppointment?.vaccinationDescription,
             book:lang[lanKey]?.healthcareAppointment?.vaccinationBooking,
-            link:"/vaccination"
+            link:"vaccination"
         },
         {
             title:lang[lanKey]?.healthcareAppointment?.consultationTitle,
             description:lang[lanKey]?.healthcareAppointment?.consultationDescription,
             book:lang[lanKey]?.healthcareAppointment?.consultationBooking,
-            link:"/consultation"
+            link:"consultation"
         },
         {
             title:lang[lanKey]?.healthcareAppointment?.counselingTitle,
             description:lang[lanKey]?.healthcareAppointment?.counselingDescription,
             book:lang[lanKey]?.healthcareAppointment?.counselingBooking,
-            link:"/counseling"
+            link:"counseling"
         },
         {
             title:lang[lanKey]?.healthcareAppointment?.dentalTitle,
             description:lang[lanKey]?.healthcareAppointment?.dentalDescription,
             book:lang[lanKey]?.healthcareAppointment?.dentalBooking,
-            link:"/dental"
+            link:"dental"
         },
         {
             title:lang[lanKey]?.healthcareAppointment?.physiotherapyTitle,
             description:lang[lanKey]?.healthcareAppointment?.physiotherapyDescription,
             book:lang[lanKey]?.healthcareAppointment?.physiotherapyBooking,
-            link:"/physiotherapy"
+            link:"physiotherapy"
         },
     ];
     

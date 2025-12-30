@@ -16,13 +16,13 @@ const TechnicalRepair = () => {
             title:lang[lanKey]?.technicalAppointment?.electricalElectronicsTitle,
             description:lang[lanKey]?.technicalAppointment?.electricalElectronicsDescription,
             book:lang[lanKey]?.technicalAppointment?.electricalElectronicsBooking,
-            link:"/electrical"
+            link:"electrical"
         },
         {
             title:lang[lanKey]?.technicalAppointment?.homeServiceTitle,
             description:lang[lanKey]?.technicalAppointment?.homeServiceDescription,
             book:lang[lanKey]?.technicalAppointment?.homeServiceBooking,
-            link:"/home-service"
+            link:"home-service"
         },
     ];
 

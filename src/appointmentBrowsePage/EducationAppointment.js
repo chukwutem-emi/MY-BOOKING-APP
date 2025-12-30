@@ -16,19 +16,19 @@ const EducationAppointment = () => {
           title:lang[lanKey]?.educationAppointment?.careerTitle,
           description:lang[lanKey]?.educationAppointment?.careerDescription,
           book:lang[lanKey]?.educationAppointment?.careerBooking,
-          link:"/career"  
+          link:"career"  
         },
         {
           title:lang[lanKey]?.educationAppointment?.academicTitle,
           description:lang[lanKey]?.educationAppointment?.academicDescription,
           book:lang[lanKey]?.educationAppointment?.academicBooking,
-          link:"/academic"  
+          link:"academic"  
         },
         {
           title:lang[lanKey]?.educationAppointment?.oneOnOneTitle,
           description:lang[lanKey]?.educationAppointment?.oneOnOneDescription,
           book:lang[lanKey]?.educationAppointment?.oneOnOneBooking,
-          link:"/tutorial"  
+          link:"tutorial"  
         },
     ];
     
