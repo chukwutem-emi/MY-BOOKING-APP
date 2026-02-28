@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BigSpinner from "../../Utils/BigSpinner";
-import HealthCarePhysiotherapySessionAppointment from "../EverythingAboutAppointments/HealthCareAppointments/HealthCarePhysiotherapySessionAppointment";
+import HealthCareCounselingSessionAppointment from "../EverythingAboutAppointments/HealthCareAppointments/HealthCareCounselingSessionAppointment";
 
 
 const HealthCareCounselingSession = () => {
@@ -16,7 +16,7 @@ const HealthCareCounselingSession = () => {
     return (
         <div className="flex items-center justify-center mt-[8rem]">
             {
-                isLoading ? <BigSpinner /> : <HealthCarePhysiotherapySessionAppointment />
+                isLoading ? <BigSpinner /> : <HealthCareCounselingSessionAppointment />
             }
         </div>
     );

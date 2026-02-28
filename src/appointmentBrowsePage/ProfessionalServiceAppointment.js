@@ -15,19 +15,19 @@ const ProfessionalService = () => {
             title:lang[lanKey]?.professionalServiceAppointment?.businessConsultTitle,
             description:lang[lanKey]?.professionalServiceAppointment?.businessConsultDescription,
             book:lang[lanKey]?.professionalServiceAppointment?.businessConsultBooking,
-            link:"business",
+            link:"/app/business",
         },
         {
             title:lang[lanKey]?.professionalServiceAppointment?.financialAdvisingTitle,
             description:lang[lanKey]?.professionalServiceAppointment?.financialAdvisingDescription,
             book:lang[lanKey]?.professionalServiceAppointment?.financialAdvisingBooking,
-            link:"financial",
+            link:"/app/financial",
         },
         {
             title:lang[lanKey]?.professionalServiceAppointment?.realEstateAgentTitle,
             description:lang[lanKey]?.professionalServiceAppointment?.realEstateAgentDescription,
             book:lang[lanKey]?.professionalServiceAppointment?.realEstateAgentBooking,
-            link:"real-estate",
+            link:"/app/real-estate",
         },
     ];
 
